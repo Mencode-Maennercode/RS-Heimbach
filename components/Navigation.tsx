@@ -30,7 +30,7 @@ export default function Navigation() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 nav-blur",
         scrolled
-          ? "bg-white/95 shadow-lg shadow-blue-900/10"
+          ? "bg-white/95 shadow-lg shadow-teal-900/10"
           : "bg-white/80"
       )}
     >
@@ -38,12 +38,12 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-2xl gradient-hero flex items-center justify-center shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300 group-hover:scale-105">
+            <div className="w-11 h-11 rounded-2xl bg-[#1DA499] flex items-center justify-center shadow-lg group-hover:shadow-[#1DA499]/30 transition-all duration-300 group-hover:scale-105">
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <p className="text-sm font-bold text-[#1a3a6b] leading-none">Realschule</p>
-              <p className="text-lg font-black text-[#1a3a6b] leading-none tracking-tight">Am Heimbach</p>
+              <p className="text-sm font-bold text-[#1DA499] leading-none">Realschule</p>
+              <p className="text-lg font-black text-[#1DA499] leading-none tracking-tight">Am Heimbach</p>
             </div>
           </Link>
 
@@ -61,8 +61,8 @@ export default function Navigation() {
                   className={cn(
                     "flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200",
                     pathname === item.href
-                      ? "bg-[#1a3a6b] text-white"
-                      : "text-slate-700 hover:bg-[#1a3a6b]/8 hover:text-[#1a3a6b]"
+                      ? "bg-[#1DA499] text-white"
+                      : "text-slate-700 hover:bg-[#1DA499]/8 hover:text-[#1DA499]"
                   )}
                 >
                   {item.label}
@@ -91,7 +91,7 @@ export default function Navigation() {
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="flex items-center px-4 py-2.5 text-sm text-slate-700 hover:bg-[#1a3a6b] hover:text-white transition-colors duration-150"
+                            className="flex items-center px-4 py-2.5 text-sm text-slate-700 hover:bg-[#1DA499] hover:text-white transition-colors duration-150"
                           >
                             {child.label}
                           </Link>
@@ -116,7 +116,7 @@ export default function Navigation() {
             </a>
             <Link
               href="/kontakt"
-              className="px-5 py-2.5 gradient-hero text-white text-sm font-bold rounded-xl hover:opacity-90 transition-all duration-200 hover:shadow-lg hover:shadow-blue-900/25"
+              className="px-5 py-2.5 bg-[#1DA499] hover:bg-[#17a89d] text-white text-sm font-bold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#1DA499]/25"
             >
               Kontakt
             </Link>
@@ -147,7 +147,7 @@ export default function Navigation() {
                 <div key={item.label}>
                   <Link
                     href={item.href}
-                    className="flex items-center justify-between px-4 py-3 rounded-xl text-slate-800 font-semibold hover:bg-[#1a3a6b] hover:text-white transition-colors"
+                    className="flex items-center justify-between px-4 py-3 rounded-xl text-slate-800 font-semibold hover:bg-[#1DA499] hover:text-white transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -157,7 +157,7 @@ export default function Navigation() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center px-4 py-2 rounded-lg text-sm text-slate-600 hover:text-[#1a3a6b] hover:bg-blue-50 transition-colors"
+                          className="flex items-center px-4 py-2 rounded-lg text-sm text-slate-600 hover:text-[#1DA499] hover:bg-teal-50 transition-colors"
                         >
                           {child.label}
                         </Link>

@@ -8,10 +8,10 @@ import { artBlogPosts } from "@/lib/data";
 
 export default function ArtBlogPreview() {
   return (
-    <section className="py-24 bg-[#0f2447] relative overflow-hidden">
+    <section className="py-24 bg-[#0a5a54] relative overflow-hidden">
       {/* decorative circles */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-[#1a3a6b] rounded-full -translate-x-1/2 -translate-y-1/2 opacity-50" />
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#1a3a6b] rounded-full translate-x-1/3 translate-y-1/3 opacity-50" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-[#1DA499] rounded-full -translate-x-1/2 -translate-y-1/2 opacity-50" />
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#1DA499] rounded-full translate-x-1/3 translate-y-1/3 opacity-50" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -57,7 +57,7 @@ export default function ArtBlogPreview() {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f2447]/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a5a54]/80 to-transparent" />
                   <div className="absolute top-3 left-3">
                     <span className="inline-flex items-center gap-1 bg-[#f5a623]/20 text-[#f5a623] border border-[#f5a623]/30 text-xs font-bold px-2.5 py-1 rounded-full">
                       <Tag className="w-3 h-3" />

@@ -2,23 +2,24 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Play, ChevronDown } from "lucide-react";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden">
-      {/* Background image with overlay */}
+      {/* Background video with overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&h=1080&fit=crop"
-          alt="Schule Gebäude"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f2447]/90 via-[#1a3a6b]/75 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f2447]/50 via-transparent to-transparent" />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/215470.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a5a54]/92 via-[#1DA499]/78 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a5a54]/55 via-transparent to-transparent" />
       </div>
 
       {/* Floating shapes */}
@@ -46,39 +47,40 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-8"
-          >
-            <span className="w-2 h-2 bg-[#f5a623] rounded-full animate-pulse" />
-            <span className="text-white/90 text-sm font-medium">Schuljahr 2025/2026 · Troisdorf</span>
-          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6 tracking-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-3 tracking-tight"
           >
-            Gemeinsam
+            Realschule
             <br />
-            <span className="text-[#f5a623]">wachsen.</span>
-            <br />
-            Zukunft
-            <br />
-            <span className="text-[#e8442a]">gestalten.</span>
+            <span className="text-white">Am Heimbach</span>
           </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="mb-8"
+          >
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-snug tracking-tight">
+              <span className="inline-block bg-gradient-to-r from-[#FF6B9D] via-[#C44569] to-[#FF6B9D] bg-clip-text text-transparent">Vielfalt leben.</span>{" "}
+              <span className="inline-block bg-gradient-to-r from-[#FFD93D] via-[#FFA726] to-[#FF8C42] bg-clip-text text-transparent drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]">Gemeinsam wachsen.</span>{" "}
+              <span className="inline-block bg-gradient-to-r from-[#FFA726] via-[#FB8C00] to-[#F57C00] bg-clip-text text-transparent">Zukunft planen.</span>
+            </p>
+            <div className="mt-4 h-1 w-32 rounded-full bg-gradient-to-r from-[#FF6B9D] via-[#FFD93D] to-[#FFA726]" />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-white/80 text-lg sm:text-xl leading-relaxed mb-10 max-w-lg"
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="text-white/85 text-base sm:text-lg leading-relaxed mb-10 max-w-lg"
           >
-            Herzlich willkommen an der Realschule Am Heimbach – einer modernen Ganztagsschule
-            in Troisdorf mit über 590 Schülerinnen und Schülern.
+            Herzlich willkommen an unserer modernen Ganztagsschule in Troisdorf –
+            mit über 590 Schülerinnen und Schülern, die hier jeden Tag wachsen, lachen und ihre Zukunft gestalten.
           </motion.p>
 
           <motion.div
@@ -89,7 +91,7 @@ export default function HeroSection() {
           >
             <Link
               href="/unsere-schule"
-              className="group inline-flex items-center gap-2 bg-[#e8442a] hover:bg-[#d43820] text-white px-8 py-4 rounded-2xl font-bold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-[#e8442a]/30 hover:scale-105"
+              className="group inline-flex items-center gap-2 bg-[#1DA499] hover:bg-[#17a89d] text-white px-8 py-4 rounded-2xl font-bold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-[#1DA499]/30 hover:scale-105"
             >
               Unsere Schule entdecken
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -104,30 +106,6 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Info cards floating bottom-right */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="absolute bottom-12 right-8 hidden xl:flex flex-col gap-3"
-        >
-          {[
-            { label: "Schülerinnen & Schüler", value: "590+" },
-            { label: "Lehrerinnen & Lehrer", value: "55" },
-            { label: "Klassen", value: "24" },
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8 + i * 0.1 }}
-              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-4"
-            >
-              <span className="text-2xl font-black text-[#f5a623]">{stat.value}</span>
-              <span className="text-white/80 text-sm font-medium">{stat.label}</span>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}

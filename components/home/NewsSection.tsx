@@ -28,7 +28,7 @@ export default function NewsSection() {
   const rest = newsItems.slice(1, 5);
 
   return (
-    <section className="py-24 bg-[#f8f9ff]">
+    <section className="py-24 bg-[#f0fffe]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -41,13 +41,13 @@ export default function NewsSection() {
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2">
               Neuigkeiten
             </span>
-            <h2 className="text-4xl sm:text-5xl font-black text-[#1a3a6b]">
+            <h2 className="text-4xl sm:text-5xl font-black text-[#1DA499]">
               News & Schulleben
             </h2>
           </div>
           <Link
             href="/aktuelles"
-            className="flex items-center gap-2 text-[#1a3a6b] font-bold text-sm hover:gap-3 transition-all duration-200"
+            className="flex items-center gap-2 text-[#1DA499] font-bold text-sm hover:gap-3 transition-all duration-200"
           >
             Alle Nachrichten <ArrowRight className="w-4 h-4" />
           </Link>
@@ -83,11 +83,11 @@ export default function NewsSection() {
                   <Calendar className="w-3.5 h-3.5" />
                   {formatDate(featured.date)}
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 mb-3 group-hover:text-[#1a3a6b] transition-colors line-clamp-2">
+                <h3 className="text-2xl font-black text-slate-900 mb-3 group-hover:text-[#1DA499] transition-colors line-clamp-2">
                   {featured.title}
                 </h3>
                 <p className="text-slate-600 leading-relaxed line-clamp-3">{featured.excerpt}</p>
-                <div className="flex items-center gap-1 mt-4 text-[#1a3a6b] font-bold text-sm">
+                <div className="flex items-center gap-1 mt-4 text-[#1DA499] font-bold text-sm">
                   Weiterlesen <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -118,7 +118,7 @@ export default function NewsSection() {
                     <span className={`inline-flex text-xs font-bold px-2 py-0.5 rounded-full mb-1.5 ${categoryColors[item.category] || "bg-slate-100 text-slate-700"}`}>
                       {item.category}
                     </span>
-                    <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1a3a6b] transition-colors line-clamp-2 mb-1">
+                    <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#1DA499] transition-colors line-clamp-2 mb-1">
                       {item.title}
                     </h3>
                     <p className="text-xs text-slate-500">{formatDate(item.date)}</p>

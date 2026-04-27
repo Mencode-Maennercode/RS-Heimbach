@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --school-primary: #1a3a6b;
+  --school-primary: #1DA499;
   --school-secondary: #e8442a;
   --school-accent: #f5a623;
-  --school-green: #2d7a3a;
-  --school-light: #f0f4ff;
+  --school-turquoise: #1DA499;
+  --school-light: #f0fffe;
 }
 
 html {
@@ -19,7 +19,11 @@ body {
 }
 
 .gradient-hero {
-  background: linear-gradient(135deg, #1a3a6b 0%, #2d6a9f 50%, #1a5276 100%);
+  background: linear-gradient(135deg, #1DA499 0%, #17b8ab 50%, #138f85 100%);
+}
+
+.gradient-warm {
+  background: linear-gradient(135deg, #1DA499 0%, #f5a623 100%);
 }
 
 .gradient-accent {
@@ -27,7 +31,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #1a3a6b, #2d6a9f);
+  background: linear-gradient(135deg, #1DA499, #17b8ab);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -38,7 +42,7 @@ body {
 }
 .card-hover:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(26, 58, 107, 0.15);
+  box-shadow: 0 20px 40px rgba(29, 164, 153, 0.18);
 }
 
 .nav-blur {

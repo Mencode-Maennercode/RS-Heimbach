@@ -28,9 +28,9 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f2447] text-white">
+    <footer className="bg-[#0a5a54] text-white">
       {/* CTA Banner */}
-      <div className="bg-gradient-to-r from-[#e8442a] to-[#f5a623]">
+      <div className="bg-gradient-to-r from-[#e8442a] via-[#f08a3a] to-[#f5a623]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>

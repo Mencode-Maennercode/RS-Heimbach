@@ -86,7 +86,7 @@ export default function StatsSection() {
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-3">
             Unsere Zahlen
           </span>
-          <h2 className="text-4xl sm:text-5xl font-black text-[#1a3a6b] mb-4">
+          <h2 className="text-4xl sm:text-5xl font-black text-[#1DA499] mb-4">
             Die Realschule Am Heimbach
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">

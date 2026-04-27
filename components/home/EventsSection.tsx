@@ -37,13 +37,13 @@ export default function EventsSection() {
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2">
               Kalender
             </span>
-            <h2 className="text-4xl sm:text-5xl font-black text-[#1a3a6b]">
+            <h2 className="text-4xl sm:text-5xl font-black text-[#1DA499]">
               Kommende Veranstaltungen
             </h2>
           </div>
           <Link
             href="/veranstaltungen"
-            className="flex items-center gap-2 text-[#1a3a6b] font-bold text-sm hover:gap-3 transition-all duration-200"
+            className="flex items-center gap-2 text-[#1DA499] font-bold text-sm hover:gap-3 transition-all duration-200"
           >
             Alle Termine <ArrowRight className="w-4 h-4" />
           </Link>
@@ -77,7 +77,7 @@ export default function EventsSection() {
                       <span className={`w-2 h-2 rounded-full ${colors.dot}`} />
                       <span className={`text-xs font-bold uppercase tracking-wide ${colors.text}`}>{event.category}</span>
                     </div>
-                    <h3 className="font-bold text-slate-900 mb-2 group-hover:text-[#1a3a6b] transition-colors line-clamp-2">
+                    <h3 className="font-bold text-slate-900 mb-2 group-hover:text-[#1DA499] transition-colors line-clamp-2">
                       {event.title}
                     </h3>
                     <div className="space-y-1.5">
@@ -110,7 +110,7 @@ export default function EventsSection() {
         >
           <Link
             href="/veranstaltungen"
-            className="inline-flex items-center gap-2 border-2 border-[#1a3a6b] text-[#1a3a6b] px-8 py-3.5 rounded-2xl font-bold text-sm hover:bg-[#1a3a6b] hover:text-white transition-all duration-300"
+            className="inline-flex items-center gap-2 border-2 border-[#1DA499] text-[#1DA499] px-8 py-3.5 rounded-2xl font-bold text-sm hover:bg-[#1DA499] hover:text-white transition-all duration-300"
           >
             <Calendar className="w-4 h-4" />
             Alle Termine im Schulkalender

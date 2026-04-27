@@ -26,14 +26,14 @@ export default function GanztagTeaser() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20 aspect-[4/3]">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-teal-900/20 aspect-[4/3]">
               <Image
                 src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=900&h=700&fit=crop"
                 alt="Schüler im Unterricht"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#1a3a6b]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#1DA499]/30 to-transparent" />
             </div>
             {/* Floating badge */}
             <motion.div
@@ -46,7 +46,7 @@ export default function GanztagTeaser() {
                   <Clock className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <div className="text-2xl font-black text-[#1a3a6b]">8:15</div>
+                  <div className="text-2xl font-black text-[#1DA499]">8:15</div>
                   <div className="text-xs text-slate-500 font-medium">Unterrichtsbeginn</div>
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function GanztagTeaser() {
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-3">
               Schulkonzept
             </span>
-            <h2 className="text-4xl sm:text-5xl font-black text-[#1a3a6b] mb-5 leading-tight">
+            <h2 className="text-4xl sm:text-5xl font-black text-[#1DA499] mb-5 leading-tight">
               Schule im gebundenen
               <span className="text-[#e8442a]"> Ganztag</span>
             </h2>
@@ -90,7 +90,7 @@ export default function GanztagTeaser() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.08 }}
-                    className="flex items-start gap-4 p-4 rounded-2xl hover:bg-[#f8f9ff] transition-colors group"
+                    className="flex items-start gap-4 p-4 rounded-2xl hover:bg-[#f0fffe] transition-colors group"
                   >
                     <div className="w-10 h-10 rounded-xl gradient-hero flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5 text-white" />
@@ -106,7 +106,7 @@ export default function GanztagTeaser() {
 
             <Link
               href="/ganztag"
-              className="group inline-flex items-center gap-2 bg-[#1a3a6b] text-white px-7 py-3.5 rounded-2xl font-bold text-sm hover:bg-[#0f2447] transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/25"
+              className="group inline-flex items-center gap-2 bg-[#1DA499] text-white px-7 py-3.5 rounded-2xl font-bold text-sm hover:bg-[#0a5a54] transition-all duration-300 hover:shadow-xl hover:shadow-teal-900/25"
             >
               Mehr zum Ganztagskonzept
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

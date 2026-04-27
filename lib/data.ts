@@ -6,7 +6,7 @@ export const schoolInfo = {
   phone: "02241 - 77715",
   fax: "02241 - 77716",
   email: "sekretariat@rs-heimbach.de",
-  instagram: "rs_heimbach",
+  instagram: "realschule-am-heimbach",
   students: 590,
   teachers: 55,
   specialEdTeachers: 5,
@@ -334,79 +334,139 @@ export const artBlogPosts = [
   },
 ];
 
-export const instagramPosts = [
+export const instagramPosts: Array<{
+  id: number;
+  type: "photo" | "reel" | "carousel";
+  media: string | string[];
+  thumbnail: string;
+  caption: string;
+  likes: number;
+  comments: number;
+  timestamp: string;
+  date: string;
+  url: string;
+}> = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&h=600&fit=crop",
-    caption: "Tag der offenen Tür 2025 – so viele neugierige Gesichter! 🎉 #RSHeimbach #Troisdorf",
-    likes: 142,
-    comments: 18,
-    date: "2025-11-16",
+    type: "reel",
+    media: "/Instagram/rs_heimbach_reel_22_4_2026_17_11_313880994523149263374.mp4",
+    thumbnail: "/Instagram/rs_heimbach_reel_22_4_2026_17_11_313880994523149263374.mp4",
+    caption: "Neue Sportgeräte in der Turnhalle! 🏀⚽ Die Schüler sind begeistert! #RSHeimbach #Sport",
+    likes: 245,
+    comments: 32,
+    timestamp: "vor 3 Stunden",
+    date: "2026-04-22",
+    url: "https://www.instagram.com/realschule-am-heimbach/"
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop",
-    caption: 'Unsere Erfinder-AG im Einsatz 💡 "Sport macht Spaß" – der Videoclip ist fertig! #Erfinder',
-    likes: 98,
-    comments: 12,
-    date: "2025-03-20",
+    type: "carousel",
+    media: [
+      "/Instagram/rs_heimbach-fotostrecke/rs_heimbach_post_26_3_2026_17_17_363861458707477757808.jpg",
+      "/Instagram/rs_heimbach-fotostrecke/rs_heimbach_post_26_3_2026_17_17_363861458711487480216.jpg",
+      "/Instagram/rs_heimbach-fotostrecke/rs_heimbach_post_26_3_2026_17_17_363861458714767403326.jpg",
+      "/Instagram/rs_heimbach-fotostrecke/rs_heimbach_post_26_3_2026_17_17_363861458716990407531.jpg",
+      "/Instagram/rs_heimbach-fotostrecke/rs_heimbach_post_26_3_2026_17_17_363861458717661463193.jpg",
+      "/Instagram/rs_heimbach-fotostrecke/rs_heimbach_post_26_3_2026_17_17_363861458719238556918.jpg",
+      "/Instagram/rs_heimbach-fotostrecke/rs_heimbach_post_26_3_2026_17_17_363861458723625774228.jpg",
+      "/Instagram/rs_heimbach-fotostrecke/rs_heimbach_post_26_3_2026_17_17_363861458724892464282.jpg"
+    ],
+    thumbnail: "/Instagram/rs_heimbach-fotostrecke/rs_heimbach_post_26_3_2026_17_17_363861458707477757808.jpg",
+    caption: "Projekttag: Unsere Schule wird bunt! 🎨 Alle Klassen haben mitgemacht. #Kunstprojekt #Gemeinsam",
+    likes: 189,
+    comments: 24,
+    timestamp: "vor 2 Tagen",
+    date: "2026-03-26",
+    url: "https://www.instagram.com/realschule-am-heimbach/"
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=600&h=600&fit=crop",
-    caption: "Mittagspause in der Mensa 🍽️ Heute: Pasta Bolognese und Salatbar. #Schulessen #Mensa",
-    likes: 76,
-    comments: 9,
-    date: "2025-04-08",
+    type: "photo",
+    media: "/Instagram/rs_heimbach_post_27_3_2026_13_17_503862063446833822007.jpg",
+    thumbnail: "/Instagram/rs_heimbach_post_27_3_2026_13_17_503862063446833822007.jpg",
+    caption: "Mittagsessen in der Mensa 🍽️ Heute: Köstliche Pasta! #Schulessen #Mensa",
+    likes: 87,
+    comments: 12,
+    timestamp: "vor 3 Tagen",
+    date: "2026-03-27",
+    url: "https://www.instagram.com/realschule-am-heimbach/"
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&h=600&fit=crop",
-    caption: "Street Art im Kunstunterricht 🎨 Klasse 6c mit Frau Beyers. #Graffiti #Kunst",
-    likes: 215,
-    comments: 31,
-    date: "2025-02-14",
+    type: "reel",
+    media: "/Instagram/rs_heimbach_reel_27_3_2026_11_48_433862018528513938118.mp4",
+    thumbnail: "/Instagram/rs_heimbach_reel_27_3_2026_11_48_433862018528513938118.mp4",
+    caption: "Musikunterricht mit Frau Meyer 🎵 Die Schüler rocken die Bühne! #Musik #Talent",
+    likes: 156,
+    comments: 19,
+    timestamp: "vor 4 Tagen",
+    date: "2026-03-27",
+    url: "https://www.instagram.com/realschule-am-heimbach/"
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=600&fit=crop",
-    caption: "Känguru-Wettbewerb 2025 🦘 Mathe macht Spaß! #Mathematik #Känguru",
-    likes: 63,
-    comments: 5,
-    date: "2025-04-03",
+    type: "reel",
+    media: "/Instagram/rs_heimbach_reel_15_2_2026_15_23_343833134361265101617.mp4",
+    thumbnail: "/Instagram/rs_heimbach_reel_15_2_2026_15_23_343833134361265101617.mp4",
+    caption: "Basketball-Turnier 🏀 Unser Team spielt groß auf! #Sport #Teamgeist",
+    likes: 203,
+    comments: 28,
+    timestamp: "vor 1 Woche",
+    date: "2026-02-15",
+    url: "https://www.instagram.com/realschule-am-heimbach/"
   },
   {
     id: 6,
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=600&fit=crop",
-    caption: "5er-Party 2024 🎊 Herzlich willkommen, neue Fünftklässler! #RSHeimbach #Willkommen",
-    likes: 189,
-    comments: 24,
-    date: "2024-12-13",
+    type: "photo",
+    media: "/Instagram/rs_heimbach_post_25_3_2026_17_32_233860740377477442152.jpg",
+    thumbnail: "/Instagram/rs_heimbach_post_25_3_2026_17_32_233860740377477442152.jpg",
+    caption: "Bibliothek neu eingerichtet 📚 Gemütliche Lese-Ecken für alle. #Lesen #Lernen",
+    likes: 134,
+    comments: 15,
+    timestamp: "vor 1 Woche",
+    date: "2026-03-25",
+    url: "https://www.instagram.com/realschule-am-heimbach/"
   },
   {
     id: 7,
-    image: "https://images.unsplash.com/photo-1507924538820-ede94a04019d?w=600&h=600&fit=crop",
-    caption: "Mozarts Zauberflöte in der Aula 🎭 Die Kölner Opernkiste war da! #Mozart #Musik",
-    likes: 134,
-    comments: 16,
-    date: "2024-03-19",
+    type: "carousel",
+    media: [
+      "/Instagram/rs_heimbach-fotostrecke2/rs_heimbach_post_26_3_2026_17_22_423861461107886309454.jpg",
+      "/Instagram/rs_heimbach-fotostrecke2/rs_heimbach_post_26_3_2026_17_22_423861461111459811107.jpg",
+      "/Instagram/rs_heimbach-fotostrecke2/rs_heimbach_post_26_3_2026_17_22_423861461118002985532.mp4"
+    ],
+    thumbnail: "/Instagram/rs_heimbach-fotostrecke2/rs_heimbach_post_26_3_2026_17_22_423861461107886309454.jpg",
+    caption: "Theaterstück: Romeo und Julia 🎭 Die Schüler haben brilliert! #Theater #Kultur",
+    likes: 178,
+    comments: 22,
+    timestamp: "vor 1 Woche",
+    date: "2026-03-26",
+    url: "https://www.instagram.com/realschule-am-heimbach/"
   },
   {
     id: 8,
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=600&fit=crop",
-    caption: "Projekttag Zukunftsberufe 🚀 Klasse 9 erkundet die Arbeitswelt #Berufsorientierung",
-    likes: 87,
-    comments: 11,
-    date: "2025-01-22",
+    type: "reel",
+    media: "/Instagram/rs_heimbach_reel_15_2_2026_15_39_033833138454654123237.mp4",
+    thumbnail: "/Instagram/rs_heimbach_reel_15_2_2026_15_39_033833138454654123237.mp4",
+    caption: "Chemie-Experiment � Die Schüler sind fasziniert! #Wissenschaft #Experiment",
+    likes: 167,
+    comments: 21,
+    timestamp: "vor 2 Wochen",
+    date: "2026-02-15",
+    url: "https://www.instagram.com/realschule-am-heimbach/"
   },
   {
     id: 9,
-    image: "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=600&h=600&fit=crop",
-    caption: "Neues SV-Büdchen Fenster ✨ Selbst gestaltet von unserer SV! #SV #Schüler",
-    likes: 101,
-    comments: 14,
-    date: "2025-06-10",
-  },
+    type: "reel",
+    media: "/Instagram/rs_heimbach_reel_15_2_2026_15_41_073833144157380846057.mp4",
+    thumbnail: "/Instagram/rs_heimbach_reel_15_2_2026_15_41_073833144157380846057.mp4",
+    caption: "Schulgarten im Frühling 🌱 Die ersten Pflanzen sprießen! #Natur #Garten",
+    likes: 145,
+    comments: 18,
+    timestamp: "vor 2 Wochen",
+    date: "2026-02-15",
+    url: "https://www.instagram.com/realschule-am-heimbach/"
+  }
 ];
 
 export const scheduleData = [
