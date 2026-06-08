@@ -4,8 +4,9 @@ export const schoolInfo = {
   address: "Heimbachstraße 10",
   city: "53840 Troisdorf",
   phone: "02241 - 77715",
-  fax: "02241 - 77716",
-  email: "sekretariat@rs-heimbach.de",
+  phoneLink: "tel:+49224177715",
+  fax: "02241 - 75105",
+  email: "schule.verwaltung@rs-heimbach.de",
   instagram: "realschule-am-heimbach",
   students: 590,
   teachers: 55,
@@ -15,36 +16,27 @@ export const schoolInfo = {
 };
 
 export const navItems = [
+  { label: "Start", href: "/" },
   {
     label: "Unsere Schule",
     href: "/unsere-schule",
     children: [
       { label: "Über uns", href: "/unsere-schule" },
       { label: "Schulleitung", href: "/unsere-schule/schulleitung" },
-      { label: "Lehrerkollegium", href: "/lehrer" },
+      { label: "Kollegium", href: "/lehrer" },
+      { label: "Sekretariat", href: "/unsere-schule/sekretariat" },
       { label: "Schülervertretung (SV)", href: "/unsere-schule/sv" },
       { label: "Schulprogramm", href: "/unsere-schule/schulprogramm" },
     ],
   },
   {
-    label: "Ganztag",
-    href: "/ganztag",
+    label: "Unterricht",
+    href: "/unterricht",
     children: [
-      { label: "Unterrichtszeiten", href: "/ganztag#zeiten" },
-      { label: "Fächer", href: "/ganztag#faecher" },
-      { label: "Wahlunterricht", href: "/ganztag#wahl" },
-      { label: "Mensa", href: "/ganztag#mensa" },
-      { label: "Projekte", href: "/ganztag#projekte" },
-    ],
-  },
-  {
-    label: "Aktuelles",
-    href: "/aktuelles",
-    children: [
-      { label: "News & Schulleben", href: "/aktuelles" },
-      { label: "Veranstaltungen", href: "/veranstaltungen" },
-      { label: "Kunst-Blog", href: "/kunst-blog" },
-      { label: "Schülerzeitung", href: "/aktuelles/schuelerzeitung" },
+      { label: "Schulzeiten & Raster", href: "/unterricht/schulzeiten" },
+      { label: "Fächer & Differenzierung", href: "/unterricht/faecher" },
+      { label: "Ganztag & AGs", href: "/ganztag" },
+      { label: "Mensa", href: "/unterricht/mensa" },
     ],
   },
   {
@@ -54,6 +46,7 @@ export const navItems = [
       { label: "Schulberatung", href: "/beratung" },
       { label: "Eltern", href: "/eltern" },
       { label: "Förderverein", href: "/foerderverein" },
+      { label: "Termine", href: "/veranstaltungen" },
       { label: "Downloads", href: "/service" },
     ],
   },
@@ -265,75 +258,6 @@ export const newsItems = [
   },
 ];
 
-export const artBlogPosts = [
-  {
-    id: 1,
-    title: "Graffiti & Street Art – Klasse 6c",
-    artist: "Klasse 6c mit Frau Beyers",
-    date: "2025-02-14",
-    category: "Malerei & Grafik",
-    excerpt:
-      "Im Kunstunterricht der Klasse 6c entstand ein atemberaubendes Graffiti-Kunstwerk. Von Skizze bis Farbgebung – ein kreativer Prozess, der begeistert.",
-    image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800&h=500&fit=crop",
-    tags: ["Graffiti", "Kunst", "Klasse 6"],
-  },
-  {
-    id: 2,
-    title: "Portfolios zur Welt der Griechen",
-    artist: "Klasse 6c mit Frau Beyers",
-    date: "2024-04-20",
-    category: "Gestaltung & Design",
-    excerpt:
-      "Im Geschichtsunterricht entstanden kreative Portfolios zur Antike. Geschichte und Kunst verbinden sich zu einem einzigartigen Projekt.",
-    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=500&fit=crop",
-    tags: ["Geschichte", "Design", "Portfolio"],
-  },
-  {
-    id: 3,
-    title: "SV-Logo Kunstwerk von Lucy (9c)",
-    artist: "Lucy, Klasse 9c",
-    date: "2025-05-12",
-    category: "Illustration",
-    excerpt:
-      "Lucy aus der 9c gestaltete das neue SV-Büro-Bild mit dem Schülervertretungslogo – ein professionelles Kunstwerk, das alle begeistert.",
-    image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=500&fit=crop",
-    tags: ["SV", "Logo", "Illustration"],
-  },
-  {
-    id: 4,
-    title: "Müllkampagne – Kreative Umweltkunst",
-    artist: "Erfinder-AG mit Herrn Herzog",
-    date: "2024-04-15",
-    category: "Angewandte Kunst",
-    excerpt:
-      "Witzige Sprüche auf Mülltonnen: Die Erfinder-AG gestaltete kreative Aufkleber zur Umweltbewusstseinsstärkung auf dem Schulhof.",
-    image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&h=500&fit=crop",
-    tags: ["Umwelt", "Design", "Kampagne"],
-  },
-  {
-    id: 5,
-    title: "Spielplatz-Modell – Träume aus Pappe",
-    artist: "Erfinder-AG mit Herrn Herzog",
-    date: "2024-03-20",
-    category: "3D & Modellbau",
-    excerpt:
-      "Schülerinnen und Schüler bauten Modelle ihres Traumspielplatzes – mit echten Präsentationen vor dem Bürgermeister!",
-    image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&h=500&fit=crop",
-    tags: ["Modellbau", "Kreativität", "Projekt"],
-  },
-  {
-    id: 6,
-    title: "Schülerzeitung – Heimbachbote #5",
-    artist: "Redaktion Schülerzeitung",
-    date: "2024-12-05",
-    category: "Medien & Design",
-    excerpt:
-      "Die fünfte Ausgabe des Heimbachboten ist erschienen! Schülerinnen und Schüler berichten, interviewen und gestalten ihr eigenes Magazin.",
-    image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=500&fit=crop",
-    tags: ["Zeitung", "Medien", "Redaktion"],
-  },
-];
-
 export const instagramPosts: Array<{
   id: number;
   type: "photo" | "reel" | "carousel";
@@ -469,18 +393,40 @@ export const instagramPosts: Array<{
   }
 ];
 
+// Echte Unterrichtszeiten (60-Minuten-Zeitstunden), Quelle: alte Schul-Website
 export const scheduleData = [
-  { period: "Offener Anfang", time: "7:40 – 8:10 Uhr", note: "Aula (5er/6er und Frühstücker)" },
-  { period: "1. Stunde", time: "8:15 – 9:15 Uhr" },
-  { period: "2. Stunde", time: "9:15 – 10:15 Uhr" },
-  { period: "Frühstückspause", time: "10:15 – 10:35 Uhr" },
-  { period: "3. Stunde", time: "10:35 – 11:35 Uhr" },
-  { period: "4. Stunde", time: "11:35 – 12:35 Uhr" },
-  { period: "Mittagspause", time: "12:35 – 13:15 Uhr" },
-  { period: "5. Stunde", time: "13:15 – 14:15 Uhr" },
-  { period: "6. Stunde", time: "14:15 – 15:15 Uhr" },
-  { period: "7. Stunde", time: "15:15 – 15:40 Uhr", note: "Nur Mo, Mi, Do" },
+  { period: "1. Stunde", time: "08:15 – 09:15 Uhr" },
+  { period: "2. Stunde", time: "09:15 – 10:15 Uhr" },
+  { period: "Frühstückspause", time: "10:20 – 10:40 Uhr" },
+  { period: "3. Stunde", time: "10:45 – 11:45 Uhr" },
+  { period: "4. Stunde", time: "11:50 – 12:50 Uhr" },
+  { period: "Mittagspause", time: "12:50 – 13:30 Uhr", note: "Mo, Mi, Do" },
+  { period: "5. Stunde", time: "13:35 – 14:35 Uhr" },
+  { period: "6. Stunde", time: "14:40 – 15:40 Uhr", note: "Ganztag: Mo, Mi, Do" },
 ];
+
+// Kurzstundenraster (z. B. bei extremer Witterung oder Veranstaltungen)
+export const kurzstundenData = [
+  { period: "1. Stunde", time: "08:15 – 09:00 Uhr" },
+  { period: "2. Stunde", time: "09:05 – 09:50 Uhr" },
+  { period: "Pause", time: "09:50 – 10:00 Uhr" },
+  { period: "3. Stunde", time: "10:00 – 10:45 Uhr" },
+  { period: "4. Stunde", time: "10:50 – 11:35 Uhr" },
+  { period: "Pause", time: "11:35 – 12:00 Uhr" },
+  { period: "5. Stunde", time: "12:05 – 12:50 Uhr" },
+];
+
+// Sekretariat – Öffnungszeiten (zentrale Anlaufstelle)
+export const sekretariatInfo = {
+  hours: [
+    { day: "Montag", time: "07:00 – 13:30 Uhr" },
+    { day: "Dienstag", time: "07:00 – 13:00 Uhr" },
+    { day: "Mittwoch & Donnerstag", time: "07:00 – 15:45 Uhr" },
+    { day: "Freitag", time: "07:00 – 13:00 Uhr" },
+    { day: "Samstag & Sonntag", time: "Geschlossen" },
+  ],
+  closedNote: "Täglich von 10:50 – 11:45 Uhr geschlossen.",
+};
 
 export const subjects = [
   "Deutsch", "Mathematik", "Englisch", "Biologie", "Chemie", "Physik",

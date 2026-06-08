@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, GraduationCap, Instagram } from "lucide-react";
+import { Menu, X, ChevronDown, GraduationCap, Phone, Search } from "lucide-react";
 import { navItems, schoolInfo } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -104,16 +104,30 @@ export default function Navigation() {
             ))}
           </nav>
 
-          {/* CTA + Instagram */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a
-              href={`https://www.instagram.com/${schoolInfo.instagram}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 hover:text-pink-600 hover:bg-pink-50 transition-all duration-200"
+          {/* Suche (Mock) + Telefon + Kontakt */}
+          <div className="hidden lg:flex items-center gap-2">
+            {/* Globale Suche – Platzhalter, Funktion folgt */}
+            <button
+              type="button"
+              disabled
+              title="Intelligente Seitensuche – bald verfügbar"
+              aria-label="Seite durchsuchen (bald verfügbar)"
+              className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-100/70 text-slate-400 text-sm cursor-not-allowed"
             >
-              <Instagram className="w-5 h-5" />
+              <Search className="w-4 h-4" />
+              <span className="hidden xl:inline">Seite durchsuchen …</span>
+              <span className="text-[10px] font-bold uppercase tracking-wide bg-slate-200 text-slate-500 px-1.5 py-0.5 rounded">bald</span>
+            </button>
+
+            {/* Telefonnummer – immer sichtbar, klickbar */}
+            <a
+              href={schoolInfo.phoneLink}
+              className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-[#1DA499] hover:bg-[#1DA499]/8 font-bold text-sm transition-colors duration-200"
+            >
+              <Phone className="w-4 h-4" />
+              <span className="whitespace-nowrap">{schoolInfo.phone}</span>
             </a>
+
             <Link
               href="/kontakt"
               className="px-5 py-2.5 bg-[#1DA499] hover:bg-[#17a89d] text-white text-sm font-bold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#1DA499]/25"
@@ -122,13 +136,22 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden w-10 h-10 rounded-xl flex items-center justify-center text-slate-700 hover:bg-slate-100 transition-colors"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile: Anruf-Button + Toggle */}
+          <div className="flex items-center gap-1.5 lg:hidden">
+            <a
+              href={schoolInfo.phoneLink}
+              aria-label={`Anrufen: ${schoolInfo.phone}`}
+              className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#1DA499] text-white shadow-md shadow-[#1DA499]/25"
+            >
+              <Phone className="w-5 h-5" />
+            </a>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-700 hover:bg-slate-100 transition-colors"
+            >
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -166,7 +189,23 @@ export default function Navigation() {
                   )}
                 </div>
               ))}
-              <div className="pt-3 border-t border-slate-100">
+              <div className="pt-3 border-t border-slate-100 space-y-2">
+                {/* Globale Suche – Platzhalter, Funktion folgt */}
+                <button
+                  type="button"
+                  disabled
+                  className="w-full flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-100 text-slate-400 text-sm cursor-not-allowed"
+                >
+                  <Search className="w-4 h-4" />
+                  Seite durchsuchen …
+                  <span className="ml-auto text-[10px] font-bold uppercase bg-slate-200 text-slate-500 px-1.5 py-0.5 rounded">bald</span>
+                </button>
+                <a
+                  href={schoolInfo.phoneLink}
+                  className="flex items-center justify-center gap-2 py-3 border-2 border-[#1DA499] text-[#1DA499] font-bold rounded-xl"
+                >
+                  <Phone className="w-4 h-4" /> {schoolInfo.phone}
+                </a>
                 <Link
                   href="/kontakt"
                   className="flex items-center justify-center py-3 gradient-hero text-white font-bold rounded-xl"

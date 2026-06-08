@@ -9,20 +9,23 @@ const footerLinks = {
   "Unsere Schule": [
     { label: "Über uns", href: "/unsere-schule" },
     { label: "Schulleitung", href: "/unsere-schule/schulleitung" },
-    { label: "Lehrerkollegium", href: "/lehrer" },
+    { label: "Kollegium", href: "/lehrer" },
+    { label: "Sekretariat", href: "/unsere-schule/sekretariat" },
     { label: "Schulprogramm", href: "/unsere-schule/schulprogramm" },
   ],
-  Aktuelles: [
-    { label: "News & Schulleben", href: "/aktuelles" },
-    { label: "Veranstaltungen", href: "/veranstaltungen" },
-    { label: "Kunst-Blog", href: "/kunst-blog" },
-    { label: "Schülerzeitung", href: "/aktuelles/schuelerzeitung" },
+  Unterricht: [
+    { label: "Schulzeiten & Raster", href: "/unterricht/schulzeiten" },
+    { label: "Fächer & Differenzierung", href: "/unterricht/faecher" },
+    { label: "Ganztag & AGs", href: "/ganztag" },
+    { label: "Mensa", href: "/unterricht/mensa" },
   ],
   Service: [
-    { label: "Ganztag", href: "/ganztag" },
+    { label: "Aktuelles", href: "/aktuelles" },
+    { label: "Termine", href: "/veranstaltungen" },
     { label: "Beratung", href: "/beratung" },
     { label: "Eltern", href: "/eltern" },
     { label: "Förderverein", href: "/foerderverein" },
+    { label: "Downloads", href: "/service" },
   ],
 };
 
@@ -70,14 +73,14 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-[#f5a623] shrink-0" />
                 <span>{schoolInfo.address}, {schoolInfo.city}</span>
               </div>
-              <div className="flex items-center gap-2.5 text-white/60 text-sm">
+              <a href={schoolInfo.phoneLink} className="flex items-center gap-2.5 text-white/60 hover:text-[#f5a623] text-sm transition-colors">
                 <Phone className="w-4 h-4 text-[#f5a623] shrink-0" />
                 <span>{schoolInfo.phone}</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-white/60 text-sm">
+              </a>
+              <a href={`mailto:${schoolInfo.email}`} className="flex items-center gap-2.5 text-white/60 hover:text-[#f5a623] text-sm transition-colors break-all">
                 <Mail className="w-4 h-4 text-[#f5a623] shrink-0" />
                 <span>{schoolInfo.email}</span>
-              </div>
+              </a>
             </div>
             <div className="flex items-center gap-3 mt-6">
               <a
