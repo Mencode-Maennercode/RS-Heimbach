@@ -2,31 +2,16 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Clock, Utensils, BookOpen, Users, Lightbulb, Dumbbell, Music, Palette, Code } from "lucide-react";
-import { scheduleData } from "@/lib/data";
+import Link from "next/link";
+import { Clock, Utensils, Users, Lightbulb, Dumbbell, Music, Palette, Code, ArrowRight } from "lucide-react";
 
 const ags = [
-  { icon: Dumbbell, title: "Sport-AG", desc: "Verschiedene Sportarten und Fitness-Training für alle Jahrgangsstufen", color: "from-blue-500 to-blue-700" },
-  { icon: Music, title: "Musik-AG", desc: "Chor, Band und Instrumentalunterricht – Musik erleben und machen", color: "from-purple-500 to-purple-700" },
-  { icon: Palette, title: "Kunst-AG", desc: "Zeichnen, Malen, Gestalten – kreative Selbstentfaltung", color: "from-rose-500 to-rose-700" },
-  { icon: Code, title: "Informatik-AG", desc: "Programmieren, Robotik und digitale Kreativität", color: "from-emerald-500 to-emerald-700" },
-  { icon: Lightbulb, title: "Erfinder-AG", desc: "Technische Projekte und kreative Problemlösungen im Alltag", color: "from-amber-500 to-amber-700" },
-  { icon: Users, title: "Theater-AG", desc: "Schauspiel, Improvisation und Bühnenpräsenz", color: "from-cyan-500 to-cyan-700" },
-];
-
-const subjects = [
-  { name: "Deutsch", icon: "📚" },
-  { name: "Mathematik", icon: "📐" },
-  { name: "Englisch", icon: "🌍" },
-  { name: "Biologie", icon: "🌱" },
-  { name: "Chemie", icon: "🧪" },
-  { name: "Physik", icon: "⚡" },
-  { name: "Geschichte", icon: "🏛️" },
-  { name: "Erdkunde", icon: "🗺️" },
-  { name: "Kunst", icon: "🎨" },
-  { name: "Musik", icon: "🎵" },
-  { name: "Sport", icon: "⚽" },
-  { name: "Informatik", icon: "💻" },
+  { icon: Dumbbell, title: "Sport (Rund um den Ball)", desc: "Fußball und vielfältige Bewegungsangebote – auch in der „Bewegten Pause“.", color: "from-blue-500 to-blue-700" },
+  { icon: Palette, title: "Malen & Zeichnen", desc: "Künstlerische Angebote und kreatives Gestalten nach Interesse.", color: "from-rose-500 to-rose-700" },
+  { icon: Lightbulb, title: "Pappmaché & Werken", desc: "Kreativ-gestalterisches Arbeiten mit den Händen.", color: "from-amber-500 to-amber-700" },
+  { icon: Users, title: "Gesellschaftsspiele", desc: "Soziale Angebote, die Teamgeist und Miteinander fördern.", color: "from-cyan-500 to-cyan-700" },
+  { icon: Music, title: "Musik-AG", desc: "Chor, Band und gemeinsames Musizieren – Musik erleben und machen.", color: "from-purple-500 to-purple-700" },
+  { icon: Code, title: "Informatik-AG", desc: "Programmieren, Robotik und digitale Kreativität.", color: "from-emerald-500 to-emerald-700" },
 ];
 
 export default function GanztagPage() {
@@ -41,8 +26,8 @@ export default function GanztagPage() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">Schulkonzept</span>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-4">Gebundener Ganztag</h1>
-            <p className="text-white/80 text-xl max-w-2xl">
-              Fünf-Tage-Woche mit 60-Minuten-Stunden, Lehrerraumprinzip und einer modernen Lernkultur.
+            <p className="text-white/85 text-xl max-w-2xl">
+              Unterricht und sinnvolle Freizeitgestaltung Hand in Hand – an Montag, Mittwoch und Donnerstag bis 15:40 Uhr.
             </p>
           </motion.div>
         </div>
@@ -54,20 +39,26 @@ export default function GanztagPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-3">Unser Konzept</span>
-              <h2 className="text-4xl font-black text-[#1a3a6b] mb-6 leading-tight">
+              <h2 className="text-4xl font-black text-[#0a5a54] mb-6 leading-tight">
                 Lernen ohne Hetze –<br />mit Zeit für Tiefe
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  Die Realschule Am Heimbach arbeitet nach dem <strong>Lehrerraumprinzip</strong>: Jede Lehrkraft hat ihren eigenen,
-                  fachspezifisch eingerichteten Unterrichtsraum. Die Schülerinnen und Schüler wechseln zwischen den Stunden
-                  den Raum – das fördert Selbstständigkeit und gibt jedem Fach seinen eigenen Charakter.
+                  Die Realschule Am Heimbach ist eine <strong>Ganztagsschule</strong>, in der Unterricht und Freizeit ineinandergreifen.
+                  Unsere 60-Minuten-Stunden und das Lehrerraumprinzip schaffen Ruhe und Struktur im Schultag.
                 </p>
                 <p>
-                  Unsere <strong>60-Minuten-Stunden</strong> ermöglichen tieferes Eintauchen in Themen. Weniger Unterbrechungen,
-                  mehr Konzentration, bessere Ergebnisse. Der Ganztagsbetrieb läuft an Montag, Mittwoch und Donnerstag
-                  bis 15:40 Uhr.
+                  Ergänzt wird der Unterricht durch Wahlangebote, Arbeitsgemeinschaften und eine „Bewegte Pause“ – getragen von
+                  Lehrkräften, der AWO, externen Partnern und ehrenamtlichen Unterstützern.
                 </p>
+              </div>
+              <div className="flex flex-wrap gap-3 mt-7">
+                <Link href="/unterricht/schulzeiten" className="inline-flex items-center gap-2 bg-[#1DA499] text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-[#0a5a54] transition-colors">
+                  <Clock className="w-4 h-4" /> Schulzeiten ansehen
+                </Link>
+                <Link href="/unterricht/mensa" className="inline-flex items-center gap-2 bg-white border-2 border-[#1DA499] text-[#1DA499] px-5 py-3 rounded-xl font-bold text-sm hover:bg-[#1DA499]/5 transition-colors">
+                  <Utensils className="w-4 h-4" /> Zur Mensa
+                </Link>
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
@@ -79,75 +70,17 @@ export default function GanztagPage() {
         </div>
       </section>
 
-      {/* Timetable */}
-      <section id="zeiten" className="py-24 bg-[#f8f9ff]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2">Stundenplan</span>
-            <h2 className="text-4xl font-black text-[#1a3a6b]">Unterrichtszeiten</h2>
-          </motion.div>
-          <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
-            {scheduleData.map((row, i) => (
-              <motion.div
-                key={row.period}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
-                className={`flex items-center justify-between px-7 py-4 ${
-                  i % 2 === 0 ? "bg-white" : "bg-[#f8f9ff]"
-                } ${row.period.includes("pause") || row.period.includes("Anfang") ? "border-l-4 border-[#f5a623]" : "border-l-4 border-transparent"}`}
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-white text-xs font-bold ${
-                    row.period.includes("pause") || row.period.includes("Anfang") ? "bg-[#f5a623]" : "gradient-hero"
-                  }`}>
-                    <Clock className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-slate-900">{row.period}</div>
-                    {row.note && <div className="text-xs text-slate-500">{row.note}</div>}
-                  </div>
-                </div>
-                <div className="text-slate-700 font-semibold text-sm">{row.time}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Subjects */}
-      <section id="faecher" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2">Unterricht</span>
-            <h2 className="text-4xl font-black text-[#1a3a6b]">Unsere Fächer</h2>
-          </motion.div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {subjects.map((s, i) => (
-              <motion.div
-                key={s.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="bg-[#f8f9ff] rounded-2xl p-5 text-center hover:bg-[#1a3a6b] hover:text-white transition-all duration-300 group cursor-default"
-              >
-                <div className="text-2xl mb-2">{s.icon}</div>
-                <div className="text-sm font-bold text-slate-800 group-hover:text-white">{s.name}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Wahlunterricht / AGs */}
-      <section id="wahl" className="py-24 bg-[#f8f9ff]">
+      <section className="py-24 bg-[#f8f9ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2">Wahlunterricht</span>
-            <h2 className="text-4xl font-black text-[#1a3a6b]">AGs & Projekte</h2>
-            <p className="text-slate-600 mt-3 max-w-xl mx-auto">Schülerinnen und Schüler wählen nach Interessen – für Tiefe statt Breite.</p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 max-w-2xl mx-auto">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2">Wahlunterricht & AGs</span>
+            <h2 className="text-4xl font-black text-[#0a5a54]">Interessen entdecken, Talente entfalten</h2>
+            <p className="text-slate-600 mt-3">
+              Der Wahlunterricht (WU) für die Jahrgänge 5 und 6 findet montags, mittwochs und donnerstags in der 6. Stunde
+              (14:40 – 15:40 Uhr) statt – jahrgangsübergreifend und halbjährlich neu wählbar. Ansprechpartnerin ist die
+              Ganztagskoordinatorin Frau Fournes.
+            </p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {ags.map((ag, i) => {
@@ -164,7 +97,7 @@ export default function GanztagPage() {
                   <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${ag.color} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform`}>
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="font-black text-xl text-[#1a3a6b] mb-2">{ag.title}</h3>
+                  <h3 className="font-black text-xl text-[#0a5a54] mb-2">{ag.title}</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">{ag.desc}</p>
                 </motion.div>
               );
@@ -173,43 +106,10 @@ export default function GanztagPage() {
         </div>
       </section>
 
-      {/* Mensa */}
-      <section id="mensa" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
-                <Image src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=900&h=700&fit=crop" alt="Mensa" fill className="object-cover" />
-              </div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <div className="w-12 h-12 rounded-2xl gradient-hero flex items-center justify-center mb-5">
-                <Utensils className="w-6 h-6 text-white" />
-              </div>
-              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-3">Verpflegung</span>
-              <h2 className="text-4xl font-black text-[#1a3a6b] mb-5">Unsere Mensa</h2>
-              <div className="space-y-4 text-slate-600 leading-relaxed">
-                <p>
-                  In unserer modernen Mensa werden täglich frische Mahlzeiten für alle Schülerinnen und Schüler zubereitet.
-                  Das Angebot umfasst ein Hauptgericht, vegetarische Alternativen und eine Salatbar.
-                </p>
-                <div className="bg-[#f8f9ff] rounded-2xl p-5">
-                  <h4 className="font-bold text-slate-900 mb-3">Mensazeiten:</h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between"><span className="text-slate-600">Frühstückspause:</span><span className="font-semibold">Mo bis Do | 10:20 – 10:40 Uhr</span></div>
-                    <div className="flex justify-between"><span className="text-slate-600">Mittagessen:</span><span className="font-semibold">Mo, Mi, Do | 12:50 – 13:30 Uhr</span></div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Inklusion */}
-      <section className="py-20 bg-[#f8f9ff]">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#1a3a6b] rounded-3xl p-10 md:p-14 text-white">
+          <div className="bg-[#0a5a54] rounded-3xl p-10 md:p-14 text-white">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>
                 <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">Gemeinsames Lernen</span>
@@ -234,6 +134,16 @@ export default function GanztagPage() {
                 ))}
               </div>
             </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/unterricht"
+              className="group inline-flex items-center gap-2 text-[#1DA499] font-bold text-sm hover:gap-3 transition-all"
+            >
+              Zurück zur Übersicht „Unterricht“
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
