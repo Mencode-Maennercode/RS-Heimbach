@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Target, Heart, Star, Users, BookOpen, Award, MapPin } from "lucide-react";
+import { MapPin, Laptop, Compass, Handshake, Heart, Users, Rocket, Target, Star, BookOpen } from "lucide-react";
+import OrganigrammWidget from "@/components/OrganigrammWidget";
+import HeroBackground from "@/components/HeroBackground";
 
 const values = [
   {
@@ -32,14 +33,31 @@ const values = [
   },
 ];
 
-const timeline = [
-  { year: "1975", event: "Gründung der Realschule Am Heimbach in Troisdorf" },
-  { year: "1990", event: "Erweiterung des Schulgebäudes und neue Fachräume" },
-  { year: "2005", event: "Einführung des Ganztagsbetriebs" },
-  { year: "2010", event: "Modernisierung der Medienausstattung und IT-Räume" },
-  { year: "2018", event: "Zirkusprojektwoche und Kooperation mit SPORTAG" },
-  { year: "2022", event: "Großes Sport- und Zirkusprojekt – Schüler*innen begeistern Eltern" },
-  { year: "2025", event: "Schuljahr 2025/26 – über 590 Schüler*innen, 55 Lehrkräfte" },
+const pillars = [
+  {
+    icon: Laptop,
+    title: "Digitale Bildung",
+    desc: "Wir integrieren digitale Medien und Werkzeuge konsequent in den Unterricht und bereiten unsere Schüler*innen auf eine vernetzte Welt vor.",
+    color: "from-[#1DA499] to-teal-700",
+  },
+  {
+    icon: Target,
+    title: "Individuelle Förderung & Inklusion",
+    desc: "Mit differenzierten Lernangeboten und sonderpädagogischer Unterstützung begleiten wir jedes Kind auf seinem ganz eigenen Weg.",
+    color: "from-blue-500 to-blue-700",
+  },
+  {
+    icon: Compass,
+    title: "Berufsorientierung",
+    desc: "Betriebserkundungen, Berufspraktika und Kooperationen mit regionalen Unternehmen bereiten unsere Schüler*innen gezielt auf die Arbeitswelt vor.",
+    color: "from-amber-500 to-amber-700",
+  },
+  {
+    icon: Handshake,
+    title: "Schulgemeinschaft & Kultur",
+    desc: "Gemeinsame Projekte, Schulveranstaltungen und ein lebendiges SV-Leben stärken den Zusammenhalt und machen unsere Schule zu einem Ort zum Wohlfühlen.",
+    color: "from-rose-500 to-rose-700",
+  },
 ];
 
 export default function UnsereSchulePage() {
@@ -47,14 +65,7 @@ export default function UnsereSchulePage() {
     <>
       {/* Hero */}
       <section className="relative py-24 gradient-hero overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&h=600&fit=crop"
-            alt="Schulgebäude"
-            fill
-            className="object-cover opacity-20"
-          />
-        </div>
+        <HeroBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -95,12 +106,12 @@ export default function UnsereSchulePage() {
                 <p>
                   Wir begrüßen Sie herzlich auf der Schulhomepage der Realschule Am Heimbach.
                   Unsere Schule ist eine gebundene Ganztagsschule im Herzen von Troisdorf und
-                  begleitet rund <strong>590 Schülerinnen und Schüler</strong> auf ihrem Bildungsweg.
+                  begleitet unsere Schülerinnen und Schüler auf ihrem Bildungsweg.
                 </p>
                 <p>
-                  Mit <strong>ca. 55 Lehrerinnen und Lehrern</strong> sowie 5 Sonderpädagog*innen
-                  bieten wir individuelle Förderung für jeden Lerntyp. Unser Schulkonzept verbindet
-                  modernen Unterricht mit kreativen Projekten und einem starken Gemeinschaftsgefühl.
+                  Unser Schulkonzept verbindet modernen Unterricht mit kreativen Projekten und
+                  einem starken Gemeinschaftsgefühl. Individuelle Förderung steht dabei für jeden
+                  Lerntyp im Mittelpunkt.
                 </p>
                 <p>
                   Wir arbeiten nach dem Lehrerraumprinzip – jede Lehrkraft hat ihren eigenen Fachraum,
@@ -125,15 +136,12 @@ export default function UnsereSchulePage() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
                 <Image
-                  src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=900&h=700&fit=crop"
-                  alt="Schüler beim Lernen"
+                  src="/images/schulhof-eyecatcher.jpg"
+                  alt="Schülerinnen und Schüler auf dem Schulhof der Realschule Am Heimbach"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-[#f5a623] rounded-2xl p-5 shadow-xl text-white">
-                <div className="text-3xl font-black">50+</div>
-                <div className="text-sm font-bold text-white/90">Jahre Bildung</div>
               </div>
             </motion.div>
           </div>
@@ -181,40 +189,41 @@ export default function UnsereSchulePage() {
         </div>
       </section>
 
-      {/* Key Facts */}
+      {/* Inklusion */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-[#1a3a6b] rounded-3xl p-10 md:p-14"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
-              {[
-                { icon: Users, value: "590+", label: "Schülerinnen & Schüler" },
-                { icon: Award, value: "55", label: "Lehrkräfte" },
-                { icon: BookOpen, value: "Klasse 5–10", label: "Jahrgangsstufen" },
-              ].map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.label} className="flex flex-col items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div className="text-4xl font-black text-[#f5a623]">{item.value}</div>
-                    <div className="text-white/70 font-medium">{item.label}</div>
+          <div className="bg-[#0a5a54] rounded-3xl p-10 md:p-14 text-white">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div>
+                <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">Gemeinsames Lernen</span>
+                <h2 className="text-4xl font-black mb-5">Inklusion an der RS Heimbach</h2>
+                <p className="text-white/80 leading-relaxed">
+                  Wir glauben daran, dass alle Kinder gemeinsam lernen können. Mit Sonderpädagog*innen
+                  begleiten wir Schülerinnen und Schüler mit besonderem Förderbedarf individuell und professionell
+                  auf ihrem ganz persönlichen Lernweg.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: "Inklusiv", label: "Unterricht für alle" },
+                  { value: "100%", label: "Barrierefreier Zugang" },
+                  { value: "Individuell", label: "Förderpläne für jedes Kind" },
+                  { value: "Gemeinsam", label: "Lernen in einem Klassenverband" },
+                ].map((item) => (
+                  <div key={item.label} className="bg-white/10 rounded-2xl p-5 text-center">
+                    <div className="text-2xl font-black text-[#f5a623] mb-1">{item.value}</div>
+                    <div className="text-white/70 text-xs">{item.label}</div>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Unsere Säulen */}
       <section className="py-24 bg-[#f8f9ff]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -222,62 +231,57 @@ export default function UnsereSchulePage() {
             className="text-center mb-14"
           >
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-3">
-              Geschichte
+              Schulentwicklung
             </span>
             <h2 className="text-4xl sm:text-5xl font-black text-[#1a3a6b]">
-              Unsere Geschichte
+              Unsere Säulen
             </h2>
+            <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">
+              Schwerpunkte unserer Schulentwicklung
+            </p>
           </motion.div>
 
-          <div className="relative">
-            <div className="absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#1a3a6b] to-[#e8442a]" />
-            <div className="space-y-8">
-              {timeline.map((item, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {pillars.map((p, i) => {
+              const Icon = p.icon;
+              return (
                 <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  key={p.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className={`flex items-center gap-8 ${i % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-1.5"
                 >
-                  <div className={`flex-1 ${i % 2 === 0 ? "text-right" : "text-left"}`}>
-                    <div className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow inline-block max-w-sm">
-                      <div className="text-lg font-black text-[#1a3a6b] mb-1">{item.year}</div>
-                      <div className="text-slate-600 text-sm">{item.event}</div>
-                    </div>
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${p.color} flex items-center justify-center mb-5 shadow-lg`}>
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <div className="w-4 h-4 rounded-full bg-[#e8442a] border-4 border-white shadow-md shrink-0 z-10" />
-                  <div className="flex-1" />
+                  <h3 className="font-black text-lg text-[#1a3a6b] mb-3">{p.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{p.desc}</p>
                 </motion.div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Quick nav */}
+      {/* Organigramm */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {[
-              { label: "Schulleitung", href: "/unsere-schule/schulleitung", desc: "Unsere Schulleiterin und ihr Team" },
-              { label: "Lehrerkollegium", href: "/lehrer", desc: "Alle Lehrerinnen und Lehrer" },
-              { label: "Schülervertretung", href: "/unsere-schule/sv", desc: "Die Stimme der Schüler*innen" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group flex items-center justify-between p-6 border-2 border-slate-100 rounded-2xl hover:border-[#1a3a6b] hover:bg-[#1a3a6b] transition-all duration-300"
-              >
-                <div>
-                  <div className="font-bold text-slate-900 group-hover:text-white transition-colors">{item.label}</div>
-                  <div className="text-sm text-slate-500 group-hover:text-white/70 transition-colors">{item.desc}</div>
-                </div>
-                <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
-              </Link>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-3">
+              Struktur
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-black text-[#1a3a6b]">
+              Organigramm
+            </h2>
+          </motion.div>
+          <OrganigrammWidget />
         </div>
       </section>
     </>

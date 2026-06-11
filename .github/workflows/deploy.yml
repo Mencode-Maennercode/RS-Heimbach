@@ -1,0 +1,43 @@
+name: Build & Deploy (FTP)
+
+# Baut die statische Seite und laedt sie per FTP auf den Webspace.
+# - taeglich nachts: holt frische Kalender-Termine aus der Nextcloud-.ics
+# - manuell ("Run workflow"-Knopf in GitHub): fuer Eilfaelle, in ~2 Min. live
+on:
+  schedule:
+    - cron: "0 3 * * *" # 03:00 UTC = ~04:00/05:00 DE-Zeit (Winter/Sommer)
+  workflow_dispatch:
+  push:
+    branches: [master] # bei Code-Aenderungen auf master ebenfalls neu deployen
+
+# Verhindert, dass sich parallele Deploys ueberholen.
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Statische Seite bauen (erzeugt ./out)
+        run: npm run build
+
+      - name: Per FTP hochladen
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          # Zielverzeichnis auf dem Webspace. Haeufig "/", "/httpdocs/" oder
+          # "/public_html/" – bei Bedarf hier anpassen.
+          server-dir: /

@@ -26,16 +26,16 @@ export const navItems = [
       { label: "Kollegium", href: "/lehrer" },
       { label: "Sekretariat", href: "/unsere-schule/sekretariat" },
       { label: "Schülervertretung (SV)", href: "/unsere-schule/sv" },
-      { label: "Schulprogramm", href: "/unsere-schule/schulprogramm" },
     ],
   },
   {
-    label: "Unterricht",
+    label: "Schulalltag",
     href: "/unterricht",
     children: [
       { label: "Schulzeiten & Raster", href: "/unterricht/schulzeiten" },
       { label: "Fächer & Differenzierung", href: "/unterricht/faecher" },
-      { label: "Ganztag & AGs", href: "/ganztag" },
+      { label: "Ganztag & Wahlunterricht", href: "/ganztag" },
+      { label: "Projekte & Programme", href: "/unterricht/projekte" },
       { label: "Mensa", href: "/unterricht/mensa" },
     ],
   },
@@ -44,13 +44,12 @@ export const navItems = [
     href: "/beratung",
     children: [
       { label: "Schulberatung", href: "/beratung" },
-      { label: "Eltern", href: "/eltern" },
+      { label: "Schulpflegschaft", href: "/eltern/schulpflegschaft" },
       { label: "Förderverein", href: "/foerderverein" },
       { label: "Termine", href: "/veranstaltungen" },
       { label: "Downloads", href: "/service" },
     ],
   },
-  { label: "Kontakt", href: "/kontakt" },
 ];
 
 export const teachers = [
@@ -120,92 +119,7 @@ export const teachers = [
   },
 ];
 
-export const events = [
-  {
-    id: 1,
-    title: "Tag der offenen Tür 2026",
-    date: "2026-03-21",
-    time: "10:00 – 14:00 Uhr",
-    location: "Realschule Am Heimbach",
-    category: "Schule",
-    color: "blue",
-    description:
-      "Lernen Sie unsere Schule kennen! Führungen, Mitmachangebote, Gespräche mit Lehrern und Schülerinnen und Schülern. Wir freuen uns auf Sie!",
-    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&h=400&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Elternsprechtag Frühjahr",
-    date: "2026-03-05",
-    time: "14:00 – 18:30 Uhr",
-    location: "Schulgebäude",
-    category: "Eltern",
-    color: "green",
-    description:
-      "Persönliche Gespräche mit den Fachlehrer*innen Ihres Kindes. Bitte melden Sie sich vorab über das Schulportal an.",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=400&fit=crop",
-  },
-  {
-    id: 3,
-    title: "Känguru-Wettbewerb Mathematik",
-    date: "2026-03-19",
-    time: "8:15 Uhr",
-    location: "Schulgebäude",
-    category: "Wettbewerb",
-    color: "orange",
-    description:
-      "Mathe-Knobeln für alle Jahrgangsstufen! Der internationale Känguru-Wettbewerb fördert logisches Denken und Freude an Mathematik.",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=400&fit=crop",
-  },
-  {
-    id: 4,
-    title: "Zirkusprojektwoche",
-    date: "2026-06-15",
-    time: "8:15 – 15:40 Uhr",
-    location: "Schulhof & Turnhalle",
-    category: "Projekt",
-    color: "purple",
-    description:
-      "Eine Woche voller Akrobatik, Jonglage und Artistik! Zusammen mit SPORTAG verwandeln wir unsere Schule in einen Zirkus.",
-    image: "https://images.unsplash.com/photo-1567602878053-eb5e4b2de940?w=800&h=400&fit=crop",
-  },
-  {
-    id: 5,
-    title: "Erfinder-AG Präsentation",
-    date: "2026-02-26",
-    time: "14:00 Uhr",
-    location: "Aula",
-    category: "Schule",
-    color: "blue",
-    description:
-      "Die Erfinder-AG stellt ihre diesjährigen Projekte vor. Von cleveren Alltagshelfern bis zu umweltfreundlichen Lösungen – kreative Ideen unserer Schülerinnen und Schüler.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=400&fit=crop",
-  },
-  {
-    id: 6,
-    title: "Anmeldung Klasse 5 – Schuljahr 2026/27",
-    date: "2026-02-10",
-    time: "8:00 – 12:00 Uhr",
-    location: "Sekretariat",
-    category: "Anmeldung",
-    color: "red",
-    description:
-      "Herzlich willkommen zukünftige Fünftklässler! Bringen Sie bitte alle Unterlagen mit. Beratung und Unterstützung erhalten Sie von unserem Team.",
-    image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&h=400&fit=crop",
-  },
-];
-
 export const newsItems = [
-  {
-    id: 1,
-    title: "Schickes neues Fenster fürs Büdchen",
-    date: "2025-06-10",
-    category: "SV-News",
-    excerpt:
-      "Die Schülervertretung hat das SV-Büdchen mit einem neuen, selbstgestalteten Fenster verschönert. Ein tolles Gemeinschaftsprojekt!",
-    image: "https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=800&h=500&fit=crop",
-    slug: "sv-fenster-2025",
-  },
   {
     id: 2,
     title: 'Erfinder-AG dreht Videoclip "Sport macht Spaß"',
@@ -245,16 +159,6 @@ export const newsItems = [
       'Alle 5er und 6er erlebten Mozarts Zauberflöte live – und sangen die Arien selbst mit! Ein unvergessliches Erlebnis für unsere jüngsten Schüler*innen.',
     image: "https://images.unsplash.com/photo-1507924538820-ede94a04019d?w=800&h=500&fit=crop",
     slug: "oper-2024",
-  },
-  {
-    id: 6,
-    title: "5er-Party – Willkommen an der RS Heimbach!",
-    date: "2024-12-13",
-    category: "Schulleben",
-    excerpt:
-      "Die Schülervertretung organisiert die jährliche Party für die neuen Fünftklässler – Spiele, Musik und ein herzliches Miteinander.",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=500&fit=crop",
-    slug: "5er-party-2024",
   },
 ];
 

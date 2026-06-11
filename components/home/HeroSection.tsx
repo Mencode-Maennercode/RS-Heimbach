@@ -1,10 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Play, ChevronDown } from "lucide-react";
+import { ArrowRight, Phone, ChevronDown } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 
 export default function HeroSection() {
+  const [showCallPopup, setShowCallPopup] = useState(false);
+  const popupRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
+        setShowCallPopup(false);
+      }
+    }
+    if (showCallPopup) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showCallPopup]);
+
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden">
       {/* Background video with overlay */}
@@ -68,7 +82,7 @@ export default function HeroSection() {
             <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-snug tracking-tight">
               <span className="inline-block bg-gradient-to-r from-[#FF6B9D] via-[#C44569] to-[#FF6B9D] bg-clip-text text-transparent">Vielfalt leben.</span>{" "}
               <span className="inline-block bg-gradient-to-r from-[#FFD93D] via-[#FFA726] to-[#FF8C42] bg-clip-text text-transparent drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]">Gemeinsam wachsen.</span>{" "}
-              <span className="inline-block bg-gradient-to-r from-[#FFA726] via-[#FB8C00] to-[#F57C00] bg-clip-text text-transparent">Zukunft planen.</span>
+              <span className="inline-block bg-gradient-to-r from-[#FFA726] via-[#FB8C00] to-[#F57C00] bg-clip-text text-transparent">Zukunft gestalten!</span>
             </p>
             <div className="mt-4 h-1 w-32 rounded-full bg-gradient-to-r from-[#FF6B9D] via-[#FFD93D] to-[#FFA726]" />
           </motion.div>
@@ -96,13 +110,39 @@ export default function HeroSection() {
               Unsere Schule entdecken
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link
-              href="/aktuelles"
-              className="group inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-base transition-all duration-300 backdrop-blur-sm"
-            >
-              <Play className="w-4 h-4" />
-              Aktuelles
-            </Link>
+            <div className="relative" ref={popupRef}>
+              <button
+                onClick={() => setShowCallPopup((v) => !v)}
+                className="group inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-base transition-all duration-300 backdrop-blur-sm"
+              >
+                <Phone className="w-4 h-4" />
+                Anrufen
+              </button>
+
+              <AnimatePresence>
+                {showCallPopup && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.92, y: 6 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.92, y: 6 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute bottom-full left-0 mb-3 z-50"
+                  >
+                    <div className="bg-white rounded-xl shadow-2xl px-4 py-3 flex items-center gap-3 whitespace-nowrap">
+                      <a
+                        href="tel:+49224177715"
+                        className="flex items-center gap-2 text-[#0a5a54] font-bold text-base hover:text-[#1DA499] transition-colors"
+                      >
+                        <Phone className="w-4 h-4 flex-shrink-0" />
+                        02241 – 77715
+                      </a>
+                    </div>
+                    {/* arrow */}
+                    <div className="w-3 h-3 bg-white rotate-45 ml-6 -mt-1.5 shadow-md" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.div>
         </div>
 

@@ -13,7 +13,7 @@ const footerLinks = {
     { label: "Sekretariat", href: "/unsere-schule/sekretariat" },
     { label: "Schulprogramm", href: "/unsere-schule/schulprogramm" },
   ],
-  Unterricht: [
+  Schulalltag: [
     { label: "Schulzeiten & Raster", href: "/unterricht/schulzeiten" },
     { label: "Fächer & Differenzierung", href: "/unterricht/faecher" },
     { label: "Ganztag & AGs", href: "/ganztag" },

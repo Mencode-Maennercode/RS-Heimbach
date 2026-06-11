@@ -1,5 +1,7 @@
 "use client";
 
+import HeroBackground from "@/components/HeroBackground";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Mail, BookOpen, Users } from "lucide-react";
@@ -10,9 +12,7 @@ export default function LehrerPage() {
     <>
       {/* Hero */}
       <section className="py-20 gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <Image src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&h=500&fit=crop" alt="" fill className="object-cover" />
-        </div>
+        <HeroBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">Team</span>

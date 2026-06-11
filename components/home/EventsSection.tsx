@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react";
-import { events } from "@/lib/data";
+import type { CalendarEvent } from "@/lib/calendar";
 
 const colorMap: Record<string, { bg: string; text: string; border: string; dot: string }> = {
   blue: { bg: "bg-blue-50", text: "text-blue-700", border: "border-blue-200", dot: "bg-blue-500" },
@@ -22,7 +22,7 @@ function formatEventDate(dateStr: string) {
   };
 }
 
-export default function EventsSection() {
+export default function EventsSection({ events }: { events: CalendarEvent[] }) {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,20 +81,26 @@ export default function EventsSection() {
                       {event.title}
                     </h3>
                     <div className="space-y-1.5">
-                      <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                        <Clock className="w-3 h-3" />
-                        {event.time}
-                      </div>
-                      <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                        <MapPin className="w-3 h-3" />
-                        {event.location}
-                      </div>
+                      {event.time && (
+                        <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                          <Clock className="w-3 h-3" />
+                          {event.time}
+                        </div>
+                      )}
+                      {event.location && (
+                        <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                          <MapPin className="w-3 h-3" />
+                          {event.location}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-                <p className="text-slate-600 text-sm mt-4 line-clamp-2 leading-relaxed">
-                  {event.description}
-                </p>
+                {event.description && (
+                  <p className="text-slate-600 text-sm mt-4 line-clamp-2 leading-relaxed">
+                    {event.description}
+                  </p>
+                )}
               </motion.div>
             );
           })}

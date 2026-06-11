@@ -1,5 +1,7 @@
 "use client";
 
+import HeroBackground from "@/components/HeroBackground";
+
 import { motion } from "framer-motion";
 import { Download, FileText, Link2, ExternalLink } from "lucide-react";
 
@@ -52,6 +54,7 @@ export default function ServicePage() {
   return (
     <>
       <section className="py-20 gradient-hero relative overflow-hidden">
+        <HeroBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">Downloads</span>

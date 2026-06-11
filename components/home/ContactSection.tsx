@@ -31,7 +31,7 @@ export default function ContactSection() {
             </div>
             <div>
               <div className="text-xs font-bold uppercase tracking-widest text-white/60 mb-1">Direkt anrufen</div>
-              <div className="text-4xl sm:text-5xl font-black leading-none mb-2">{schoolInfo.phone}</div>
+              <div className="text-2xl sm:text-3xl font-black leading-none mb-2">{schoolInfo.phone}</div>
               <div className="text-white/70 text-sm">Sekretariat der Realschule Am Heimbach</div>
             </div>
           </motion.a>

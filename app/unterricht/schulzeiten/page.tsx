@@ -1,8 +1,9 @@
 "use client";
 
+import HeroBackground from "@/components/HeroBackground";
+
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { Clock, AlertTriangle, DoorOpen, ArrowRight } from "lucide-react";
+import { Clock, AlertTriangle } from "lucide-react";
 import { scheduleData, kurzstundenData } from "@/lib/data";
 
 function Timetable({ rows, accent }: { rows: { period: string; time: string; note?: string }[]; accent: string }) {
@@ -41,6 +42,7 @@ export default function SchulzeitenPage() {
     <>
       {/* Hero */}
       <section className="py-20 gradient-hero relative overflow-hidden">
+        <HeroBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">Unterricht</span>
@@ -90,39 +92,6 @@ export default function SchulzeitenPage() {
         </div>
       </section>
 
-      {/* Fach- und Lehrerraumprinzip */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-start gap-4 mb-5">
-            <div className="w-12 h-12 rounded-2xl gradient-hero flex items-center justify-center shrink-0">
-              <DoorOpen className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-1">Raumkonzept</span>
-              <h2 className="text-3xl font-black text-[#0a5a54]">Fach- und Lehrerraumprinzip</h2>
-            </div>
-          </div>
-          <div className="space-y-4 text-slate-600 leading-relaxed">
-            <p>
-              Der Unterricht findet in speziell ausgestatteten <strong>Fachräumen</strong> statt; die Lehrkräfte unterrichten in
-              ihren jeweiligen Räumen. Die Schülerinnen und Schüler wechseln zu Beginn jeder Stunde den Raum.
-            </p>
-            <p>
-              Jeder Fachraum ist auf sein Unterrichtsfach abgestimmt – moderne Medien und fachspezifische Materialien schaffen
-              optimale Lernbedingungen. Der regelmäßige Raumwechsel fördert Bewegung und stärkt Pünktlichkeit, Organisation und
-              Eigenverantwortung.
-            </p>
-          </div>
-
-          <Link
-            href="/ganztag"
-            className="group inline-flex items-center gap-2 mt-8 bg-[#1DA499] text-white px-7 py-3.5 rounded-2xl font-bold text-sm hover:bg-[#0a5a54] transition-all duration-300 hover:shadow-xl"
-          >
-            Mehr zum Ganztag & Wahlunterricht
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </section>
     </>
   );
 }

@@ -1,8 +1,10 @@
 "use client";
 
+import HeroBackground from "@/components/HeroBackground";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { GraduationCap, Info, ArrowRight } from "lucide-react";
+import { GraduationCap, Info, ArrowRight, DoorOpen } from "lucide-react";
 
 const subjects = [
   { name: "Deutsch", icon: "📚" },
@@ -36,6 +38,7 @@ export default function FaecherPage() {
     <>
       {/* Hero */}
       <section className="py-20 gradient-hero relative overflow-hidden">
+        <HeroBackground />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">Unterricht</span>
@@ -69,20 +72,64 @@ export default function FaecherPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Raumkonzept */}
+          <div className="mt-14 flex items-start gap-4">
+            <div className="w-12 h-12 rounded-2xl gradient-hero flex items-center justify-center shrink-0">
+              <DoorOpen className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-1">Raumkonzept</span>
+              <h2 className="text-2xl font-black text-[#0a5a54] mb-3">Fach- und Lehrerraumprinzip</h2>
+              <div className="space-y-3 text-slate-600 leading-relaxed max-w-3xl">
+                <p>
+                  Der Unterricht findet in speziell ausgestatteten <strong>Fachräumen</strong> statt; die Lehrkräfte unterrichten in
+                  ihren jeweiligen Räumen. Die Schülerinnen und Schüler wechseln zu Beginn jeder Stunde den Raum.
+                </p>
+                <p>
+                  Jeder Fachraum ist auf sein Unterrichtsfach abgestimmt – moderne Medien und fachspezifische Materialien schaffen
+                  optimale Lernbedingungen. Der regelmäßige Raumwechsel fördert Bewegung und stärkt Pünktlichkeit, Organisation und
+                  Eigenverantwortung.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Differenzierung ab Klasse 7 */}
       <section className="py-20 bg-[#f8f9ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mb-8">
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2">Schwerpunkt ab Klasse 7</span>
             <h2 className="text-4xl font-black text-[#0a5a54] mb-5">Das Differenzierungsfach</h2>
             <p className="text-slate-600 leading-relaxed">
               Nach der Erprobungsstufe (Klasse 5 und 6) wählen unsere Schülerinnen und Schüler mit Beginn der Klasse 7 ein
               <strong> viertes Hauptfach</strong>. Es begleitet sie verbindlich bis zum Ende der Klasse 10, ist versetzungswirksam
-              und wird im Umfang eines Hauptfaches im Kurssystem unterrichtet.
+              und wird im Umfang eines Hauptfaches unterrichtet.
             </p>
+          </div>
+
+          {/* Kurssystem vs. Klassenverband */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 max-w-3xl">
+            <div className="bg-white rounded-2xl px-6 py-4 flex items-start gap-3 shadow-sm">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#1DA499] mt-1.5 shrink-0" />
+              <div>
+                <div className="font-bold text-slate-800 text-sm">Im Kurssystem</div>
+                <div className="text-slate-500 text-sm leading-relaxed mt-0.5">
+                  Lerngruppen bilden sich klassenübergreifend nach Interessen und Neigungen.
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl px-6 py-4 flex items-start gap-3 shadow-sm">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#e8442a] mt-1.5 shrink-0" />
+              <div>
+                <div className="font-bold text-slate-800 text-sm">Alle anderen Fächer</div>
+                <div className="text-slate-500 text-sm leading-relaxed mt-0.5">
+                  Bleiben weiterhin im gewohnten Klassenverband.
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -124,6 +171,8 @@ export default function FaecherPage() {
           </Link>
         </div>
       </section>
+
+
     </>
   );
 }
