@@ -22,6 +22,7 @@ async function fetchComments(mediaId) {
 
   const res = await fetch(url);
   const data = await res.json();
+  console.log(`DEBUG Kommentare ${mediaId}:`, JSON.stringify(data));
 
   if (!res.ok) {
     console.error(`Kommentare fuer ${mediaId} nicht ladbar:`, data.error?.message || res.status);
