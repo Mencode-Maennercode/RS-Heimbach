@@ -3,34 +3,15 @@
 // sie nach public/data/instagram.json. Wird laufend per GitHub Action
 // (.github/workflows/instagram-sync.yml) ausgefuehrt; die Datei landet dann
 // durch den naechsten Build im statischen Export unter /data/instagram.json.
+// Die Token-Erneuerung selbst uebernimmt instagram-token-refresh.mjs.
 import { writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 
-const accessTokenInput = process.env.INSTAGRAM_ACCESS_TOKEN;
+const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
 
-if (!accessTokenInput) {
+if (!accessToken) {
   console.error("INSTAGRAM_ACCESS_TOKEN fehlt.");
   process.exit(1);
-}
-
-let accessToken = accessTokenInput;
-
-async function refreshTokenIfPossible() {
-  const url = new URL("https://graph.instagram.com/refresh_access_token");
-  url.searchParams.set("grant_type", "ig_refresh_token");
-  url.searchParams.set("access_token", accessToken);
-
-  const res = await fetch(url);
-  const data = await res.json();
-
-  if (res.ok && data.access_token) {
-    accessToken = data.access_token;
-    console.log("Token erfolgreich erneuert. Laeuft ab in", data.expires_in, "Sekunden.");
-    console.log("WICHTIG: Falls dieser Wert vom bisherigen abweicht, GitHub Secret INSTAGRAM_ACCESS_TOKEN aktualisieren:");
-    console.log(accessToken);
-  } else {
-    console.log("Token-Refresh nicht noetig oder fehlgeschlagen:", data.error?.message || res.statusText);
-  }
 }
 
 async function fetchMedia() {
@@ -53,8 +34,6 @@ async function fetchMedia() {
 }
 
 async function main() {
-  await refreshTokenIfPossible();
-
   console.log("Lade Instagram-Posts...");
   const media = await fetchMedia();
   console.log(`${media.length} Posts gefunden.`);
