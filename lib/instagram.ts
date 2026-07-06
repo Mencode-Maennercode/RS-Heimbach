@@ -1,4 +1,7 @@
-import { instagramPosts as fallbackPosts } from "@/lib/data";
+export interface InstagramComment {
+  username: string;
+  text: string;
+}
 
 export interface InstagramTile {
   id: string | number;
@@ -8,7 +11,8 @@ export interface InstagramTile {
   thumbnail: string;
   caption: string;
   likes: number;
-  comments: number;
+  commentsCount: number;
+  topComments: InstagramComment[];
   timestamp: string;
   url: string;
 }
@@ -29,6 +33,7 @@ interface RawInstagramMedia {
   thumbnail_url?: string;
   like_count?: number;
   comments_count?: number;
+  comments_data?: InstagramComment[];
   children?: { data: RawInstagramChild[] };
 }
 
@@ -60,12 +65,17 @@ function mapMedia(post: RawInstagramMedia): InstagramTile {
 
   let media: string | string[] = post.media_url;
   let mediaKinds: Array<"image" | "video"> | undefined;
+  let thumbnail = post.thumbnail_url || post.media_url;
 
   if (type === "carousel" && post.children?.data?.length) {
     media = post.children.data.map((c) => c.media_url);
     mediaKinds = post.children.data.map((c) =>
       c.media_type === "VIDEO" ? "video" : "image",
     );
+    const firstChild = post.children.data[0];
+    thumbnail = firstChild.media_type === "VIDEO"
+      ? firstChild.thumbnail_url || firstChild.media_url
+      : firstChild.media_url;
   } else if (type === "reel") {
     mediaKinds = ["video"];
   }
@@ -75,10 +85,11 @@ function mapMedia(post: RawInstagramMedia): InstagramTile {
     type,
     media,
     mediaKinds,
-    thumbnail: post.thumbnail_url || post.media_url,
+    thumbnail,
     caption: post.caption || "",
     likes: post.like_count ?? 0,
-    comments: post.comments_count ?? 0,
+    commentsCount: post.comments_count ?? 0,
+    topComments: post.comments_data ?? [],
     timestamp: relativeTime(post.timestamp),
     url: post.permalink,
   };
@@ -89,9 +100,8 @@ export async function loadInstagramPosts(limit = 9): Promise<InstagramTile[]> {
     const res = await fetch("/data/instagram.json", { cache: "no-store" });
     if (!res.ok) throw new Error("instagram.json nicht erreichbar");
     const data: RawInstagramData = await res.json();
-    if (!data.media?.length) throw new Error("keine Posts vorhanden");
     return data.media.slice(0, limit).map(mapMedia);
   } catch {
-    return fallbackPosts.slice(0, limit);
+    return [];
   }
 }

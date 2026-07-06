@@ -16,9 +16,9 @@ export default async function Home() {
       <StatsSection />
       <LeitbildSection />
       <NewsSection />
+      <InstagramSection />
       <EventsSection events={events.slice(0, 6)} />
       <GanztagTeaser />
-      <InstagramSection />
       <ContactSection />
     </>
   );

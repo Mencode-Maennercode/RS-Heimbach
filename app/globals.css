@@ -37,6 +37,15 @@ body {
   background-clip: text;
 }
 
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
