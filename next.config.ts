@@ -28,6 +28,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn.pixabay.com" },
       { protocol: "https", hostname: "www.rs-heimbach.de" },
       { protocol: "https", hostname: "pixabay.com" },
+      { protocol: "https", hostname: "*.cdninstagram.com" },
+      { protocol: "https", hostname: "*.fbcdn.net" },
     ],
   },
 };

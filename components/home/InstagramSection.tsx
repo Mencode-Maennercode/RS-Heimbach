@@ -1,11 +1,19 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import { instagramPosts, schoolInfo } from "@/lib/data";
+import { loadInstagramPosts, type InstagramTile } from "@/lib/instagram";
 import InstagramPost from "./InstagramPost";
 
 export default function InstagramSection() {
+  const [posts, setPosts] = useState<InstagramTile[]>(instagramPosts.slice(0, 9));
+
+  useEffect(() => {
+    loadInstagramPosts(9).then(setPosts);
+  }, []);
+
   return (
     <section className="py-24 bg-[#f0fffe]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,7 +38,7 @@ export default function InstagramSection() {
 
         {/* Instagram Grid */}
         <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-9 gap-2 sm:gap-3 mb-10">
-          {instagramPosts.map((post, i) => (
+          {posts.map((post, i) => (
             <InstagramPost
               key={post.id}
               post={post}

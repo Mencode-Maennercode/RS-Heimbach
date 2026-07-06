@@ -1,0 +1,95 @@
+name: Instagram Token Refresh (alle 50 Tage)
+
+# Der Instagram Access Token ist 60 Tage gueltig. Dieser Workflow erneuert ihn
+# alle 50 Tage und legt bei Erfolg ein Issue mit dem neuen Token an - der muss
+# dann manuell als Secret INSTAGRAM_ACCESS_TOKEN gespeichert werden.
+on:
+  schedule:
+    - cron: "0 3 */50 * *"
+  workflow_dispatch:
+
+jobs:
+  refresh-token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Token erneuern
+        id: refresh
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+        run: |
+          node <<'EOF'
+          const fs = require('fs');
+
+          async function refresh() {
+            const url = new URL('https://graph.instagram.com/refresh_access_token');
+            url.searchParams.set('grant_type', 'ig_refresh_token');
+            url.searchParams.set('access_token', process.env.INSTAGRAM_ACCESS_TOKEN);
+
+            const res = await fetch(url);
+            const data = await res.json();
+
+            if (!res.ok || !data.access_token) {
+              console.error('Refresh fehlgeschlagen:', data.error?.message || res.statusText);
+              process.exit(1);
+            }
+
+            console.log('Token erfolgreich erneuert. Laeuft ab in', data.expires_in, 'Sekunden.');
+            fs.writeFileSync('new_token.txt', data.access_token);
+          }
+
+          refresh();
+          EOF
+
+      - name: Issue mit neuem Token anlegen
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const newToken = fs.readFileSync('new_token.txt', 'utf8');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🔄 Instagram Access Token erneuert',
+              body: `Der Instagram Access Token wurde automatisch erneuert.
+
+              ## ⚠️ AKTION ERFORDERLICH
+
+              Bitte update das GitHub Secret \`INSTAGRAM_ACCESS_TOKEN\`:
+
+              1. Gehe zu: [Repository Secrets](https://github.com/${context.repo.owner}/${context.repo.repo}/settings/secrets/actions)
+              2. Klicke auf \`INSTAGRAM_ACCESS_TOKEN\` → "Update"
+              3. Füge den neuen Token ein (siehe unten) → "Update secret"
+
+              ## 🔑 Neuer Token
+
+              \`\`\`
+              ${newToken}
+              \`\`\`
+
+              Gültigkeit: 60 Tage. Schließe dieses Issue, nachdem du den Token aktualisiert hast.`,
+              labels: ['token-refresh', 'action-required']
+            });
+
+      - name: Bei Fehler benachrichtigen
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 Instagram Token-Refresh fehlgeschlagen',
+              body: `Die automatische Token-Erneuerung ist fehlgeschlagen.
+
+              ## ⚠️ MANUELLE AKTION ERFORDERLICH
+
+              Token manuell erneuern:
+              1. Gehe zu: https://developers.facebook.com/apps/2148034572639906/use-cases/customize
+              2. "Messaging und Content auf Instagram verwalten" → Schritt 2: "Token generieren" (für das Konto realschule-am-heimbach)
+              3. Neuen Token kopieren und als Secret [INSTAGRAM_ACCESS_TOKEN](https://github.com/${context.repo.owner}/${context.repo.repo}/settings/secrets/actions) speichern
+
+              Workflow-Log: [Hier ansehen](https://github.com/${context.repo.owner}/${context.repo.repo}/actions)`,
+              labels: ['token-refresh', 'urgent']
+            });

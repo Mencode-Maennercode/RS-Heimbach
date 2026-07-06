@@ -1,0 +1,37 @@
+name: Instagram Sync
+
+# Holt alle 10 Minuten die aktuellen Instagram-Posts und committet sie nach
+# public/data/instagram.json (nur bei tatsaechlicher Aenderung). Der Push auf
+# master loest danach automatisch den bestehenden "Build & Deploy (FTP)"-
+# Workflow aus - bei 1-2 neuen Posts/Woche bleibt das selten und kostenlos.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: instagram-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instagram-Daten abrufen
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+        run: node scripts/instagram-sync.mjs
+
+      - name: Aenderungen committen
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add public/data/instagram.json
+          git commit -m "chore: Instagram-Daten aktualisiert" || exit 0
+          git push

@@ -7,9 +7,10 @@ import { useState } from "react";
 
 interface InstagramPostProps {
   post: {
-    id: number;
+    id: string | number;
     type: "photo" | "reel" | "carousel";
     media: string | string[];
+    mediaKinds?: Array<"image" | "video">;
     thumbnail: string;
     caption: string;
     likes: number;
@@ -35,7 +36,9 @@ export default function InstagramPost({ post, index, isLarge = false }: Instagra
 
   const renderMedia = () => {
     const currentMedia = mediaArray[currentMediaIndex];
-    const isVideo = currentMedia.endsWith('.mp4');
+    const isVideo = post.mediaKinds
+      ? post.mediaKinds[currentMediaIndex] === "video"
+      : currentMedia.endsWith('.mp4');
 
     if (isVideo) {
       return (
