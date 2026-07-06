@@ -14,23 +14,6 @@ if (!accessToken) {
   process.exit(1);
 }
 
-async function fetchComments(mediaId) {
-  const url = new URL(`https://graph.instagram.com/${mediaId}/comments`);
-  url.searchParams.set("fields", "username,text");
-  url.searchParams.set("access_token", accessToken);
-  url.searchParams.set("limit", "5");
-
-  const res = await fetch(url);
-  const data = await res.json();
-  console.log(`DEBUG Kommentare ${mediaId}:`, JSON.stringify(data));
-
-  if (!res.ok) {
-    console.error(`Kommentare fuer ${mediaId} nicht ladbar:`, data.error?.message || res.status);
-    return [];
-  }
-  return (data.data ?? []).map((c) => ({ username: c.username, text: c.text }));
-}
-
 async function fetchMedia() {
   const url = new URL("https://graph.instagram.com/me/media");
   url.searchParams.set(
@@ -47,14 +30,7 @@ async function fetchMedia() {
     throw new Error(data.error?.message || `Instagram API Fehler (${res.status})`);
   }
 
-  const media = data.data ?? [];
-
-  return Promise.all(
-    media.map(async (item) => ({
-      ...item,
-      comments_data: item.comments_count > 0 ? await fetchComments(item.id) : [],
-    })),
-  );
+  return data.data ?? [];
 }
 
 async function main() {

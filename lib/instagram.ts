@@ -1,8 +1,3 @@
-export interface InstagramComment {
-  username: string;
-  text: string;
-}
-
 export interface InstagramTile {
   id: string | number;
   type: "photo" | "reel" | "carousel";
@@ -12,7 +7,6 @@ export interface InstagramTile {
   caption: string;
   likes: number;
   commentsCount: number;
-  topComments: InstagramComment[];
   timestamp: string;
   url: string;
 }
@@ -33,7 +27,6 @@ interface RawInstagramMedia {
   thumbnail_url?: string;
   like_count?: number;
   comments_count?: number;
-  comments_data?: InstagramComment[];
   children?: { data: RawInstagramChild[] };
 }
 
@@ -89,7 +82,6 @@ function mapMedia(post: RawInstagramMedia): InstagramTile {
     caption: post.caption || "",
     likes: post.like_count ?? 0,
     commentsCount: post.comments_count ?? 0,
-    topComments: post.comments_data ?? [],
     timestamp: relativeTime(post.timestamp),
     url: post.permalink,
   };

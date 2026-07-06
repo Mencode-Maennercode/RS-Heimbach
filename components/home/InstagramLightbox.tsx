@@ -100,17 +100,6 @@ export default function InstagramLightbox({ post, instagramHandle, onClose }: In
               <p className="text-sm text-slate-600 leading-relaxed">
                 {post.caption || "Kein Text zu diesem Beitrag."}
               </p>
-
-              {post.topComments.length > 0 && (
-                <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-3">
-                  {post.topComments.map((c, i) => (
-                    <p key={i} className="text-sm leading-relaxed">
-                      <span className="font-bold text-slate-900">{c.username}</span>{" "}
-                      <span className="text-slate-600">{c.text}</span>
-                    </p>
-                  ))}
-                </div>
-              )}
             </div>
 
             <div className="flex flex-col gap-2 mt-5 pt-5 border-t border-slate-100 shrink-0">
