@@ -4,7 +4,7 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Download, Calendar, Users, MessageSquare, FileText, ArrowRight } from "lucide-react";
+import { Download, Calendar, Users, MessageSquare, FileText, ArrowRight, Thermometer } from "lucide-react";
 
 const downloads = [
   { title: "Schulordnung RS Heimbach", type: "PDF", size: "245 KB" },
@@ -16,6 +16,13 @@ const downloads = [
 ];
 
 const resources = [
+  {
+    icon: Thermometer,
+    title: "Krankmeldung",
+    desc: "Ihr Kind ist krank? Melden Sie es am selben Tag bis 8:00 Uhr bequem online über unser Formular ab.",
+    href: "/krankmeldung",
+    color: "from-red-500 to-orange-600",
+  },
   {
     icon: Calendar,
     title: "Elternsprechtage",

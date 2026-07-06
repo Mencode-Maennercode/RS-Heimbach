@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, GraduationCap, Phone, Search } from "lucide-react";
+import { Menu, X, ChevronDown, GraduationCap, Phone, Search, Thermometer } from "lucide-react";
 import { navItems, schoolInfo } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -25,6 +25,7 @@ const searchIndex = [
   { label: "Förderverein", href: "/foerderverein", keywords: "förderverein spenden unterstützung" },
   { label: "Veranstaltungen", href: "/veranstaltungen", keywords: "termine events kalender" },
   { label: "Downloads", href: "/service", keywords: "downloads formulare service dokumente" },
+  { label: "Krankmeldung", href: "/krankmeldung", keywords: "krankmeldung krank krankmelden entschuldigung fehlen abwesenheit fehltag formular abmelden" },
   { label: "Aktuelles", href: "/aktuelles", keywords: "aktuelles news neuigkeiten anmeldung" },
   { label: "Kontakt", href: "/kontakt", keywords: "kontakt telefon email adresse" },
   { label: "Impressum", href: "/impressum", keywords: "impressum rechtliches" },
@@ -261,6 +262,15 @@ export default function Navigation() {
               <Phone className="w-4.5 h-4.5" />
             </a>
 
+            {/* Krankmeldung – abgesetzte Aktion in Akzentfarbe */}
+            <Link
+              href="/krankmeldung"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#e8442a] hover:bg-[#d13a22] text-white text-sm font-bold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#e8442a]/30"
+            >
+              <Thermometer className="w-4 h-4" />
+              Krankmeldung
+            </Link>
+
             <Link
               href="/kontakt"
               className="px-5 py-2.5 bg-[#1DA499] hover:bg-[#17a89d] text-white text-sm font-bold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#1DA499]/25"
@@ -269,8 +279,15 @@ export default function Navigation() {
             </Link>
           </div>
 
-          {/* Mobile: Suche + Anruf + Toggle */}
+          {/* Mobile: Krankmeldung + Suche + Anruf + Toggle */}
           <div className="flex items-center gap-1.5 lg:hidden">
+            <Link
+              href="/krankmeldung"
+              aria-label="Krankmeldung"
+              className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#e8442a] text-white shadow-md shadow-[#e8442a]/25"
+            >
+              <Thermometer className="w-5 h-5" />
+            </Link>
             <button
               type="button"
               onClick={() => setSearchOpen((v) => !v)}
@@ -373,6 +390,12 @@ export default function Navigation() {
             className="lg:hidden bg-white border-t border-slate-100 overflow-hidden"
           >
             <div className="px-4 py-4 space-y-1 max-h-[70vh] overflow-y-auto">
+              <Link
+                href="/krankmeldung"
+                className="flex items-center justify-center gap-2 mb-3 py-3.5 bg-[#e8442a] text-white font-bold rounded-xl shadow-md shadow-[#e8442a]/25"
+              >
+                <Thermometer className="w-5 h-5" /> Krankmeldung
+              </Link>
               {navItems.map((item) => (
                 <div key={item.label}>
                   <Link

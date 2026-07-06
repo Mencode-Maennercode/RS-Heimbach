@@ -8,6 +8,9 @@ export const schoolInfo = {
   fax: "02241 - 75105",
   email: "schule.verwaltung@rs-heimbach.de",
   instagram: "realschule-am-heimbach",
+  // Online-Krankmeldung: Nextcloud-Formular (eigene Cloud). Wird auf der Seite
+  // /krankmeldung und in den Cross-Links verlinkt. Bei neuem Formular hier ändern.
+  krankmeldungUrl: "https://cloud.rs-heimbach.de/apps/forms/s/5TbFkcjxm3ZDk8ajoWmGMFNn",
   students: 590,
   teachers: 55,
   specialEdTeachers: 5,
