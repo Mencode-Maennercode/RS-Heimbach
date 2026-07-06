@@ -23,7 +23,10 @@ async function fetchComments(mediaId) {
   const res = await fetch(url);
   const data = await res.json();
 
-  if (!res.ok) return [];
+  if (!res.ok) {
+    console.error(`Kommentare fuer ${mediaId} nicht ladbar:`, data.error?.message || res.status);
+    return [];
+  }
   return (data.data ?? []).map((c) => ({ username: c.username, text: c.text }));
 }
 
