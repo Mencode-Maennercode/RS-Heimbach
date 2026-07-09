@@ -1,20 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { UserPlus, ExternalLink } from "lucide-react";
 import { schoolInfo } from "@/lib/data";
-import { loadInstagramPosts, type InstagramTile } from "@/lib/instagram";
+import type { InstagramTile } from "@/lib/instagram";
 import InstagramPost from "./InstagramPost";
 import InstagramLightbox from "./InstagramLightbox";
 
-export default function InstagramSection() {
-  const [posts, setPosts] = useState<InstagramTile[]>([]);
-  const [activePost, setActivePost] = useState<InstagramTile | null>(null);
+interface InstagramSectionProps {
+  posts: InstagramTile[];
+}
 
-  useEffect(() => {
-    loadInstagramPosts(10).then(setPosts);
-  }, []);
+export default function InstagramSection({ posts }: InstagramSectionProps) {
+  const [activePost, setActivePost] = useState<InstagramTile | null>(null);
 
   if (posts.length === 0) return null;
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { X, Instagram, ExternalLink, UserPlus, ChevronLeft, ChevronRight } from "lucide-react";
@@ -15,11 +15,25 @@ interface InstagramLightboxProps {
 export default function InstagramLightbox({ post, instagramHandle, onClose }: InstagramLightboxProps) {
   const [mediaIndex, setMediaIndex] = useState(0);
 
+  // Nachbar-Bilder vorladen, damit das Durchblättern im Karussell sofort
+  // reagiert statt jedes Bild erst beim Klick zu holen.
+  useEffect(() => {
+    if (!post || post.media.length < 2) return;
+    const neighbors = [mediaIndex + 1, mediaIndex - 1]
+      .map((i) => (i + post.media.length) % post.media.length)
+      .filter((i) => post.mediaKinds[i] === "image");
+    for (const i of neighbors) {
+      const img = new window.Image();
+      img.src = post.media[i];
+    }
+  }, [post, mediaIndex]);
+
   if (!post) return null;
 
-  const mediaArray = Array.isArray(post.media) ? post.media : [post.media];
+  const mediaArray = post.media;
   const current = mediaArray[mediaIndex];
-  const isVideo = post.mediaKinds ? post.mediaKinds[mediaIndex] === "video" : current.endsWith(".mp4");
+  const isVideo = post.mediaKinds[mediaIndex] === "video";
+  const poster = post.posters[mediaIndex] ?? undefined;
   const hasMultiple = mediaArray.length > 1;
 
   const goPrev = () => setMediaIndex((i) => (i === 0 ? mediaArray.length - 1 : i - 1));
@@ -50,7 +64,14 @@ export default function InstagramLightbox({ post, instagramHandle, onClose }: In
           {/* Media */}
           <div className="relative bg-black w-full sm:w-3/5 aspect-square shrink-0">
             {isVideo ? (
-              <video className="w-full h-full object-contain" controls autoPlay muted playsInline>
+              <video
+                className="w-full h-full object-contain"
+                controls
+                autoPlay
+                muted
+                playsInline
+                poster={poster}
+              >
                 <source src={current} type="video/mp4" />
               </video>
             ) : (

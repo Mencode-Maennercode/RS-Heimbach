@@ -169,8 +169,8 @@ export default function Navigation() {
             ))}
           </nav>
 
-          {/* Desktop: Suche + Telefon + Kontakt */}
-          <div className="hidden lg:flex items-center gap-2">
+          {/* Desktop: Suche + Anrufen + Krankmeldung */}
+          <div className="hidden lg:flex items-center gap-2 lg:ml-6">
             {/* Suchicon + Popup */}
             <div ref={searchRef} className="relative">
               <button
@@ -252,30 +252,24 @@ export default function Navigation() {
               </AnimatePresence>
             </div>
 
-            {/* Telefon – nur Icon */}
+            {/* Anrufen – dezentes Icon neben der Suche */}
             <a
               href={schoolInfo.phoneLink}
               aria-label={`Anrufen: ${schoolInfo.phone}`}
               title={schoolInfo.phone}
-              className="w-10 h-10 rounded-xl flex items-center justify-center text-[#1DA499] hover:bg-[#1DA499]/8 transition-colors duration-200"
+              className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 hover:bg-slate-100 hover:text-[#1DA499] transition-all duration-200"
             >
               <Phone className="w-4.5 h-4.5" />
             </a>
 
-            {/* Krankmeldung – abgesetzte Aktion in Akzentfarbe */}
+            {/* Krankmeldung – gleiches Icon wie Suche/Anrufen, nur rot beim Hover */}
             <Link
               href="/krankmeldung"
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#e8442a] hover:bg-[#d13a22] text-white text-sm font-bold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#e8442a]/30"
+              aria-label="Krankmeldung"
+              title="Krankmeldung"
+              className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 hover:bg-slate-100 hover:text-[#e8442a] transition-all duration-200"
             >
-              <Thermometer className="w-4 h-4" />
-              Krankmeldung
-            </Link>
-
-            <Link
-              href="/kontakt"
-              className="px-5 py-2.5 bg-[#1DA499] hover:bg-[#17a89d] text-white text-sm font-bold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-[#1DA499]/25"
-            >
-              Kontakt
+              <Thermometer className="w-4.5 h-4.5" />
             </Link>
           </div>
 
@@ -304,7 +298,7 @@ export default function Navigation() {
             <a
               href={schoolInfo.phoneLink}
               aria-label={`Anrufen: ${schoolInfo.phone}`}
-              className="w-10 h-10 rounded-xl flex items-center justify-center bg-[#1DA499] text-white shadow-md shadow-[#1DA499]/25"
+              className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 hover:bg-slate-100 hover:text-[#1DA499] transition-colors"
             >
               <Phone className="w-5 h-5" />
             </a>

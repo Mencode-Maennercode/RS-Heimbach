@@ -53,6 +53,7 @@ export const navItems = [
       { label: "Downloads", href: "/service" },
     ],
   },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 // Lehrer- und News-Inhalte kommen aus einem Google Sheet, das per

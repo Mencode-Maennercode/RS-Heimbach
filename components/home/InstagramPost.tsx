@@ -12,7 +12,7 @@ interface InstagramPostProps {
 }
 
 export default function InstagramPost({ post, index, onOpen }: InstagramPostProps) {
-  const hasVideo = post.mediaKinds ? post.mediaKinds[0] === "video" : post.type === "reel";
+  const hasVideo = post.mediaKinds?.[0] === "video";
 
   const MediaTypeIcon =
     post.type === "reel" ? Film : post.type === "carousel" ? Layers : null;
@@ -27,7 +27,15 @@ export default function InstagramPost({ post, index, onOpen }: InstagramPostProp
       transition={{ duration: 0.4, delay: index * 0.04 }}
       className="group relative shrink-0 w-28 h-28 sm:w-36 sm:h-36 overflow-hidden rounded-2xl bg-slate-200 snap-start"
     >
-      <Image src={post.thumbnail} alt={post.caption} fill className="object-cover" sizes="144px" />
+      <Image
+        src={post.thumbnail}
+        alt={post.caption}
+        fill
+        className="object-cover"
+        sizes="144px"
+        priority={index < 5}
+        loading={index < 5 ? undefined : "lazy"}
+      />
 
       {hasVideo && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/10">

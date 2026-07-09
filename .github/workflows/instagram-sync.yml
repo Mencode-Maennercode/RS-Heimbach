@@ -25,6 +25,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+
+      # sharp wird zum Verkleinern der Bilder gebraucht. npm ci ist durch den
+      # Cache schnell; die Bilder selbst werden nur bei neuen Posts geladen.
+      - run: npm ci
 
       - name: Instagram-Daten abrufen
         env:
@@ -35,6 +40,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add public/data/instagram.json
+          git add public/data/instagram.json public/data/instagram
           git commit -m "chore: Instagram-Daten aktualisiert" || exit 0
           git push
