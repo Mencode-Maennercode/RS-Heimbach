@@ -64,7 +64,7 @@ export default function KontaktPage() {
               </div>
               <p className="text-slate-600 text-sm sm:ml-auto">
                 Im Sekretariat, 08:00–13:00 Uhr (montags bis 12:00), <strong>außer mittwochs</strong>. Details unter{" "}
-                <Link href="/aktuelles" className="text-[#1DA499] font-bold hover:underline">Aktuelles</Link>.
+                <Link href="/anmeldung" className="text-[#1DA499] font-bold hover:underline">Anmeldung</Link>.
               </p>
             </div>
           </div>

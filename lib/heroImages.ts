@@ -6,7 +6,7 @@ export const heroImages = {
   unsereSchule: "/hero/unsere-schule.jpg",
   schulalltag: "/hero/schulalltag.jpg",
   beratungService: "/hero/beratung-service.jpg",
-  aktuelles: "/hero/aktuelles.jpg",
+  anmeldung: "/hero/aktuelles.jpg",
   kontakt: "/hero/kontakt.jpg",
 } as const;
 
@@ -33,7 +33,7 @@ export function getHeroImage(pathname: string): string {
     return heroImages.beratungService;
   }
   // Eigenständige Seiten
-  if (pathname.startsWith("/aktuelles")) return heroImages.aktuelles;
+  if (pathname.startsWith("/anmeldung")) return heroImages.anmeldung;
   if (pathname.startsWith("/kontakt")) return heroImages.kontakt;
 
   // Fallback

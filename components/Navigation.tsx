@@ -26,7 +26,7 @@ const searchIndex = [
   { label: "Veranstaltungen", href: "/veranstaltungen", keywords: "termine events kalender" },
   { label: "Downloads", href: "/service", keywords: "downloads formulare service dokumente" },
   { label: "Krankmeldung", href: "/krankmeldung", keywords: "krankmeldung krank krankmelden entschuldigung fehlen abwesenheit fehltag formular abmelden" },
-  { label: "Aktuelles", href: "/aktuelles", keywords: "aktuelles news neuigkeiten anmeldung" },
+  { label: "Anmeldung", href: "/anmeldung", keywords: "aktuelles news neuigkeiten anmeldung anmelden klasse 5" },
   { label: "Kontakt", href: "/kontakt", keywords: "kontakt telefon email adresse" },
   { label: "Impressum", href: "/impressum", keywords: "impressum rechtliches" },
 ];

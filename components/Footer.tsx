@@ -3,31 +3,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { GraduationCap, MapPin, Phone, Mail, Instagram, Facebook, Youtube, ArrowRight } from "lucide-react";
-import { schoolInfo } from "@/lib/data";
+import { schoolInfo, navItems } from "@/lib/data";
 
-const footerLinks = {
-  "Unsere Schule": [
-    { label: "Über uns", href: "/unsere-schule" },
-    { label: "Schulleitung", href: "/unsere-schule/schulleitung" },
-    { label: "Kollegium", href: "/lehrer" },
-    { label: "Sekretariat", href: "/unsere-schule/sekretariat" },
-    { label: "Schulprogramm", href: "/unsere-schule/schulprogramm" },
-  ],
-  Schulalltag: [
-    { label: "Schulzeiten & Raster", href: "/unterricht/schulzeiten" },
-    { label: "Fächer & Differenzierung", href: "/unterricht/faecher" },
-    { label: "Ganztag & AGs", href: "/ganztag" },
-    { label: "Mensa", href: "/unterricht/mensa" },
-  ],
-  Service: [
-    { label: "Aktuelles", href: "/aktuelles" },
-    { label: "Termine", href: "/veranstaltungen" },
-    { label: "Beratung", href: "/beratung" },
-    { label: "Eltern", href: "/eltern" },
-    { label: "Förderverein", href: "/foerderverein" },
-    { label: "Downloads", href: "/service" },
-  ],
-};
+// Footer-Spalten werden direkt aus navItems abgeleitet, damit der Footer nie
+// wieder Seiten auflistet, die über die Navbar gar nicht erreichbar sind (und
+// umgekehrt keine Navbar-Seite im Footer fehlt).
+const footerColumns = navItems.filter((item) => item.children);
 
 export default function Footer() {
   return (
@@ -41,7 +22,7 @@ export default function Footer() {
               <p className="text-white/90 text-sm">Jetzt informieren und Ihrem Kind die beste Schule sichern.</p>
             </div>
             <Link
-              href="/kontakt"
+              href="/anmeldung"
               className="flex items-center gap-2 bg-white text-[#e8442a] px-7 py-3.5 rounded-2xl font-bold text-sm hover:shadow-xl transition-all duration-300 hover:scale-105 whitespace-nowrap"
             >
               Jetzt anmelden <ArrowRight className="w-4 h-4" />
@@ -107,11 +88,11 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-5">{title}</h4>
+          {footerColumns.map((column) => (
+            <div key={column.label}>
+              <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-5">{column.label}</h4>
               <ul className="space-y-2.5">
-                {links.map((link) => (
+                {column.children!.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
