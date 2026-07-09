@@ -2,104 +2,655 @@
   "lehrer": [
     {
       "id": 1,
-      "vorname": "Stephanie",
-      "nachname": "Weber",
-      "name": "Frau Stephanie Weber",
-      "rolle": "Schulleiterin",
-      "faecher": ["Deutsch", "Geschichte"],
-      "bio": "Seit 2015 leitet Frau Weber unsere Schule mit großem Engagement für individuelle Förderung und modernes Lernen. Mit ihrer Erfahrung in der Schulentwicklung und ihrem Engagement für moderne Pädagogik prägt sie das Schulklima nachhaltig. Ihre Schwerpunkte sind individuelle Förderung und digitale Bildung.",
-      "bildUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=500&fit=crop",
+      "vorname": "Hr.",
+      "nachname": "Herbst",
+      "name": "Hr. Herbst",
+      "rolle": "Schulleiter",
+      "faecher": [],
+      "bio": "Personalia, Beschwerden, Widersprüche, Konferenzen, Mitwirkungsorgane, An- & Abmeldungen, Beurlaubungen, UVD, Stundenplan, Öffentlichkeitsarbeit, Schulprogramm",
+      "bildUrl": "",
       "schulleitung": true,
-      "telefon": "02241 – 77715 (Sekretariat)",
-      "email": "schulleitung@rs-heimbach.de"
+      "telefon": "",
+      "email": ""
     },
     {
       "id": 2,
-      "vorname": "Thomas",
-      "nachname": "Müller",
-      "name": "Herr Thomas Müller",
-      "rolle": "Stellvertretender Schulleiter",
-      "faecher": ["Mathematik", "Physik"],
-      "bio": "Herr Müller bringt innovative Unterrichtsmethoden in den MINT-Bereich und koordiniert unsere Inklusion. Er koordiniert den Stundenplan, die Lehrerausbildung und die Inklusion. Als ehemaliger MINT-Lehrer bringt er ein tiefes Verständnis für naturwissenschaftliche Bildung mit.",
-      "bildUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&h=500&fit=crop",
+      "vorname": "Fr.",
+      "nachname": "Fournes",
+      "name": "Fr. Fournes",
+      "rolle": "Konrektorin",
+      "faecher": [],
+      "bio": "UVD, Vertretung, Stundenplan, Aufsicht, Konferenzen, AKO, Differenzierung, Beratung, Stufenorganisation",
+      "bildUrl": "",
       "schulleitung": true,
-      "telefon": "02241 – 77715 (Sekretariat)",
-      "email": "stellvertretung@rs-heimbach.de"
+      "telefon": "",
+      "email": ""
     },
     {
       "id": 3,
-      "vorname": "Anna",
-      "nachname": "Beyers",
-      "name": "Frau Anna Beyers",
-      "rolle": "Lehrerin",
-      "faecher": ["Kunst", "Geschichte"],
-      "bio": "Frau Beyers begeistert Schülerinnen und Schüler für Kunst und kreatives Gestalten. Ihre Graffiti-Projekte sind legendär.",
-      "bildUrl": "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop",
-      "schulleitung": false,
+      "vorname": "Hr.",
+      "nachname": "Werner",
+      "name": "Hr. Werner",
+      "rolle": "2. Konrektor*in",
+      "faecher": [],
+      "bio": "Vertretung, Stundenplan, Aufsicht, UVD, Erprobungsstufe, Ganztag, Fortbildung, Schulprogramm",
+      "bildUrl": "",
+      "schulleitung": true,
       "telefon": "",
       "email": ""
     },
     {
       "id": 4,
-      "vorname": "Hans-Ulrich",
-      "nachname": "Herzog",
-      "name": "Herr Hans-Ulrich Herzog",
-      "rolle": "Lehrer & AG-Leiter",
-      "faecher": ["Technik", "Sport"],
-      "bio": "Herr Herzog leitet die beliebte \"Erfinder-AG\" und bringt technische Kreativität in den Schulalltag.",
-      "bildUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+      "vorname": "Fr.",
+      "nachname": "Kassmann",
+      "name": "Fr. Kassmann",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Deutsch"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
     },
     {
       "id": 5,
-      "vorname": "Petra",
-      "nachname": "Strack",
-      "name": "Frau Petra Strack",
-      "rolle": "Lehrerin & Medienpädagogin",
-      "faecher": ["Deutsch", "Medien"],
-      "bio": "Frau Strack verbindet Sprache und digitale Medien – von Videoschnitt bis zur Schülerzeitung.",
-      "bildUrl": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop",
+      "vorname": "Fr.",
+      "nachname": "Etschenberg",
+      "name": "Fr. Etschenberg",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Englisch"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
     },
     {
       "id": 6,
-      "vorname": "Claudia",
-      "nachname": "Richter",
-      "name": "Frau Claudia Richter",
-      "rolle": "Sonderpädagogin",
-      "faecher": ["Förderpädagogik", "Inklusion"],
-      "bio": "Frau Richter begleitet Schülerinnen und Schüler mit besonderem Förderbedarf liebevoll auf ihrem Lernweg.",
-      "bildUrl": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=400&fit=crop",
+      "vorname": "Fr.",
+      "nachname": "Fischer",
+      "name": "Fr. Fischer",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Mathematik"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
     },
     {
       "id": 7,
-      "vorname": "Michael",
-      "nachname": "Schneider",
-      "name": "Herr Michael Schneider",
-      "rolle": "Lehrer & Sportkoordinator",
-      "faecher": ["Sport", "Biologie"],
-      "bio": "Herr Schneider koordiniert Sport-AGs und Projekttage und hat das Zirkusprojekt ins Leben gerufen.",
-      "bildUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      "vorname": "Hr.",
+      "nachname": "Erdogan",
+      "name": "Hr. Erdogan",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Sozialwissenschaften",
+        "Politik"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
     },
     {
       "id": 8,
-      "vorname": "Julia",
-      "nachname": "Hartmann",
-      "name": "Frau Julia Hartmann",
-      "rolle": "Lehrerin",
-      "faecher": ["Englisch", "Erdkunde"],
-      "bio": "Frau Hartmann organisiert Austauschprogramme und internationale Projekte für unsere Schülerinnen und Schüler.",
-      "bildUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+      "vorname": "Fr.",
+      "nachname": "Sliwa",
+      "name": "Fr. Sliwa",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Biologie",
+        "Textil"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 9,
+      "vorname": "Hr.",
+      "nachname": "Stein",
+      "name": "Hr. Stein",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Informatik"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 10,
+      "vorname": "Fr.",
+      "nachname": "Koller",
+      "name": "Fr. Koller",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Informatik"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 11,
+      "vorname": "Hr.",
+      "nachname": "Harpak",
+      "name": "Hr. Harpak",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Technik"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 12,
+      "vorname": "Hr.",
+      "nachname": "Engler",
+      "name": "Hr. Engler",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Französisch"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 13,
+      "vorname": "Fr.",
+      "nachname": "Rieber",
+      "name": "Fr. Rieber",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Kunst"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 14,
+      "vorname": "Fr.",
+      "nachname": "Schulz",
+      "name": "Fr. Schulz",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Musik"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 15,
+      "vorname": "Fr.",
+      "nachname": "Reuber",
+      "name": "Fr. Reuber",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Erdkunde"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 16,
+      "vorname": "Hr.",
+      "nachname": "Marx",
+      "name": "Hr. Marx",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Geschichte"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 17,
+      "vorname": "Hr.",
+      "nachname": "Tembe",
+      "name": "Hr. Tembe",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Praktische Philosophie"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 18,
+      "vorname": "Hr.",
+      "nachname": "Thape",
+      "name": "Hr. Thape",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Physik"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 19,
+      "vorname": "Fr.",
+      "nachname": "Gerdesmeyer",
+      "name": "Fr. Gerdesmeyer",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Chemie"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 20,
+      "vorname": "Fr.",
+      "nachname": "Hoffmann",
+      "name": "Fr. Hoffmann",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Ev. Religion"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 21,
+      "vorname": "Hr.",
+      "nachname": "Stander",
+      "name": "Hr. Stander",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Sport"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 22,
+      "vorname": "Hr.",
+      "nachname": "Cuypers",
+      "name": "Hr. Cuypers",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Kath. Religion"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 23,
+      "vorname": "Hr.",
+      "nachname": "Schmidt",
+      "name": "Hr. Schmidt",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 24,
+      "vorname": "Fr.",
+      "nachname": "Loslei",
+      "name": "Fr. Loslei",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 25,
+      "vorname": "Fr.",
+      "nachname": "Kyriakopoulou",
+      "name": "Fr. Kyriakopoulou",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Griechisch"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 26,
+      "vorname": "Fr.",
+      "nachname": "Gümüs-Gerichhausen",
+      "name": "Fr. Gümüs-Gerichhausen",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Türkisch"
+      ],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 27,
+      "vorname": "Hr.",
+      "nachname": "Hagemeyer",
+      "name": "Hr. Hagemeyer",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 28,
+      "vorname": "Fr.",
+      "nachname": "Nunner",
+      "name": "Fr. Nunner",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 29,
+      "vorname": "Fr.",
+      "nachname": "Cempel",
+      "name": "Fr. Cempel",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 30,
+      "vorname": "",
+      "nachname": "Kuhn-Drawe",
+      "name": "Kuhn-Drawe",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 31,
+      "vorname": "Fr.",
+      "nachname": "Grosse",
+      "name": "Fr. Grosse",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 32,
+      "vorname": "Fr.",
+      "nachname": "Katzner",
+      "name": "Fr. Katzner",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 33,
+      "vorname": "Hr.",
+      "nachname": "Haag",
+      "name": "Hr. Haag",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 34,
+      "vorname": "Fr.",
+      "nachname": "Pieper",
+      "name": "Fr. Pieper",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 35,
+      "vorname": "Hr.",
+      "nachname": "Koretz",
+      "name": "Hr. Koretz",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 36,
+      "vorname": "Fr.",
+      "nachname": "Beyers",
+      "name": "Fr. Beyers",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 37,
+      "vorname": "Hr.",
+      "nachname": "Herzog",
+      "name": "Hr. Herzog",
+      "rolle": "Lehrer & AG-Leiter",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 38,
+      "vorname": "Fr.",
+      "nachname": "Mittelbach",
+      "name": "Fr. Mittelbach",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 39,
+      "vorname": "Fr.",
+      "nachname": "Haffmans",
+      "name": "Fr. Haffmans",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 40,
+      "vorname": "Fr.",
+      "nachname": "Jünger",
+      "name": "Fr. Jünger",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 41,
+      "vorname": "Hr.",
+      "nachname": "Trimborn",
+      "name": "Hr. Trimborn",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 42,
+      "vorname": "Fr.",
+      "nachname": "Strack",
+      "name": "Fr. Strack",
+      "rolle": "Lehrerin & Medienpädagogin",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 43,
+      "vorname": "Hr.",
+      "nachname": "Dittrich",
+      "name": "Hr. Dittrich",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 44,
+      "vorname": "Fr.",
+      "nachname": "Wiechmann",
+      "name": "Fr. Wiechmann",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 45,
+      "vorname": "Fr.",
+      "nachname": "Musielak",
+      "name": "Fr. Musielak",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 46,
+      "vorname": "Fr.",
+      "nachname": "Oppermann",
+      "name": "Fr. Oppermann",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 47,
+      "vorname": "Hr.",
+      "nachname": "Richter",
+      "name": "Hr. Richter",
+      "rolle": "Lehrer*in",
+      "faecher": [],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -107,60 +658,15 @@
   ],
   "news": [
     {
-      "id": 2,
-      "titel": "Erfinder-AG dreht Videoclip \"Sport macht Spaß\"",
-      "datum": "2025-03-19",
-      "kategorie": "Projekte",
-      "teaser": "Schülerinnen und Schüler der Erfinder-AG produzieren einen Videoclip zur Bewegungsförderung. In nur vier Stunden entstand ein beeindruckendes Werk!",
-      "volltext": "",
-      "bildUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=500&fit=crop",
-      "slug": "erfinder-ag-video-2025",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 3,
-      "titel": "Betriebserkundung bei Harry Brot",
-      "datum": "2025-05-15",
-      "kategorie": "Ausflüge",
-      "teaser": "Klasse 8b besichtigt die Großbäckerei Harry Brot und lernt moderne Produktionstechniken und Berufsfelder kennen.",
-      "volltext": "",
-      "bildUrl": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=500&fit=crop",
-      "slug": "harry-brot-2025",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 4,
-      "titel": "Graffiti im Kunstunterricht – Klasse 6c",
-      "datum": "2025-02-14",
-      "kategorie": "Kunst",
-      "teaser": "Unter Anleitung von Frau Beyers verwandeln Schülerinnen und Schüler die Schulwand in ein buntes Kunstwerk. Street Art meets Schule!",
-      "volltext": "",
-      "bildUrl": "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800&h=500&fit=crop",
-      "slug": "graffiti-6c-2025",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 5,
-      "titel": "Kölner Opernkiste bringt Mozart ans Heimbach",
-      "datum": "2024-03-19",
-      "kategorie": "Musik",
-      "teaser": "Alle 5er und 6er erlebten Mozarts Zauberflöte live – und sangen die Arien selbst mit! Ein unvergessliches Erlebnis für unsere jüngsten Schüler*innen.",
-      "volltext": "",
-      "bildUrl": "https://images.unsplash.com/photo-1507924538820-ede94a04019d?w=800&h=500&fit=crop",
-      "slug": "oper-2024",
-      "hauptbeitrag": false
-    },
-    {
       "id": 1,
       "titel": "Endlich online: Unsere neue Schulhomepage ist da!",
-      "datum": "2026-07-09",
+      "datum": "Thu Jul 09 2026 00:00:00 GMT+0200 (Central European Summer Time)",
       "kategorie": "Schulleben",
       "teaser": "Frischer Look, schnellere Infos, alles auf einen Blick: Die Realschule Am Heimbach hat eine runderneuerte Website – und die hält, was sie verspricht.",
-      "volltext": "Ab sofort ist unsere komplett neu gestaltete Schulhomepage online! Übersichtlicher, schneller und auf jedem Gerät bequem nutzbar – ob am Laptop im Sekretariat oder am Handy auf dem Weg zur Bushaltestelle.\n\nAlle wichtigen Infos zu unserer Schule, dem Kollegium, aktuellen Neuigkeiten und dem Schulalltag findet ihr jetzt an einem Ort, klar strukturiert und immer aktuell. Besonders freuen wir uns, dass Neuigkeiten und Team-Infos ab jetzt viel schneller aktualisiert werden können – Änderungen sind oft schon nach wenigen Minuten sichtbar.\n\nEin großes Dankeschön an alle, die bei der Planung und Umsetzung mitgeholfen haben! Habt ihr Anregungen, Wünsche oder entdeckt etwas, das noch fehlt? Schreibt uns gerne über das Kontaktformular – wir freuen uns über euer Feedback.",
+      "volltext": "Ab sofort ist unsere komplett neu gestaltete Schulhomepage online! Übersichtlicher, schneller und auf jedem Gerät bequem nutzbar – ob am Laptop im Sekretariat oder am Handy auf dem Weg zur Bushaltestelle. Alle wichtigen Infos zu unserer Schule, dem Kollegium, aktuellen Neuigkeiten und dem Schulalltag findet ihr jetzt an einem Ort, klar strukturiert und immer aktuell. Besonders freuen wir uns, dass Neuigkeiten und Team-Infos ab jetzt viel schneller aktualisiert werden können. Ein großes Dankeschön an alle, die bei der Planung und Umsetzung mitgeholfen haben! Habt ihr Anregungen oder Wünsche? Schreibt uns gerne über das Kontaktformular.",
       "bildUrl": "",
-      "slug": "neue-homepage",
-      "hauptbeitrag": true
+      "slug": "endlich-online-unsere-neue-schulhomepage-ist-da"
     }
   ],
-  "generatedAt": "2026-07-09T00:00:00.000Z"
+  "generatedAt": "2026-07-09T19:33:27.677Z"
 }
