@@ -1,0 +1,42 @@
+name: Sheets Sync
+
+# Holt alle 15 Minuten die aktuellen Lehrer- und News-Daten aus dem Google
+# Sheet (ueber das Apps-Script-Backend) und committet sie nach
+# lib/data/school-content.json (nur bei tatsaechlicher Aenderung). Der Push
+# auf master loest danach automatisch den bestehenden "Build & Deploy (FTP)"-
+# Workflow aus. Kann zusaetzlich manuell ueber das "Jetzt aktualisieren"-
+# Menue im Google Sheet ausgeloest werden (workflow_dispatch).
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sheets-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Schul-Inhalte abrufen
+        env:
+          CONTENT_API_URL: ${{ secrets.CONTENT_API_URL }}
+        run: node scripts/sheets-sync.mjs
+
+      - name: Aenderungen committen
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add lib/data/school-content.json
+          git commit -m "chore: Schul-Inhalte aktualisiert" || exit 0
+          git push

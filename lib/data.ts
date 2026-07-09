@@ -55,115 +55,56 @@ export const navItems = [
   },
 ];
 
-export const teachers = [
-  {
-    id: 1,
-    name: "Frau Stephanie Weber",
-    role: "Schulleiterin",
-    subjects: ["Deutsch", "Geschichte"],
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
-    bio: "Seit 2015 leitet Frau Weber unsere Schule mit großem Engagement für individuelle Förderung und modernes Lernen.",
-  },
-  {
-    id: 2,
-    name: "Herr Thomas Müller",
-    role: "Stellvertretender Schulleiter",
-    subjects: ["Mathematik", "Physik"],
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
-    bio: "Herr Müller bringt innovative Unterrichtsmethoden in den MINT-Bereich und koordiniert unsere Inklusion.",
-  },
-  {
-    id: 3,
-    name: "Frau Anna Beyers",
-    role: "Lehrerin",
-    subjects: ["Kunst", "Geschichte"],
-    image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop",
-    bio: "Frau Beyers begeistert Schülerinnen und Schüler für Kunst und kreatives Gestalten. Ihre Graffiti-Projekte sind legendär.",
-  },
-  {
-    id: 4,
-    name: "Herr Hans-Ulrich Herzog",
-    role: "Lehrer & AG-Leiter",
-    subjects: ["Technik", "Sport"],
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-    bio: 'Herr Herzog leitet die beliebte "Erfinder-AG" und bringt technische Kreativität in den Schulalltag.',
-  },
-  {
-    id: 5,
-    name: "Frau Petra Strack",
-    role: "Lehrerin & Medienpädagogin",
-    subjects: ["Deutsch", "Medien"],
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop",
-    bio: "Frau Strack verbindet Sprache und digitale Medien – von Videoschnitt bis zur Schülerzeitung.",
-  },
-  {
-    id: 6,
-    name: "Frau Claudia Richter",
-    role: "Sonderpädagogin",
-    subjects: ["Förderpädagogik", "Inklusion"],
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=400&fit=crop",
-    bio: "Frau Richter begleitet Schülerinnen und Schüler mit besonderem Förderbedarf liebevoll auf ihrem Lernweg.",
-  },
-  {
-    id: 7,
-    name: "Herr Michael Schneider",
-    role: "Lehrer & Sportkoordinator",
-    subjects: ["Sport", "Biologie"],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    bio: "Herr Schneider koordiniert Sport-AGs und Projekttage und hat das Zirkusprojekt ins Leben gerufen.",
-  },
-  {
-    id: 8,
-    name: "Frau Julia Hartmann",
-    role: "Lehrerin",
-    subjects: ["Englisch", "Erdkunde"],
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-    bio: "Frau Hartmann organisiert Austauschprogramme und internationale Projekte für unsere Schülerinnen und Schüler.",
-  },
-];
+// Lehrer- und News-Inhalte kommen aus einem Google Sheet, das per
+// google-apps-script/Code.gs + scripts/sheets-sync.mjs periodisch (und
+// manuell ueber das "Jetzt aktualisieren"-Menue im Sheet) nach
+// lib/data/school-content.json synchronisiert wird. Siehe
+// GOOGLE_SHEETS_ANLEITUNG.md fuer die Einrichtung.
+import schoolContent from "./data/school-content.json";
 
-export const newsItems = [
-  {
-    id: 2,
-    title: 'Erfinder-AG dreht Videoclip "Sport macht Spaß"',
-    date: "2025-03-19",
-    category: "Projekte",
-    excerpt:
-      "Schülerinnen und Schüler der Erfinder-AG produzieren einen Videoclip zur Bewegungsförderung. In nur vier Stunden entstand ein beeindruckendes Werk!",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=500&fit=crop",
-    slug: "erfinder-ag-video-2025",
-  },
-  {
-    id: 3,
-    title: "Betriebserkundung bei Harry Brot",
-    date: "2025-05-15",
-    category: "Ausflüge",
-    excerpt:
-      "Klasse 8b besichtigt die Großbäckerei Harry Brot und lernt moderne Produktionstechniken und Berufsfelder kennen.",
-    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=500&fit=crop",
-    slug: "harry-brot-2025",
-  },
-  {
-    id: 4,
-    title: "Graffiti im Kunstunterricht – Klasse 6c",
-    date: "2025-02-14",
-    category: "Kunst",
-    excerpt:
-      "Unter Anleitung von Frau Beyers verwandeln Schülerinnen und Schüler die Schulwand in ein buntes Kunstwerk. Street Art meets Schule!",
-    image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800&h=500&fit=crop",
-    slug: "graffiti-6c-2025",
-  },
-  {
-    id: 5,
-    title: "Kölner Opernkiste bringt Mozart ans Heimbach",
-    date: "2024-03-19",
-    category: "Musik",
-    excerpt:
-      'Alle 5er und 6er erlebten Mozarts Zauberflöte live – und sangen die Arien selbst mit! Ein unvergessliches Erlebnis für unsere jüngsten Schüler*innen.',
-    image: "https://images.unsplash.com/photo-1507924538820-ede94a04019d?w=800&h=500&fit=crop",
-    slug: "oper-2024",
-  },
-];
+const FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop";
+
+export const teachers = schoolContent.lehrer.map((t) => ({
+  id: t.id,
+  name: t.name,
+  role: t.rolle,
+  subjects: t.faecher,
+  image: t.bildUrl || FALLBACK_IMAGE,
+  bio: t.bio,
+}));
+
+export const leadershipTeam = schoolContent.lehrer
+  .filter((t) => t.schulleitung)
+  .map((t) => ({
+    name: t.name,
+    role: t.rolle,
+    image: t.bildUrl || FALLBACK_IMAGE,
+    bio: t.bio,
+    subjects: t.faecher,
+    phone: t.telefon || `${schoolInfo.phone} (Sekretariat)`,
+    email: t.email || schoolInfo.email,
+  }));
+
+// Beitraege mit gesetztem "Hauptbeitrag"-Feld im Sheet stehen zuerst (in der
+// Reihenfolge, wie sie im Sheet stehen), der Rest danach nach Datum absteigend.
+export const newsItems = [...schoolContent.news]
+  .sort((a, b) => {
+    if (a.hauptbeitrag && !b.hauptbeitrag) return -1;
+    if (!a.hauptbeitrag && b.hauptbeitrag) return 1;
+    if (a.hauptbeitrag && b.hauptbeitrag) return 0;
+    return new Date(b.datum).getTime() - new Date(a.datum).getTime();
+  })
+  .map((n) => ({
+    id: n.id,
+    title: n.titel,
+    date: n.datum,
+    category: n.kategorie,
+    excerpt: n.teaser,
+    fullText: n.volltext,
+    image: n.bildUrl || FALLBACK_IMAGE,
+    slug: n.slug,
+  }));
 
 export const instagramPosts: Array<{
   id: number;

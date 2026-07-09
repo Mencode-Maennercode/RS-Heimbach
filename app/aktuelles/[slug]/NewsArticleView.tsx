@@ -60,20 +60,32 @@ export default function NewsArticleView({ slug }: { slug: string }) {
             </p>
 
             <div className="prose prose-slate max-w-none">
-              <p className="text-slate-600 leading-relaxed">
-                An der Realschule Am Heimbach passiert immer etwas! Unsere Schülerinnen und Schüler
-                engagieren sich täglich für ihre Schulgemeinschaft und nehmen an spannenden Projekten teil.
-                Lesen Sie hier mehr über die aktuellen Aktivitäten an unserer Schule.
-              </p>
-              <p className="text-slate-600 leading-relaxed">
-                Wir sind stolz auf das Engagement unserer Schüler*innen und möchten ihre Leistungen
-                und Erlebnisse mit Ihnen teilen. Gemeinsam gestalten wir eine lebendige und
-                inspirierende Schulgemeinschaft.
-              </p>
-              <p className="text-slate-600 leading-relaxed">
-                Möchten Sie mehr über unsere Schulprojekte erfahren? Besuchen Sie uns beim nächsten
-                Tag der offenen Tür oder kontaktieren Sie uns direkt. Wir freuen uns auf Ihren Besuch!
-              </p>
+              {article.fullText ? (
+                article.fullText
+                  .split(/\n\s*\n/)
+                  .map((paragraph, i) => (
+                    <p key={i} className="text-slate-600 leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))
+              ) : (
+                <>
+                  <p className="text-slate-600 leading-relaxed">
+                    An der Realschule Am Heimbach passiert immer etwas! Unsere Schülerinnen und Schüler
+                    engagieren sich täglich für ihre Schulgemeinschaft und nehmen an spannenden Projekten teil.
+                    Lesen Sie hier mehr über die aktuellen Aktivitäten an unserer Schule.
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    Wir sind stolz auf das Engagement unserer Schüler*innen und möchten ihre Leistungen
+                    und Erlebnisse mit Ihnen teilen. Gemeinsam gestalten wir eine lebendige und
+                    inspirierende Schulgemeinschaft.
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    Möchten Sie mehr über unsere Schulprojekte erfahren? Besuchen Sie uns beim nächsten
+                    Tag der offenen Tür oder kontaktieren Sie uns direkt. Wir freuen uns auf Ihren Besuch!
+                  </p>
+                </>
+              )}
             </div>
 
             {/* Share */}

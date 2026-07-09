@@ -5,27 +5,7 @@ import HeroBackground from "@/components/HeroBackground";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
-
-const leadership = [
-  {
-    name: "Frau Stephanie Weber",
-    role: "Schulleiterin",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=500&fit=crop",
-    bio: "Frau Weber leitet seit 2015 die Realschule Am Heimbach. Mit ihrer Erfahrung in der Schulentwicklung und ihrem Engagement für moderne Pädagogik prägt sie das Schulklima nachhaltig. Ihre Schwerpunkte sind individuelle Förderung und digitale Bildung.",
-    subjects: ["Deutsch", "Geschichte"],
-    phone: "02241 – 77715 (Sekretariat)",
-    email: "schulleitung@rs-heimbach.de",
-  },
-  {
-    name: "Herr Thomas Müller",
-    role: "Stellvertretender Schulleiter",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&h=500&fit=crop",
-    bio: "Herr Müller koordiniert den Stundenplan, die Lehrerausbildung und die Inklusion. Als ehemaliger MINT-Lehrer bringt er ein tiefes Verständnis für naturwissenschaftliche Bildung mit.",
-    subjects: ["Mathematik", "Physik"],
-    phone: "02241 – 77715 (Sekretariat)",
-    email: "stellvertretung@rs-heimbach.de",
-  },
-];
+import { leadershipTeam } from "@/lib/data";
 
 const secretariat = {
   name: "Sekretariat",
@@ -54,7 +34,7 @@ export default function SchulleitungPage() {
       <section className="py-24 bg-[#f8f9ff]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-10">
-            {leadership.map((person, i) => (
+            {leadershipTeam.map((person, i) => (
               <motion.div
                 key={person.name}
                 initial={{ opacity: 0, y: 30 }}
