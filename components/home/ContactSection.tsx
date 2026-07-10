@@ -83,7 +83,7 @@ export default function ContactSection() {
             </div>
           </a>
 
-          <Link href="/unsere-schule/sekretariat" className="group bg-white rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
+          <Link href="/krankmeldung" className="group bg-white rounded-3xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4">
             <div className="w-11 h-11 rounded-xl bg-orange-100 flex items-center justify-center shrink-0"><HeartPulse className="w-5 h-5 text-[#e8442a]" /></div>
             <div>
               <div className="font-bold text-slate-900 text-sm mb-0.5">Krankmeldung</div>

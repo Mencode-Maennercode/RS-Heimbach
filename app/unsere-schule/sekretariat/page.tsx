@@ -4,7 +4,7 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Phone, Mail, Printer, Clock, MapPin, HeartPulse, FileText, Wrench } from "lucide-react";
+import { Phone, Mail, Printer, Clock, MapPin, HeartPulse, FileText, Wrench, ArrowRight } from "lucide-react";
 import { schoolInfo, sekretariatInfo } from "@/lib/data";
 
 export default function SekretariatPage() {
@@ -96,6 +96,12 @@ export default function SekretariatPage() {
                   Klassenleitung bei der Schulleitung zu beantragen.
                 </p>
               </div>
+              <Link
+                href="/krankmeldung"
+                className="group inline-flex items-center gap-1 mt-4 text-[#1DA499] text-sm font-bold hover:underline"
+              >
+                Mehr erfahren <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </div>
           </div>
 

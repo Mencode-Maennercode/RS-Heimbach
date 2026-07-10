@@ -3,7 +3,6 @@
 import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Thermometer, Clock, PencilLine, Phone, ArrowRight, ExternalLink, CheckCircle2 } from "lucide-react";
 import { schoolInfo } from "@/lib/data";
 
@@ -169,17 +168,6 @@ export default function KrankmeldungPage() {
                 </a>
               </motion.div>
             </motion.div>
-          </div>
-
-          {/* Zurück-Link */}
-          <div className="mt-12">
-            <Link
-              href="/eltern"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-[#1DA499] transition-colors"
-            >
-              Weitere Informationen für Eltern
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>
