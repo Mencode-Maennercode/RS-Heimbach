@@ -131,6 +131,7 @@ export default function LehrerPage() {
                       src={teacher.image}
                       alt={teacher.name}
                       fill
+                      unoptimized={teacher.image.startsWith("data:")}
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f2447]/70 via-transparent to-transparent" />

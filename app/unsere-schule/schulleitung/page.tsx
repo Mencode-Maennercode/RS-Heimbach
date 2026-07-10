@@ -45,7 +45,13 @@ export default function SchulleitungPage() {
               >
                 <div className="grid grid-cols-1 sm:grid-cols-[280px_1fr] gap-0">
                   <div className="relative h-72 sm:h-full min-h-[280px]">
-                    <Image src={person.image} alt={person.name} fill className="object-cover" />
+                    <Image
+                      src={person.image}
+                      alt={person.name}
+                      fill
+                      unoptimized={person.image.startsWith("data:")}
+                      className="object-cover"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f2447]/60 via-transparent to-transparent sm:bg-gradient-to-r" />
                   </div>
                   <div className="p-8 md:p-10">

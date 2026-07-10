@@ -62,16 +62,19 @@ export const navItems = [
 // lib/data/school-content.json synchronisiert wird. Siehe
 // GOOGLE_SHEETS_ANLEITUNG.md fuer die Einrichtung.
 import schoolContent from "./data/school-content.json";
+import { teacherBackground } from "./teacherAvatar";
 
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop";
 
+// Lehrkraefte ohne bildUrl bekommen ein deterministisch aus dem Namen
+// generiertes SVG-Muster statt eines gemeinsamen Platzhalterfotos.
 export const teachers = schoolContent.lehrer.map((t) => ({
   id: t.id,
   name: t.name,
   role: t.rolle,
   subjects: t.faecher,
-  image: t.bildUrl || FALLBACK_IMAGE,
+  image: t.bildUrl || teacherBackground(t.name, { subject: t.faecher[0] }),
   bio: t.bio,
 }));
 
@@ -80,7 +83,7 @@ export const leadershipTeam = schoolContent.lehrer
   .map((t) => ({
     name: t.name,
     role: t.rolle,
-    image: t.bildUrl || FALLBACK_IMAGE,
+    image: t.bildUrl || teacherBackground(t.name, { subject: t.faecher[0] }),
     bio: t.bio,
     subjects: t.faecher,
     phone: t.telefon || `${schoolInfo.phone} (Sekretariat)`,
