@@ -2,9 +2,8 @@
 
 import HeroBackground from "@/components/HeroBackground";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Download, FileText, Link2, ExternalLink, Thermometer, ArrowRight } from "lucide-react";
+import { Download, FileText, Link2, ExternalLink } from "lucide-react";
 
 const downloadGroups = [
   {
@@ -68,34 +67,6 @@ export default function ServicePage() {
 
       <section className="py-20 bg-[#f8f9ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Krankmeldung – Online statt PDF */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-8"
-          >
-            <Link
-              href="/krankmeldung"
-              className="group flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-3xl gradient-accent p-6 sm:p-7 shadow-lg shadow-[#e8442a]/20"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
-                  <Thermometer className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-black text-white text-lg">Krankmeldung – jetzt online</h3>
-                  <p className="text-white/85 text-sm">
-                    Kind krankmelden am selben Tag bis 8:00 Uhr – bequem über unser Formular.
-                  </p>
-                </div>
-              </div>
-              <span className="inline-flex items-center justify-center gap-2 bg-white text-[#e8442a] px-5 py-3 rounded-xl font-bold text-sm whitespace-nowrap group-hover:scale-[1.03] transition-transform">
-                Zur Krankmeldung <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
-          </motion.div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {downloadGroups.map((group, gi) => (
               <motion.div
