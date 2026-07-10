@@ -122,8 +122,8 @@ export default function LehrerPage() {
                   key={teacher.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
+                  viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+                  transition={{ delay: (i % 4) * 0.07 }}
                   className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-1.5"
                 >
                   <div className="relative h-64 overflow-hidden">
