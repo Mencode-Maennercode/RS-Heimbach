@@ -21,19 +21,24 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden">
-      {/* Background video with overlay */}
-      <div className="absolute inset-0 z-0">
+      {/* Background: handgezeichnete Schul-Skizze als Blueprint/Kreidetafel-Effekt */}
+      <div className="absolute inset-0 z-0 bg-[#083f3a]">
+        {/* Deep-Teal Grundflaeche, damit die invertierte Skizze markengetreu wirkt */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover mix-blend-screen [filter:invert(1)_contrast(1.05)_brightness(1.1)]"
         >
-          <source src="/215470.mp4" type="video/mp4" />
+          <source src="/hero-school-sketch.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a5a54]/92 via-[#1DA499]/78 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a5a54]/55 via-transparent to-transparent" />
+        {/* Teal-Wash tont den Hintergrund einheitlich in Markenfarbe */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a5a54]/60 via-[#0f6b63]/35 to-[#1DA499]/20 mix-blend-multiply" />
+        {/* Links abdunkeln fuer Text-Kontrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#062f2b]/90 via-[#0a5a54]/55 to-transparent" />
+        {/* Unten leicht abdunkeln fuer Scroll-Indikator */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#062f2b]/60 via-transparent to-transparent" />
       </div>
 
       {/* Floating shapes */}
@@ -48,14 +53,9 @@ export default function HeroSection() {
         className="absolute top-32 right-[22%] w-44 h-44 border border-white/10 rounded-full hidden xl:block"
       />
       <motion.div
-        animate={{ y: [0, -15, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-36 right-[10%] w-20 h-20 bg-[#f5a623]/20 rounded-3xl hidden lg:block"
-      />
-      <motion.div
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-32 right-[15%] w-14 h-14 bg-[#e8442a]/20 rounded-2xl hidden lg:block"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+        className="absolute bottom-24 right-[30%] w-28 h-28 border border-white/10 rounded-full hidden xl:block"
       />
 
       {/* Content */}
