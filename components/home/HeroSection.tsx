@@ -27,7 +27,6 @@ export default function HeroSection() {
         <video
           autoPlay
           muted
-          loop
           playsInline
           className="w-full h-full object-cover mix-blend-screen [filter:invert(1)_contrast(1.05)_brightness(1.1)]"
         >
