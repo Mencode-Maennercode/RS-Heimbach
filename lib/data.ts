@@ -67,6 +67,16 @@ import { teacherBackground } from "./teacherAvatar";
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop";
 
+// Manuell hinterlegte Fotos fuer die Schulleitung, per Nachname zugeordnet.
+// Das Google Sheet kennt (noch) keine bildUrl-Spalte fuer diese drei Profile;
+// wuerde man bildUrl direkt in school-content.json setzen, ginge es beim
+// naechsten Sheets-Sync (ueberschreibt die Datei komplett) wieder verloren.
+const LEADERSHIP_PHOTOS: Record<string, string> = {
+  Herbst: "/images/schulleitung/herbst.jpg",
+  Fournes: "/images/schulleitung/fournes.jpg",
+  Werner: "/images/schulleitung/werner.jpg",
+};
+
 // Lehrkraefte ohne bildUrl bekommen ein deterministisch aus dem Namen
 // generiertes SVG-Muster statt eines gemeinsamen Platzhalterfotos.
 export const teachers = schoolContent.lehrer.map((t) => ({
@@ -83,7 +93,7 @@ export const leadershipTeam = schoolContent.lehrer
   .map((t) => ({
     name: t.name,
     role: t.rolle,
-    image: t.bildUrl || teacherBackground(t.name, { subject: t.faecher[0] }),
+    image: t.bildUrl || LEADERSHIP_PHOTOS[t.nachname] || teacherBackground(t.name, { subject: t.faecher[0] }),
     bio: t.bio,
     subjects: t.faecher,
     phone: t.telefon || `${schoolInfo.phone} (Sekretariat)`,
