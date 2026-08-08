@@ -153,7 +153,9 @@ export default function LehrerPage() {
                         </span>
                       )}
                     </div>
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">{teacher.bio}</p>
+                    {!teacher.secondTask && teacher.bio && (
+                      <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">{teacher.bio}</p>
+                    )}
                     <a
                       href={schoolInfo.phoneLink}
                       aria-label={`Anrufen: ${schoolInfo.phone}`}
