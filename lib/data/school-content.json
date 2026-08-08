@@ -7,7 +7,7 @@
       "name": "Hr. Herbst",
       "rolle": "Schulleiter",
       "faecher": [],
-      "bio": "Personalia, Beschwerden, Widersprüche, Konferenzen, Mitwirkungsorgane, An- & Abmeldungen, Beurlaubungen, UVD, Stundenplan, Öffentlichkeitsarbeit, Schulprogramm",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
@@ -20,7 +20,7 @@
       "name": "Fr. Fournes",
       "rolle": "Konrektorin",
       "faecher": [],
-      "bio": "UVD, Vertretung, Stundenplan, Aufsicht, Konferenzen, AKO, Differenzierung, Beratung, Stufenorganisation",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
@@ -33,7 +33,7 @@
       "name": "Hr. Werner",
       "rolle": "2. Konrektor*in",
       "faecher": [],
-      "bio": "Vertretung, Stundenplan, Aufsicht, UVD, Erprobungsstufe, Ganztag, Fortbildung, Schulprogramm",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
@@ -290,7 +290,7 @@
       "faecher": [
         "Ev. Religion"
       ],
-      "bio": "",
+      "bio": "Ausbildungsbeauftragte",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -668,5 +668,5 @@
       "slug": "endlich-online-unsere-neue-schulhomepage-ist-da"
     }
   ],
-  "generatedAt": "2026-08-08T10:41:56.807Z"
+  "generatedAt": "2026-08-08T11:02:04.192Z"
 }
