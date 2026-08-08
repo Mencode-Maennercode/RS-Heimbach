@@ -134,7 +134,21 @@ export default function UnsereSchulePage() {
               transition={{ duration: 0.7 }}
               className="relative"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
+              {/* Sanftes Leuchten im Hintergrund, damit sich das Video ohne harte Kante
+                  in die weiße Fläche einfügt */}
+              <div
+                className="absolute -inset-10 bg-gradient-to-br from-[#1DA499]/25 via-[#f5a623]/10 to-[#1a3a6b]/25 blur-3xl rounded-[3rem] -z-10"
+                aria-hidden="true"
+              />
+              <div
+                className="relative aspect-[4/3]"
+                style={{
+                  maskImage:
+                    "radial-gradient(ellipse 82% 82% at center, black 58%, transparent 100%)",
+                  WebkitMaskImage:
+                    "radial-gradient(ellipse 82% 82% at center, black 58%, transparent 100%)",
+                }}
+              >
                 <video
                   autoPlay
                   loop
@@ -145,7 +159,7 @@ export default function UnsereSchulePage() {
                 >
                   <source src="/videos/unsere-schule.mp4" type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a6b]/30 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a6b]/25 via-transparent to-transparent pointer-events-none" />
               </div>
             </motion.div>
           </div>
