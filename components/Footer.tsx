@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { GraduationCap, MapPin, Phone, Mail, Instagram, Facebook, Youtube, ArrowRight } from "lucide-react";
 import { schoolInfo, navItems } from "@/lib/data";
+import { getEnrollmentInfo } from "@/lib/schoolYear";
 
 // Footer-Spalten werden direkt aus navItems abgeleitet, damit der Footer nie
 // wieder Seiten auflistet, die über die Navbar gar nicht erreichbar sind (und
@@ -11,25 +12,29 @@ import { schoolInfo, navItems } from "@/lib/data";
 const footerColumns = navItems.filter((item) => item.children);
 
 export default function Footer() {
+  const { isOpen: enrollmentOpen, schoolYearLabel } = getEnrollmentInfo();
+
   return (
     <footer className="bg-[#0a5a54] text-white">
-      {/* CTA Banner */}
-      <div className="bg-gradient-to-r from-[#e8442a] via-[#f08a3a] to-[#f5a623]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-black text-white mb-1">Anmeldung Schuljahr 2026/27</h3>
-              <p className="text-white/90 text-sm">Jetzt informieren und Ihrem Kind die beste Schule sichern.</p>
+      {/* CTA Banner: nur waehrend der Anmeldephase (1. November - 1. April) sichtbar */}
+      {enrollmentOpen && (
+        <div className="bg-gradient-to-r from-[#e8442a] via-[#f08a3a] to-[#f5a623]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="text-2xl font-black text-white mb-1">Anmeldung Schuljahr {schoolYearLabel}</h3>
+                <p className="text-white/90 text-sm">Jetzt informieren und Ihrem Kind die beste Schule sichern.</p>
+              </div>
+              <Link
+                href="/anmeldung"
+                className="flex items-center gap-2 bg-white text-[#e8442a] px-7 py-3.5 rounded-2xl font-bold text-sm hover:shadow-xl transition-all duration-300 hover:scale-105 whitespace-nowrap"
+              >
+                Jetzt anmelden <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-            <Link
-              href="/anmeldung"
-              className="flex items-center gap-2 bg-white text-[#e8442a] px-7 py-3.5 rounded-2xl font-bold text-sm hover:shadow-xl transition-all duration-300 hover:scale-105 whitespace-nowrap"
-            >
-              Jetzt anmelden <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

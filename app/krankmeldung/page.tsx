@@ -3,7 +3,7 @@
 import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
-import { Thermometer, Clock, PencilLine, Phone, ArrowRight, ExternalLink, CheckCircle2 } from "lucide-react";
+import { Thermometer, Clock, PencilLine, ArrowRight, ExternalLink, CheckCircle2 } from "lucide-react";
 import { schoolInfo } from "@/lib/data";
 
 const steps = [
@@ -16,11 +16,6 @@ const steps = [
     icon: PencilLine,
     title: "Schriftliche Entschuldigung mitgeben",
     desc: "Wenn Ihr Kind wieder zur Schule kommt, geben Sie ihm bitte eine schriftliche Entschuldigung für die Klassenleitung mit.",
-  },
-  {
-    icon: Phone,
-    title: "Telefon nur im Ausnahmefall",
-    desc: `Die telefonische Krankmeldung über das Sekretariat (${schoolInfo.phone}) nutzen Sie bitte nur noch in Ausnahmefällen.`,
   },
 ];
 
@@ -99,7 +94,7 @@ export default function KrankmeldungPage() {
               <span className="text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2 block">
                 So geht's
               </span>
-              <h2 className="text-3xl font-black text-[#1a3a6b] mb-8">In drei Schritten erledigt</h2>
+              <h2 className="text-3xl font-black text-[#1a3a6b] mb-8">In zwei Schritten erledigt</h2>
 
               <div className="space-y-4">
                 {steps.map((step, i) => (
@@ -141,31 +136,6 @@ export default function KrankmeldungPage() {
                   schriftliche Entschuldigung. Diese geben Sie Ihrem Kind bitte für die Klassenleitung mit,
                   sobald es wieder gesund in der Schule ist.
                 </p>
-              </motion.div>
-
-              {/* Telefon-Fallback */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.35 }}
-                className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-2xl bg-white p-5 shadow-sm"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-[#f5a623]/15 flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5 text-[#f5a623]" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-slate-900 text-sm">Kein Internet zur Hand?</p>
-                    <p className="text-xs text-slate-500">Im Ausnahmefall telefonisch übers Sekretariat</p>
-                  </div>
-                </div>
-                <a
-                  href={schoolInfo.phoneLink}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border-2 border-[#1DA499] text-[#1DA499] font-bold text-sm hover:bg-[#1DA499] hover:text-white transition-colors"
-                >
-                  <Phone className="w-4 h-4" /> {schoolInfo.phone}
-                </a>
               </motion.div>
             </motion.div>
           </div>

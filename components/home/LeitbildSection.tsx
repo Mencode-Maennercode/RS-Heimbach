@@ -1,13 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Users, Rocket } from "lucide-react";
+import { Compass, Heart, Users, Laptop2 } from "lucide-react";
 
 const values = [
   {
+    icon: Compass,
+    title: "Verantwortung tragen. Zukunft gestalten.",
+    tagline:
+      "Wir übernehmen gemeinsam Verantwortung und gestalten unsere Schule als modernen Lebens- und Lernraum.",
+    points: [
+      "Streitschlichter, SV & Schülerfirma",
+      "Berufsorientierung & Wahlpflichtbereich ab Klasse 7",
+      "Aktive Mitgestaltung des Schulprogramms",
+    ],
+    gradient: "from-[#FFA726] to-[#F57C00]",
+    bg: "bg-orange-50",
+    border: "border-orange-100",
+    iconGradient: "from-[#FFA726] to-[#F57C00]",
+    dot: "bg-orange-400",
+    titleColor: "text-orange-700",
+  },
+  {
     icon: Heart,
     title: "Vielfalt leben.",
-    tagline: "Jedes Kind ist einzigartig – und genau das ist unsere Stärke.",
+    tagline:
+      "Wir begegnen einander fair, respektvoll und wertschätzend und leben Vielfalt in einer starken Schulgemeinschaft.",
     points: [
       "Individuelle Förderung & sonderpädagogische Unterstützung",
       "Respektvolles Miteinander & Präventionsarbeit",
@@ -22,12 +40,12 @@ const values = [
   },
   {
     icon: Users,
-    title: "Gemeinsam wachsen.",
-    tagline: "Gemeinschaft stärkt. Verantwortung formt Charakter.",
+    title: "Gemeinsam lernen. Talente entfalten.",
+    tagline: "Wir lernen miteinander und fördern unsere individuellen Stärken und Talente.",
     points: [
       "Einführungstage, Klassenfahrten & Teamtage",
-      "Streitschlichter, SV & Schülerfirma",
       "Trainingsraumprinzip für ein respektvolles Lernklima",
+      "Individuelle Förderung von Stärken & Talenten",
     ],
     gradient: "from-[#FFD93D] to-[#FFA726]",
     bg: "bg-amber-50",
@@ -37,20 +55,21 @@ const values = [
     titleColor: "text-amber-700",
   },
   {
-    icon: Rocket,
-    title: "Zukunft gestalten.",
-    tagline: "Moderne Bildung. Echte Chancen. Klare Perspektiven.",
+    icon: Laptop2,
+    title: "Struktur geben. Digital handeln.",
+    tagline:
+      "Wir arbeiten vertrauensvoll im Team, mit klaren Strukturen und nutzen digitale Möglichkeiten verantwortungsvoll.",
     points: [
-      "60-Minuten-Takt & fachbezogene Lernräume",
       "Digitale Ausstattung & kooperatives Lernen",
-      "Berufsorientierung & Wahlpflichtbereich ab Klasse 7",
+      "Klare Strukturen & vertrauensvolle Teamarbeit",
+      "60-Minuten-Takt & fachbezogene Lernräume",
     ],
-    gradient: "from-[#FFA726] to-[#F57C00]",
-    bg: "bg-orange-50",
-    border: "border-orange-100",
-    iconGradient: "from-[#FFA726] to-[#F57C00]",
-    dot: "bg-orange-400",
-    titleColor: "text-orange-700",
+    gradient: "from-[#1DA499] to-[#0a5a54]",
+    bg: "bg-teal-50",
+    border: "border-teal-100",
+    iconGradient: "from-[#1DA499] to-[#0a5a54]",
+    dot: "bg-teal-400",
+    titleColor: "text-teal-700",
   },
 ];
 
@@ -66,17 +85,17 @@ export default function LeitbildSection() {
           className="text-center mb-14"
         >
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-3">
-            Unser Leitbild
+            Unsere Leitsätze
           </span>
           <h2 className="text-4xl sm:text-5xl font-black text-[#1DA499] mb-4">
             Was uns ausmacht
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto">
-            Drei Grundsätze, die unseren Schulalltag prägen – für jedes Kind, jeden Tag.
+            Vier Leitsätze, die unseren Schulalltag prägen – für jedes Kind, jeden Tag.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {values.map((v, i) => {
             const Icon = v.icon;
             return (

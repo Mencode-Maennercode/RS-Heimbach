@@ -81,7 +81,7 @@ export default function HeroSection() {
             <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-snug tracking-tight">
               <span className="inline-block bg-gradient-to-r from-[#FF6B9D] via-[#C44569] to-[#FF6B9D] bg-clip-text text-transparent">Vielfalt leben.</span>{" "}
               <span className="inline-block bg-gradient-to-r from-[#FFD93D] via-[#FFA726] to-[#FF8C42] bg-clip-text text-transparent drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]">Gemeinsam wachsen.</span>{" "}
-              <span className="inline-block bg-gradient-to-r from-[#FFA726] via-[#FB8C00] to-[#F57C00] bg-clip-text text-transparent">Zukunft gestalten!</span>
+              <span className="inline-block bg-gradient-to-r from-[#FFA726] via-[#FB8C00] to-[#F57C00] bg-clip-text text-transparent">Zukunft gestalten.</span>
             </p>
             <div className="mt-4 h-1 w-32 rounded-full bg-gradient-to-r from-[#FF6B9D] via-[#FFD93D] to-[#FFA726]" />
           </motion.div>
@@ -92,8 +92,8 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.45 }}
             className="text-white/85 text-base sm:text-lg leading-relaxed mb-10 max-w-lg"
           >
-            Herzlich willkommen an unserer modernen Ganztagsschule in Troisdorf –
-            mit über 590 Schülerinnen und Schülern, die hier jeden Tag wachsen, lachen und ihre Zukunft gestalten.
+            Herzlich willkommen an unserer Ganztagsschule in Troisdorf –
+            mit über 590 Schülerinnen und Schülern, die hier jeden Tag gemeinsam wachsen, lernen und ihre Zukunft gestalten.
           </motion.p>
 
           <motion.div

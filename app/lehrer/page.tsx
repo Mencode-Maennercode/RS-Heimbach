@@ -147,6 +147,11 @@ export default function LehrerPage() {
                           {s}
                         </span>
                       ))}
+                      {teacher.secondTask && (
+                        <span className="text-xs bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full font-medium">
+                          {teacher.secondTask}
+                        </span>
+                      )}
                     </div>
                     <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">{teacher.bio}</p>
                     <a
