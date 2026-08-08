@@ -1,0 +1,5 @@
+# Automatisch erzeugte Dateien schreiben immer LF (die erzeugenden Skripte
+# nutzen "\n"). Ohne diesen Eintrag zeigt Git sie unter Windows nach jedem
+# Build als geaendert an, obwohl sich am Inhalt nichts getan hat.
+lib/data/teacher-photos.json text eol=lf
+lib/data/school-content.json text eol=lf
