@@ -79,9 +79,12 @@ const LEADERSHIP_PHOTOS: Record<string, string> = {
 
 // Lehrkraefte ohne bildUrl bekommen ein deterministisch aus dem Namen
 // generiertes SVG-Muster statt eines gemeinsamen Platzhalterfotos.
-// Die "Bio"-Spalte im Google Sheet listet bei Bedarf mehrere Aufgaben, kommagetrennt
-// (z. B. "Klassenleitung 7a, Suchtprävention"). Die zweite Aufgabe wird als eigenes
-// (gruenes) Badge neben dem Fach angezeigt.
+// Die "Bio"-Spalte im Google Sheet traegt die zusaetzliche Aufgabe einer
+// Lehrkraft neben dem Fachunterricht (z. B. "Ausbildungsbeauftragte",
+// "Klassenleitung 7a"). Ist sie gesetzt, wird sie als eigenes (gruenes)
+// Badge neben dem Fach angezeigt. Bei der Schulleitung enthaelt die Bio
+// stattdessen eine lange Aufgabenliste als Fliesstext - dort erscheint
+// kein zusaetzliches Badge.
 export const teachers = schoolContent.lehrer.map((t) => ({
   id: t.id,
   name: t.name,
@@ -89,7 +92,7 @@ export const teachers = schoolContent.lehrer.map((t) => ({
   subjects: t.faecher,
   image: t.bildUrl || teacherBackground(t.name, { subject: t.faecher[0] }),
   bio: t.bio,
-  secondTask: t.bio.split(",")[1]?.trim() || null,
+  secondTask: !t.schulleitung && t.bio.trim() ? t.bio.trim() : null,
 }));
 
 export const leadershipTeam = schoolContent.lehrer
