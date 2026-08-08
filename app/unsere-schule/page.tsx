@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { MapPin, Laptop, Compass, Handshake, Heart, Users, Rocket, Target, Star, BookOpen } from "lucide-react";
 import OrganigrammWidget from "@/components/OrganigrammWidget";
 import HeroBackground from "@/components/HeroBackground";
+import { getSchoolYearLabel } from "@/lib/schoolYear";
 
 const values = [
   {
@@ -100,7 +100,7 @@ export default function UnsereSchulePage() {
                 Über uns
               </span>
               <h2 className="text-4xl font-black text-[#1a3a6b] mb-6">
-                Herzlich Willkommen <br />zum Schuljahr 2025/2026
+                Herzlich Willkommen <br />zum Schuljahr {getSchoolYearLabel()}
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
@@ -135,13 +135,17 @@ export default function UnsereSchulePage() {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
-                <Image
-                  src="/images/schulhof-eyecatcher.jpg"
-                  alt="Schülerinnen und Schüler auf dem Schulhof der Realschule Am Heimbach"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  aria-label="Impressionen aus dem Schulleben der Realschule Am Heimbach"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                >
+                  <source src="/videos/unsere-schule.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a6b]/30 via-transparent to-transparent pointer-events-none" />
               </div>
             </motion.div>
           </div>
@@ -203,10 +207,9 @@ export default function UnsereSchulePage() {
                   auf ihrem ganz persönlichen Lernweg.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
                   { value: "Inklusiv", label: "Unterricht für alle" },
-                  { value: "100%", label: "Barrierefreier Zugang" },
                   { value: "Individuell", label: "Förderpläne für jedes Kind" },
                   { value: "Gemeinsam", label: "Lernen in einem Klassenverband" },
                 ].map((item) => (

@@ -1,6 +1,7 @@
-// Schuljahr beginnt immer im Sommer (ab August) und laeuft bis Ende Juli des
-// Folgejahres, z. B. "2026/27" von August 2026 bis Juli 2027.
-const SCHOOL_YEAR_START_MONTH = 7; // August (0-indexiert)
+// Schuljahr beginnt immer nach den Sommerferien, pauschal am 1. Juli, und
+// laeuft bis Ende Juni des Folgejahres, z. B. "2026/27" von Juli 2026 bis
+// Juni 2027.
+const SCHOOL_YEAR_START_MONTH = 6; // Juli (0-indexiert)
 
 export function getSchoolYearLabel(date: Date = new Date()): string {
   const startYear =
