@@ -24,7 +24,7 @@
       "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 3,
@@ -37,7 +37,7 @@
       "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 4,
@@ -668,5 +668,5 @@
       "slug": "endlich-online-unsere-neue-schulhomepage-ist-da"
     }
   ],
-  "generatedAt": "2026-08-08T11:02:04.192Z"
+  "generatedAt": "2026-08-08T11:12:32.307Z"
 }
