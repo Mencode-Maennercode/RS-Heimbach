@@ -22,8 +22,8 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden">
       {/* Background: handgezeichnete Schul-Skizze als Blueprint/Kreidetafel-Effekt */}
-      <div className="absolute inset-0 z-0 bg-[#083f3a]">
-        {/* Deep-Teal Grundflaeche, damit die invertierte Skizze markengetreu wirkt */}
+      <div className="absolute inset-0 z-0 bg-[#12786f]">
+        {/* Teal-Grundflaeche, damit die invertierte Skizze markengetreu wirkt */}
         <video
           autoPlay
           muted
@@ -33,29 +33,12 @@ export default function HeroSection() {
           <source src="/hero-school-sketch.mp4" type="video/mp4" />
         </video>
         {/* Teal-Wash tont den Hintergrund einheitlich in Markenfarbe */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a5a54]/60 via-[#0f6b63]/35 to-[#1DA499]/20 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#15887e]/50 via-[#1d9a8f]/28 to-[#1DA499]/18 mix-blend-multiply" />
         {/* Links abdunkeln fuer Text-Kontrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#062f2b]/90 via-[#0a5a54]/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a5a54]/75 via-[#12786f]/40 to-transparent" />
         {/* Unten leicht abdunkeln fuer Scroll-Indikator */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#062f2b]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a5a54]/45 via-transparent to-transparent" />
       </div>
-
-      {/* Floating shapes */}
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute top-20 right-[20%] w-64 h-64 border border-white/10 rounded-full hidden xl:block"
-      />
-      <motion.div
-        animate={{ rotate: -360 }}
-        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-        className="absolute top-32 right-[22%] w-44 h-44 border border-white/10 rounded-full hidden xl:block"
-      />
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-24 right-[30%] w-28 h-28 border border-white/10 rounded-full hidden xl:block"
-      />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

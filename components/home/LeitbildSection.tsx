@@ -1,26 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Compass, Heart, Users, Laptop2 } from "lucide-react";
+import { Heart, Users, Compass } from "lucide-react";
 
 const values = [
-  {
-    icon: Compass,
-    title: "Verantwortung tragen. Zukunft gestalten.",
-    tagline:
-      "Wir übernehmen gemeinsam Verantwortung und gestalten unsere Schule als modernen Lebens- und Lernraum.",
-    points: [
-      "Streitschlichter, SV & Schülerfirma",
-      "Berufsorientierung & Wahlpflichtbereich ab Klasse 7",
-      "Aktive Mitgestaltung des Schulprogramms",
-    ],
-    gradient: "from-[#FFA726] to-[#F57C00]",
-    bg: "bg-orange-50",
-    border: "border-orange-100",
-    iconGradient: "from-[#FFA726] to-[#F57C00]",
-    dot: "bg-orange-400",
-    titleColor: "text-orange-700",
-  },
   {
     icon: Heart,
     title: "Vielfalt leben.",
@@ -40,7 +23,7 @@ const values = [
   },
   {
     icon: Users,
-    title: "Gemeinsam lernen. Talente entfalten.",
+    title: "Gemeinsam wachsen.",
     tagline: "Wir lernen miteinander und fördern unsere individuellen Stärken und Talente.",
     points: [
       "Einführungstage, Klassenfahrten & Teamtage",
@@ -55,21 +38,21 @@ const values = [
     titleColor: "text-amber-700",
   },
   {
-    icon: Laptop2,
-    title: "Struktur geben. Digital handeln.",
+    icon: Compass,
+    title: "Zukunft gestalten.",
     tagline:
-      "Wir arbeiten vertrauensvoll im Team, mit klaren Strukturen und nutzen digitale Möglichkeiten verantwortungsvoll.",
+      "Wir übernehmen gemeinsam Verantwortung und gestalten unsere Schule als modernen Lebens- und Lernraum. Wir arbeiten vertrauensvoll im Team, mit klaren Strukturen und nutzen digitale Möglichkeiten verantwortungsvoll.",
     points: [
-      "Digitale Ausstattung & kooperatives Lernen",
-      "Klare Strukturen & vertrauensvolle Teamarbeit",
       "60-Minuten-Takt & fachbezogene Lernräume",
+      "Digitale Ausstattung & kooperatives Lernen",
+      "Berufsorientierung & Wahlpflichtbereich ab Klasse 7",
     ],
-    gradient: "from-[#1DA499] to-[#0a5a54]",
-    bg: "bg-teal-50",
-    border: "border-teal-100",
-    iconGradient: "from-[#1DA499] to-[#0a5a54]",
-    dot: "bg-teal-400",
-    titleColor: "text-teal-700",
+    gradient: "from-[#FFA726] to-[#F57C00]",
+    bg: "bg-orange-50",
+    border: "border-orange-100",
+    iconGradient: "from-[#FFA726] to-[#F57C00]",
+    dot: "bg-orange-400",
+    titleColor: "text-orange-700",
   },
 ];
 
@@ -91,11 +74,11 @@ export default function LeitbildSection() {
             Was uns ausmacht
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto">
-            Vier Leitsätze, die unseren Schulalltag prägen – für jedes Kind, jeden Tag.
+            Drei Grundsätze, die unseren Schulalltag prägen – für jedes Kind, jeden Tag.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {values.map((v, i) => {
             const Icon = v.icon;
             return (
