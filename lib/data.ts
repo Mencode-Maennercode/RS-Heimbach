@@ -62,48 +62,98 @@ export const navItems = [
 // lib/data/school-content.json synchronisiert wird. Siehe
 // GOOGLE_SHEETS_ANLEITUNG.md fuer die Einrichtung.
 import schoolContent from "./data/school-content.json";
+import teacherPhotos from "./data/teacher-photos.json";
 import { teacherBackground } from "./teacherAvatar";
+import {
+  collectSubjects,
+  displayName,
+  genderRole,
+  normalizeAnrede,
+  normalizeBio,
+  normalizeSubjects,
+  photoKey,
+  schoolEmail,
+} from "./teachers";
 
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop";
 
-// Manuell hinterlegte Fotos fuer die Schulleitung, per Nachname zugeordnet.
-// Das Google Sheet kennt (noch) keine bildUrl-Spalte fuer diese drei Profile;
-// wuerde man bildUrl direkt in school-content.json setzen, ginge es beim
-// naechsten Sheets-Sync (ueberschreibt die Datei komplett) wieder verloren.
-const LEADERSHIP_PHOTOS: Record<string, string> = {
-  Herbst: "/images/schulleitung/herbst.jpg",
-  Fournes: "/images/schulleitung/fournes.jpg",
-  Werner: "/images/schulleitung/werner.jpg",
-};
+// Fotos werden automatisch ueber den Nachnamen zugeordnet: scripts/teacher-photos.mjs
+// listet vor jedem Build alles auf, was in public/images/lehrer bzw.
+// public/images/schulleitung liegt. Ein neues Foto ist damit allein durch
+// Ablegen der Datei "<nachname>.jpg" auf der Website — im Google Sheet ist
+// dafuer keine Spalte noetig.
+const PHOTO_INDEX: Record<string, string> = Object.fromEntries(
+  Object.entries(teacherPhotos as Record<string, string>).map(([slug, url]) => [
+    photoKey(slug),
+    url,
+  ])
+);
 
-// Lehrkraefte ohne bildUrl bekommen ein deterministisch aus dem Namen
-// generiertes SVG-Muster statt eines gemeinsamen Platzhalterfotos.
+function findPhoto(nachname: string): string | undefined {
+  return PHOTO_INDEX[photoKey(nachname)];
+}
+
+/**
+ * Eine Zeile aus dem Sheet in die Form bringen, die die Website anzeigt:
+ * Anrede statt Vorname, Rolle passend gegendert, Faecher/Bio einheitlich
+ * sortiert und das Foto automatisch zugeordnet.
+ */
+function prepareTeacher(t: (typeof schoolContent.lehrer)[number]) {
+  const anrede = normalizeAnrede(t.anrede ?? "");
+  const subjects = normalizeSubjects(t.faecher);
+  const name = displayName(anrede, t.nachname);
+  return {
+    id: t.id,
+    nachname: t.nachname,
+    name,
+    role: genderRole(t.rolle, anrede),
+    subjects,
+    // Ohne Foto ein deterministisch aus dem Namen erzeugtes SVG-Muster.
+    image: findPhoto(t.nachname) ?? teacherBackground(name, { subject: subjects[0] }),
+    bio: normalizeBio(t.bio),
+    isLeadership: t.schulleitung,
+    phone: t.telefon,
+    // "Ja" in der Email-Spalte heisst: persoenliche Adresse anzeigen.
+    email: /^(ja|yes|true|x)$/i.test(t.email.trim())
+      ? schoolEmail(t.vorname, t.nachname)
+      : "",
+  };
+}
+
+// In Sheet-Reihenfolge — die Schulleitungs-Seite behaelt dadurch ihre
+// Hierarchie (Schulleiter zuerst); das Kollegium wird unten alphabetisch
+// sortiert.
+const preparedTeachers = schoolContent.lehrer.map(prepareTeacher);
+
 // Die "Bio"-Spalte im Google Sheet traegt die zusaetzliche Aufgabe einer
 // Lehrkraft neben dem Fachunterricht (z. B. "Ausbildungsbeauftragte",
 // "Klassenleitung 7a"). Ist sie gesetzt, wird sie als eigenes (gruenes)
 // Badge neben dem Fach angezeigt. Bei der Schulleitung enthaelt die Bio
 // stattdessen eine lange Aufgabenliste als Fliesstext - dort erscheint
 // kein zusaetzliches Badge.
-export const teachers = schoolContent.lehrer.map((t) => ({
-  id: t.id,
-  name: t.name,
-  role: t.rolle,
-  subjects: t.faecher,
-  image: t.bildUrl || teacherBackground(t.name, { subject: t.faecher[0] }),
-  bio: t.bio,
-  secondTask: !t.schulleitung && t.bio.trim() ? t.bio.trim() : null,
-}));
+// Das Kollegium ist immer nach Nachname sortiert.
+export const teachers = [...preparedTeachers]
+  .sort((a, b) => a.nachname.localeCompare(b.nachname, "de"))
+  .map((t) => ({
+    id: t.id,
+    name: t.name,
+    role: t.role,
+    subjects: t.subjects,
+    image: t.image,
+    bio: t.bio,
+    secondTask: !t.isLeadership && t.bio ? t.bio : null,
+  }));
 
-export const leadershipTeam = schoolContent.lehrer
-  .filter((t) => t.schulleitung)
+export const leadershipTeam = preparedTeachers
+  .filter((t) => t.isLeadership)
   .map((t) => ({
     name: t.name,
-    role: t.rolle,
-    image: t.bildUrl || LEADERSHIP_PHOTOS[t.nachname] || teacherBackground(t.name, { subject: t.faecher[0] }),
+    role: t.role,
+    image: t.image,
     bio: t.bio,
-    subjects: t.faecher,
-    phone: t.telefon || `${schoolInfo.phone} (Sekretariat)`,
+    subjects: t.subjects,
+    phone: t.phone || `${schoolInfo.phone} (Sekretariat)`,
     email: t.email || schoolInfo.email,
   }));
 
@@ -297,8 +347,7 @@ export const sekretariatInfo = {
   closedNote: "Täglich von 10:50 – 11:45 Uhr geschlossen.",
 };
 
-export const subjects = [
-  "Deutsch", "Mathematik", "Englisch", "Biologie", "Chemie", "Physik",
-  "Geschichte", "Erdkunde", "Politik/Wirtschaft", "Religionslehre", "Philosophie",
-  "Kunst", "Musik", "Sport", "Informatik", "Technik",
-];
+// Alle Faecher, die im Sheet tatsaechlich einer Lehrkraft zugeordnet sind —
+// daraus entstehen die Filter-Buttons auf der Kollegium-Seite. Ein neu
+// eingetragenes Fach erscheint automatisch, ohne Code-Aenderung.
+export const subjects = collectSubjects(preparedTeachers.map((t) => t.subjects));

@@ -77,6 +77,12 @@ function slugify_(text) {
     .replace(/^-+|-+$/g, '');
 }
 
+// Liefert die Tabellenzeilen bewusst als ROHWERTE aus. Alles Weitere --
+// Anrede statt Vorname anzeigen, Rollen gendern ("Lehrer*in" -> "Lehrerin"),
+// Faecher/Bio einheitlich sortieren, "Ja" in der Email-Spalte zur Adresse
+// ausbauen, Fotos zuordnen -- passiert auf der Website in lib/teachers.ts.
+// Dadurch wirken Aenderungen an diesen Regeln sofort beim naechsten Build,
+// ohne dass hier eine neue Version bereitgestellt werden muss.
 function readLehrer_(cfg) {
   const rows = readSheetRows_('Lehrer', cfg);
   return rows
@@ -86,19 +92,23 @@ function readLehrer_(cfg) {
       const faecherRaw = pick_(row, ['fächer', 'faecher', 'fach', 'subjects']);
       return {
         id: i + 1,
+        // Der Vorname wird auf der Website nie angezeigt, sondern nur fuer die
+        // Bildung der dienstlichen E-Mail-Adresse gebraucht.
         vorname: vorname,
         nachname: nachname,
-        name: [vorname, nachname].filter(Boolean).join(' '),
+        // Spalte "Geschlecht": "Hr." / "Fr." (leer, wenn nicht eingetragen).
+        anrede: pick_(row, ['geschlecht', 'anrede', 'gender']),
         rolle: pick_(row, ['rolle', 'role']) || 'Lehrer*in',
         faecher: faecherRaw ? faecherRaw.split(',').map((s) => s.trim()).filter(Boolean) : [],
         bio: pick_(row, ['bio', 'beschreibung']),
-        bildUrl: pick_(row, ['bild-url', 'bild', 'image', 'image-url']),
         schulleitung: isJa_(pick_(row, ['schulleitung'])),
         telefon: pick_(row, ['telefon', 'phone']),
+        // "Ja" heisst "persoenliche Adresse anzeigen" -- die Adresse selbst
+        // baut die Website aus Vor- und Nachnamen.
         email: pick_(row, ['email', 'e-mail']),
       };
     })
-    .filter((t) => t.name);
+    .filter((t) => t.nachname);
 }
 
 function readNews_(cfg) {

@@ -30,14 +30,28 @@ ansehen, ändern noch die Website-Aktualisierung auslösen.
 3. In Zeile 1 jeweils diese Spaltenüberschriften eintragen:
 
    **Tab `Lehrer`:**
-   | Vorname | Nachname | Rolle | Fächer | Bio | Bild-URL | Schulleitung | Telefon | Email |
-   |---|---|---|---|---|---|---|---|---|
+   | Vorname | Nachname | Geschlecht | Rolle | Fächer | Bio | Bild-URL | Schulleitung | Telefon | Email |
+   |---|---|---|---|---|---|---|---|---|---|
 
-   - `Fächer`: mehrere Fächer durch Komma trennen, z. B. `Deutsch, Geschichte`
+   - `Vorname`: der echte Vorname (z. B. `Marcel`) — daraus entsteht auch die
+     E-Mail-Adresse, siehe `Email`.
+   - `Geschlecht`: die Anrede, `Hr.` oder `Fr.` (`Herr`/`Frau`/`m`/`w` werden
+     auch erkannt). Ist noch kein Vorname eingetragen, wird stattdessen die
+     Anrede vor den Nachnamen gesetzt (`Hr. Herbst`).
+   - `Fächer`: mehrere Fächer durch Komma trennen, z. B. `Deutsch, Geschichte`.
+     Die Reihenfolge ist beliebig — auf der Website erscheinen sie immer in
+     derselben Sortierung, kleine Tippfehler (`Matematik`) werden korrigiert.
+   - `Bio`: zusätzliche Aufgabe(n), z. B. `Sonderpädagoge, SV-Lehrer`. Mehrere
+     Einträge werden auf der Website immer gleich sortiert angezeigt.
    - `Bild-URL`: optional — Link zu einem Foto. Leer lassen, dann erscheint ein Platzhalterbild.
    - `Schulleitung`: `Ja` eintragen, wenn die Person zusätzlich auf der
      Schulleitungs-Seite erscheinen soll (sonst leer lassen).
-   - `Telefon` / `Email`: nur für die Schulleitungskarte relevant, sonst leer lassen.
+   - `Telefon`: nur für die Schulleitungskarte relevant, sonst leer lassen.
+   - `Email`: **kein** Adress-Text, sondern `Ja`/leer. Bei `Ja` wird die
+     dienstliche Adresse automatisch als
+     `<erster-Buchstabe-Vorname>.<nachname>@rs-heimbach.de` gebildet und
+     verlinkt (`Marcel` + `Werner` → `m.werner@rs-heimbach.de`). Ohne
+     Vornamen kann keine Adresse gebildet werden.
 
    **Tab `News`:**
    | Titel | Datum | Kategorie | Teaser | Volltext | Bild-URL | Slug | Hauptbeitrag |
@@ -61,11 +75,18 @@ E-Mail-Adressen der zuständigen Lehrkräfte mit Rolle **Bearbeiter** eintragen.
 **Nicht** auf "Jeder mit dem Link" stellen — das Sheet bleibt privat.
 
 ### Schritt 3 — Apps-Script einfügen
-1. Im Sheet: **Erweiterungen → Apps Script**.
-2. Vorhandenen Beispielcode löschen.
+Dieses Projekt ist **eigenständig** angelegt (über `script.new`), es hängt
+also *nicht* an der Tabelle. Deshalb führt „Erweiterungen → Apps Script" im
+Sheet ins Leere ("Datei kann derzeit nicht geöffnet werden") — der Editor
+wird immer über die Apps-Script-Startseite geöffnet:
+
+1. **<https://script.google.com/home/projects>** aufrufen (gleiches Google-Konto
+   wie beim Sheet) und das Projekt aus der Liste öffnen.
+2. Links in der Dateileiste `Code.gs` anklicken, Inhalt komplett markieren
+   (`Strg+A`) und löschen.
 3. Inhalt von [`google-apps-script/Code.gs`](google-apps-script/Code.gs) aus
-   diesem Repo komplett hineinkopieren.
-4. **💾 Speichern**.
+   diesem Repo hineinkopieren.
+4. **💾 Speichern** (`Strg+S`).
 
 ### Schritt 4 — Skripteigenschaften setzen
 1. Links auf **⚙️ Projekteinstellungen** → runterscrollen zu
@@ -74,6 +95,7 @@ E-Mail-Adressen der zuständigen Lehrkräfte mit Rolle **Bearbeiter** eintragen.
 
    | Eigenschaft | Wert |
    |---|---|
+   | `SPREADSHEET_ID` | die ID aus der Sheet-URL zwischen `/d/` und `/edit` — **zwingend**, weil das Script nicht an der Tabelle hängt |
    | `GITHUB_TOKEN` | Ein GitHub Personal Access Token mit `workflow`-Recht (siehe unten) |
    | `GITHUB_REPO` | z. B. `dein-benutzername/rs-heimbach` |
    | `GITHUB_WORKFLOW_FILE` | `sheets-sync.yml` |
@@ -95,8 +117,11 @@ E-Mail-Adressen der zuständigen Lehrkräfte mit Rolle **Bearbeiter** eintragen.
 3. **Bereitstellen** → Berechtigungen bestätigen.
 4. Die Web-App-URL kopieren (endet auf `/exec`).
 
-> 🔁 Bei späteren Code-Änderungen: **Bereitstellung verwalten → Bearbeiten →
+> 🔁 **Bei späteren Code-Änderungen** (Speichern allein genügt nicht!):
+> **Bereitstellen → Bereitstellungen verwalten → ✎ Bearbeiten →
 > Version: Neu → Bereitstellen**. Die URL bleibt dabei gleich.
+> Nimm *nicht* „Neue Bereitstellung" — das erzeugt eine neue URL, die dann
+> nicht mehr zum GitHub-Secret `CONTENT_API_URL` passt.
 
 ### Schritt 7 — GitHub-Secret setzen
 Im GitHub-Repo: **Settings → Secrets and variables → Actions → New repository
@@ -124,9 +149,10 @@ klicken. Nach ca. 2–3 Minuten sind die Änderungen live.
 Ohne Klick erscheinen Änderungen spätestens nach ~15–20 Minuten von selbst.
 
 ### Spalten-Übersicht
-- **Lehrer:** `Vorname`, `Nachname`, `Rolle`, `Fächer`, `Bio`, `Bild-URL`
-  (optional), `Schulleitung` (`Ja`/leer), `Telefon`/`Email` (nur für
-  Schulleitungskarte).
+- **Lehrer:** `Vorname`, `Nachname`, `Geschlecht` (`Hr.`/`Fr.`), `Rolle`,
+  `Fächer`, `Bio`, `Bild-URL` (optional), `Schulleitung` (`Ja`/leer),
+  `Telefon` (nur für Schulleitungskarte), `Email` (`Ja`/leer — Adresse wird
+  automatisch gebildet).
 - **News:** `Titel`, `Datum`, `Kategorie`, `Teaser`, `Volltext` (optional),
   `Bild-URL` (optional), `Slug` (optional), `Hauptbeitrag` (optional, siehe oben).
 
@@ -136,7 +162,11 @@ Ohne Klick erscheinen Änderungen spätestens nach ~15–20 Minuten von selbst.
 
 | Symptom | Ursache / Lösung |
 |---|---|
+| „Erweiterungen → Apps Script" zeigt „Datei kann derzeit nicht geöffnet werden" | Normal — das Script hängt nicht an der Tabelle. Editor über <https://script.google.com/home/projects> öffnen. |
+| `Kein Spreadsheet gefunden (SPREADSHEET_ID pruefen)` | Skripteigenschaft `SPREADSHEET_ID` fehlt oder ist falsch (Teil A, Schritt 4). |
 | Inhalte bleiben leer/veraltet | `CONTENT_API_URL`-Secret in GitHub fehlt/falsch, oder Web-App-Zugriff ≠ "Jeder". Mit `testPayload` (Teil A, Schritt 5) prüfen. |
 | "Jetzt aktualisieren" meldet Fehler | `GITHUB_TOKEN` abgelaufen oder ohne `workflow`-Recht — neuen Token erzeugen (Teil A, Schritt 4). |
 | Backend direkt testen | Web-App-URL im Browser öffnen → es muss JSON mit `lehrer`, `news` erscheinen. |
 | Neue Person erscheint nicht auf der Schulleitungs-Seite | Spalte `Schulleitung` muss genau `Ja` enthalten. |
+| In der Email-Spalte steht `Ja` und genau das erscheint auf der Website | Der aktualisierte `Code.gs` ist noch nicht als neue Version bereitgestellt (Teil A, Schritt 6 — **Bereitstellen → Bereitstellungen verwalten → ✎ → Version: Neu**). |
+| Persönliche E-Mail fehlt trotz `Ja` | In der Zeile fehlt der `Vorname` — ohne ihn lässt sich `m.werner@…` nicht bilden. |

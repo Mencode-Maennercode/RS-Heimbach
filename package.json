@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/dev.mjs",
+    "dev": "npm run photos && node scripts/dev.mjs",
     "sync-sheets": "node scripts/sheets-sync.mjs",
+    "photos": "node scripts/teacher-photos.mjs",
     "dev:raw": "next dev",
+    "prebuild": "npm run photos",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

@@ -16,6 +16,11 @@ export default function LehrerPage() {
     [activeSubject]
   );
 
+  // `subjects` enthaelt bereits genau die Faecher, die im Google Sheet
+  // mindestens einer Lehrkraft zugeordnet sind — neue Faecher erscheinen also
+  // von selbst.
+  const availableSubjects = subjects;
+
   return (
     <>
       {/* Hero */}
@@ -37,9 +42,9 @@ export default function LehrerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-8 justify-center sm:justify-start">
             {[
-              { icon: Users, value: "55", label: "Lehrerinnen & Lehrer" },
-              { icon: BookOpen, value: "5", label: "Sonderpädagog*innen" },
-              { icon: BookOpen, value: "16", label: "Fächer" },
+              { icon: Users, value: String(teachers.length), label: "Lehrerinnen & Lehrer" },
+              { icon: BookOpen, value: String(schoolInfo.specialEdTeachers), label: "Sonderpädagog*innen" },
+              { icon: BookOpen, value: String(subjects.length), label: "Fächer" },
             ].map((s) => {
               const Icon = s.icon;
               return (
@@ -81,7 +86,7 @@ export default function LehrerPage() {
             >
               Alle
             </motion.button>
-            {subjects.map((s, i) => (
+            {availableSubjects.map((s, i) => (
               <motion.button
                 key={s}
                 type="button"

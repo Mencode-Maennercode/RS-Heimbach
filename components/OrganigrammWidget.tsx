@@ -277,7 +277,7 @@ const ORG_DATA = {
       items: [
         { role: "Schulleiter", people: "Hr. Herbst", tasks: "Personalia, Beschwerden, Widersprüche, Konferenzen, Mitwirkungsorgane, An- & Abmeldungen, Beurlaubungen, UVD, Stundenplan, Öffentlichkeitsarbeit, Schulprogramm" },
         { role: "Konrektorin", people: "Fr. Fournes", tasks: "UVD, Vertretung, Stundenplan, Aufsicht, Konferenzen, AKO, Differenzierung, Beratung, Stufenorganisation" },
-        { role: "2. Konrektor*in", people: "Hr. Werner", tasks: "Vertretung, Stundenplan, Aufsicht, UVD, Erprobungsstufe, Ganztag, Fortbildung, Schulprogramm" },
+        { role: "2. Konrektor", people: "Hr. Werner", tasks: "Vertretung, Stundenplan, Aufsicht, UVD, Erprobungsstufe, Ganztag, Fortbildung, Schulprogramm" },
       ],
     },
     {

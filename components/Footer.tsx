@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin, Phone, Mail, Instagram, Facebook, Youtube, ArrowRight } from "lucide-react";
+import { GraduationCap, MapPin, Phone, Mail, Instagram, ArrowRight } from "lucide-react";
 import { schoolInfo, navItems } from "@/lib/data";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
 
@@ -76,18 +76,6 @@ export default function Footer() {
                 className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-pink-500 transition-colors duration-200"
               >
                 <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors duration-200"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-red-600 transition-colors duration-200"
-              >
-                <Youtube className="w-4 h-4" />
               </a>
             </div>
           </div>

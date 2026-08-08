@@ -236,7 +236,7 @@ export default function UnsereSchulePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>
                 <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">Gemeinsames Lernen</span>
-                <h2 className="text-4xl font-black mb-5">Inklusion an der RS Heimbach</h2>
+                <h2 className="text-4xl font-black mb-5">Inklusion an der RS&nbsp;Heimbach</h2>
                 <p className="text-white/80 leading-relaxed">
                   Wir glauben daran, dass alle Kinder gemeinsam lernen können. Mit Sonderpädagog*innen
                   begleiten wir Schülerinnen und Schüler mit besonderem Förderbedarf individuell und professionell
@@ -249,8 +249,8 @@ export default function UnsereSchulePage() {
                   { value: "Individuell", label: "Förderpläne für jedes Kind" },
                   { value: "Gemeinsam", label: "Lernen in einem Klassenverband" },
                 ].map((item) => (
-                  <div key={item.label} className="bg-white/10 rounded-2xl p-5 text-center">
-                    <div className="text-2xl font-black text-[#f5a623] mb-1">{item.value}</div>
+                  <div key={item.label} className="bg-white/10 rounded-2xl px-3 py-5 text-center">
+                    <div className="text-xl xl:text-2xl font-black text-[#f5a623] mb-1 leading-tight">{item.value}</div>
                     <div className="text-white/70 text-xs">{item.label}</div>
                   </div>
                 ))}
