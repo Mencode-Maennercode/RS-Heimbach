@@ -141,12 +141,12 @@ export default function UnsereSchulePage() {
                 aria-hidden="true"
               />
               <div
-                className="relative aspect-[4/3]"
+                className="relative aspect-[4/3] rounded-[3rem] overflow-hidden"
                 style={{
                   maskImage:
-                    "radial-gradient(ellipse 82% 82% at center, black 58%, transparent 100%)",
+                    "radial-gradient(ellipse 95% 95% at center, black 82%, transparent 100%)",
                   WebkitMaskImage:
-                    "radial-gradient(ellipse 82% 82% at center, black 58%, transparent 100%)",
+                    "radial-gradient(ellipse 95% 95% at center, black 82%, transparent 100%)",
                 }}
               >
                 <video
