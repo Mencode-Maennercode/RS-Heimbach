@@ -2,12 +2,15 @@
   "lehrer": [
     {
       "id": 1,
-      "vorname": "Hr.",
+      "vorname": "Frank",
       "nachname": "Herbst",
-      "name": "Hr. Herbst",
+      "name": "Frank Herbst",
       "rolle": "Schulleiter",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 5B, Co-Klassenleitung 10C",
+      "faecher": [
+        "Deutsch",
+        "Sport"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
@@ -15,12 +18,15 @@
     },
     {
       "id": 2,
-      "vorname": "Fr.",
+      "vorname": "Sigrid",
       "nachname": "Fournes",
-      "name": "Fr. Fournes",
+      "name": "Sigrid Fournes",
       "rolle": "Konrektorin",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 10D",
+      "faecher": [
+        "Biologie",
+        "Sport"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
@@ -28,12 +34,17 @@
     },
     {
       "id": 3,
-      "vorname": "Hr.",
+      "vorname": "Marcel",
       "nachname": "Werner",
-      "name": "Hr. Werner",
-      "rolle": "2. Konrektor*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 10B",
+      "name": "Marcel Werner",
+      "rolle": "2. Konrektor",
+      "faecher": [
+        "Mathematik",
+        "Sozialwissenschaften",
+        "Politik",
+        "Kath. Religion"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
@@ -41,12 +52,13 @@
     },
     {
       "id": 4,
-      "vorname": "Fr.",
+      "vorname": "Johanna",
       "nachname": "Kassmann",
-      "name": "Fr. Kassmann",
+      "name": "Johanna Kassmann",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Deutsch"
+        "Deutsch",
+        "Kunst"
       ],
       "bio": "",
       "bildUrl": "",
@@ -56,14 +68,16 @@
     },
     {
       "id": 5,
-      "vorname": "Fr.",
+      "vorname": "Susanne",
       "nachname": "Etschenberg",
-      "name": "Fr. Etschenberg",
+      "name": "Susanne Etschenberg",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Englisch"
+        "Englisch",
+        "Sozialwissenschaften",
+        "Politik"
       ],
-      "bio": "Klassenleitung 9B",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -71,14 +85,16 @@
     },
     {
       "id": 6,
-      "vorname": "Fr.",
+      "vorname": "Julia",
       "nachname": "Fischer",
-      "name": "Fr. Fischer",
+      "name": "Julia Fischer",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Mathematik"
+        "Mathematik",
+        "Technik",
+        "Physik"
       ],
-      "bio": "Klassenleitung 7A",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -86,15 +102,17 @@
     },
     {
       "id": 7,
-      "vorname": "Hr.",
+      "vorname": "Volkan",
       "nachname": "Erdogan",
-      "name": "Hr. Erdogan",
+      "name": "Volkan Erdogan",
       "rolle": "Lehrer*in",
       "faecher": [
         "Sozialwissenschaften",
-        "Politik"
+        "Politik",
+        "Informatik",
+        "Geschichte"
       ],
-      "bio": "Klassenleitung 6B",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -102,15 +120,16 @@
     },
     {
       "id": 8,
-      "vorname": "Fr.",
+      "vorname": "Jasmin",
       "nachname": "Sliwa",
-      "name": "Fr. Sliwa",
+      "name": "Jasmin Sliwa",
       "rolle": "Lehrer*in",
       "faecher": [
         "Biologie",
-        "Textil"
+        "Textil",
+        "Kunst"
       ],
-      "bio": "Klassenleitung 7D",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -118,14 +137,16 @@
     },
     {
       "id": 9,
-      "vorname": "Hr.",
+      "vorname": "Holger",
       "nachname": "Stein",
-      "name": "Hr. Stein",
+      "name": "Holger Stein",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Informatik"
+        "Informatik",
+        "Mathematik",
+        "Physik"
       ],
-      "bio": "Co-Klassenleitung 7C",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -133,12 +154,14 @@
     },
     {
       "id": 10,
-      "vorname": "Fr.",
+      "vorname": "Luisa",
       "nachname": "Koller",
-      "name": "Fr. Koller",
+      "name": "Luisa Koller",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Informatik"
+        "Informatik",
+        "Kath. Religion",
+        "Biologie"
       ],
       "bio": "",
       "bildUrl": "",
@@ -148,12 +171,15 @@
     },
     {
       "id": 11,
-      "vorname": "Hr.",
-      "nachname": "Harpak",
-      "name": "Hr. Harpak",
+      "vorname": "Stephan",
+      "nachname": "Engler",
+      "name": "Stephan Engler",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Technik"
+        "Französisch",
+        "Sport",
+        "Musik",
+        "Informatik"
       ],
       "bio": "",
       "bildUrl": "",
@@ -163,14 +189,15 @@
     },
     {
       "id": 12,
-      "vorname": "Hr.",
-      "nachname": "Engler",
-      "name": "Hr. Engler",
+      "vorname": "Anja",
+      "nachname": "Rieber",
+      "name": "Anja Rieber",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Französisch"
+        "Kunst",
+        "Englisch"
       ],
-      "bio": "Co-Klassenleitung 7B",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -178,14 +205,15 @@
     },
     {
       "id": 13,
-      "vorname": "Fr.",
-      "nachname": "Rieber",
-      "name": "Fr. Rieber",
+      "vorname": "Olga",
+      "nachname": "Schulz",
+      "name": "Olga Schulz",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Kunst"
+        "Musik",
+        "Chemie"
       ],
-      "bio": "Co-Klassenleitung 6C",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -193,12 +221,13 @@
     },
     {
       "id": 14,
-      "vorname": "Fr.",
-      "nachname": "Schulz",
-      "name": "Fr. Schulz",
+      "vorname": "Freya",
+      "nachname": "Reuber",
+      "name": "Freya Reuber",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Musik"
+        "Erdkunde",
+        "Englisch"
       ],
       "bio": "",
       "bildUrl": "",
@@ -208,14 +237,16 @@
     },
     {
       "id": 15,
-      "vorname": "Fr.",
-      "nachname": "Reuber",
-      "name": "Fr. Reuber",
+      "vorname": "Christoph",
+      "nachname": "Marx",
+      "name": "Christoph Marx",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Erdkunde"
+        "Geschichte",
+        "Sport",
+        "Mathematik"
       ],
-      "bio": "Klassenleitung 9A",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -223,14 +254,16 @@
     },
     {
       "id": 16,
-      "vorname": "Hr.",
-      "nachname": "Marx",
-      "name": "Hr. Marx",
+      "vorname": "Thaami",
+      "nachname": "Tembe",
+      "name": "Thaami Tembe",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Geschichte"
+        "Praktische Philosophie",
+        "Geschichte",
+        "Englisch"
       ],
-      "bio": "Klassenleitung 5B",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -238,14 +271,16 @@
     },
     {
       "id": 17,
-      "vorname": "Hr.",
-      "nachname": "Tembe",
-      "name": "Hr. Tembe",
+      "vorname": "Frank",
+      "nachname": "Thape",
+      "name": "Frank Thape",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Praktische Philosophie"
+        "Physik",
+        "Sport",
+        "Mathematik"
       ],
-      "bio": "Klassenleitung 6D",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -253,14 +288,16 @@
     },
     {
       "id": 18,
-      "vorname": "Hr.",
-      "nachname": "Thape",
-      "name": "Hr. Thape",
+      "vorname": "Christiane",
+      "nachname": "Gerdesmeyer",
+      "name": "Christiane Gerdesmeyer",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Physik"
+        "Chemie",
+        "Mathematik",
+        "Biologie"
       ],
-      "bio": "Klassenleitung 10C",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -268,14 +305,15 @@
     },
     {
       "id": 19,
-      "vorname": "Fr.",
-      "nachname": "Gerdesmeyer",
-      "name": "Fr. Gerdesmeyer",
+      "vorname": "Anika",
+      "nachname": "Hoffmann",
+      "name": "Anika Hoffmann",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Chemie"
+        "Ev. Religion",
+        "Mathematik"
       ],
-      "bio": "Klassenleitung 8D",
+      "bio": "Ausbildungsbeauftragte",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -283,14 +321,12 @@
     },
     {
       "id": 20,
-      "vorname": "Fr.",
-      "nachname": "Hoffmann",
-      "name": "Fr. Hoffmann",
-      "rolle": "Lehrer*in",
-      "faecher": [
-        "Ev. Religion"
-      ],
-      "bio": "Ausbildungsbeauftragte, Klassenleitung 10B",
+      "vorname": "Martin",
+      "nachname": "Stander",
+      "name": "Martin Stander",
+      "rolle": "MPT - Kraft",
+      "faecher": [],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -298,12 +334,14 @@
     },
     {
       "id": 21,
-      "vorname": "Hr.",
-      "nachname": "Stander",
-      "name": "Hr. Stander",
+      "vorname": "Thaddäus",
+      "nachname": "Cuypers",
+      "name": "Thaddäus Cuypers",
       "rolle": "Lehrer*in",
       "faecher": [
-        "Sport"
+        "Kath. Religion",
+        "English",
+        "Geschichte"
       ],
       "bio": "",
       "bildUrl": "",
@@ -313,14 +351,15 @@
     },
     {
       "id": 22,
-      "vorname": "Hr.",
-      "nachname": "Cuypers",
-      "name": "Hr. Cuypers",
+      "vorname": "Sebastian",
+      "nachname": "Schmidt",
+      "name": "Sebastian Schmidt",
       "rolle": "Lehrer*in",
       "faecher": [
+        "Deutsch",
         "Kath. Religion"
       ],
-      "bio": "Co-Klassenleitung 9D",
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -328,12 +367,15 @@
     },
     {
       "id": 23,
-      "vorname": "Hr.",
-      "nachname": "Schmidt",
-      "name": "Hr. Schmidt",
-      "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 8A",
+      "vorname": "Kateryl",
+      "nachname": "Losiei",
+      "name": "Kateryl Losiei",
+      "rolle": "Referendar*in",
+      "faecher": [
+        "Deutsch",
+        "Englisch"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -341,22 +383,9 @@
     },
     {
       "id": 24,
-      "vorname": "Kateryna",
-      "nachname": "Losiei",
-      "name": "Kateryna Losiei",
-      "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 6A",
-      "bildUrl": "/images/lehrer/losiei.jpg",
-      "schulleitung": false,
-      "telefon": "",
-      "email": ""
-    },
-    {
-      "id": 25,
-      "vorname": "Fr.",
+      "vorname": "Shrysi",
       "nachname": "Kyriakopoulou",
-      "name": "Fr. Kyriakopoulou",
+      "name": "Shrysi Kyriakopoulou",
       "rolle": "Lehrer*in",
       "faecher": [
         "Griechisch"
@@ -368,10 +397,10 @@
       "email": ""
     },
     {
-      "id": 26,
-      "vorname": "Fr.",
+      "id": 25,
+      "vorname": "Güllüzar",
       "nachname": "Gümüs-Gerichhausen",
-      "name": "Fr. Gümüs-Gerichhausen",
+      "name": "Güllüzar Gümüs-Gerichhausen",
       "rolle": "Lehrer*in",
       "faecher": [
         "Türkisch"
@@ -383,13 +412,33 @@
       "email": ""
     },
     {
-      "id": 27,
-      "vorname": "Hr.",
+      "id": 26,
+      "vorname": "Gregor",
       "nachname": "Hagemeyer",
-      "name": "Hr. Hagemeyer",
+      "name": "Gregor Hagemeyer",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 5D",
+      "faecher": [
+        "Deutsch",
+        "Erdkunde"
+      ],
+      "bio": "Sonderpädagoge, SV-Lehrer",
+      "bildUrl": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 27,
+      "vorname": "Justyna",
+      "nachname": "Cempel",
+      "name": "Justyna Cempel",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Englisch",
+        "Französisch",
+        "Geschichte"
+      ],
+      "bio": "Gleichstellungsbeauftragte",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -397,11 +446,16 @@
     },
     {
       "id": 28,
-      "vorname": "Fr.",
-      "nachname": "Nunner",
-      "name": "Fr. Nunner",
+      "vorname": "Sylvia",
+      "nachname": "Grosse",
+      "name": "Sylvia Grosse",
       "rolle": "Lehrer*in",
-      "faecher": [],
+      "faecher": [
+        "Deutsch",
+        "Praktische Philosophie",
+        "Politik",
+        "Sozialwissenschaften"
+      ],
       "bio": "",
       "bildUrl": "",
       "schulleitung": false,
@@ -410,12 +464,15 @@
     },
     {
       "id": 29,
-      "vorname": "Fr.",
-      "nachname": "Cempel",
-      "name": "Fr. Cempel",
+      "vorname": "Stefanie",
+      "nachname": "Katzner",
+      "name": "Stefanie Katzner",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 7B",
+      "faecher": [
+        "Deutsch",
+        "Biologie"
+      ],
+      "bio": "Peers-Leiterin",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -423,12 +480,15 @@
     },
     {
       "id": 30,
-      "vorname": "",
-      "nachname": "Kuhn-Drawe",
-      "name": "Kuhn-Drawe",
+      "vorname": "Martin",
+      "nachname": "Haag",
+      "name": "Martin Haag",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "",
+      "faecher": [
+        "Deutsch",
+        "Erdkunde"
+      ],
+      "bio": "Sonderpädagoge, SV-Lehrer",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -436,12 +496,15 @@
     },
     {
       "id": 31,
-      "vorname": "Fr.",
-      "nachname": "Grosse",
-      "name": "Fr. Grosse",
+      "vorname": "Doris",
+      "nachname": "Pieper",
+      "name": "Doris Pieper",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 5A",
+      "faecher": [
+        "Sport",
+        "Praktische Philosophie"
+      ],
+      "bio": "Sonderpädagogin, Berufsberaterin",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -449,12 +512,15 @@
     },
     {
       "id": 32,
-      "vorname": "Fr.",
-      "nachname": "Katzner",
-      "name": "Fr. Katzner",
+      "vorname": "Nils",
+      "nachname": "Koretz",
+      "name": "Nils Koretz",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 5D",
+      "faecher": [
+        "Mathematik",
+        "Deutsch"
+      ],
+      "bio": "Sonderpädagoge, Beratungslehrer",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -462,12 +528,18 @@
     },
     {
       "id": 33,
-      "vorname": "Hr.",
-      "nachname": "Haag",
-      "name": "Hr. Haag",
+      "vorname": "Annett",
+      "nachname": "Beyers",
+      "name": "Annett Beyers",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 5C",
+      "faecher": [
+        "Französisch",
+        "Sport",
+        "Erdkunde",
+        "Politik",
+        "Kunst"
+      ],
+      "bio": "Berufsberaterin",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -475,12 +547,15 @@
     },
     {
       "id": 34,
-      "vorname": "Fr.",
-      "nachname": "Pieper",
-      "name": "Fr. Pieper",
+      "vorname": "Clarissa",
+      "nachname": "Haffmans",
+      "name": "Clarissa Haffmans",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 8D",
+      "faecher": [
+        "Deutsch",
+        "Kunst"
+      ],
+      "bio": "Sonderpädagogin",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -488,12 +563,17 @@
     },
     {
       "id": 35,
-      "vorname": "Hr.",
-      "nachname": "Koretz",
-      "name": "Hr. Koretz",
+      "vorname": "Regine",
+      "nachname": "Jünger",
+      "name": "Regine Jünger",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 7D",
+      "faecher": [
+        "Deutsch",
+        "Sozialwissenschaften",
+        "Praktische Philosophie",
+        "Politik"
+      ],
+      "bio": "Peers-Leiterin",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -501,12 +581,15 @@
     },
     {
       "id": 36,
-      "vorname": "Fr.",
-      "nachname": "Beyers",
-      "name": "Fr. Beyers",
+      "vorname": "Robert",
+      "nachname": "Dittrich",
+      "name": "Robert Dittrich",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 9C",
+      "faecher": [
+        "Kunst",
+        "Politik"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -514,11 +597,13 @@
     },
     {
       "id": 37,
-      "vorname": "Hr.",
-      "nachname": "Herzog",
-      "name": "Hr. Herzog",
-      "rolle": "Lehrer & AG-Leiter",
-      "faecher": [],
+      "vorname": "Susanne",
+      "nachname": "Wiechmann",
+      "name": "Susanne Wiechmann",
+      "rolle": "AWO - Team",
+      "faecher": [
+        "Trainingsraum"
+      ],
       "bio": "",
       "bildUrl": "",
       "schulleitung": false,
@@ -527,11 +612,13 @@
     },
     {
       "id": 38,
-      "vorname": "Fr.",
-      "nachname": "Mittelbach",
-      "name": "Fr. Mittelbach",
-      "rolle": "Lehrer*in",
-      "faecher": [],
+      "vorname": "Anja",
+      "nachname": "Musielak",
+      "name": "Anja Musielak",
+      "rolle": "AWO - Team",
+      "faecher": [
+        "Trainingsraum"
+      ],
       "bio": "",
       "bildUrl": "",
       "schulleitung": false,
@@ -540,12 +627,16 @@
     },
     {
       "id": 39,
-      "vorname": "Fr.",
-      "nachname": "Haffmans",
-      "name": "Fr. Haffmans",
+      "vorname": "Anja",
+      "nachname": "Oppermann",
+      "name": "Anja Oppermann",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 8C",
+      "faecher": [
+        "Deutsch",
+        "Ev. Religion",
+        "Politik"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -553,12 +644,16 @@
     },
     {
       "id": 40,
-      "vorname": "Fr.",
-      "nachname": "Jünger",
-      "name": "Fr. Jünger",
-      "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 6C",
+      "vorname": "Vesile",
+      "nachname": "Adas",
+      "name": "Vesile Adas",
+      "rolle": "Referendar*in",
+      "faecher": [
+        "Sozialwissenschaften",
+        "Politik",
+        "Erdkunde"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -566,11 +661,14 @@
     },
     {
       "id": 41,
-      "vorname": "Hr.",
-      "nachname": "Trimborn",
-      "name": "Hr. Trimborn",
+      "vorname": "Dicle",
+      "nachname": "Bayram",
+      "name": "Dicle Bayram",
       "rolle": "Lehrer*in",
-      "faecher": [],
+      "faecher": [
+        "Englisch",
+        "Geschichte"
+      ],
       "bio": "",
       "bildUrl": "",
       "schulleitung": false,
@@ -579,11 +677,15 @@
     },
     {
       "id": 42,
-      "vorname": "Fr.",
-      "nachname": "Strack",
-      "name": "Fr. Strack",
-      "rolle": "Lehrerin & Medienpädagogin",
-      "faecher": [],
+      "vorname": "Carmen",
+      "nachname": "Blammheuser",
+      "name": "Carmen Blammheuser",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Sport",
+        "Mathematik",
+        "Informatik"
+      ],
       "bio": "",
       "bildUrl": "",
       "schulleitung": false,
@@ -592,11 +694,14 @@
     },
     {
       "id": 43,
-      "vorname": "Hr.",
-      "nachname": "Dittrich",
-      "name": "Hr. Dittrich",
+      "vorname": "Ralph",
+      "nachname": "Heindrichs",
+      "name": "Ralph Heindrichs",
       "rolle": "Lehrer*in",
-      "faecher": [],
+      "faecher": [
+        "Biologie",
+        "Informatik"
+      ],
       "bio": "",
       "bildUrl": "",
       "schulleitung": false,
@@ -605,11 +710,15 @@
     },
     {
       "id": 44,
-      "vorname": "Fr.",
-      "nachname": "Wiechmann",
-      "name": "Fr. Wiechmann",
+      "vorname": "Christopher",
+      "nachname": "Hidalgo-Shrestha",
+      "name": "Christopher Hidalgo-Shrestha",
       "rolle": "Lehrer*in",
-      "faecher": [],
+      "faecher": [
+        "Mathematik",
+        "Physik",
+        "Chemie"
+      ],
       "bio": "",
       "bildUrl": "",
       "schulleitung": false,
@@ -618,11 +727,14 @@
     },
     {
       "id": 45,
-      "vorname": "Fr.",
-      "nachname": "Musielak",
-      "name": "Fr. Musielak",
+      "vorname": "Elena",
+      "nachname": "Kirschmeier",
+      "name": "Elena Kirschmeier",
       "rolle": "Lehrer*in",
-      "faecher": [],
+      "faecher": [
+        "Biologie",
+        "Chemie"
+      ],
       "bio": "",
       "bildUrl": "",
       "schulleitung": false,
@@ -631,12 +743,15 @@
     },
     {
       "id": 46,
-      "vorname": "Fr.",
-      "nachname": "Oppermann",
-      "name": "Fr. Oppermann",
+      "vorname": "Merve",
+      "nachname": "Köylüoglu",
+      "name": "Merve Köylüoglu",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 8B",
+      "faecher": [
+        "Mathematik",
+        "Deutsch"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -644,11 +759,13 @@
     },
     {
       "id": 47,
-      "vorname": "Hr.",
-      "nachname": "Richter",
-      "name": "Hr. Richter",
+      "vorname": "Alexandra",
+      "nachname": "Kraft",
+      "name": "Alexandra Kraft",
       "rolle": "Lehrer*in",
-      "faecher": [],
+      "faecher": [
+        "Sport"
+      ],
       "bio": "",
       "bildUrl": "",
       "schulleitung": false,
@@ -657,78 +774,102 @@
     },
     {
       "id": 48,
-      "vorname": "Marike",
-      "nachname": "Scherz",
-      "name": "Marike Scherz",
+      "vorname": "Sigrun",
+      "nachname": "Kröger",
+      "name": "Sigrun Kröger",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 7C",
-      "bildUrl": "/images/lehrer/scherz.jpg",
+      "faecher": [
+        "Biologie",
+        "Englisch",
+        "Französisch"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
     },
     {
       "id": 49,
-      "vorname": "Ilda",
-      "nachname": "Ramovic",
-      "name": "Ilda Ramovic",
+      "vorname": "Nina",
+      "nachname": "Novakovic",
+      "name": "Nina Novakovic",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 10A",
-      "bildUrl": "/images/lehrer/ramovic.jpg",
+      "faecher": [
+        "Deutsch",
+        "Englisch",
+        "Praktische Philosophie"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
     },
     {
       "id": 50,
-      "vorname": "Nina",
-      "nachname": "Novakovic",
-      "name": "Nina Novakovic",
+      "vorname": "Lara",
+      "nachname": "van Oost",
+      "name": "Lara van Oost",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 9C",
-      "bildUrl": "/images/lehrer/novakovic.jpg",
+      "faecher": [
+        "Sozialwissenschaften",
+        "Politik",
+        "Erdkunde",
+        "Englisch"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
     },
     {
       "id": 51,
-      "vorname": "Lara",
-      "nachname": "van Oost",
-      "name": "Lara van Oost",
+      "vorname": "Ilda",
+      "nachname": "Ramovic",
+      "name": "Ilda Ramovic",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 8A",
-      "bildUrl": "/images/lehrer/van-oost.jpg",
+      "faecher": [
+        "Deutsch",
+        "Englisch"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
     },
     {
       "id": 52,
-      "vorname": "Merve",
-      "nachname": "Köylüoglu",
-      "name": "Merve Köylüoglu",
+      "vorname": "Santa",
+      "nachname": "Roqi",
+      "name": "Santa Roqi",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 8C",
-      "bildUrl": "/images/lehrer/koeyluoglu.jpg",
+      "faecher": [
+        "Mathematik",
+        "Technik",
+        "Informatik",
+        "Kunst"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
     },
     {
       "id": 53,
-      "vorname": "Eda",
-      "nachname": "Turan",
-      "name": "Eda Turan",
+      "vorname": "Mareike",
+      "nachname": "Scherz",
+      "name": "Mareike Scherz",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 9D",
-      "bildUrl": "/images/lehrer/turan.jpg",
+      "faecher": [
+        "Deutsch",
+        "Kunst"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -739,21 +880,29 @@
       "nachname": "Tap",
       "name": "Marina Tap",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 10D",
-      "bildUrl": "/images/lehrer/tap.jpg",
+      "faecher": [
+        "Deutsch",
+        "Kunst",
+        "Ev. Religion",
+        "Politik"
+      ],
+      "bio": "",
+      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
     },
     {
       "id": 55,
-      "vorname": "",
-      "nachname": "Roqi",
-      "name": "Roqi",
+      "vorname": "Eda",
+      "nachname": "Turan",
+      "name": "Eda Turan",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 5C",
+      "faecher": [
+        "Mathematik",
+        "Deutsch"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -761,12 +910,16 @@
     },
     {
       "id": 56,
-      "vorname": "",
-      "nachname": "Bayram",
-      "name": "Bayram",
+      "vorname": "Thomas",
+      "nachname": "Wulfhorst",
+      "name": "Thomas Wulfhorst",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Klassenleitung 6A",
+      "faecher": [
+        "Chemie",
+        "Ev. Religion",
+        "Informatik"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -774,64 +927,15 @@
     },
     {
       "id": 57,
-      "vorname": "",
-      "nachname": "Adas",
-      "name": "Adas",
-      "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 6D",
-      "bildUrl": "",
-      "schulleitung": false,
-      "telefon": "",
-      "email": ""
-    },
-    {
-      "id": 58,
-      "vorname": "",
+      "vorname": "Ditmar",
       "nachname": "Zehnle",
-      "name": "Zehnle",
+      "name": "Ditmar Zehnle",
       "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 7A",
-      "bildUrl": "",
-      "schulleitung": false,
-      "telefon": "",
-      "email": ""
-    },
-    {
-      "id": 59,
-      "vorname": "",
-      "nachname": "Krüger",
-      "name": "Krüger",
-      "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 8B",
-      "bildUrl": "",
-      "schulleitung": false,
-      "telefon": "",
-      "email": ""
-    },
-    {
-      "id": 60,
-      "vorname": "",
-      "nachname": "Blamheuser",
-      "name": "Blamheuser",
-      "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 9A",
-      "bildUrl": "",
-      "schulleitung": false,
-      "telefon": "",
-      "email": ""
-    },
-    {
-      "id": 61,
-      "vorname": "",
-      "nachname": "Wulfhorst",
-      "name": "Wulfhorst",
-      "rolle": "Lehrer*in",
-      "faecher": [],
-      "bio": "Co-Klassenleitung 10A",
+      "faecher": [
+        "Deutsch",
+        "Sport"
+      ],
+      "bio": "",
       "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
@@ -850,5 +954,5 @@
       "slug": "endlich-online-unsere-neue-schulhomepage-ist-da"
     }
   ],
-  "generatedAt": "2026-08-08T11:48:04.928Z"
+  "generatedAt": "2026-08-08T13:04:32.240Z"
 }
