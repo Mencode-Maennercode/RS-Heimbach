@@ -4,14 +4,13 @@
       "id": 1,
       "vorname": "Frank",
       "nachname": "Herbst",
-      "name": "Frank Herbst",
+      "anrede": "Hr.",
       "rolle": "Schulleiter",
       "faecher": [
         "Deutsch",
         "Sport"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
       "email": ""
@@ -20,14 +19,13 @@
       "id": 2,
       "vorname": "Sigrid",
       "nachname": "Fournes",
-      "name": "Sigrid Fournes",
+      "anrede": "Fr.",
       "rolle": "Konrektorin",
       "faecher": [
         "Biologie",
         "Sport"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
       "email": "Ja"
@@ -36,7 +34,7 @@
       "id": 3,
       "vorname": "Marcel",
       "nachname": "Werner",
-      "name": "Marcel Werner",
+      "anrede": "Hr.",
       "rolle": "2. Konrektor",
       "faecher": [
         "Mathematik",
@@ -45,7 +43,6 @@
         "Kath. Religion"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": true,
       "telefon": "",
       "email": "Ja"
@@ -54,14 +51,13 @@
       "id": 4,
       "vorname": "Johanna",
       "nachname": "Kassmann",
-      "name": "Johanna Kassmann",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
         "Kunst"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -70,7 +66,7 @@
       "id": 5,
       "vorname": "Susanne",
       "nachname": "Etschenberg",
-      "name": "Susanne Etschenberg",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Englisch",
@@ -78,7 +74,6 @@
         "Politik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -87,7 +82,7 @@
       "id": 6,
       "vorname": "Julia",
       "nachname": "Fischer",
-      "name": "Julia Fischer",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Mathematik",
@@ -95,7 +90,6 @@
         "Physik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -104,7 +98,7 @@
       "id": 7,
       "vorname": "Volkan",
       "nachname": "Erdogan",
-      "name": "Volkan Erdogan",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Sozialwissenschaften",
@@ -113,7 +107,6 @@
         "Geschichte"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -122,7 +115,7 @@
       "id": 8,
       "vorname": "Jasmin",
       "nachname": "Sliwa",
-      "name": "Jasmin Sliwa",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Biologie",
@@ -130,7 +123,6 @@
         "Kunst"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -139,7 +131,7 @@
       "id": 9,
       "vorname": "Holger",
       "nachname": "Stein",
-      "name": "Holger Stein",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Informatik",
@@ -147,7 +139,6 @@
         "Physik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -156,7 +147,7 @@
       "id": 10,
       "vorname": "Luisa",
       "nachname": "Koller",
-      "name": "Luisa Koller",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Informatik",
@@ -164,7 +155,6 @@
         "Biologie"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -173,7 +163,7 @@
       "id": 11,
       "vorname": "Stephan",
       "nachname": "Engler",
-      "name": "Stephan Engler",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Französisch",
@@ -182,7 +172,6 @@
         "Informatik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -191,14 +180,13 @@
       "id": 12,
       "vorname": "Anja",
       "nachname": "Rieber",
-      "name": "Anja Rieber",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Kunst",
         "Englisch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -207,14 +195,13 @@
       "id": 13,
       "vorname": "Olga",
       "nachname": "Schulz",
-      "name": "Olga Schulz",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Musik",
         "Chemie"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -223,14 +210,13 @@
       "id": 14,
       "vorname": "Freya",
       "nachname": "Reuber",
-      "name": "Freya Reuber",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Erdkunde",
         "Englisch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -239,7 +225,7 @@
       "id": 15,
       "vorname": "Christoph",
       "nachname": "Marx",
-      "name": "Christoph Marx",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Geschichte",
@@ -247,7 +233,6 @@
         "Mathematik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -256,7 +241,7 @@
       "id": 16,
       "vorname": "Thaami",
       "nachname": "Tembe",
-      "name": "Thaami Tembe",
+      "anrede": "",
       "rolle": "Lehrer*in",
       "faecher": [
         "Praktische Philosophie",
@@ -264,7 +249,6 @@
         "Englisch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -273,7 +257,7 @@
       "id": 17,
       "vorname": "Frank",
       "nachname": "Thape",
-      "name": "Frank Thape",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Physik",
@@ -281,7 +265,6 @@
         "Mathematik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -290,7 +273,7 @@
       "id": 18,
       "vorname": "Christiane",
       "nachname": "Gerdesmeyer",
-      "name": "Christiane Gerdesmeyer",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Chemie",
@@ -298,7 +281,6 @@
         "Biologie"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -307,14 +289,13 @@
       "id": 19,
       "vorname": "Anika",
       "nachname": "Hoffmann",
-      "name": "Anika Hoffmann",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Ev. Religion",
         "Mathematik"
       ],
       "bio": "Ausbildungsbeauftragte",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -323,11 +304,10 @@
       "id": 20,
       "vorname": "Martin",
       "nachname": "Stander",
-      "name": "Martin Stander",
+      "anrede": "Hr.",
       "rolle": "MPT - Kraft",
       "faecher": [],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -336,7 +316,7 @@
       "id": 21,
       "vorname": "Thaddäus",
       "nachname": "Cuypers",
-      "name": "Thaddäus Cuypers",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Kath. Religion",
@@ -344,7 +324,6 @@
         "Geschichte"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -353,14 +332,13 @@
       "id": 22,
       "vorname": "Sebastian",
       "nachname": "Schmidt",
-      "name": "Sebastian Schmidt",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
         "Kath. Religion"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -369,14 +347,13 @@
       "id": 23,
       "vorname": "Kateryl",
       "nachname": "Losiei",
-      "name": "Kateryl Losiei",
+      "anrede": "Fr.",
       "rolle": "Referendar*in",
       "faecher": [
         "Deutsch",
         "Englisch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -385,13 +362,12 @@
       "id": 24,
       "vorname": "Shrysi",
       "nachname": "Kyriakopoulou",
-      "name": "Shrysi Kyriakopoulou",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Griechisch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -400,13 +376,12 @@
       "id": 25,
       "vorname": "Güllüzar",
       "nachname": "Gümüs-Gerichhausen",
-      "name": "Güllüzar Gümüs-Gerichhausen",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Türkisch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -415,14 +390,13 @@
       "id": 26,
       "vorname": "Gregor",
       "nachname": "Hagemeyer",
-      "name": "Gregor Hagemeyer",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
         "Erdkunde"
       ],
       "bio": "Sonderpädagoge, SV-Lehrer",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -431,7 +405,7 @@
       "id": 27,
       "vorname": "Justyna",
       "nachname": "Cempel",
-      "name": "Justyna Cempel",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Englisch",
@@ -439,7 +413,6 @@
         "Geschichte"
       ],
       "bio": "Gleichstellungsbeauftragte",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -448,7 +421,7 @@
       "id": 28,
       "vorname": "Sylvia",
       "nachname": "Grosse",
-      "name": "Sylvia Grosse",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
@@ -457,7 +430,6 @@
         "Sozialwissenschaften"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -466,14 +438,13 @@
       "id": 29,
       "vorname": "Stefanie",
       "nachname": "Katzner",
-      "name": "Stefanie Katzner",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
         "Biologie"
       ],
       "bio": "Peers-Leiterin",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -482,14 +453,13 @@
       "id": 30,
       "vorname": "Martin",
       "nachname": "Haag",
-      "name": "Martin Haag",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
         "Erdkunde"
       ],
       "bio": "Sonderpädagoge, SV-Lehrer",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -498,14 +468,13 @@
       "id": 31,
       "vorname": "Doris",
       "nachname": "Pieper",
-      "name": "Doris Pieper",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Sport",
         "Praktische Philosophie"
       ],
       "bio": "Sonderpädagogin, Berufsberaterin",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -514,14 +483,13 @@
       "id": 32,
       "vorname": "Nils",
       "nachname": "Koretz",
-      "name": "Nils Koretz",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Mathematik",
         "Deutsch"
       ],
       "bio": "Sonderpädagoge, Beratungslehrer",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -530,7 +498,7 @@
       "id": 33,
       "vorname": "Annett",
       "nachname": "Beyers",
-      "name": "Annett Beyers",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Französisch",
@@ -540,7 +508,6 @@
         "Kunst"
       ],
       "bio": "Berufsberaterin",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -549,14 +516,13 @@
       "id": 34,
       "vorname": "Clarissa",
       "nachname": "Haffmans",
-      "name": "Clarissa Haffmans",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
         "Kunst"
       ],
       "bio": "Sonderpädagogin",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -565,7 +531,7 @@
       "id": 35,
       "vorname": "Regine",
       "nachname": "Jünger",
-      "name": "Regine Jünger",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
@@ -574,7 +540,6 @@
         "Politik"
       ],
       "bio": "Peers-Leiterin",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -583,14 +548,13 @@
       "id": 36,
       "vorname": "Robert",
       "nachname": "Dittrich",
-      "name": "Robert Dittrich",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Kunst",
         "Politik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -599,13 +563,12 @@
       "id": 37,
       "vorname": "Susanne",
       "nachname": "Wiechmann",
-      "name": "Susanne Wiechmann",
+      "anrede": "Fr.",
       "rolle": "AWO - Team",
       "faecher": [
         "Trainingsraum"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -614,13 +577,12 @@
       "id": 38,
       "vorname": "Anja",
       "nachname": "Musielak",
-      "name": "Anja Musielak",
+      "anrede": "Fr.",
       "rolle": "AWO - Team",
       "faecher": [
         "Trainingsraum"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -629,7 +591,7 @@
       "id": 39,
       "vorname": "Anja",
       "nachname": "Oppermann",
-      "name": "Anja Oppermann",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
@@ -637,7 +599,6 @@
         "Politik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -646,7 +607,7 @@
       "id": 40,
       "vorname": "Vesile",
       "nachname": "Adas",
-      "name": "Vesile Adas",
+      "anrede": "",
       "rolle": "Referendar*in",
       "faecher": [
         "Sozialwissenschaften",
@@ -654,7 +615,6 @@
         "Erdkunde"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -663,14 +623,13 @@
       "id": 41,
       "vorname": "Dicle",
       "nachname": "Bayram",
-      "name": "Dicle Bayram",
+      "anrede": "",
       "rolle": "Lehrer*in",
       "faecher": [
         "Englisch",
         "Geschichte"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -679,7 +638,7 @@
       "id": 42,
       "vorname": "Carmen",
       "nachname": "Blammheuser",
-      "name": "Carmen Blammheuser",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Sport",
@@ -687,7 +646,6 @@
         "Informatik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -696,14 +654,13 @@
       "id": 43,
       "vorname": "Ralph",
       "nachname": "Heindrichs",
-      "name": "Ralph Heindrichs",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Biologie",
         "Informatik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -712,7 +669,7 @@
       "id": 44,
       "vorname": "Christopher",
       "nachname": "Hidalgo-Shrestha",
-      "name": "Christopher Hidalgo-Shrestha",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Mathematik",
@@ -720,7 +677,6 @@
         "Chemie"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -729,14 +685,13 @@
       "id": 45,
       "vorname": "Elena",
       "nachname": "Kirschmeier",
-      "name": "Elena Kirschmeier",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Biologie",
         "Chemie"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -745,14 +700,13 @@
       "id": 46,
       "vorname": "Merve",
       "nachname": "Köylüoglu",
-      "name": "Merve Köylüoglu",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Mathematik",
         "Deutsch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -761,13 +715,12 @@
       "id": 47,
       "vorname": "Alexandra",
       "nachname": "Kraft",
-      "name": "Alexandra Kraft",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Sport"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -776,7 +729,7 @@
       "id": 48,
       "vorname": "Sigrun",
       "nachname": "Kröger",
-      "name": "Sigrun Kröger",
+      "anrede": "",
       "rolle": "Lehrer*in",
       "faecher": [
         "Biologie",
@@ -784,7 +737,6 @@
         "Französisch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -793,7 +745,7 @@
       "id": 49,
       "vorname": "Nina",
       "nachname": "Novakovic",
-      "name": "Nina Novakovic",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
@@ -801,7 +753,6 @@
         "Praktische Philosophie"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -810,7 +761,7 @@
       "id": 50,
       "vorname": "Lara",
       "nachname": "van Oost",
-      "name": "Lara van Oost",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Sozialwissenschaften",
@@ -819,7 +770,6 @@
         "Englisch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -828,14 +778,13 @@
       "id": 51,
       "vorname": "Ilda",
       "nachname": "Ramovic",
-      "name": "Ilda Ramovic",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
         "Englisch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -844,7 +793,7 @@
       "id": 52,
       "vorname": "Santa",
       "nachname": "Roqi",
-      "name": "Santa Roqi",
+      "anrede": "",
       "rolle": "Lehrer*in",
       "faecher": [
         "Mathematik",
@@ -853,7 +802,6 @@
         "Kunst"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -862,14 +810,13 @@
       "id": 53,
       "vorname": "Mareike",
       "nachname": "Scherz",
-      "name": "Mareike Scherz",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
         "Kunst"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -878,7 +825,7 @@
       "id": 54,
       "vorname": "Marina",
       "nachname": "Tap",
-      "name": "Marina Tap",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
@@ -887,7 +834,6 @@
         "Politik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -896,14 +842,13 @@
       "id": 55,
       "vorname": "Eda",
       "nachname": "Turan",
-      "name": "Eda Turan",
+      "anrede": "",
       "rolle": "Lehrer*in",
       "faecher": [
         "Mathematik",
         "Deutsch"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -912,7 +857,7 @@
       "id": 56,
       "vorname": "Thomas",
       "nachname": "Wulfhorst",
-      "name": "Thomas Wulfhorst",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Chemie",
@@ -920,7 +865,6 @@
         "Informatik"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -929,14 +873,13 @@
       "id": 57,
       "vorname": "Ditmar",
       "nachname": "Zehnle",
-      "name": "Ditmar Zehnle",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Deutsch",
         "Sport"
       ],
       "bio": "",
-      "bildUrl": "",
       "schulleitung": false,
       "telefon": "",
       "email": ""
@@ -951,8 +894,9 @@
       "teaser": "Frischer Look, schnellere Infos, alles auf einen Blick: Die Realschule Am Heimbach hat eine runderneuerte Website – und die hält, was sie verspricht.",
       "volltext": "Ab sofort ist unsere komplett neu gestaltete Schulhomepage online! Übersichtlicher, schneller und auf jedem Gerät bequem nutzbar – ob am Laptop im Sekretariat oder am Handy auf dem Weg zur Bushaltestelle. Alle wichtigen Infos zu unserer Schule, dem Kollegium, aktuellen Neuigkeiten und dem Schulalltag findet ihr jetzt an einem Ort, klar strukturiert und immer aktuell. Besonders freuen wir uns, dass Neuigkeiten und Team-Infos ab jetzt viel schneller aktualisiert werden können. Ein großes Dankeschön an alle, die bei der Planung und Umsetzung mitgeholfen haben! Habt ihr Anregungen oder Wünsche? Schreibt uns gerne über das Kontaktformular.",
       "bildUrl": "",
-      "slug": "endlich-online-unsere-neue-schulhomepage-ist-da"
+      "slug": "endlich-online-unsere-neue-schulhomepage-ist-da",
+      "hauptbeitrag": false
     }
   ],
-  "generatedAt": "2026-08-08T14:43:43.516Z"
+  "generatedAt": "2026-08-08T14:49:56.458Z"
 }
