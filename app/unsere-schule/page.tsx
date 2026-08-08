@@ -1,35 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Laptop, Compass, Handshake, Heart, Users, Rocket, Target, Star, BookOpen } from "lucide-react";
+import { MapPin, Laptop, Compass, Handshake, Heart, Target, Sparkles, MonitorSmartphone } from "lucide-react";
 import OrganigrammWidget from "@/components/OrganigrammWidget";
 import HeroBackground from "@/components/HeroBackground";
 import { getSchoolYearLabel } from "@/lib/schoolYear";
 
-const values = [
+// Die vier Leitsaetze aus dem Schulprogramm – Wortlaut bitte unveraendert lassen.
+const leitsaetze = [
+  {
+    icon: Handshake,
+    label: "Verantwortung",
+    text: "Wir übernehmen gemeinsam Verantwortung und gestalten unsere Schule als modernen Lebens- und Lernraum.",
+    color: "from-[#1DA499] to-teal-700",
+  },
   {
     icon: Heart,
-    title: "Gemeinschaft",
-    desc: "Wir pflegen ein respektvolles und herzliches Miteinander. Jede Schülerin und jeder Schüler gehört dazu.",
+    label: "Vielfalt",
+    text: "Wir begegnen einander fair, respektvoll und wertschätzend und leben Vielfalt in einer starken Schulgemeinschaft.",
     color: "from-rose-500 to-rose-700",
   },
   {
-    icon: Target,
-    title: "Individuelle Förderung",
-    desc: "Wir begleiten jedes Kind auf seinem persönlichen Lernweg und fördern Stärken gezielt.",
-    color: "from-blue-500 to-blue-700",
-  },
-  {
-    icon: Star,
-    title: "Exzellenz",
-    desc: "Wir fordern und fördern – damit unsere Schüler*innen ihr volles Potenzial entfalten können.",
+    icon: Sparkles,
+    label: "Stärken",
+    text: "Wir lernen miteinander und fördern unsere individuellen Stärken und Talente.",
     color: "from-amber-500 to-amber-700",
   },
   {
-    icon: BookOpen,
-    title: "Moderne Bildung",
-    desc: "Digitale Medien, kreative Projekte und Zukunftskompetenzen sind fester Bestandteil unseres Unterrichts.",
-    color: "from-emerald-500 to-emerald-700",
+    icon: MonitorSmartphone,
+    label: "Teamgeist",
+    text: "Wir arbeiten vertrauensvoll im Team, mit klaren Strukturen und nutzen digitale Möglichkeiten verantwortungsvoll.",
+    color: "from-blue-500 to-blue-700",
   },
 ];
 
@@ -167,7 +168,7 @@ export default function UnsereSchulePage() {
         </div>
       </section>
 
-      {/* Values */}
+      {/* Leitsaetze */}
       <section className="py-24 bg-[#f8f9ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -179,28 +180,48 @@ export default function UnsereSchulePage() {
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-3">
               Unser Leitbild
             </span>
-            <h2 className="text-4xl sm:text-5xl font-black text-[#1a3a6b]">
-              Unsere Werte
+            <h2 className="text-4xl sm:text-5xl font-black text-[#1a3a6b] mb-4">
+              Unsere vier Leitsätze
             </h2>
+            <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Sie beschreiben, wofür wir als Realschule Am Heimbach stehen – und woran wir uns
+              in unserem täglichen Miteinander messen lassen.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((v, i) => {
-              const Icon = v.icon;
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {leitsaetze.map((l, i) => {
+              const Icon = l.icon;
               return (
                 <motion.div
-                  key={v.title}
+                  key={l.label}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-1.5 text-center"
+                  className="relative overflow-hidden bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-1.5"
                 >
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${v.color} flex items-center justify-center mx-auto mb-5 shadow-lg`}>
-                    <Icon className="w-7 h-7 text-white" />
+                  {/* Grosse Ziffer als dezenter Hintergrund */}
+                  <span
+                    className="absolute -top-4 right-4 text-[7rem] font-black leading-none text-[#1a3a6b]/5 select-none"
+                    aria-hidden="true"
+                  >
+                    {i + 1}
+                  </span>
+
+                  <div className="relative flex items-start gap-5">
+                    <div className={`shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${l.color} flex items-center justify-center shadow-lg`}>
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2">
+                        {l.label}
+                      </span>
+                      <p className="text-lg text-[#1a3a6b] font-semibold leading-relaxed">
+                        {l.text}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-black text-xl text-[#1a3a6b] mb-3">{v.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">{v.desc}</p>
                 </motion.div>
               );
             })}
