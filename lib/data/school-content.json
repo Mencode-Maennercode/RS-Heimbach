@@ -241,7 +241,7 @@
       "id": 16,
       "vorname": "Thaami",
       "nachname": "Tembe",
-      "anrede": "",
+      "anrede": "Hr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Praktische Philosophie",
@@ -607,7 +607,7 @@
       "id": 40,
       "vorname": "Vesile",
       "nachname": "Adas",
-      "anrede": "",
+      "anrede": "Fr.",
       "rolle": "Referendar*in",
       "faecher": [
         "Sozialwissenschaften",
@@ -623,7 +623,7 @@
       "id": 41,
       "vorname": "Dicle",
       "nachname": "Bayram",
-      "anrede": "",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Englisch",
@@ -637,7 +637,7 @@
     {
       "id": 42,
       "vorname": "Carmen",
-      "nachname": "Blammheuser",
+      "nachname": "Blammeuser",
       "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
@@ -728,8 +728,8 @@
     {
       "id": 48,
       "vorname": "Sigrun",
-      "nachname": "Kröger",
-      "anrede": "",
+      "nachname": "Krüger",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Biologie",
@@ -793,7 +793,7 @@
       "id": 52,
       "vorname": "Santa",
       "nachname": "Roqi",
-      "anrede": "",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Mathematik",
@@ -842,7 +842,7 @@
       "id": 55,
       "vorname": "Eda",
       "nachname": "Turan",
-      "anrede": "",
+      "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Mathematik",
@@ -898,5 +898,5 @@
       "hauptbeitrag": false
     }
   ],
-  "generatedAt": "2026-08-09T16:45:40.668Z"
+  "generatedAt": "2026-08-09T17:38:11.003Z"
 }
