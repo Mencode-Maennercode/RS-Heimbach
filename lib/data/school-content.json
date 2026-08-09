@@ -60,7 +60,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 5,
@@ -76,7 +76,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 6,
@@ -92,7 +92,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 7,
@@ -109,7 +109,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 8,
@@ -125,7 +125,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 9,
@@ -141,7 +141,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 10,
@@ -157,7 +157,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 11,
@@ -174,7 +174,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 12,
@@ -189,7 +189,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 13,
@@ -204,7 +204,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 14,
@@ -219,7 +219,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 15,
@@ -235,7 +235,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 16,
@@ -251,7 +251,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 17,
@@ -267,7 +267,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 18,
@@ -283,7 +283,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 19,
@@ -298,7 +298,7 @@
       "bio": "Ausbildungsbeauftragte",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 20,
@@ -310,7 +310,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 21,
@@ -326,7 +326,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 22,
@@ -341,7 +341,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 23,
@@ -356,7 +356,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 24,
@@ -370,7 +370,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 25,
@@ -384,7 +384,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 26,
@@ -399,7 +399,7 @@
       "bio": "Sonderpädagoge, SV-Lehrer",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 27,
@@ -415,7 +415,7 @@
       "bio": "Gleichstellungsbeauftragte",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 28,
@@ -432,7 +432,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 29,
@@ -447,7 +447,7 @@
       "bio": "Peers-Leiterin",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 30,
@@ -462,7 +462,7 @@
       "bio": "Sonderpädagoge, SV-Lehrer",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 31,
@@ -477,7 +477,7 @@
       "bio": "Sonderpädagogin, Berufsberaterin",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 32,
@@ -492,7 +492,7 @@
       "bio": "Sonderpädagoge, Beratungslehrer",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 33,
@@ -510,7 +510,7 @@
       "bio": "Berufsberaterin",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 34,
@@ -525,7 +525,7 @@
       "bio": "Sonderpädagogin",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 35,
@@ -542,7 +542,7 @@
       "bio": "Peers-Leiterin",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 36,
@@ -557,7 +557,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 37,
@@ -571,7 +571,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 38,
@@ -585,7 +585,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 39,
@@ -601,7 +601,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 40,
@@ -617,7 +617,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 41,
@@ -632,7 +632,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 42,
@@ -648,7 +648,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 43,
@@ -663,7 +663,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 44,
@@ -679,7 +679,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 45,
@@ -694,7 +694,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 46,
@@ -709,7 +709,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 47,
@@ -723,7 +723,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 48,
@@ -739,7 +739,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 49,
@@ -755,7 +755,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 50,
@@ -772,7 +772,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 51,
@@ -787,7 +787,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 52,
@@ -804,7 +804,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 53,
@@ -819,7 +819,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 54,
@@ -836,7 +836,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 55,
@@ -851,7 +851,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 56,
@@ -867,7 +867,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 57,
@@ -882,7 +882,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     }
   ],
   "news": [
@@ -898,5 +898,5 @@
       "hauptbeitrag": false
     }
   ],
-  "generatedAt": "2026-08-09T12:16:20.691Z"
+  "generatedAt": "2026-08-09T13:20:55.609Z"
 }
