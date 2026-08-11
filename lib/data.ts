@@ -65,6 +65,7 @@ import schoolContent from "./data/school-content.json";
 import teacherPhotos from "./data/teacher-photos.json";
 import { teacherBackground } from "./teacherAvatar";
 import {
+  bioParts,
   collectSubjects,
   displayName,
   genderRole,
@@ -112,9 +113,12 @@ function prepareTeacher(t: (typeof schoolContent.lehrer)[number]) {
     // Ohne Foto ein deterministisch aus dem Namen erzeugtes SVG-Muster.
     image: findPhoto(t.nachname) ?? teacherBackground(name, { subject: subjects[0] }),
     bio: normalizeBio(t.bio),
+    bioTasks: bioParts(t.bio),
     isLeadership: t.schulleitung,
     phone: t.telefon,
-    // "Ja" in der Email-Spalte heisst: persoenliche Adresse anzeigen.
+    // "Ja" in der Email-Spalte heisst: persoenliche Adresse anzeigen. Steht
+    // dort nichts, bleibt es beim allgemeinen Verwaltungspostfach (siehe
+    // unten, wo `schoolInfo.email` einspringt).
     email: /^(ja|yes|true|x)$/i.test(t.email.trim())
       ? schoolEmail(t.vorname, t.nachname)
       : "",
@@ -126,12 +130,11 @@ function prepareTeacher(t: (typeof schoolContent.lehrer)[number]) {
 // sortiert.
 const preparedTeachers = schoolContent.lehrer.map(prepareTeacher);
 
-// Die "Bio"-Spalte im Google Sheet traegt die zusaetzliche Aufgabe einer
-// Lehrkraft neben dem Fachunterricht (z. B. "Ausbildungsbeauftragte",
-// "Klassenleitung 7a"). Ist sie gesetzt, wird sie als eigenes (gruenes)
-// Badge neben dem Fach angezeigt. Bei der Schulleitung enthaelt die Bio
-// stattdessen eine lange Aufgabenliste als Fliesstext - dort erscheint
-// kein zusaetzliches Badge.
+// Die "Bio"-Spalte im Google Sheet traegt die zusaetzlichen Aufgaben einer
+// Lehrkraft neben dem Fachunterricht (z. B. "Sonderpädagoge, SV-Lehrer").
+// Jede der per Komma getrennten Aufgaben wird als eigenes gruenes Badge
+// angezeigt. Bei der Schulleitung enthaelt die Bio stattdessen eine lange
+// Aufgabenliste als Fliesstext - dort erscheinen keine Badges.
 // Das Kollegium ist immer nach Nachname sortiert.
 export const teachers = [...preparedTeachers]
   .sort((a, b) => a.nachname.localeCompare(b.nachname, "de"))
@@ -142,7 +145,9 @@ export const teachers = [...preparedTeachers]
     subjects: t.subjects,
     image: t.image,
     bio: t.bio,
-    secondTask: !t.isLeadership && t.bio ? t.bio : null,
+    secondTasks: t.isLeadership ? [] : t.bioTasks,
+    // Ohne "Ja" im Sheet steht die allgemeine Adresse der Verwaltung.
+    email: t.email || schoolInfo.email,
   }));
 
 export const leadershipTeam = preparedTeachers

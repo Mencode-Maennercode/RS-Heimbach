@@ -125,16 +125,28 @@ export function collectSubjects(perTeacher: string[][]): string[] {
 }
 
 /**
- * Vereinheitlicht die Bio (zusaetzliche Aufgaben). Komma-Listen wie
- * "SV-Lehrer, Sonderpädagoge" werden alphabetisch sortiert, damit die
- * Reihenfolge unabhaengig von der Eintragung im Sheet immer gleich ist.
+ * Zerlegt die Bio-Spalte in ihre Einzelaufgaben: die Komma-Liste
+ * "Sonderpädagoge, SV-Lehrer" wird zu ["Sonderpädagoge", "SV-Lehrer"].
+ * Alphabetisch sortiert, damit die Reihenfolge unabhaengig von der
+ * Eintragung im Sheet immer gleich ist. Auf der Kollegium-Seite bekommt
+ * jeder Teil ein eigenes gruenes Badge.
+ */
+export function bioParts(bio: string): string[] {
+  const collapsed = bio.replace(/\s+/g, " ").trim();
+  if (!collapsed) return [];
+  return collapsed
+    .split(",")
+    .map(capitalize)
+    .filter(Boolean)
+    .sort((a, b) => a.localeCompare(b, "de"));
+}
+
+/**
+ * Dieselben Aufgaben als Fliesstext — so steht die Bio auf der
+ * Schulleitungs-Seite, wo sie als Absatz und nicht als Badges erscheint.
  */
 export function normalizeBio(bio: string): string {
-  const collapsed = bio.replace(/\s+/g, " ").trim();
-  if (!collapsed) return "";
-  const parts = collapsed.split(",").map((s) => s.trim()).filter(Boolean);
-  if (parts.length <= 1) return capitalize(collapsed);
-  return parts.map(capitalize).sort((a, b) => a.localeCompare(b, "de")).join(", ");
+  return bioParts(bio).join(", ");
 }
 
 /** Anrede aus der Sheet-Spalte "Geschlecht". Leer, wenn nichts Eindeutiges drinsteht. */

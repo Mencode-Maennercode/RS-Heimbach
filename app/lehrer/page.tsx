@@ -5,7 +5,7 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Phone, BookOpen, Users } from "lucide-react";
+import { Mail, BookOpen, Users } from "lucide-react";
 import { teachers, subjects, schoolInfo } from "@/lib/data";
 
 export default function LehrerPage() {
@@ -129,9 +129,9 @@ export default function LehrerPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "0px 0px -80px 0px" }}
                   transition={{ delay: (i % 4) * 0.07 }}
-                  className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-1.5"
+                  className="group flex h-full flex-col bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-1.5"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-64 shrink-0 overflow-hidden">
                     <Image
                       src={teacher.image}
                       alt={teacher.name}
@@ -145,29 +145,41 @@ export default function LehrerPage() {
                       <div className="text-[#f5a623] text-sm font-semibold">{teacher.role}</div>
                     </div>
                   </div>
-                  <div className="p-5">
-                    <div className="flex flex-wrap gap-1.5 mb-3">
+                  {/* flex-1 + mt-auto am Link: die E-Mail sitzt in jeder Kachel
+                      buendig am unteren Rand, unabhaengig davon, wie viele
+                      Badges darueber stehen. */}
+                  <div className="p-5 flex flex-1 flex-col">
+                    {/* Faecher (blau) und zusaetzliche Aufgaben (gruen) stehen
+                        bewusst in getrennten Zeilen. */}
+                    <div className="flex flex-wrap gap-1.5">
                       {teacher.subjects.map((s) => (
                         <span key={s} className="text-xs bg-blue-50 text-blue-700 px-2.5 py-0.5 rounded-full font-medium">
                           {s}
                         </span>
                       ))}
-                      {teacher.secondTask && (
-                        <span className="text-xs bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full font-medium">
-                          {teacher.secondTask}
-                        </span>
-                      )}
                     </div>
-                    {!teacher.secondTask && teacher.bio && (
-                      <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">{teacher.bio}</p>
+                    {teacher.secondTasks.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        {teacher.secondTasks.map((task) => (
+                          <span
+                            key={task}
+                            className="text-xs bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full font-medium"
+                          >
+                            {task}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    {teacher.secondTasks.length === 0 && teacher.bio && (
+                      <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 mt-3">{teacher.bio}</p>
                     )}
                     <a
-                      href={schoolInfo.phoneLink}
-                      aria-label={`Anrufen: ${schoolInfo.phone}`}
-                      className="mt-4 flex items-center gap-2 text-[#1a3a6b] text-xs font-bold hover:text-[#e8442a] transition-colors"
+                      href={`mailto:${teacher.email}`}
+                      aria-label={`E-Mail an ${teacher.name}: ${teacher.email}`}
+                      className="mt-auto pt-4 flex items-center gap-2 text-[#1a3a6b] text-xs font-bold hover:text-[#e8442a] transition-colors break-all"
                     >
-                      <Phone className="w-3.5 h-3.5" />
-                      Sekretariat anrufen
+                      <Mail className="w-3.5 h-3.5 shrink-0" />
+                      {teacher.email}
                     </a>
                   </div>
                 </motion.div>
