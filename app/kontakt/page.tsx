@@ -4,10 +4,13 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock, Send, Instagram, FileText, Calendar, HeartPulse, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, Instagram, FileText, Calendar, HeartPulse, ArrowRight, AlertTriangle } from "lucide-react";
 import { schoolInfo } from "@/lib/data";
+import { getEnrollmentInfo } from "@/lib/schoolYear";
 
 export default function KontaktPage() {
+  const { isOpen: enrollmentOpen } = getEnrollmentInfo();
+
   return (
     <>
       {/* Hero */}
@@ -49,25 +52,31 @@ export default function KontaktPage() {
             </Link>
           </div>
 
-          {/* Anmeldung Klasse 5 */}
-          <div className="mt-6 bg-white border border-[#1DA499]/20 rounded-3xl p-7 shadow-sm">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
-              <div className="flex items-center gap-3 shrink-0">
-                <div className="w-11 h-11 rounded-xl bg-[#1DA499]/10 flex items-center justify-center"><FileText className="w-5 h-5 text-[#1DA499]" /></div>
-                <div>
-                  <h3 className="font-black text-[#0a5a54]">Anmeldung Klasse 5</h3>
-                  <p className="text-slate-500 text-xs">Schuljahr 2026/2027</p>
+          {/* Anmeldung Klasse 5 — nur waehrend der Anmeldephase (siehe
+              getEnrollmentInfo, gleiche Logik wie der CTA-Banner im Footer). */}
+          {enrollmentOpen && (
+            <div className="mt-6 bg-white border border-[#1DA499]/20 rounded-3xl p-7 shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+                <div className="flex items-center gap-3 shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-[#1DA499]/10 flex items-center justify-center"><FileText className="w-5 h-5 text-[#1DA499]" /></div>
+                  <div>
+                    <h3 className="font-black text-[#0a5a54]">Anmeldung Klasse 5</h3>
+                    <p className="text-slate-500 text-xs">Schuljahr 2026/2027</p>
+                  </div>
                 </div>
+                <div className="flex items-center gap-2 text-sm text-slate-700 font-semibold">
+                  <Calendar className="w-4 h-4 text-[#e8442a]" /> Termine im Zeitraum Mo, 23.02.2026 – Fr, 19.03.2026
+                </div>
+                <p className="text-slate-600 text-sm sm:ml-auto">
+                  <span className="inline-flex items-center gap-1.5 text-[#e8442a] font-bold">
+                    <AlertTriangle className="w-3.5 h-3.5" /> Nur mit Termin
+                  </span>
+                  {" "}— bitte vorher telefonisch vereinbaren. Details unter{" "}
+                  <Link href="/anmeldung" className="text-[#1DA499] font-bold hover:underline">Anmeldung</Link>.
+                </p>
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-700 font-semibold">
-                <Calendar className="w-4 h-4 text-[#e8442a]" /> Mo, 23.02.2026 – Fr, 19.03.2026
-              </div>
-              <p className="text-slate-600 text-sm sm:ml-auto">
-                Im Sekretariat, 08:00–13:00 Uhr (montags bis 12:00), <strong>außer mittwochs</strong>. Details unter{" "}
-                <Link href="/anmeldung" className="text-[#1DA499] font-bold hover:underline">Anmeldung</Link>.
-              </p>
             </div>
-          </div>
+          )}
         </div>
       </section>
 

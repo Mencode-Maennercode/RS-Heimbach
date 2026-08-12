@@ -4,10 +4,13 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Phone, Mail, Printer, Clock, MapPin, HeartPulse, FileText, Wrench, ArrowRight } from "lucide-react";
+import { Phone, Mail, Printer, Clock, MapPin, HeartPulse, FileText, Wrench, ArrowRight, AlertTriangle } from "lucide-react";
 import { schoolInfo, sekretariatInfo } from "@/lib/data";
+import { getEnrollmentInfo } from "@/lib/schoolYear";
 
 export default function SekretariatPage() {
+  const { isOpen: enrollmentOpen } = getEnrollmentInfo();
+
   return (
     <>
       {/* Hero */}
@@ -105,18 +108,28 @@ export default function SekretariatPage() {
             </div>
           </div>
 
-          {/* Anmeldung + Hausmeister (kurz) */}
+          {/* Anmeldung + Hausmeister (kurz) — Anmeldung nur waehrend der
+              Anmeldephase (siehe getEnrollmentInfo, gleiche Logik wie der
+              CTA-Banner im Footer). */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-            <Link href="/kontakt" className="group bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition-all flex items-start gap-4">
-              <div className="w-11 h-11 rounded-xl bg-[#1DA499]/10 flex items-center justify-center shrink-0">
-                <FileText className="w-5 h-5 text-[#1DA499]" />
-              </div>
-              <div>
-                <h3 className="font-black text-[#0a5a54] mb-1 group-hover:text-[#1DA499] transition-colors">Anmeldung Klasse 5</h3>
-                <p className="text-slate-600 text-sm">Termine, Unterlagen und das Anmeldeformular finden Sie auf der Kontaktseite.</p>
-              </div>
-            </Link>
-            <div className="bg-white rounded-3xl p-7 shadow-sm flex items-start gap-4">
+            {enrollmentOpen && (
+              <Link href="/anmeldung" className="group bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition-all flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-[#1DA499]/10 flex items-center justify-center shrink-0">
+                  <FileText className="w-5 h-5 text-[#1DA499]" />
+                </div>
+                <div>
+                  <h3 className="font-black text-[#0a5a54] mb-1 group-hover:text-[#1DA499] transition-colors">Anmeldung Klasse 5</h3>
+                  <div className="inline-flex items-center gap-1.5 bg-[#e8442a]/10 text-[#e8442a] text-xs font-bold px-2.5 py-1 rounded-full mt-1 mb-2">
+                    <AlertTriangle className="w-3 h-3" /> Nur mit Termin
+                  </div>
+                  <p className="text-slate-600 text-sm">
+                    Bitte nicht ohne Termin vorbeikommen — vorher telefonisch im Sekretariat einen Termin
+                    vereinbaren. Alle Infos und Unterlagen auf der Anmeldeseite.
+                  </p>
+                </div>
+              </Link>
+            )}
+            <div className={`bg-white rounded-3xl p-7 shadow-sm flex items-start gap-4 ${enrollmentOpen ? "" : "lg:col-span-2"}`}>
               <div className="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center shrink-0">
                 <Wrench className="w-5 h-5 text-slate-500" />
               </div>
