@@ -26,7 +26,8 @@ ansehen, ändern noch die Website-Aktualisierung auslösen.
 
 ### Schritt 1 — Google Sheet anlegen
 1. Neues Google Sheet erstellen (z. B. "RS Heimbach – Website-Inhalte").
-2. Zwei Tabs anlegen, **genau so benannt**: `Lehrer` und `News`.
+2. Vier Tabs anlegen, **genau so benannt**: `Lehrer`, `News`, `SV` und
+   `Klassenlehrer`.
 3. In Zeile 1 jeweils diese Spaltenüberschriften eintragen:
 
    **Tab `Lehrer`:**
@@ -69,6 +70,35 @@ ansehen, ändern noch die Website-Aktualisierung auslösen.
      lassen bei allen anderen Beiträgen — die werden automatisch nach Datum
      sortiert (neuestes zuerst).
 
+   **Tab `Klassenlehrer`:**
+   | Klasse | KlassenlehrerIn | Co-KlassenlehrerInnen |
+   |---|---|---|
+
+   - `Klasse`: Klassenbezeichnung, z. B. `5A`.
+   - `KlassenlehrerIn` / `Co-KlassenlehrerInnen`: **nur der Nachname**, genau
+     wie im Tab `Lehrer`. Kleine Abweichungen werden verziehen (`Juenger`
+     findet `Jünger`, `Haffmanns` findet `Haffmans`); passt ein Name zu gar
+     keiner Lehrkraft, wird er stillschweigend übersprungen.
+   - Mehrere Co-Klassenleitungen dürfen per Komma in einer Zelle stehen.
+   - Auf der Kollegium-Seite erscheint daraus automatisch ein grünes Badge
+     (`Klassenlehrerin 5A`, `Co-Klassenlehrer 6C`) — passend zur Anrede
+     gegendert und **immer vor** den übrigen Bio-Badges. Eine eigene Spalte
+     in `Lehrer` ist dafür nicht nötig.
+
+   **Tab `SV`:**
+   | Name |
+   |---|
+
+   - `Name`: voller Name des SV-Mitglieds, z. B. `Ayad Alsinjari`. Reihenfolge
+     im Sheet = Reihenfolge auf der Website.
+   - Dieser Tab ist optional: Ist er (noch) nicht angelegt, zeigt die
+     SV-Seite lediglich einen Platzhaltertext statt der Mitgliederliste — der
+     Rest der Website (Kollegium, News) läuft trotzdem normal weiter.
+   - Die **Vertrauenslehrer** auf derselben Seite kommen automatisch aus dem
+     Tab `Lehrer`: einfach bei den zuständigen Lehrkräften `SV-Lehrer` in die
+     `Bio`-Spalte eintragen (ggf. mit Komma neben weiteren Aufgaben, z. B.
+     `Sonderpädagoge, SV-Lehrer`) — dafür ist kein eigener Sheet-Tab nötig.
+
 ### Schritt 2 — Nur die richtigen Personen einladen
 Im Sheet oben rechts auf **Freigeben** klicken und **nur** die 2–3
 E-Mail-Adressen der zuständigen Lehrkräfte mit Rolle **Bearbeiter** eintragen.
@@ -78,10 +108,18 @@ E-Mail-Adressen der zuständigen Lehrkräfte mit Rolle **Bearbeiter** eintragen.
 Dieses Projekt ist **eigenständig** angelegt (über `script.new`), es hängt
 also *nicht* an der Tabelle. Deshalb führt „Erweiterungen → Apps Script" im
 Sheet ins Leere ("Datei kann derzeit nicht geöffnet werden") — der Editor
-wird immer über die Apps-Script-Startseite geöffnet:
+muss anders geöffnet werden:
 
-1. **<https://script.google.com/home/projects>** aufrufen (gleiches Google-Konto
-   wie beim Sheet) und das Projekt aus der Liste öffnen.
+1. Direkter Link zum Projekt (rs-heimbach):
+   **<https://script.google.com/u/1/home/projects/1KldfMx21LGd6n_QP1EGBR-6msjWynFnl2UW_1U0lvyG-IK0-4jlQxvNx/edit>**
+   - Das `/u/1/` in der URL wählt das zweite bei Google angemeldete Konto aus.
+     Zeigt der Link „404 – Dies ist ein Fehler": im Browser oben rechts das
+     Google-Konto wechseln bzw. `/u/0/` statt `/u/1/` in der URL probieren.
+   - Allgemein (falls sich die URL mal ändert): **<https://script.google.com/>**
+     aufrufen → links **Meine Projekte** → Projekt aus der Liste öffnen. Auch
+     hier hilft bei „404" ein Kontowechsel. Alternativ taucht das Skript auch
+     in **<https://drive.google.com/>** auf (Filter-Symbol → Typ → **Google
+     Apps-Skript**) — Standalone-Skripte liegen als eigene Datei in Drive.
 2. Links in der Dateileiste `Code.gs` anklicken, Inhalt komplett markieren
    (`Strg+A`) und löschen.
 3. Inhalt von [`google-apps-script/Code.gs`](google-apps-script/Code.gs) aus
@@ -155,6 +193,9 @@ Ohne Klick erscheinen Änderungen spätestens nach ~15–20 Minuten von selbst.
   automatisch gebildet).
 - **News:** `Titel`, `Datum`, `Kategorie`, `Teaser`, `Volltext` (optional),
   `Bild-URL` (optional), `Slug` (optional), `Hauptbeitrag` (optional, siehe oben).
+- **SV:** `Name` — ein SV-Mitglied pro Zeile, Reihenfolge wie im Sheet.
+- **Klassenlehrer:** `Klasse`, `KlassenlehrerIn`, `Co-KlassenlehrerInnen`
+  (jeweils nur Nachnamen wie im Tab `Lehrer`).
 
 ---
 
@@ -162,7 +203,8 @@ Ohne Klick erscheinen Änderungen spätestens nach ~15–20 Minuten von selbst.
 
 | Symptom | Ursache / Lösung |
 |---|---|
-| „Erweiterungen → Apps Script" zeigt „Datei kann derzeit nicht geöffnet werden" | Normal — das Script hängt nicht an der Tabelle. Editor über <https://script.google.com/home/projects> öffnen. |
+| „Erweiterungen → Apps Script" zeigt „Datei kann derzeit nicht geöffnet werden" | Normal — das Script hängt nicht an der Tabelle. Direktlink aus Teil A, Schritt 3 nutzen. |
+| Der Projekt-Link zeigt „404 – Dies ist ein Fehler" | Falsches Google-Konto aktiv. `/u/1/` in der URL gegen `/u/0/` (oder umgekehrt) tauschen, oder oben rechts im Browser das Konto wechseln (Teil A, Schritt 3). |
 | `Kein Spreadsheet gefunden (SPREADSHEET_ID pruefen)` | Skripteigenschaft `SPREADSHEET_ID` fehlt oder ist falsch (Teil A, Schritt 4). |
 | Inhalte bleiben leer/veraltet | `CONTENT_API_URL`-Secret in GitHub fehlt/falsch, oder Web-App-Zugriff ≠ "Jeder". Mit `testPayload` (Teil A, Schritt 5) prüfen. |
 | "Jetzt aktualisieren" meldet Fehler | `GITHUB_TOKEN` abgelaufen oder ohne `workflow`-Recht — neuen Token erzeugen (Teil A, Schritt 4). |
@@ -170,3 +212,6 @@ Ohne Klick erscheinen Änderungen spätestens nach ~15–20 Minuten von selbst.
 | Neue Person erscheint nicht auf der Schulleitungs-Seite | Spalte `Schulleitung` muss genau `Ja` enthalten. |
 | In der Email-Spalte steht `Ja` und genau das erscheint auf der Website | Der aktualisierte `Code.gs` ist noch nicht als neue Version bereitgestellt (Teil A, Schritt 6 — **Bereitstellen → Bereitstellungen verwalten → ✎ → Version: Neu**). |
 | Persönliche E-Mail fehlt trotz `Ja` | In der Zeile fehlt der `Vorname` — ohne ihn lässt sich `m.werner@…` nicht bilden. |
+| SV-Mitgliederliste bleibt leer | Tab `SV` fehlt noch, ist falsch benannt oder ohne `Name`-Spalte — außerdem muss `Code.gs` einmal neu bereitgestellt sein (Teil A, Schritt 6), damit der Tab überhaupt ausgelesen wird. |
+| Vertrauenslehrer erscheinen nicht auf der SV-Seite | Im Tab `Lehrer` fehlt bei der jeweiligen Person `SV-Lehrer` in der `Bio`-Spalte. |
+| Klassenlehrer-Badge fehlt bei einer Person | Der Nachname im Tab `Klassenlehrer` weicht zu stark von dem im Tab `Lehrer` ab (mehr als ein Buchstabe) — oder `Code.gs` ist noch nicht neu bereitgestellt (Teil A, Schritt 6). |

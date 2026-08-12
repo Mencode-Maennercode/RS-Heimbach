@@ -6,8 +6,9 @@
 // das Sheet. Das Sheet wird mit niemandem oeffentlich geteilt, nur die
 // Lehrkraefte mit Bearbeiter-Zugriff sehen/aendern es.
 //
-// Tabs im Sheet: "Lehrer" und "News" (siehe readLehrer_ / readNews_ fuer die
-// erwarteten Spalten).
+// Tabs im Sheet: "Lehrer", "News", "SV" und "Klassenlehrer" (siehe
+// readLehrer_ / readNews_ / readSV_ / readKlassenlehrer_ fuer die erwarteten
+// Spalten).
 //
 // Einrichtung: siehe GOOGLE_SHEETS_ANLEITUNG.md im Repo.
 
@@ -111,6 +112,54 @@ function readLehrer_(cfg) {
     .filter((t) => t.nachname);
 }
 
+// Eigenstaendiger, optionaler Tab: die Mitglieder der Schuelervertretung
+// aendern sich jaehrlich, darum wie Lehrer/News per Sheet gepflegt statt im
+// Code hartkodiert. Der Tab ist bewusst als optional behandelt (eigenes
+// try/catch) -- fehlt er noch (z. B. direkt nach diesem Code.gs-Update, bevor
+// der Tab angelegt wurde), liefert die Funktion einfach eine leere Liste,
+// statt den gesamten Payload (inkl. Lehrer & News) scheitern zu lassen.
+function readSV_(cfg) {
+  try {
+    const rows = readSheetRows_('SV', cfg);
+    return rows
+      .map((row, i) => ({ id: i + 1, name: pick_(row, ['name']) }))
+      .filter((m) => m.name);
+  } catch (err) {
+    return [];
+  }
+}
+
+// Tab "Klassenlehrer": eine Zeile pro Klasse mit Nachname der Klassenleitung
+// und ggf. Co-Klassenleitung. Wie readSV_ optional behandelt, damit ein noch
+// fehlender Tab nicht den gesamten Payload scheitern laesst.
+//
+// Die Zuordnung Nachname -> Lehrkraft und die Beschriftung der Badges
+// ("Klassenlehrerin 5A") passiert bewusst erst auf der Website
+// (lib/data.ts), damit Aenderungen daran ohne neue Apps-Script-Version
+// wirken -- gleiche Aufteilung wie bei readLehrer_.
+function readKlassenlehrer_(cfg) {
+  try {
+    const rows = readSheetRows_('Klassenlehrer', cfg);
+    return rows
+      .map((row, i) => {
+        const coRaw = pick_(row, [
+          'co-klassenlehrerinnen', 'co-klassenlehrerin', 'co-klassenlehrer',
+          'co-klassenleitung', 'co',
+        ]);
+        return {
+          id: i + 1,
+          klasse: pick_(row, ['klasse', 'class']),
+          lehrer: pick_(row, ['klassenlehrerin', 'klassenlehrer', 'klassenleitung', 'lehrer']),
+          // Mehrere Co-Namen duerfen per Komma in einer Zelle stehen.
+          co: coRaw ? coRaw.split(',').map((s) => s.trim()).filter(Boolean) : [],
+        };
+      })
+      .filter((k) => k.klasse && (k.lehrer || k.co.length));
+  } catch (err) {
+    return [];
+  }
+}
+
 function readNews_(cfg) {
   const rows = readSheetRows_('News', cfg);
   return rows
@@ -139,6 +188,8 @@ function buildPayload_() {
   return {
     lehrer: readLehrer_(cfg),
     news: readNews_(cfg),
+    sv: readSV_(cfg),
+    klassenlehrer: readKlassenlehrer_(cfg),
     generatedAt: new Date().toISOString(),
   };
 }
@@ -160,7 +211,7 @@ function doGet(e) {
   try {
     payload = buildPayload_();
   } catch (err) {
-    payload = { error: String(err), lehrer: [], news: [], generatedAt: new Date().toISOString() };
+    payload = { error: String(err), lehrer: [], news: [], sv: [], klassenlehrer: [], generatedAt: new Date().toISOString() };
   }
 
   const json = JSON.stringify(payload);
@@ -176,7 +227,10 @@ function doGet(e) {
 // Ergebnis steht danach im Ausfuehrungsprotokoll.
 function testPayload() {
   const payload = buildPayload_();
-  Logger.log('Lehrer: %s | News: %s', payload.lehrer.length, payload.news.length);
+  Logger.log(
+    'Lehrer: %s | News: %s | SV: %s | Klassen: %s',
+    payload.lehrer.length, payload.news.length, payload.sv.length, payload.klassenlehrer.length
+  );
   Logger.log(JSON.stringify(payload, null, 2));
 }
 

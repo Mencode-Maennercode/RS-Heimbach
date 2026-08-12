@@ -149,6 +149,58 @@ export function normalizeBio(bio: string): string {
   return bioParts(bio).join(", ");
 }
 
+/**
+ * Beschriftung einer Klassenleitung, noch mit Genderstern:
+ * "Klassenlehrer*in 5A" bzw. "Co-Klassenlehrer*in 6C". genderRole() macht
+ * daraus spaeter die zur Anrede passende Form.
+ */
+export function classRoleLabel(klasse: string, isCo: boolean): string {
+  const name = klasse.trim().toUpperCase();
+  const role = `${isCo ? "Co-" : ""}Klassenlehrer*in`;
+  return name ? `${role} ${name}` : role;
+}
+
+/**
+ * Ordnet einen im Klassenlehrer-Tab eingetragenen Nachnamen einer Lehrkraft
+ * aus dem Lehrer-Tab zu. Verglichen wird ueber photoKey(), also unabhaengig
+ * von Umlaut-Schreibweise und Trennzeichen ("Juenger" findet "Jünger",
+ * "van Oost" findet "van-oost").
+ *
+ * Bleibt das ohne Treffer, greift dieselbe Tippfehler-Toleranz wie bei den
+ * Faechern: ein Buchstabe Unterschied wird verziehen, damit "Haffmanns" die
+ * Lehrkraft "Haffmans" findet. Ohne ausreichend aehnlichen Treffer: null --
+ * der Eintrag wird dann stillschweigend ignoriert, statt ein Badge an der
+ * falschen Person zu erzeugen.
+ */
+export function matchSurname(raw: string, surnames: string[]): string | null {
+  const needle = photoKey(raw);
+  if (!needle) return null;
+
+  const exact = surnames.find((s) => photoKey(s) === needle);
+  if (exact) return exact;
+
+  let best: string | null = null;
+  let bestDistance = Infinity;
+  for (const candidate of surnames) {
+    const distance = levenshtein(needle, photoKey(candidate));
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      best = candidate;
+    }
+  }
+  const tolerance = Math.max(1, Math.floor(needle.length / 5));
+  return bestDistance <= tolerance ? best : null;
+}
+
+/**
+ * Erkennt den Bio-Eintrag "SV-Lehrer" tolerant gegenueber Schreibvarianten
+ * ("SV Lehrer", "sv-lehrer", ...). Grundlage fuer die Vertrauenslehrer-
+ * Uebersicht auf der SV-Seite.
+ */
+export function isSvLehrerTask(task: string): boolean {
+  return task.toLowerCase().replace(/[^a-zäöüß]/g, "") === "svlehrer";
+}
+
 /** Anrede aus der Sheet-Spalte "Geschlecht". Leer, wenn nichts Eindeutiges drinsteht. */
 export type Anrede = "Hr." | "Fr." | "";
 

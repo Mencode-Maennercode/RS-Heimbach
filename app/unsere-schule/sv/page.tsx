@@ -5,21 +5,13 @@ import HeroBackground from "@/components/HeroBackground";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Users, Star, Megaphone, Heart } from "lucide-react";
+import { svMembers, svTeachers } from "@/lib/data";
 
 const svActivities = [
   { icon: Star, title: "5er-Party", desc: "Jedes Jahr organisiert die SV eine Willkommensparty für die neuen Fünftklässler." },
   { icon: Megaphone, title: "Interessenvertretung", desc: "Die SV ist Sprachrohr aller Schüler*innen bei der Schulleitung und im Schulausschuss." },
   { icon: Heart, title: "Schulgestaltung", desc: "Von der Wanddekoration bis zum Büdchen – die SV macht unsere Schule lebendiger." },
   { icon: Users, title: "Aktionen & Events", desc: "Benefizaktionen, Aktionstage und gemeinsame Projekte für die gesamte Schulgemeinschaft." },
-];
-
-const svMembers = [
-  "Ayad Alsinjari",
-  "Salar Alshihmani",
-  "Khadija Becker",
-  "Berat Demir",
-  "Asli Olmaz",
-  "Fjolla Zahiti",
 ];
 
 export default function SVPage() {
@@ -106,24 +98,28 @@ export default function SVPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <span className="text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-3 block">Unsere Mitglieder</span>
-              <h2 className="text-4xl font-black text-[#1a3a6b] mb-6">Aktuelle SV</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {svMembers.map((name, i) => (
-                  <motion.div
-                    key={name}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.07 }}
-                    className="flex items-center gap-3 bg-[#f8f9ff] rounded-2xl px-4 py-3"
-                  >
-                    <div className="w-8 h-8 rounded-full gradient-hero flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-xs font-black">{name.charAt(0)}</span>
-                    </div>
-                    <span className="font-semibold text-[#1a3a6b] text-sm">{name}</span>
-                  </motion.div>
-                ))}
-              </div>
+              <h2 className="text-4xl font-black text-[#1a3a6b] mb-6">Aktuelle Schülervertretung</h2>
+              {svMembers.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {svMembers.map((name, i) => (
+                    <motion.div
+                      key={name}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.07 }}
+                      className="flex items-center gap-3 bg-[#f8f9ff] rounded-2xl px-4 py-3"
+                    >
+                      <div className="w-8 h-8 rounded-full gradient-hero flex items-center justify-center flex-shrink-0">
+                        <span className="text-white text-xs font-black">{name.charAt(0)}</span>
+                      </div>
+                      <span className="font-semibold text-[#1a3a6b] text-sm">{name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-slate-500 text-sm">Die aktuellen Mitglieder werden in Kürze ergänzt.</p>
+              )}
               <p className="text-slate-500 text-sm mt-5">
                 Du möchtest mitmachen? Sprich deine Klassensprecher*innen an oder wende dich direkt an die SV.
               </p>
@@ -141,6 +137,45 @@ export default function SVPage() {
           </div>
         </div>
       </section>
+
+      {svTeachers.length > 0 && (
+        <section className="py-20 bg-[#f8f9ff]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2 block">Ansprechpartner</span>
+              <h2 className="text-4xl font-black text-[#1a3a6b]">Vertrauenslehrer</h2>
+              <p className="text-slate-500 text-sm mt-2">Bei Fragen oder Anliegen rund um die SV sind sie eure ersten Ansprechpartner.</p>
+            </motion.div>
+            <div className="flex flex-wrap justify-center gap-6">
+              {svTeachers.map((teacher, i) => (
+                <motion.div
+                  key={teacher.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="group w-full max-w-[280px] bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-1.5"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <Image
+                      src={teacher.image}
+                      alt={teacher.name}
+                      fill
+                      unoptimized={teacher.image.startsWith("data:")}
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f2447]/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="text-white font-black text-lg leading-tight">{teacher.name}</div>
+                      <div className="text-[#f5a623] text-sm font-semibold">{teacher.role}</div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

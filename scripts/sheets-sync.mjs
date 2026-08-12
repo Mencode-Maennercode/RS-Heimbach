@@ -48,7 +48,10 @@ async function main() {
     }
   }
 
-  console.log(`${payload.lehrer?.length ?? 0} Lehrer-Eintraege, ${payload.news?.length ?? 0} News-Eintraege gefunden.`);
+  console.log(
+    `${payload.lehrer?.length ?? 0} Lehrer-Eintraege, ${payload.news?.length ?? 0} News-Eintraege, ` +
+      `${payload.sv?.length ?? 0} SV-Mitglieder, ${payload.klassenlehrer?.length ?? 0} Klassen gefunden.`
+  );
 
   await mkdir(path.dirname(outPath), { recursive: true });
   await writeFile(outPath, JSON.stringify(payload, null, 2) + "\n");

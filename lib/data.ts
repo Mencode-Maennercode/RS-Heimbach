@@ -66,9 +66,12 @@ import teacherPhotos from "./data/teacher-photos.json";
 import { teacherBackground } from "./teacherAvatar";
 import {
   bioParts,
+  classRoleLabel,
   collectSubjects,
   displayName,
   genderRole,
+  isSvLehrerTask,
+  matchSurname,
   normalizeAnrede,
   normalizeBio,
   normalizeSubjects,
@@ -108,6 +111,7 @@ function prepareTeacher(t: (typeof schoolContent.lehrer)[number]) {
     id: t.id,
     nachname: t.nachname,
     name,
+    anrede,
     role: genderRole(t.rolle, anrede),
     subjects,
     // Ohne Foto ein deterministisch aus dem Namen erzeugtes SVG-Muster.
@@ -130,11 +134,57 @@ function prepareTeacher(t: (typeof schoolContent.lehrer)[number]) {
 // sortiert.
 const preparedTeachers = schoolContent.lehrer.map(prepareTeacher);
 
+// Klassenleitungen aus dem gleichnamigen Sheet-Tab: pro Lehrkraft die noch
+// ungegenderten Rollen-Labels ("Klassenlehrer*in 5A"). Der Cast faengt ab,
+// dass das Feld fehlt, solange der Tab im Sheet noch nicht angelegt bzw. das
+// Apps-Script noch nicht neu bereitgestellt wurde.
+const classRows =
+  (schoolContent as unknown as {
+    klassenlehrer?: Array<{ klasse?: string; lehrer?: string; co?: string[] }>;
+  }).klassenlehrer ?? [];
+
+const CLASS_ROLES = (() => {
+  const surnames = preparedTeachers.map((t) => t.nachname);
+  const byTeacher = new Map<string, string[]>();
+
+  // Ein im Tab eingetragener Nachname wird der Lehrkraft zugeordnet und
+  // bekommt das Label an deren Schluessel gehaengt. Namen ohne Treffer im
+  // Lehrer-Tab werden ignoriert - lieber kein Badge als eins an der
+  // falschen Person.
+  const add = (rawName: string | undefined, label: string) => {
+    const matched = matchSurname(rawName ?? "", surnames);
+    if (!matched) return;
+    const key = photoKey(matched);
+    byTeacher.set(key, [...(byTeacher.get(key) ?? []), label]);
+  };
+
+  for (const row of classRows) {
+    const klasse = (row.klasse ?? "").trim();
+    if (!klasse) continue;
+    add(row.lehrer, classRoleLabel(klasse, false));
+    for (const co of row.co ?? []) add(co, classRoleLabel(klasse, true));
+  }
+
+  // Eigene Klassenleitung vor Co-Leitung, danach nach Klassenname — damit
+  // die Reihenfolge unabhaengig von der Zeilenfolge im Sheet immer gleich ist.
+  for (const [key, labels] of byTeacher) {
+    byTeacher.set(
+      key,
+      [...labels].sort((a, b) => {
+        const co = Number(a.startsWith("Co-")) - Number(b.startsWith("Co-"));
+        return co !== 0 ? co : a.localeCompare(b, "de");
+      })
+    );
+  }
+  return byTeacher;
+})();
+
 // Die "Bio"-Spalte im Google Sheet traegt die zusaetzlichen Aufgaben einer
 // Lehrkraft neben dem Fachunterricht (z. B. "Sonderpädagoge, SV-Lehrer").
 // Jede der per Komma getrennten Aufgaben wird als eigenes gruenes Badge
-// angezeigt. Bei der Schulleitung enthaelt die Bio stattdessen eine lange
-// Aufgabenliste als Fliesstext - dort erscheinen keine Badges.
+// angezeigt. Die Klassenleitung steht dabei immer vorn.
+// Bei der Schulleitung enthaelt die Bio stattdessen eine lange Aufgabenliste
+// als Fliesstext - die erscheint nicht als Badge, die Klassenleitung schon.
 // Das Kollegium ist immer nach Nachname sortiert.
 export const teachers = [...preparedTeachers]
   .sort((a, b) => a.nachname.localeCompare(b.nachname, "de"))
@@ -145,7 +195,10 @@ export const teachers = [...preparedTeachers]
     subjects: t.subjects,
     image: t.image,
     bio: t.bio,
-    secondTasks: t.isLeadership ? [] : t.bioTasks,
+    secondTasks: [
+      ...(CLASS_ROLES.get(photoKey(t.nachname)) ?? []).map((r) => genderRole(r, t.anrede)),
+      ...(t.isLeadership ? [] : t.bioTasks),
+    ],
     // Ohne "Ja" im Sheet steht die allgemeine Adresse der Verwaltung.
     email: t.email || schoolInfo.email,
   }));
@@ -161,6 +214,28 @@ export const leadershipTeam = preparedTeachers
     phone: t.phone || `${schoolInfo.phone} (Sekretariat)`,
     email: t.email || schoolInfo.email,
   }));
+
+// Lehrkraefte mit "SV-Lehrer" in der Bio-Spalte -- erscheinen als
+// Vertrauenslehrer auf der SV-Seite. Keine eigene Sheet-Spalte noetig, die
+// Zuordnung laeuft ueber denselben Bio-Eintrag wie das gruene Badge auf der
+// Kollegium-Seite.
+export const svTeachers = preparedTeachers
+  .filter((t) => t.bioTasks.some(isSvLehrerTask))
+  .map((t) => ({
+    name: t.name,
+    image: t.image,
+    role: genderRole("Vertrauenslehrer*in", t.anrede),
+  }));
+
+// Mitglieder der Schuelervertretung -- eigener optionaler "SV"-Tab im Sheet
+// (siehe google-apps-script/Code.gs, readSV_). Der Cast faengt ab, dass das
+// Feld fehlt, solange der Tab im Sheet noch nicht angelegt bzw. das
+// Apps-Script noch nicht neu bereitgestellt wurde.
+export const svMembers = (
+  (schoolContent as unknown as { sv?: Array<{ name?: string }> }).sv ?? []
+)
+  .map((m) => (m.name ?? "").trim())
+  .filter(Boolean);
 
 // Beitraege mit gesetztem "Hauptbeitrag"-Feld im Sheet stehen zuerst (in der
 // Reihenfolge, wie sie im Sheet stehen), der Rest danach nach Datum absteigend.
