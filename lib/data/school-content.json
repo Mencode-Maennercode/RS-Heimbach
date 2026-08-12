@@ -898,5 +898,219 @@
       "hauptbeitrag": false
     }
   ],
-  "generatedAt": "2026-08-12T06:20:41.056Z"
+  "sv": [
+    {
+      "id": 1,
+      "name": "Ayad Alsinjari"
+    },
+    {
+      "id": 2,
+      "name": "Salar Alshihmani"
+    },
+    {
+      "id": 3,
+      "name": "Khadija Becker"
+    },
+    {
+      "id": 4,
+      "name": "Berat Demir"
+    },
+    {
+      "id": 5,
+      "name": "Asli Olmaz"
+    },
+    {
+      "id": 6,
+      "name": "Fjolla Zahiti"
+    }
+  ],
+  "klassenlehrer": [
+    {
+      "id": 1,
+      "klasse": "5A",
+      "lehrer": "Grosse",
+      "co": []
+    },
+    {
+      "id": 2,
+      "klasse": "5B",
+      "lehrer": "Marx",
+      "co": [
+        "Herbst"
+      ]
+    },
+    {
+      "id": 3,
+      "klasse": "5C",
+      "lehrer": "Roqi",
+      "co": [
+        "Haag"
+      ]
+    },
+    {
+      "id": 4,
+      "klasse": "5D",
+      "lehrer": "Katzner",
+      "co": [
+        "Hagemeyer"
+      ]
+    },
+    {
+      "id": 5,
+      "klasse": "6A",
+      "lehrer": "Bayram",
+      "co": [
+        "Losiei"
+      ]
+    },
+    {
+      "id": 6,
+      "klasse": "6B",
+      "lehrer": "Erdogan",
+      "co": []
+    },
+    {
+      "id": 7,
+      "klasse": "6C",
+      "lehrer": "Juenger",
+      "co": [
+        "Rieber"
+      ]
+    },
+    {
+      "id": 8,
+      "klasse": "6D",
+      "lehrer": "Tembe",
+      "co": [
+        "Adas"
+      ]
+    },
+    {
+      "id": 9,
+      "klasse": "7A",
+      "lehrer": "Fischer",
+      "co": [
+        "Zehnle"
+      ]
+    },
+    {
+      "id": 10,
+      "klasse": "7B",
+      "lehrer": "Cempel",
+      "co": [
+        "Engler"
+      ]
+    },
+    {
+      "id": 11,
+      "klasse": "7C",
+      "lehrer": "Scherz",
+      "co": [
+        "Stein"
+      ]
+    },
+    {
+      "id": 12,
+      "klasse": "7D",
+      "lehrer": "Sliwa",
+      "co": [
+        "Koretz"
+      ]
+    },
+    {
+      "id": 13,
+      "klasse": "8A",
+      "lehrer": "Schmidt",
+      "co": [
+        "van Oost"
+      ]
+    },
+    {
+      "id": 14,
+      "klasse": "8B",
+      "lehrer": "Oppermann",
+      "co": [
+        "Krüger"
+      ]
+    },
+    {
+      "id": 15,
+      "klasse": "8C",
+      "lehrer": "Köylüoglu",
+      "co": [
+        "Haffmanns"
+      ]
+    },
+    {
+      "id": 16,
+      "klasse": "8D",
+      "lehrer": "Gerdesmeyer",
+      "co": [
+        "Pieper"
+      ]
+    },
+    {
+      "id": 17,
+      "klasse": "9A",
+      "lehrer": "Reuber",
+      "co": [
+        "Blamheuser"
+      ]
+    },
+    {
+      "id": 18,
+      "klasse": "9B",
+      "lehrer": "Etschenberg",
+      "co": []
+    },
+    {
+      "id": 19,
+      "klasse": "9C",
+      "lehrer": "Beyers",
+      "co": [
+        "Novakovic"
+      ]
+    },
+    {
+      "id": 20,
+      "klasse": "9D",
+      "lehrer": "Turan",
+      "co": [
+        "Cuypers"
+      ]
+    },
+    {
+      "id": 21,
+      "klasse": "10A",
+      "lehrer": "Ramovic",
+      "co": [
+        "Wulfhorst"
+      ]
+    },
+    {
+      "id": 22,
+      "klasse": "10B",
+      "lehrer": "Hoffmann",
+      "co": [
+        "Werner"
+      ]
+    },
+    {
+      "id": 23,
+      "klasse": "10C",
+      "lehrer": "Thape",
+      "co": [
+        "Herbst"
+      ]
+    },
+    {
+      "id": 24,
+      "klasse": "10D",
+      "lehrer": "Tap",
+      "co": [
+        "Fournes"
+      ]
+    }
+  ],
+  "generatedAt": "2026-08-12T08:00:40.630Z"
 }
