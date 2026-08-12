@@ -167,12 +167,13 @@ const CLASS_ROLES = (() => {
 
   // Eigene Klassenleitung vor Co-Leitung, danach nach Klassenname — damit
   // die Reihenfolge unabhaengig von der Zeilenfolge im Sheet immer gleich ist.
+  // `numeric` sortiert die Jahrgaenge wie erwartet (5B vor 10C statt danach).
   for (const [key, labels] of byTeacher) {
     byTeacher.set(
       key,
       [...labels].sort((a, b) => {
         const co = Number(a.startsWith("Co-")) - Number(b.startsWith("Co-"));
-        return co !== 0 ? co : a.localeCompare(b, "de");
+        return co !== 0 ? co : a.localeCompare(b, "de", { numeric: true });
       })
     );
   }
