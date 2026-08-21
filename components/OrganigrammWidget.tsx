@@ -345,7 +345,7 @@ const ORG_DATA = {
     {
       id: "verwaltung", label: "Verwaltung", hue: 230,
       items: [
-        { role: "Sekretariat", people: "Fr. Eich" },
+        { role: "Sekretariat", people: "Fr. Umlauf, Fr. Abt, Fr. Baden, Fr. Eich" },
         { role: "Hausmeisterei", people: "Hr. Müller" },
       ],
     },

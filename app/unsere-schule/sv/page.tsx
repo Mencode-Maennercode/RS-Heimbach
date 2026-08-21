@@ -4,13 +4,14 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Users, Star, Megaphone, Heart } from "lucide-react";
+import { Users, Star, Megaphone, Heart, Store } from "lucide-react";
 import { svMembers, svTeachers } from "@/lib/data";
 
 const svActivities = [
   { icon: Star, title: "5er-Party", desc: "Jedes Jahr organisiert die SV eine Willkommensparty für die neuen Fünftklässler." },
   { icon: Megaphone, title: "Interessenvertretung", desc: "Die SV ist Sprachrohr aller Schüler*innen bei der Schulleitung und im Schulausschuss." },
-  { icon: Heart, title: "Schulgestaltung", desc: "Von der Wanddekoration bis zum Büdchen – die SV macht unsere Schule lebendiger." },
+  { icon: Heart, title: "Schulgestaltung", desc: "Von der Wanddekoration bis zu Gemeinschaftsprojekten – die SV macht unsere Schule lebendiger." },
+  { icon: Store, title: "Heimbach Büdchen", desc: "Die SV betreibt das Heimbach Büdchen eigenverantwortlich – im Prinzip eine kleine Schülerfirma." },
   { icon: Users, title: "Aktionen & Events", desc: "Benefizaktionen, Aktionstage und gemeinsame Projekte für die gesamte Schulgemeinschaft." },
 ];
 
@@ -49,8 +50,9 @@ export default function SVPage() {
                 </p>
                 <p>
                   Bekannte Projekte der SV: Die <strong>5er-Party</strong> für neue Fünftklässler,
-                  die Gestaltung des <strong>SV-Büdchens</strong> und regelmäßige Aktionen
-                  zur Verbesserung des Schulklimas.
+                  regelmäßige Aktionen zur Verbesserung des Schulklimas sowie das
+                  <strong> Heimbach Büdchen</strong>, das die SV eigenverantwortlich betreibt –
+                  im Prinzip eine kleine Schülerfirma.
                 </p>
               </div>
             </motion.div>
@@ -74,7 +76,7 @@ export default function SVPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-2 block">Aktivitäten</span>
             <h2 className="text-4xl font-black text-[#1a3a6b]">Was wir tun</h2>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {svActivities.map((a, i) => {
               const Icon = a.icon;
               return (

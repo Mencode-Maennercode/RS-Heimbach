@@ -21,15 +21,12 @@ import {
   Briefcase,
   FileText,
   Download,
-  Phone,
-  Mail,
   ArrowRight,
   Sparkles,
   X,
   CheckCircle2,
   ChevronDown,
 } from "lucide-react";
-import { schoolInfo } from "@/lib/data";
 
 /* ---------- Daten ---------- */
 
@@ -55,7 +52,6 @@ const topics = [
 ] as const;
 
 const sprechstunde = [
-  { day: "Montag", time: "9:20 – 10:20 Uhr", person: "Herr Hoffmann", role: "Sonderpädagoge", room: "Raum A016" },
   { day: "Mittwoch", time: "9:15 – 15:00 Uhr", person: "Frau Mittelbach", role: "Beratungslehrerin", room: "Raum A016" },
   { day: "Freitag", time: "13:00 – 14:00 Uhr", person: "Herr Konitz", role: "Sonderpädagoge", room: "Raum A016" },
 ];
@@ -226,7 +222,7 @@ function BeratungPanel() {
             <p className="text-white/70 text-sm">Komm einfach vorbei oder schreib uns – ganz vertraulich.</p>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {sprechstunde.map((s) => (
             <div key={s.day} className="bg-white/10 rounded-2xl p-5">
               <div className="text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-1">{s.day}</div>
@@ -704,57 +700,6 @@ export default function BeratungPage() {
           </motion.section>
         )}
       </AnimatePresence>
-
-      {/* Kontakt-CTA */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-[#f8f9ff] rounded-3xl p-8 md:p-10"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#e8442a] mb-3 block">Kontakt</span>
-                <h2 className="text-3xl font-black text-[#0a5a54] mb-4">Beratungstermin vereinbaren</h2>
-                <p className="text-slate-600 leading-relaxed">
-                  Alle Beratungsangebote sind kostenlos und vertraulich. Für ein Gespräch melden Sie sich bitte vorab im
-                  Sekretariat – der Beratungsraum befindet sich direkt nebenan.
-                </p>
-              </div>
-              <div className="space-y-3">
-                <a
-                  href={schoolInfo.phoneLink}
-                  className="flex items-center gap-3 p-4 bg-white rounded-2xl hover:bg-[#1DA499]/5 transition-colors group"
-                >
-                  <div className="w-11 h-11 rounded-xl gradient-hero flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-slate-500">Telefon (Sekretariat)</div>
-                    <div className="font-bold text-slate-800">{schoolInfo.phone}</div>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-slate-400 ml-auto group-hover:text-[#1DA499] transition-colors" />
-                </a>
-                <a
-                  href={`mailto:${schoolInfo.email}`}
-                  className="flex items-center gap-3 p-4 bg-white rounded-2xl hover:bg-[#1DA499]/5 transition-colors group"
-                >
-                  <div className="w-11 h-11 rounded-xl bg-[#1DA499]/10 flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5 text-[#1DA499]" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs text-slate-500">E-Mail</div>
-                    <div className="font-bold text-slate-800 break-all">{schoolInfo.email}</div>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-slate-400 ml-auto shrink-0 group-hover:text-[#1DA499] transition-colors" />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Modal: Fahrplan-Detail */}
       <AnimatePresence>

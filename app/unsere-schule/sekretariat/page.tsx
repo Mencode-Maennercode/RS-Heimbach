@@ -1,12 +1,15 @@
 "use client";
 
+import { Fragment } from "react";
 import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Phone, Mail, Printer, Clock, MapPin, HeartPulse, FileText, Wrench, ArrowRight, AlertTriangle } from "lucide-react";
+import { Phone, Mail, Clock, HeartPulse, FileText, Wrench, ArrowRight, AlertTriangle } from "lucide-react";
 import { schoolInfo, sekretariatInfo } from "@/lib/data";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
+
+const secretariatStaff = ["Frau Umlauf", "Frau Abt", "Frau Baden", "Frau Eich"];
 
 export default function SekretariatPage() {
   const { isOpen: enrollmentOpen } = getEnrollmentInfo();
@@ -28,30 +31,37 @@ export default function SekretariatPage() {
         </div>
       </section>
 
-      {/* Telefon-Block (sehr präsent) */}
+      {/* Sekretariat */}
       <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0a5a54] rounded-3xl p-8 md:p-10 text-white">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-              <a href={schoolInfo.phoneLink} className="md:col-span-2 flex items-center gap-5 group">
-                <div className="w-16 h-16 rounded-2xl bg-[#1DA499] flex items-center justify-center shrink-0 shadow-lg group-hover:scale-105 transition-transform">
-                  <Phone className="w-8 h-8 text-white" />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#1a3a6b] rounded-3xl p-8 md:p-10 text-white">
+            <h2 className="text-2xl font-black mb-6">Sekretariat</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.5fr_1.4fr] gap-6">
+              <div>
+                <div className="text-[#f5a623] text-xs font-bold uppercase tracking-wide mb-2">Mitarbeiterinnen</div>
+                {secretariatStaff.map((s) => (
+                  <div key={s} className="text-white/80 text-sm">{s}</div>
+                ))}
+              </div>
+              <div>
+                <div className="text-[#f5a623] text-xs font-bold uppercase tracking-wide mb-2">Öffnungszeiten</div>
+                <div className="grid grid-cols-[auto_1fr] gap-x-2 gap-y-0.5">
+                  {sekretariatInfo.hours.map((h) => (
+                    <Fragment key={h.day}>
+                      <span className="text-white/80 text-sm whitespace-nowrap">{h.day}:</span>
+                      <span className="text-white/80 text-sm whitespace-nowrap">{h.time}</span>
+                    </Fragment>
+                  ))}
                 </div>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-widest text-white/60 mb-1">Direkt anrufen</div>
-                  <div className="text-3xl sm:text-4xl font-black leading-none">{schoolInfo.phone}</div>
-                </div>
-              </a>
-              <div className="space-y-2 text-sm">
-                <a href={`mailto:${schoolInfo.email}`} className="flex items-center gap-2.5 text-white/80 hover:text-[#f5a623] transition-colors break-all">
-                  <Mail className="w-4 h-4 text-[#f5a623] shrink-0" /> {schoolInfo.email}
+              </div>
+              <div>
+                <div className="text-[#f5a623] text-xs font-bold uppercase tracking-wide mb-2">Kontakt</div>
+                <a href={schoolInfo.phoneLink} className="flex items-center gap-2 text-white/80 text-sm hover:text-white mb-1">
+                  <Phone className="w-3.5 h-3.5" />{schoolInfo.phone}
                 </a>
-                <div className="flex items-center gap-2.5 text-white/80">
-                  <Printer className="w-4 h-4 text-[#f5a623] shrink-0" /> Fax: {schoolInfo.fax}
-                </div>
-                <div className="flex items-center gap-2.5 text-white/80">
-                  <MapPin className="w-4 h-4 text-[#f5a623] shrink-0" /> {schoolInfo.address}, {schoolInfo.city}
-                </div>
+                <a href={`mailto:${schoolInfo.email}`} className="flex items-center gap-2 text-white/80 text-sm hover:text-white whitespace-nowrap">
+                  <Mail className="w-3.5 h-3.5 shrink-0" />{schoolInfo.email}
+                </a>
               </div>
             </div>
           </div>

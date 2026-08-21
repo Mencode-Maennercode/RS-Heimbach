@@ -44,19 +44,19 @@ const pillars = [
   {
     icon: Target,
     title: "Individuelle Förderung & Inklusion",
-    desc: "Mit differenzierten Lernangeboten und sonderpädagogischer Unterstützung begleiten wir jedes Kind auf seinem ganz eigenen Weg.",
+    desc: "Mit differenzierten Lernangeboten und sonderpädagogischer Unterstützung begleiten wir jedes Kind auf seinem ganz eigenen Weg – unter anderem im Team-Teaching in Deutsch (Klasse 5) und Englisch (Klasse 6).",
     color: "from-blue-500 to-blue-700",
   },
   {
     icon: Compass,
     title: "Berufsorientierung",
-    desc: "Betriebserkundungen, Berufspraktika und Kooperationen mit regionalen Unternehmen bereiten unsere Schüler*innen gezielt auf die Arbeitswelt vor.",
+    desc: "Betriebserkundungen, Berufspraktika und Kooperationen mit regionalen Unternehmen bereiten unsere Schüler*innen gezielt auf die Arbeitswelt vor. Ab Klasse 9 unterstützt eine individuelle Berufsförderung stundenweise in Einzelbetreuung, etwa bei Begabungen und beim Schreiben.",
     color: "from-amber-500 to-amber-700",
   },
   {
     icon: Handshake,
     title: "Schulgemeinschaft & Kultur",
-    desc: "Gemeinsame Projekte, Schulveranstaltungen und ein lebendiges SV-Leben stärken den Zusammenhalt und machen unsere Schule zu einem Ort zum Wohlfühlen.",
+    desc: "Gemeinsame Projekte, Schulveranstaltungen, außerschulische Lernorte und ein lebendiges SV-Leben stärken den Zusammenhalt und machen unsere Schule zu einem Ort zum Wohlfühlen.",
     color: "from-rose-500 to-rose-700",
   },
 ];
@@ -238,7 +238,7 @@ export default function UnsereSchulePage() {
                 <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">Gemeinsames Lernen</span>
                 <h2 className="text-4xl font-black mb-5">Inklusion an der RS&nbsp;Heimbach</h2>
                 <p className="text-white/80 leading-relaxed">
-                  Wir glauben daran, dass alle Kinder gemeinsam lernen können. Mit Sonderpädagog*innen
+                  Wir sind davon überzeugt, dass alle Kinder gemeinsam lernen können. Mit Sonderpädagog*innen
                   begleiten wir Schülerinnen und Schüler mit besonderem Förderbedarf individuell und professionell
                   auf ihrem ganz persönlichen Lernweg.
                 </p>

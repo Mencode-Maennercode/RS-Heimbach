@@ -48,7 +48,7 @@ export default function SchulzeitenPage() {
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">Unterricht</span>
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-4">Schulzeiten & Stundenraster</h1>
             <p className="text-white/85 text-xl max-w-2xl">
-              Unterricht in 60-Minuten-Zeitstunden – verlässlich, klar rhythmisiert und mit Zeit für Tiefe.
+              Unterricht in 60-Minuten-Zeitstunden – klar und mit Zeit für Tiefe.
             </p>
           </motion.div>
         </div>

@@ -46,7 +46,7 @@ export default function GanztagPage() {
                 </p>
                 <p>
                   Ergänzt wird der Unterricht durch den <strong>Wahlunterricht (WU)</strong> und eine „Bewegte Pause" in der Mittagspause –
-                  getragen von Lehrkräften, der AWO, externen Partnern und ehrenamtlichen Unterstützern.
+                  mit Spieleausleihe und Tischtennisplatten –, getragen von Lehrkräften, der AWO, externen Partnern und ehrenamtlichen Unterstützern.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 mt-7">

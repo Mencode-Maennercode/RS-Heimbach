@@ -24,15 +24,6 @@ const downloadGroups = [
     ],
   },
   {
-    title: "Stunden- & Terminpläne",
-    items: [
-      { name: "Stundenplan Jahrgang 5/6", type: "PDF" },
-      { name: "Stundenplan Jahrgang 7/8", type: "PDF" },
-      { name: "Stundenplan Jahrgang 9/10", type: "PDF" },
-      { name: "Jahres-Terminplan 2025/26", type: "PDF" },
-    ],
-  },
-  {
     title: "WU & Wahlunterricht",
     items: [
       { name: "WU-Angebote 2024/25", type: "PDF" },
@@ -67,7 +58,7 @@ export default function ServicePage() {
 
       <section className="py-20 bg-[#f8f9ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {downloadGroups.map((group, gi) => (
               <motion.div
                 key={group.title}
