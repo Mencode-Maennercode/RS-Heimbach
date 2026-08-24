@@ -444,7 +444,7 @@
         "Deutsch",
         "Biologie"
       ],
-      "bio": "Suchtberatung",
+      "bio": "Suchtberaterin",
       "schulleitung": false,
       "telefon": "",
       "email": "Ja"
@@ -539,7 +539,7 @@
         "Praktische Philosophie",
         "Politik"
       ],
-      "bio": "Suchtberatung",
+      "bio": "Suchtberaterin",
       "schulleitung": false,
       "telefon": "",
       "email": "Ja"
@@ -1112,5 +1112,5 @@
       ]
     }
   ],
-  "generatedAt": "2026-08-24T09:07:02.265Z"
+  "generatedAt": "2026-08-24T10:06:28.468Z"
 }
