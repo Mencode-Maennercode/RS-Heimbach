@@ -444,7 +444,7 @@
         "Deutsch",
         "Biologie"
       ],
-      "bio": "Peers-Leiterin",
+      "bio": "Suchtberatung",
       "schulleitung": false,
       "telefon": "",
       "email": "Ja"
@@ -539,7 +539,7 @@
         "Praktische Philosophie",
         "Politik"
       ],
-      "bio": "Peers-Leiterin",
+      "bio": "Suchtberatung",
       "schulleitung": false,
       "telefon": "",
       "email": "Ja"
@@ -637,7 +637,7 @@
     {
       "id": 42,
       "vorname": "Carmen",
-      "nachname": "Blammeuser",
+      "nachname": "Blameuser",
       "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
@@ -928,16 +928,16 @@
     {
       "id": 1,
       "klasse": "5A",
-      "lehrer": "Grosse",
-      "co": []
+      "lehrer": "Katzner",
+      "co": [
+        "Hagemeyer"
+      ]
     },
     {
       "id": 2,
       "klasse": "5B",
-      "lehrer": "Marx",
-      "co": [
-        "Herbst"
-      ]
+      "lehrer": "Grosse",
+      "co": []
     },
     {
       "id": 3,
@@ -950,9 +950,9 @@
     {
       "id": 4,
       "klasse": "5D",
-      "lehrer": "Katzner",
+      "lehrer": "Marx",
       "co": [
-        "Hagemeyer"
+        "Schulz"
       ]
     },
     {
@@ -1054,7 +1054,7 @@
       "klasse": "9A",
       "lehrer": "Reuber",
       "co": [
-        "Blamheuser"
+        "Blameuser"
       ]
     },
     {
@@ -1112,5 +1112,5 @@
       ]
     }
   ],
-  "generatedAt": "2026-08-24T08:06:42.477Z"
+  "generatedAt": "2026-08-24T09:07:02.265Z"
 }
