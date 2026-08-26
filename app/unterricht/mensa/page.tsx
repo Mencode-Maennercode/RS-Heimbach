@@ -75,9 +75,17 @@ export default function MensaPage() {
                 <h3 className="text-xl font-black text-[#0a5a54]">Öffnungszeiten</h3>
               </div>
               <div className="space-y-3 text-sm">
-                <div className="flex justify-between border-b border-slate-100 pb-3">
-                  <span className="text-slate-600">Frühstückspause</span>
-                  <span className="font-semibold text-slate-900">Mo – Fr · 10:20 – 10:40 Uhr</span>
+                <div className="flex justify-between items-start gap-4 border-b border-slate-100 pb-3">
+                  <div>
+                    <span className="text-slate-600">Frühstückspause</span>
+                    <span className="block text-xs text-slate-500 mt-1">(u. a. frisch belegte Brötchen)</span>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <span className="block font-semibold text-slate-900 whitespace-nowrap">Mo – Fr · 10:20 – 10:45 Uhr</span>
+                    <span className="mt-1.5 inline-block text-[10px] font-bold uppercase tracking-wide bg-[#f5a623]/15 text-[#a86f14] px-2 py-0.5 rounded-full">
+                      1. große Pause
+                    </span>
+                  </div>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-600">Mittagessen</span>

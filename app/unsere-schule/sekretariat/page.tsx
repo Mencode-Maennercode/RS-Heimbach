@@ -5,6 +5,7 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, Clock, HeartPulse, FileText, Wrench, ArrowRight, AlertTriangle } from "lucide-react";
 import { schoolInfo, sekretariatInfo } from "@/lib/data";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
@@ -97,8 +98,8 @@ export default function SekretariatPage() {
               </div>
               <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
                 <p>
-                  Ist Ihr Kind krank, melden Sie es bitte <strong>am selben Tag vor Unterrichtsbeginn</strong> ab –
-                  telefonisch im Sekretariat.
+                  Ist Ihr Kind krank, melden Sie es bitte <strong>am selben Tag bis 8:00 Uhr</strong> über unser
+                  <strong> Online-Formular</strong> ab – ein Anruf im Sekretariat ist dafür nicht nötig.
                 </p>
                 <p>
                   Zusätzlich ist eine <strong>schriftliche Entschuldigung</strong> spätestens bis zum 3. Krankheitstag an die
@@ -113,7 +114,7 @@ export default function SekretariatPage() {
                 href="/krankmeldung"
                 className="group inline-flex items-center gap-1 mt-4 text-[#1DA499] text-sm font-bold hover:underline"
               >
-                Mehr erfahren <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                Zum Krankmeldungs-Formular <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           </div>
@@ -139,13 +140,27 @@ export default function SekretariatPage() {
                 </div>
               </Link>
             )}
-            <div className={`bg-white rounded-3xl p-7 shadow-sm flex items-start gap-4 ${enrollmentOpen ? "" : "lg:col-span-2"}`}>
-              <div className="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center shrink-0">
-                <Wrench className="w-5 h-5 text-slate-500" />
-              </div>
-              <div>
-                <h3 className="font-black text-[#0a5a54] mb-1">Hausmeisterei</h3>
-                <p className="text-slate-600 text-sm">Zuständig für Gebäude, Technik und Außenanlagen. Anliegen bitte über das Sekretariat melden.</p>
+            <div className={`bg-white rounded-3xl shadow-sm overflow-hidden ${enrollmentOpen ? "" : "lg:col-span-2"}`}>
+              <div className="grid grid-cols-1 sm:grid-cols-[180px_1fr]">
+                <div className="relative h-56 sm:h-auto sm:min-h-[190px]">
+                  <Image
+                    src="/images/team/hausmeister-richard-mueller.jpg"
+                    alt="Richard Müller – Hausmeisterei der Realschule Am Heimbach"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 180px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-7 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center shrink-0">
+                      <Wrench className="w-4 h-4 text-slate-500" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wide text-[#1DA499]">Hausmeisterei</span>
+                  </div>
+                  <h3 className="font-black text-[#0a5a54] text-lg mb-1">Richard Müller</h3>
+                  <p className="text-slate-600 text-sm">Zuständig für Gebäude, Technik und Außenanlagen. Anliegen bitte über das Sekretariat melden.</p>
+                </div>
               </div>
             </div>
           </div>

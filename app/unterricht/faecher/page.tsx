@@ -25,10 +25,10 @@ const subjects = [
 ];
 
 const diffCourses = [
+  { name: "Biologie", desc: "Praxisorientiertes, experimentelles Arbeiten rund um Lebewesen, Ökosysteme und den menschlichen Körper." },
   { name: "Französisch", desc: "Eine weitere Fremdsprache – internationale Kommunikation und neue schulische Wege." },
   { name: "Informatik", desc: "Grundlagen der Programmierung, digitale Medien, Datenverarbeitung und informatisches Denken." },
   { name: "Kunst", desc: "Vertiefung kreativer Techniken, gestalterische Projekte und Auseinandersetzung mit Medien." },
-  { name: "Naturwissenschaften", desc: "Praxisorientiertes, experimentelles Arbeiten in Biologie, Chemie und Physik." },
   { name: "Sozialwissenschaften", desc: "Gesellschaftliche, politische und wirtschaftliche Zusammenhänge verstehen und reflektieren." },
   { name: "Technik", desc: "Technisches Planen und Konstruieren, Arbeiten mit Materialien, Einblicke in technische Berufe." },
 ];

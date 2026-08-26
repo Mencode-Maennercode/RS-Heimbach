@@ -7,10 +7,10 @@ import { ArrowRight, Clock, Utensils, BookOpen, Users, Lightbulb } from "lucide-
 
 const features = [
   { icon: Clock, title: "60-Minuten-Stunden", desc: "Tiefes Lernen durch längere Unterrichtseinheiten" },
-  { icon: Utensils, title: "Mensa-Betrieb", desc: "Frische Mahlzeiten Mo bis Do in der Mittagspause" },
+  { icon: Utensils, title: "Mensa-Betrieb", desc: "Frische Mahlzeiten Mo, Mi und Do in der Mittagspause" },
   { icon: BookOpen, title: "Lehrerraumprinzip", desc: "Jede Lehrkraft hat ihren eigenen Fachraum" },
   { icon: Users, title: "Inklusion", desc: "Gemeinsames Lernen mit 5 Sonderpädagog*innen" },
-  { icon: Lightbulb, title: "Wahlunterricht", desc: "Individuelle Schwerpunkte setzen" },
+  { icon: Lightbulb, title: "Wahlunterricht", desc: "Individuelle Schwerpunkte in Klasse 5 & 6 setzen" },
 ];
 
 export default function GanztagTeaser() {

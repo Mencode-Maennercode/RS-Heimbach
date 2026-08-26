@@ -396,33 +396,33 @@ export const instagramPosts: Array<{
 // Echte Unterrichtszeiten (60-Minuten-Zeitstunden), Quelle: alte Schul-Website
 export const scheduleData = [
   { period: "1. Stunde", time: "08:15 – 09:15 Uhr" },
-  { period: "2. Stunde", time: "09:15 – 10:15 Uhr" },
-  { period: "Frühstückspause", time: "10:20 – 10:40 Uhr" },
+  { period: "2. Stunde", time: "09:15 – 10:20 Uhr" },
+  { period: "Frühstückspause", time: "10:20 – 10:45 Uhr" },
   { period: "3. Stunde", time: "10:45 – 11:45 Uhr" },
-  { period: "4. Stunde", time: "11:50 – 12:50 Uhr" },
-  { period: "Mittagspause", time: "12:50 – 13:30 Uhr", note: "Mo, Mi, Do" },
+  { period: "4. Stunde", time: "11:45 – 12:50 Uhr" },
+  { period: "Mittagspause", time: "12:50 – 13:35 Uhr", note: "Mo, Mi, Do" },
   { period: "5. Stunde", time: "13:35 – 14:35 Uhr" },
-  { period: "6. Stunde", time: "14:40 – 15:40 Uhr", note: "Ganztag: Mo, Mi, Do" },
+  { period: "6. Stunde", time: "14:35 – 15:40 Uhr", note: "Ganztag: Mo, Mi, Do" },
 ];
 
 // Kurzstundenraster (z. B. bei extremer Witterung oder Veranstaltungen)
 export const kurzstundenData = [
   { period: "1. Stunde", time: "08:15 – 09:00 Uhr" },
-  { period: "2. Stunde", time: "09:05 – 09:50 Uhr" },
+  { period: "2. Stunde", time: "09:00 – 09:50 Uhr" },
   { period: "Pause", time: "09:50 – 10:00 Uhr" },
   { period: "3. Stunde", time: "10:00 – 10:45 Uhr" },
-  { period: "4. Stunde", time: "10:50 – 11:35 Uhr" },
-  { period: "Pause", time: "11:35 – 12:00 Uhr" },
+  { period: "4. Stunde", time: "10:45 – 11:35 Uhr" },
+  { period: "Pause", time: "11:35 – 12:05 Uhr" },
   { period: "5. Stunde", time: "12:05 – 12:50 Uhr" },
 ];
 
 // Sekretariat – Öffnungszeiten (zentrale Anlaufstelle)
 export const sekretariatInfo = {
   hours: [
-    { day: "Montag", time: "07:00 – 13:30 Uhr" },
-    { day: "Dienstag", time: "07:00 – 13:00 Uhr" },
-    { day: "Mittwoch & Donnerstag", time: "07:00 – 15:45 Uhr" },
-    { day: "Freitag", time: "07:00 – 13:00 Uhr" },
+    { day: "Montag", time: "07:30 – 13:30 Uhr" },
+    { day: "Dienstag", time: "07:30 – 13:00 Uhr" },
+    { day: "Mittwoch & Donnerstag", time: "07:30 – 15:45 Uhr" },
+    { day: "Freitag", time: "07:30 – 13:00 Uhr" },
     { day: "Samstag & Sonntag", time: "Geschlossen" },
   ],
   closedNote: "Täglich von 10:50 – 11:45 Uhr geschlossen.",

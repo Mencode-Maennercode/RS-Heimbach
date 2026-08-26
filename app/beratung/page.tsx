@@ -53,7 +53,7 @@ const topics = [
 
 const sprechstunde = [
   { day: "Mittwoch", time: "9:15 – 15:00 Uhr", person: "Frau Mittelbach", role: "Beratungslehrerin", room: "Raum A016" },
-  { day: "Freitag", time: "13:00 – 14:00 Uhr", person: "Herr Konitz", role: "Sonderpädagoge", room: "Raum A016" },
+  { day: "Freitag", time: "13:00 – 14:00 Uhr", person: "Herr Koretz", role: "Sonderpädagoge", room: "Raum A016" },
 ];
 
 const saeulen = [
@@ -82,7 +82,7 @@ const saeulen = [
 const einzelfall = [
   "Fachlehrerinnen und Fachlehrer",
   "Klassenleitungen",
-  "GU-Kolleginnen und -Kollegen",
+  "Sonderpädagoginnen und Sonderpädagogen",
   "Schülervertretung (SV)",
   "Beratungslehrkräfte",
   "Schulleitung",

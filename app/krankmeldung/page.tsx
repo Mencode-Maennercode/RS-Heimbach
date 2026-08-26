@@ -3,7 +3,7 @@
 import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
-import { Thermometer, Clock, PencilLine, ArrowRight, ExternalLink, CheckCircle2 } from "lucide-react";
+import { Thermometer, Clock, PencilLine, ArrowRight, ExternalLink } from "lucide-react";
 import { schoolInfo } from "@/lib/data";
 
 const steps = [
@@ -15,7 +15,7 @@ const steps = [
   {
     icon: PencilLine,
     title: "Schriftliche Entschuldigung mitgeben",
-    desc: "Wenn Ihr Kind wieder zur Schule kommt, geben Sie ihm bitte eine schriftliche Entschuldigung für die Klassenleitung mit.",
+    desc: "Wenn Ihr Kind wieder zur Schule kommt, geben Sie ihm bitte eine schriftliche Entschuldigung für die Klassenleitung mit. Eine Krankmeldung über das Formular ersetzt nicht die schriftliche Entschuldigung.",
   },
 ];
 
@@ -121,22 +121,6 @@ export default function KrankmeldungPage() {
                   </motion.div>
                 ))}
               </div>
-
-              {/* Hinweis-Box */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="mt-6 flex items-start gap-3 rounded-2xl border border-[#1DA499]/20 bg-[#1DA499]/5 p-5"
-              >
-                <CheckCircle2 className="w-5 h-5 text-[#1DA499] shrink-0 mt-0.5" />
-                <p className="text-sm text-slate-700 leading-relaxed">
-                  Gut zu wissen: Eine Krankmeldung über das Formular ersetzt <strong>nicht</strong> die
-                  schriftliche Entschuldigung. Diese geben Sie Ihrem Kind bitte für die Klassenleitung mit,
-                  sobald es wieder gesund in der Schule ist.
-                </p>
-              </motion.div>
             </motion.div>
           </div>
         </div>

@@ -22,7 +22,7 @@ const vorstand = [
   { name: "Christiane Strack", role: "Stellv. Vorsitzende & Schriftführerin" },
   { name: "Sigrid Fournes", role: "Kassenwartin" },
   { name: "Frank Herbst", role: "Kassenprüfer" },
-  { name: "Jürgen Over", role: "Kassenprüfer" },
+  { name: "Nils Koretz", role: "Kassenprüfer" },
 ];
 
 const benefits = [

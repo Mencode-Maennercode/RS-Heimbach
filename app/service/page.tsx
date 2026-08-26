@@ -28,15 +28,17 @@ const downloadGroups = [
     items: [
       { name: "WU-Angebote 2024/25", type: "PDF" },
       { name: "Übersicht AG-Angebote", type: "PDF" },
-      { name: "Wahlunterricht Klasse 8–10", type: "PDF" },
+      { name: "Wahlunterricht", type: "PDF" },
     ],
+  },
+  {
+    title: "Verschiedenes",
+    items: [],
   },
 ];
 
 const links = [
   { name: "Schulformen in Troisdorf", href: "https://youtu.be/w53SqKeevrg", desc: "Video: Weiterführende Schulen im Überblick" },
-  { name: "Neuneinhalb – ARD Mediathek", href: "https://www.ardmediathek.de", desc: "Bericht über Schulessen an unserer Schule" },
-  { name: "Hausmeister Krause", href: "https://hausmeisterkrause.com/", desc: "Unser Hausmeister-Service" },
   { name: "Schulverwaltung Troisdorf", href: "#", desc: "Stadt Troisdorf – Bildungsinfos" },
 ];
 
@@ -58,7 +60,7 @@ export default function ServicePage() {
 
       <section className="py-20 bg-[#f8f9ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {downloadGroups.map((group, gi) => (
               <motion.div
                 key={group.title}
@@ -93,6 +95,9 @@ export default function ServicePage() {
                       <Download className="w-4 h-4 text-slate-400 group-hover:text-[#1a3a6b] transition-colors shrink-0" />
                     </motion.button>
                   ))}
+                  {group.items.length === 0 && (
+                    <p className="px-7 py-5 text-sm text-slate-400">Aktuell sind hier keine Dokumente hinterlegt.</p>
+                  )}
                 </div>
               </motion.div>
             ))}

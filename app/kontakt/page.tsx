@@ -44,11 +44,11 @@ export default function KontaktPage() {
             </a>
 
             {/* Krankmeldung */}
-            <Link href="/unsere-schule/sekretariat" className="group bg-[#f8f9ff] rounded-3xl p-7 flex flex-col justify-center hover:bg-[#f0fffe] transition-colors">
+            <Link href="/krankmeldung" className="group bg-[#f8f9ff] rounded-3xl p-7 flex flex-col justify-center hover:bg-[#f0fffe] transition-colors">
               <div className="w-11 h-11 rounded-xl bg-[#e8442a] flex items-center justify-center mb-3"><HeartPulse className="w-5 h-5 text-white" /></div>
               <h3 className="font-black text-[#0a5a54] mb-1">Krankmeldung</h3>
-              <p className="text-slate-600 text-sm">Bitte am selben Tag vor Unterrichtsbeginn im Sekretariat abmelden.</p>
-              <span className="text-[#1DA499] text-xs font-bold mt-2 flex items-center gap-1">Mehr erfahren <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" /></span>
+              <p className="text-slate-600 text-sm">Ihr Kind ist krank? Bitte am selben Tag bis 8:00 Uhr über unser Online-Formular abmelden.</p>
+              <span className="text-[#1DA499] text-xs font-bold mt-2 flex items-center gap-1">Zum Formular <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" /></span>
             </Link>
           </div>
 
@@ -90,7 +90,7 @@ export default function KontaktPage() {
                 { icon: MapPin, label: "Adresse", value: `${schoolInfo.address}\n${schoolInfo.city}`, color: "from-blue-500 to-blue-700" },
                 { icon: Phone, label: "Telefon", value: schoolInfo.phone, color: "from-emerald-500 to-emerald-700" },
                 { icon: Mail, label: "E-Mail", value: schoolInfo.email, color: "from-rose-500 to-rose-700" },
-                { icon: Clock, label: "Sekretariat", value: "Mo 07:00–13:30 Uhr\nDi & Fr 07:00–13:00 Uhr\nMi & Do 07:00–15:45 Uhr", color: "from-amber-500 to-amber-700" },
+                { icon: Clock, label: "Sekretariat", value: "Mo 07:30–13:30 Uhr\nDi & Fr 07:30–13:00 Uhr\nMi & Do 07:30–15:45 Uhr", color: "from-amber-500 to-amber-700" },
                 { icon: Instagram, label: "Instagram", value: `@${schoolInfo.instagram}`, color: "from-purple-500 to-pink-600" },
               ].map((item, i) => {
                 const Icon = item.icon;
