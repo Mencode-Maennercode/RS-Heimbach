@@ -7,7 +7,7 @@ export const schoolInfo = {
   phoneLink: "tel:+49224177715",
   fax: "02241 - 75105",
   email: "schule.verwaltung@rs-heimbach.de",
-  instagram: "realschule-am-heimbach",
+  instagram: "rs_heimbach",
   // Online-Krankmeldung: Nextcloud-Formular (eigene Cloud). Wird auf der Seite
   // /krankmeldung und in den Cross-Links verlinkt. Bei neuem Formular hier ändern.
   krankmeldungUrl: "https://cloud.rs-heimbach.de/apps/forms/s/5TbFkcjxm3ZDk8ajoWmGMFNn",
@@ -318,7 +318,7 @@ export const instagramPosts: Array<{
     comments: 32,
     timestamp: "vor 3 Stunden",
     date: "2026-04-22",
-    url: "https://www.instagram.com/realschule-am-heimbach/"
+    url: "https://www.instagram.com/rs_heimbach/"
   },
   {
     id: 2,
@@ -339,7 +339,7 @@ export const instagramPosts: Array<{
     comments: 24,
     timestamp: "vor 2 Tagen",
     date: "2026-03-26",
-    url: "https://www.instagram.com/realschule-am-heimbach/"
+    url: "https://www.instagram.com/rs_heimbach/"
   },
   {
     id: 3,
@@ -351,7 +351,7 @@ export const instagramPosts: Array<{
     comments: 12,
     timestamp: "vor 3 Tagen",
     date: "2026-03-27",
-    url: "https://www.instagram.com/realschule-am-heimbach/"
+    url: "https://www.instagram.com/rs_heimbach/"
   },
   {
     id: 4,
@@ -363,7 +363,7 @@ export const instagramPosts: Array<{
     comments: 19,
     timestamp: "vor 4 Tagen",
     date: "2026-03-27",
-    url: "https://www.instagram.com/realschule-am-heimbach/"
+    url: "https://www.instagram.com/rs_heimbach/"
   },
   {
     id: 5,
@@ -375,7 +375,7 @@ export const instagramPosts: Array<{
     comments: 28,
     timestamp: "vor 1 Woche",
     date: "2026-02-15",
-    url: "https://www.instagram.com/realschule-am-heimbach/"
+    url: "https://www.instagram.com/rs_heimbach/"
   },
   {
     id: 6,
@@ -387,7 +387,7 @@ export const instagramPosts: Array<{
     comments: 15,
     timestamp: "vor 1 Woche",
     date: "2026-03-25",
-    url: "https://www.instagram.com/realschule-am-heimbach/"
+    url: "https://www.instagram.com/rs_heimbach/"
   },
   {
     id: 7,
@@ -403,7 +403,7 @@ export const instagramPosts: Array<{
     comments: 22,
     timestamp: "vor 1 Woche",
     date: "2026-03-26",
-    url: "https://www.instagram.com/realschule-am-heimbach/"
+    url: "https://www.instagram.com/rs_heimbach/"
   },
   {
     id: 8,
@@ -415,7 +415,7 @@ export const instagramPosts: Array<{
     comments: 21,
     timestamp: "vor 2 Wochen",
     date: "2026-02-15",
-    url: "https://www.instagram.com/realschule-am-heimbach/"
+    url: "https://www.instagram.com/rs_heimbach/"
   },
   {
     id: 9,
@@ -427,7 +427,7 @@ export const instagramPosts: Array<{
     comments: 18,
     timestamp: "vor 2 Wochen",
     date: "2026-02-15",
-    url: "https://www.instagram.com/realschule-am-heimbach/"
+    url: "https://www.instagram.com/rs_heimbach/"
   }
 ];
 

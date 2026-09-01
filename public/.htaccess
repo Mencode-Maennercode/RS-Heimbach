@@ -1,0 +1,168 @@
+# Realschule Am Heimbach – Apache-Konfiguration für den Webspace
+#
+# Diese Datei liegt in public/ und wird beim `next build` unveraendert nach
+# out/ kopiert, von wo der GitHub-Workflow sie per FTP hochlaedt.
+#
+# ACHTUNG: Wirkt nur auf Apache-Webspace (IONOS, Strato, All-Inkl u. a.).
+# Laeuft die Seite auf nginx, muessen die Regeln in die Server-Config
+# uebertragen werden.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ---------------------------------------------------------------------------
+  # 1. Kanonische Adresse: immer https://www.rs-heimbach.de
+  # ---------------------------------------------------------------------------
+  # Ohne diese Regeln ist dieselbe Seite unter vier Adressen erreichbar
+  # (http/https x mit/ohne www). Google wertet das als doppelten Inhalt und
+  # verteilt die Linkkraft auf mehrere Varianten. Die Zieladresse muss zu
+  # SITE_URL in lib/seo.ts passen.
+
+  # HTTP -> HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://www.rs-heimbach.de/$1 [R=301,L]
+
+  # ohne www -> mit www
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^(.*)$ https://www.rs-heimbach.de/$1 [R=301,L]
+
+  # ---------------------------------------------------------------------------
+  # 2. Schutzregel: existierende Seiten niemals umleiten
+  # ---------------------------------------------------------------------------
+  # Sobald die angeforderte Datei oder das Verzeichnis wirklich existiert, wird
+  # sie ausgeliefert und die Verarbeitung endet hier. Erst dadurch duerfen die
+  # Weiterleitungen darunter mit lockeren Mustern arbeiten, ohne dass eine neue
+  # Seite versehentlich auf sich selbst umgeleitet wird (Endlosschleife).
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # ---------------------------------------------------------------------------
+  # 3. Weiterleitungen von der alten Website (301)
+  # ---------------------------------------------------------------------------
+  # Die Vorgaengerseite lief unter verschachtelten Adressen der Form
+  # /index.php/<bereich>/<seite>, z. B.
+  #   rs-heimbach.de/index.php/organisation/sekretariat
+  # Diese URLs stehen noch im Google-Index und in Lesezeichen. Ohne
+  # 301-Weiterleitung laufen sie nach dem Relaunch ins Leere -- und die ueber
+  # Jahre aufgebaute Sichtbarkeit dieser Seiten geht verloren, statt auf die
+  # neue Seite ueberzugehen.
+  #
+  # Die Muster greifen auf das letzte Pfadsegment, unabhaengig davon, in welchem
+  # Bereich die Seite frueher einsortiert war -- die Bereichsnamen der alten
+  # Navigation sind nicht zuverlaessig bekannt.
+  #
+  # WICHTIG: Nach dem Umzug in der Google Search Console unter "Seiten" pruefen,
+  # welche Alt-Adressen tatsaechlich indexiert sind, und hier ergaenzen.
+
+  # Personen und Gruppen
+  RewriteRule (^|/)schulleitung/?$              /unsere-schule/schulleitung/ [R=301,L,NC]
+  RewriteRule (^|/)kollegium/?$                 /lehrer/ [R=301,L,NC]
+  RewriteRule (^|/)sekretariat                  /unsere-schule/sekretariat/ [R=301,L,NC]
+  RewriteRule (^|/)hausmeister                  /unsere-schule/sekretariat/ [R=301,L,NC]
+  RewriteRule (^|/)sch(ue|ü)lervertretung       /unsere-schule/sv/ [R=301,L,NC]
+  RewriteRule (^|/)elternvertretung             /eltern/schulpflegschaft/ [R=301,L,NC]
+  RewriteRule (^|/)schulpflegschaft             /eltern/schulpflegschaft/ [R=301,L,NC]
+  RewriteRule (^|/)f(oe|ö)rderverein            /foerderverein/ [R=301,L,NC]
+  RewriteRule (^|/)personen-und-gruppen/?$      /unsere-schule/ [R=301,L,NC]
+
+  # Organisation und Unterricht
+  RewriteRule (^|/)mensa                        /unterricht/mensa/ [R=301,L,NC]
+  RewriteRule (^|/)unterrichtsorganisation      /unterricht/schulzeiten/ [R=301,L,NC]
+  RewriteRule (^|/)differenzierungsf(ae|ä)cher  /unterricht/faecher/ [R=301,L,NC]
+  RewriteRule (^|/)wahlunterricht               /ganztag/ [R=301,L,NC]
+  RewriteRule (^|/)ganztag                      /ganztag/ [R=301,L,NC]
+  RewriteRule (^|/)uebersicht-projekte          /unterricht/projekte/ [R=301,L,NC]
+  RewriteRule (^|/)lehrerausbildung             /unterricht/ [R=301,L,NC]
+  RewriteRule (^|/)organisation/?$              /unterricht/ [R=301,L,NC]
+
+  # Beratung
+  RewriteRule (^|/)berufsorientierung           /beratung/ [R=301,L,NC]
+  RewriteRule (^|/)agentur-fuer-arbeit          /beratung/ [R=301,L,NC]
+  RewriteRule (^|/)uebersicht-berufsfelder      /beratung/ [R=301,L,NC]
+  RewriteRule (^|/)ausserschulische             /beratung/ [R=301,L,NC]
+  RewriteRule (^|/)sprechstunden                /beratung/ [R=301,L,NC]
+  RewriteRule (^|/)pr(ae|ä)vention              /unterricht/projekte/ [R=301,L,NC]
+  RewriteRule (^|/)beratung                     /beratung/ [R=301,L,NC]
+
+  # Schulleben und Einzelseiten
+  RewriteRule (^|/)tag-der-offenen-t(ue|ü)r     /veranstaltungen/ [R=301,L,NC]
+  RewriteRule (^|/)bildergalerie                /veranstaltungen/ [R=301,L,NC]
+  RewriteRule (^|/)schulleben                   /veranstaltungen/ [R=301,L,NC]
+  RewriteRule (^|/)(sch(ue|ü)lerzeitung|weihnachtsbriefe|theater-zu-gast|tutenchamun|k(ae|ä)nguru) /unterricht/projekte/ [R=301,L,NC]
+
+  # Service, Anmeldung, Kontakt
+  RewriteRule (^|/)anmeldung                    /anmeldung/ [R=301,L,NC]
+  RewriteRule (^|/)service                      /service/ [R=301,L,NC]
+  RewriteRule (^|/)kontakt                      /kontakt/ [R=301,L,NC]
+  RewriteRule (^|/)organigramm                  /unsere-schule/ [R=301,L,NC]
+  RewriteRule (^|/)impressum                    /impressum/ [R=301,L,NC]
+  RewriteRule (^|/)datenschutz                  /datenschutz/ [R=301,L,NC]
+  RewriteRule (^|/)startseite/?$                / [R=301,L,NC]
+  RewriteRule (^|/)home/?$                      / [R=301,L,NC]
+
+  # Auffangregel: alles Uebrige unter /index.php auf die Startseite, damit aus
+  # einer alten Adresse kein 404 wird. Muss nach den spezifischen Regeln stehen.
+  RewriteRule ^index\.php(/.*)?$ / [R=301,L]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 4. Fehlerseite
+# ---------------------------------------------------------------------------
+# Next.js legt die gestaltete 404-Seite als /404.html ab.
+ErrorDocument 404 /404.html
+
+# ---------------------------------------------------------------------------
+# 5. Kompression
+# ---------------------------------------------------------------------------
+# Spart bei HTML, CSS, JS und JSON typischerweise 60-80 % Uebertragungsvolumen.
+# Ladezeit ist ein Google-Ranking-Faktor (Core Web Vitals).
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/ld+json
+  AddOutputFilterByType DEFLATE application/xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml font/woff2
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 6. Browser-Caching
+# ---------------------------------------------------------------------------
+# Next.js versieht Dateien in /_next/static/ mit einem Hash im Namen; sie
+# duerfen deshalb sehr lange gecacht werden. HTML dagegen kurz, damit
+# Aenderungen am Inhalt nach dem naechtlichen Deploy zeitnah ankommen.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 10 minutes"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 6 months"
+  ExpiresByType image/png                 "access plus 6 months"
+  ExpiresByType image/webp                "access plus 6 months"
+  ExpiresByType image/svg+xml             "access plus 6 months"
+  ExpiresByType video/mp4                 "access plus 6 months"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType application/xml           "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # ---------------------------------------------------------------------------
+  # 7. Sicherheits-Header
+  # ---------------------------------------------------------------------------
+  # Schuetzen die Besucher und zaehlen zu den Qualitaetssignalen, die Google
+  # und Schul-Sicherheitspruefungen erwarten.
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Korrekte Zeichenkodierung fuer Umlaute in Textdateien.
+AddDefaultCharset UTF-8
+AddType text/plain .txt
+AddCharset UTF-8 .txt .html .css .js .json .xml
