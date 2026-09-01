@@ -26,8 +26,8 @@ ansehen, ändern noch die Website-Aktualisierung auslösen.
 
 ### Schritt 1 — Google Sheet anlegen
 1. Neues Google Sheet erstellen (z. B. "RS Heimbach – Website-Inhalte").
-2. Vier Tabs anlegen, **genau so benannt**: `Lehrer`, `News`, `SV` und
-   `Klassenlehrer`.
+2. Fünf Tabs anlegen, **genau so benannt**: `Lehrer`, `News`, `SV`,
+   `Klassenlehrer` und `Downloads`.
 3. In Zeile 1 jeweils diese Spaltenüberschriften eintragen:
 
    **Tab `Lehrer`:**
@@ -44,7 +44,9 @@ ansehen, ändern noch die Website-Aktualisierung auslösen.
      derselben Sortierung, kleine Tippfehler (`Matematik`) werden korrigiert.
    - `Bio`: zusätzliche Aufgabe(n), z. B. `Sonderpädagoge, SV-Lehrer`. Mehrere
      Einträge werden auf der Website immer gleich sortiert angezeigt.
-   - `Bild-URL`: optional — Link zu einem Foto. Leer lassen, dann erscheint ein Platzhalterbild.
+   - `Bild-URL`: optional. Entweder ein fertiger Link **oder** — einfacher —
+     nur der ungefähre Dateiname eines Fotos, das im Drive-Bilderordner liegt
+     (siehe Schritt 1b). Leer lassen, dann erscheint ein Platzhalterbild.
    - `Schulleitung`: `Ja` eintragen, wenn die Person zusätzlich auf der
      Schulleitungs-Seite erscheinen soll (sonst leer lassen).
    - `Telefon`: nur für die Schulleitungskarte relevant, sonst leer lassen.
@@ -58,6 +60,8 @@ ansehen, ändern noch die Website-Aktualisierung auslösen.
    | Titel | Datum | Kategorie | Teaser | Volltext | Bild-URL | Slug | Hauptbeitrag |
    |---|---|---|---|---|---|---|---|
 
+   - `Kategorie`: Dropdown empfohlen (Daten → Datenvalidierung → Liste), z. B.
+     `Schulleben`, `Termine`, `Sport` — frei wählbar, erscheint 1:1 auf der Website.
    - `Datum`: Format `JJJJ-MM-TT`, z. B. `2026-03-19`
    - `Teaser`: kurzer Anrisstext für die Übersichtskarte
    - `Volltext`: optional — ganzer Artikeltext. Absätze durch eine **leere
@@ -99,6 +103,44 @@ ansehen, ändern noch die Website-Aktualisierung auslösen.
      `Bio`-Spalte eintragen (ggf. mit Komma neben weiteren Aufgaben, z. B.
      `Sonderpädagoge, SV-Lehrer`) — dafür ist kein eigener Sheet-Tab nötig.
 
+   **Tab `Downloads`:**
+   | Kategorie | Titel | Datei-URL | Typ | Reihenfolge |
+   |---|---|---|---|---|
+
+   - `Kategorie`: **Dropdown** (Daten → Datenvalidierung → Kriterium „Liste
+     aus Element", diese vier Werte eintragen): `Formulare & Anmeldung`,
+     `Schulprogramm & Ordnungen`, `WU & Wahlunterricht`, `Verschiedenes`. So
+     landet jeder Eintrag automatisch in der passenden Spalte auf `/service`.
+   - `Titel`: der Anzeigename auf der Website, z. B. `Anmeldeformular Klasse 5`.
+   - `Datei-URL`: **kein Link nötig.** Einfach den ungefähren Dateinamen
+     eintragen, z. B. `Anmeldeformular` — die Website findet damit selbst die
+     passende Datei im Drive-Ordner aus Schritt 1b, egal welches Format
+     (PDF, Word, Excel, …). Groß-/Kleinschreibung, Umlaute und Leerzeichen
+     spielen keine Rolle. Ein fertiger Link funktioniert alternativ auch
+     weiterhin.
+   - `Typ`: optional — wird sonst automatisch aus der gefundenen Datei
+     abgeleitet (z. B. `PDF`, `DOCX`).
+   - `Reihenfolge`: optional — Zahl, bestimmt die Position innerhalb der
+     Kategorie (kleinste Zahl zuerst). Leer lassen = Sheet-Reihenfolge.
+   - Findet die Suche keine passende Datei (z. B. Tippfehler oder Datei noch
+     nicht hochgeladen), wird die Zeile auf der Website einfach übersprungen
+     statt eines toten Links — einmal die Datei nachreichen oder den
+     Suchbegriff korrigieren, dann erscheint sie beim nächsten Sync.
+
+### Schritt 1b — Drive-Ordner für Downloads & News-Bilder anlegen
+Damit Lehrkräfte nur noch Dateien hochladen und einen ungefähren Namen ins
+Sheet schreiben müssen (kein Link, kein Freigeben, kein Formatwissen nötig):
+
+1. In Google Drive zwei Ordner anlegen, z. B. **„Website Downloads"** und
+   **„Website Bilder"**.
+2. Beide Ordner mit denselben 2–3 Lehrkräften teilen, die auch das Sheet
+   bearbeiten (Rolle **Bearbeiter**) — dann können sie dort einfach Dateien
+   reinziehen, egal welches Format.
+3. Aus der Ordner-URL (`https://drive.google.com/drive/folders/ORDNER_ID`)
+   jeweils die `ORDNER_ID` kopieren — die brauchst du gleich in Schritt 4.
+4. Fertig — die Freigabe der einzelnen *Dateien* übernimmt das Apps-Script
+   automatisch, sobald eine Zeile im Sheet auf sie verweist.
+
 ### Schritt 2 — Nur die richtigen Personen einladen
 Im Sheet oben rechts auf **Freigeben** klicken und **nur** die 2–3
 E-Mail-Adressen der zuständigen Lehrkräfte mit Rolle **Bearbeiter** eintragen.
@@ -138,6 +180,8 @@ muss anders geöffnet werden:
    | `GITHUB_REPO` | z. B. `dein-benutzername/rs-heimbach` |
    | `GITHUB_WORKFLOW_FILE` | `sheets-sync.yml` |
    | `CACHE_SECONDS` | optional, z. B. `120` |
+   | `DOWNLOADS_FOLDER_ID` | die `ORDNER_ID` des Drive-Ordners „Website Downloads" (Schritt 1b) |
+   | `IMAGES_FOLDER_ID` | die `ORDNER_ID` des Drive-Ordners „Website Bilder" (Schritt 1b) |
 
    GitHub-Token erzeugen: GitHub → Profilbild → **Settings → Developer settings
    → Personal access tokens → Fine-grained tokens** → Repo `rs-heimbach`
@@ -196,6 +240,9 @@ Ohne Klick erscheinen Änderungen spätestens nach ~15–20 Minuten von selbst.
 - **SV:** `Name` — ein SV-Mitglied pro Zeile, Reihenfolge wie im Sheet.
 - **Klassenlehrer:** `Klasse`, `KlassenlehrerIn`, `Co-KlassenlehrerInnen`
   (jeweils nur Nachnamen wie im Tab `Lehrer`).
+- **Downloads:** `Kategorie` (Dropdown), `Titel`, `Datei-URL` (ungefährer
+  Dateiname reicht — Datei vorher in den Drive-Ordner „Website Downloads"
+  hochladen), `Typ` (optional), `Reihenfolge` (optional).
 
 ---
 
@@ -215,3 +262,6 @@ Ohne Klick erscheinen Änderungen spätestens nach ~15–20 Minuten von selbst.
 | SV-Mitgliederliste bleibt leer | Tab `SV` fehlt noch, ist falsch benannt oder ohne `Name`-Spalte — außerdem muss `Code.gs` einmal neu bereitgestellt sein (Teil A, Schritt 6), damit der Tab überhaupt ausgelesen wird. |
 | Vertrauenslehrer erscheinen nicht auf der SV-Seite | Im Tab `Lehrer` fehlt bei der jeweiligen Person `SV-Lehrer` in der `Bio`-Spalte. |
 | Klassenlehrer-Badge fehlt bei einer Person | Der Nachname im Tab `Klassenlehrer` weicht zu stark von dem im Tab `Lehrer` ab (mehr als ein Buchstabe) — oder `Code.gs` ist noch nicht neu bereitgestellt (Teil A, Schritt 6). |
+| Download erscheint nicht auf `/service` | Entweder wurde die Datei noch nicht in den Drive-Ordner „Website Downloads" hochgeladen, der Suchbegriff in `Datei-URL` weicht zu stark vom Dateinamen ab, `DOWNLOADS_FOLDER_ID` fehlt in den Skripteigenschaften, oder `Code.gs` ist noch nicht neu bereitgestellt (Teil A, Schritt 6). |
+| Falsche/alte Datei wird als Download angezeigt | Liegen mehrere ähnlich benannte Dateien im Ordner, gewinnt die zuletzt bearbeitete — alte Duplikate aus dem Ordner löschen oder den Suchbegriff eindeutiger machen. |
+| News-Bild erscheint nicht | Bild noch nicht im Ordner „Website Bilder", Suchbegriff zu ungenau, oder `IMAGES_FOLDER_ID` fehlt in den Skripteigenschaften. |

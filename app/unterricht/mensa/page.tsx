@@ -4,16 +4,7 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Utensils, Clock, Euro, Salad, FileText, X, Download, ArrowRight } from "lucide-react";
-
-// Mock-Speiseplan – wird später durch das echte PDF des Caterers ersetzt
-const speiseplan = [
-  { tag: "Montag", gericht: "Spaghetti Bolognese mit Parmesan", beilage: "Blattsalat · Joghurt-Dessert" },
-  { tag: "Dienstag", gericht: "Kein Mittagsangebot", beilage: "" },
-  { tag: "Mittwoch", gericht: "Hähnchengeschnetzeltes mit Reis", beilage: "Gemüse der Saison · Obst" },
-  { tag: "Donnerstag", gericht: "Gemüselasagne (vegetarisch)", beilage: "Rohkost · Pudding" },
-  { tag: "Freitag", gericht: "Kein Mittagsangebot", beilage: "" },
-];
+import { Utensils, Clock, Euro, Salad, FileText, X, ArrowRight } from "lucide-react";
 
 export default function MensaPage() {
   const [planOpen, setPlanOpen] = useState(false);
@@ -159,7 +150,6 @@ export default function MensaPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-black text-lg leading-tight">Speiseplan</h3>
-                    <p className="text-white/70 text-xs">Diese Woche · KW 24</p>
                   </div>
                 </div>
                 <button
@@ -172,38 +162,12 @@ export default function MensaPage() {
               </div>
 
               {/* Inhalt */}
-              <div className="p-6 overflow-y-auto">
-                <div className="space-y-3">
-                  {speiseplan.map((tag) => (
-                    <div
-                      key={tag.tag}
-                      className={`rounded-2xl p-4 ${tag.beilage ? "bg-[#f8f9ff]" : "bg-slate-50"}`}
-                    >
-                      <div className="flex items-baseline justify-between gap-3">
-                        <span className="text-xs font-bold uppercase tracking-widest text-[#e8442a]">{tag.tag}</span>
-                      </div>
-                      {tag.beilage ? (
-                        <>
-                          <p className="font-semibold text-slate-900 mt-1">{tag.gericht}</p>
-                          <p className="text-sm text-slate-500 mt-0.5">{tag.beilage}</p>
-                        </>
-                      ) : (
-                        <p className="text-sm text-slate-400 italic mt-1">{tag.gericht}</p>
-                      )}
-                    </div>
-                  ))}
+              <div className="p-10 text-center">
+                <div className="w-14 h-14 rounded-2xl bg-[#0a5a54]/10 flex items-center justify-center mx-auto mb-5">
+                  <Utensils className="w-6 h-6 text-[#0a5a54]" />
                 </div>
-
-                <a
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
-                  className="mt-5 w-full flex items-center justify-center gap-2 bg-[#0a5a54] hover:bg-[#0c6760] transition-colors text-white font-bold rounded-2xl py-3 text-sm"
-                >
-                  <Download className="w-4 h-4" /> Als PDF herunterladen
-                </a>
-                <p className="text-center text-xs text-slate-400 mt-3">
-                  Beispielansicht – der aktuelle Plan wird wöchentlich vom Caterer Kette KochWerk bereitgestellt.
-                </p>
+                <p className="font-semibold text-slate-900">Hier erscheint bald der Speiseplan.</p>
+                <p className="text-sm text-slate-500 mt-2">Guten Appetit!</p>
               </div>
             </motion.div>
           </motion.div>

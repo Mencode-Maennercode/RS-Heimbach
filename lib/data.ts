@@ -79,8 +79,11 @@ import {
   schoolEmail,
 } from "./teachers";
 
-const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop";
+// Zeigt an, wenn ein News-Eintrag kein eigenes Bild hat (Sheet-Spalte
+// "Bild-URL" leer oder Datei nicht gefunden) -- dasselbe Foto wie im
+// Aktuelles-Hero (siehe lib/heroImages.ts), passt inhaltlich statt eines
+// austauschbaren Fremd-Stockfotos.
+const FALLBACK_IMAGE = "/hero/aktuelles.jpg";
 
 // Fotos werden automatisch ueber den Nachnamen zugeordnet: scripts/teacher-photos.mjs
 // listet vor jedem Build alles auf, was in public/images/lehrer bzw.
@@ -257,6 +260,41 @@ export const newsItems = [...schoolContent.news]
     image: n.bildUrl || FALLBACK_IMAGE,
     slug: n.slug,
   }));
+
+// Downloads kommen wie News/Lehrer aus dem Sheet (Tab "Downloads", siehe
+// google-apps-script/Code.gs readDownloads_). Lehrkraefte tragen dort nur
+// Kategorie + Titel + einen ungefaehren Dateinamen ein -- die passende Datei
+// wird im Apps-Script-Backend automatisch in einem Drive-Ordner gesucht.
+// Reihenfolge der Kategorien ist fest (bestimmt die Spalten-Reihenfolge auf
+// /service); ein unbekannter Kategorie-Wert im Sheet landet unter
+// "Verschiedenes", damit nichts verloren geht.
+const DOWNLOAD_CATEGORIES = [
+  "Formulare & Anmeldung",
+  "Schulprogramm & Ordnungen",
+  "WU & Wahlunterricht",
+  "Verschiedenes",
+];
+
+const downloadRows = (
+  (schoolContent as unknown as {
+    downloads?: Array<{
+      kategorie?: string;
+      titel?: string;
+      typ?: string;
+      url?: string;
+      gefunden?: boolean;
+      reihenfolge?: number;
+    }>;
+  }).downloads ?? []
+).filter((d) => d.gefunden && d.url && d.titel);
+
+export const downloadGroups = DOWNLOAD_CATEGORIES.map((title) => ({
+  title,
+  items: downloadRows
+    .filter((d) => (d.kategorie && DOWNLOAD_CATEGORIES.includes(d.kategorie) ? d.kategorie === title : title === "Verschiedenes"))
+    .sort((a, b) => (a.reihenfolge ?? 0) - (b.reihenfolge ?? 0))
+    .map((d) => ({ name: d.titel as string, type: d.typ || "DATEI", href: d.url as string })),
+}));
 
 export const instagramPosts: Array<{
   id: number;

@@ -6,9 +6,9 @@
 // das Sheet. Das Sheet wird mit niemandem oeffentlich geteilt, nur die
 // Lehrkraefte mit Bearbeiter-Zugriff sehen/aendern es.
 //
-// Tabs im Sheet: "Lehrer", "News", "SV" und "Klassenlehrer" (siehe
-// readLehrer_ / readNews_ / readSV_ / readKlassenlehrer_ fuer die erwarteten
-// Spalten).
+// Tabs im Sheet: "Lehrer", "News", "SV", "Klassenlehrer" und "Downloads"
+// (siehe readLehrer_ / readNews_ / readSV_ / readKlassenlehrer_ /
+// readDownloads_ fuer die erwarteten Spalten).
 //
 // Einrichtung: siehe GOOGLE_SHEETS_ANLEITUNG.md im Repo.
 
@@ -20,7 +20,110 @@ function CONFIG_() {
     GITHUB_TOKEN: props.getProperty('GITHUB_TOKEN') || '',
     GITHUB_REPO: props.getProperty('GITHUB_REPO') || '',
     GITHUB_WORKFLOW_FILE: props.getProperty('GITHUB_WORKFLOW_FILE') || 'sheets-sync.yml',
+    // Google-Drive-Ordner, in die Lehrkraefte Dateien (Downloads-Formulare
+    // bzw. News-Bilder) einfach hochladen -- Format egal. Im Sheet reicht
+    // dann ein ungefaehrer Dateiname statt eines fertigen Links, siehe
+    // findBestFileMatch_. Als Fallback fest hinterlegt (Ordner "Download
+    // Dateien" / "News-Bilder" in "Meine Ablage > RS Heimbach"); ueber die
+    // Skripteigenschaft DOWNLOADS_FOLDER_ID/IMAGES_FOLDER_ID ueberschreibbar,
+    // falls die Ordner mal umziehen.
+    DOWNLOADS_FOLDER_ID: props.getProperty('DOWNLOADS_FOLDER_ID') || '1IX2A_qxYXkFfhtPoT5xnw5Xg8SAnKf_H',
+    IMAGES_FOLDER_ID: props.getProperty('IMAGES_FOLDER_ID') || '1UxWloos0Ka2nRhZt1QngA1uVhDcmgRF2',
   };
+}
+
+// Findet zu einem ungefaehren, von einer Lehrkraft eingetippten Dateinamen
+// (z. B. "Anmeldeformular" statt "Anmeldeformular_Klasse5_2026_final.pdf")
+// die am besten passende Datei in einem Drive-Ordner. Format/Gross-
+// Kleinschreibung/Umlaute/Leerzeichen spielen dabei keine Rolle.
+function normalizeFileName_(s) {
+  return String(s || '')
+    .toLowerCase()
+    .replace(/[äöüß]/g, (m) => ({ ä: 'ae', ö: 'oe', ü: 'ue', ß: 'ss' }[m]))
+    .replace(/\.[a-z0-9]{2,5}$/, '') // Dateiendung abschneiden
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function findBestFileMatch_(folder, rawSearch) {
+  const target = normalizeFileName_(rawSearch);
+  if (!target || !folder) return null;
+
+  const targetWords = new Set(target.split(' ').filter(Boolean));
+  let best = null;
+  let bestScore = 0;
+
+  const files = folder.getFiles();
+  while (files.hasNext()) {
+    const file = files.next();
+    const name = normalizeFileName_(file.getName());
+    if (!name) continue;
+
+    let score = 0;
+    if (name === target) {
+      score = 100;
+    } else if (name.indexOf(target) !== -1 || target.indexOf(name) !== -1) {
+      score = 80 * (Math.min(name.length, target.length) / Math.max(name.length, target.length));
+    } else {
+      const nameWords = new Set(name.split(' ').filter(Boolean));
+      let overlap = 0;
+      targetWords.forEach((w) => { if (nameWords.has(w)) overlap++; });
+      const union = new Set([...targetWords, ...nameWords]).size;
+      score = union ? (overlap / union) * 60 : 0;
+    }
+
+    // Bei Gleichstand gewinnt die zuletzt bearbeitete Datei -- so findet die
+    // Suche automatisch die neueste Version, wenn mehrere aehnlich benannte
+    // Dateien im Ordner liegen (z. B. eine alte und eine aktualisierte).
+    const isBetter = score > bestScore
+      || (score === bestScore && best && file.getLastUpdated() > best.getLastUpdated());
+    if (isBetter) {
+      bestScore = score;
+      best = file;
+    }
+  }
+
+  // Schwellenwert, damit voellig unpassende Namen nicht als "Treffer" durchgehen.
+  return bestScore >= 25 ? best : null;
+}
+
+// Macht eine gefundene Datei automatisch "Jeder mit Link kann ansehen"
+// (Lehrkraefte muessen selbst nichts freigeben) und liefert eine direkt
+// nutzbare URL -- zum Herunterladen (Downloads) oder zum Einbetten als Bild
+// (News).
+function driveFileUrl_(file, mode) {
+  try {
+    file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+  } catch (err) {
+    // Falls die Freigabe durch Domain-Richtlinien blockiert ist, trotzdem
+    // die Datei-ID zurueckgeben -- besser ein Link, der ggf. manuell
+    // freigegeben werden muss, als gar keiner.
+  }
+  const id = file.getId();
+  return mode === 'view'
+    ? 'https://drive.google.com/uc?export=view&id=' + id
+    : 'https://drive.google.com/uc?export=download&id=' + id;
+}
+
+function getDriveFolder_(folderId) {
+  try {
+    return folderId ? DriveApp.getFolderById(folderId) : null;
+  } catch (err) {
+    return null;
+  }
+}
+
+// Loest einen Sheet-Zellwert zu einer URL auf: Steht dort bereits ein
+// fertiger Link (http/https), wird er unveraendert benutzt (abwaertskompatibel
+// zur alten manuellen Link-Pflege). Steht dort nur ein Name/Stichwort, wird
+// im uebergebenen Drive-Ordner die am besten passende Datei gesucht.
+function resolveFileRef_(rawValue, folder, mode) {
+  const value = String(rawValue || '').trim();
+  if (!value) return { url: '', matchedFile: null };
+  if (/^https?:\/\//i.test(value)) return { url: value, matchedFile: null };
+  const file = findBestFileMatch_(folder, value);
+  if (!file) return { url: '', matchedFile: null };
+  return { url: driveFileUrl_(file, mode), matchedFile: file };
 }
 
 function getSpreadsheet_(cfg) {
@@ -162,10 +265,19 @@ function readKlassenlehrer_(cfg) {
 
 function readNews_(cfg) {
   const rows = readSheetRows_('News', cfg);
+  const imagesFolder = getDriveFolder_(cfg.IMAGES_FOLDER_ID);
   return rows
     .map((row, i) => {
       const titel = pick_(row, ['titel', 'title']);
       const slugSpalte = pick_(row, ['slug']);
+      // "Bild-URL" darf entweder ein fertiger Link sein oder -- einfacher fuer
+      // Lehrkraefte -- nur der ungefaehre Dateiname eines Bildes, das in den
+      // Drive-Bilderordner (IMAGES_FOLDER_ID) hochgeladen wurde.
+      const bildRef = resolveFileRef_(
+        pick_(row, ['bild-url', 'bild', 'image', 'image-url']),
+        imagesFolder,
+        'view'
+      );
       return {
         id: i + 1,
         titel: titel,
@@ -173,7 +285,7 @@ function readNews_(cfg) {
         kategorie: pick_(row, ['kategorie', 'category']),
         teaser: pick_(row, ['teaser', 'excerpt', 'kurztext']),
         volltext: pick_(row, ['volltext', 'text', 'inhalt']),
-        bildUrl: pick_(row, ['bild-url', 'bild', 'image', 'image-url']),
+        bildUrl: bildRef.url,
         slug: slugSpalte || slugify_(titel),
         // Jeder nicht-leere Wert in der Spalte "Hauptbeitrag" (nicht nur "Ja")
         // zaehlt als "diesen Beitrag zuerst zeigen".
@@ -183,6 +295,45 @@ function readNews_(cfg) {
     .filter((n) => n.titel);
 }
 
+// Tab "Downloads": eine Zeile pro Dokument. Lehrkraefte laden die Datei
+// (egal welches Format) einfach in den Drive-Ordner DOWNLOADS_FOLDER_ID hoch
+// und tragen im Sheet nur Kategorie, Titel und einen ungefaehren Dateinamen
+// ein -- findBestFileMatch_ sucht die passende Datei automatisch. Wie
+// readSV_/readKlassenlehrer_ optional behandelt (eigenes try/catch), damit
+// ein fehlender Tab nicht den gesamten Payload scheitern laesst.
+function readDownloads_(cfg) {
+  try {
+    const rows = readSheetRows_('Downloads', cfg);
+    const folder = getDriveFolder_(cfg.DOWNLOADS_FOLDER_ID);
+    return rows
+      .map((row, i) => {
+        const titel = pick_(row, ['titel', 'title', 'name']);
+        const dateiSuche = pick_(row, ['datei-url', 'dateiname', 'datei', 'suchbegriff', 'file']);
+        const ref = resolveFileRef_(dateiSuche, folder, 'download');
+        let typ = pick_(row, ['typ', 'type']).toUpperCase();
+        if (!typ && ref.matchedFile) {
+          const ext = ref.matchedFile.getName().split('.').pop();
+          typ = ext ? ext.toUpperCase() : '';
+        }
+        const reihenfolgeRaw = pick_(row, ['reihenfolge', 'order']);
+        return {
+          id: i + 1,
+          kategorie: pick_(row, ['kategorie', 'category']),
+          titel: titel,
+          typ: typ || 'DATEI',
+          url: ref.url,
+          // Damit die Website Zeilen ohne (noch) gefundene Datei ausblenden
+          // kann, statt einen toten Link anzuzeigen.
+          gefunden: !!ref.url,
+          reihenfolge: reihenfolgeRaw ? Number(reihenfolgeRaw) : i + 1,
+        };
+      })
+      .filter((d) => d.titel);
+  } catch (err) {
+    return [];
+  }
+}
+
 function buildPayload_() {
   const cfg = CONFIG_();
   return {
@@ -190,6 +341,7 @@ function buildPayload_() {
     news: readNews_(cfg),
     sv: readSV_(cfg),
     klassenlehrer: readKlassenlehrer_(cfg),
+    downloads: readDownloads_(cfg),
     generatedAt: new Date().toISOString(),
   };
 }
@@ -211,7 +363,7 @@ function doGet(e) {
   try {
     payload = buildPayload_();
   } catch (err) {
-    payload = { error: String(err), lehrer: [], news: [], sv: [], klassenlehrer: [], generatedAt: new Date().toISOString() };
+    payload = { error: String(err), lehrer: [], news: [], sv: [], klassenlehrer: [], downloads: [], generatedAt: new Date().toISOString() };
   }
 
   const json = JSON.stringify(payload);
@@ -228,8 +380,9 @@ function doGet(e) {
 function testPayload() {
   const payload = buildPayload_();
   Logger.log(
-    'Lehrer: %s | News: %s | SV: %s | Klassen: %s',
-    payload.lehrer.length, payload.news.length, payload.sv.length, payload.klassenlehrer.length
+    'Lehrer: %s | News: %s | SV: %s | Klassen: %s | Downloads: %s',
+    payload.lehrer.length, payload.news.length, payload.sv.length, payload.klassenlehrer.length,
+    payload.downloads.length
   );
   Logger.log(JSON.stringify(payload, null, 2));
 }

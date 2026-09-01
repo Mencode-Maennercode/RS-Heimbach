@@ -1,41 +1,10 @@
 "use client";
 
 import HeroBackground from "@/components/HeroBackground";
+import { downloadGroups } from "@/lib/data";
 
 import { motion } from "framer-motion";
 import { Download, FileText, Link2, ExternalLink } from "lucide-react";
-
-const downloadGroups = [
-  {
-    title: "Formulare & Anmeldung",
-    items: [
-      { name: "Anmeldeformular Klasse 5 (2026/27)", type: "PDF" },
-      { name: "Antrag auf Beurlaubung", type: "PDF" },
-      { name: "Antrag Lernmittelfreiheit", type: "PDF" },
-    ],
-  },
-  {
-    title: "Schulprogramm & Ordnungen",
-    items: [
-      { name: "Schulprogramm 2024/25", type: "PDF" },
-      { name: "Schulordnung", type: "PDF" },
-      { name: "Hausordnung RS Heimbach", type: "PDF" },
-      { name: "Mediennutzungsordnung", type: "PDF" },
-    ],
-  },
-  {
-    title: "WU & Wahlunterricht",
-    items: [
-      { name: "WU-Angebote 2024/25", type: "PDF" },
-      { name: "Übersicht AG-Angebote", type: "PDF" },
-      { name: "Wahlunterricht", type: "PDF" },
-    ],
-  },
-  {
-    title: "Verschiedenes",
-    items: [],
-  },
-];
 
 const links = [
   { name: "Schulformen in Troisdorf", href: "https://youtu.be/w53SqKeevrg", desc: "Video: Weiterführende Schulen im Überblick" },
@@ -76,8 +45,11 @@ export default function ServicePage() {
                 </div>
                 <div className="divide-y divide-slate-100">
                   {group.items.map((item, i) => (
-                    <motion.button
+                    <motion.a
                       key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
@@ -93,7 +65,7 @@ export default function ServicePage() {
                         </span>
                       </div>
                       <Download className="w-4 h-4 text-slate-400 group-hover:text-[#1a3a6b] transition-colors shrink-0" />
-                    </motion.button>
+                    </motion.a>
                   ))}
                   {group.items.length === 0 && (
                     <p className="px-7 py-5 text-sm text-slate-400">Aktuell sind hier keine Dokumente hinterlegt.</p>
