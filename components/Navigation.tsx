@@ -1,46 +1,19 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, GraduationCap, Phone, Search, Thermometer } from "lucide-react";
+import { Menu, X, ChevronDown, GraduationCap, Phone, Thermometer } from "lucide-react";
 import { navItems, schoolInfo } from "@/lib/data";
+import SiteSearch from "./SiteSearch";
 import { cn } from "@/lib/utils";
-
-const searchIndex = [
-  { label: "Startseite", href: "/", keywords: "home willkommen schule" },
-  { label: "Unsere Schule", href: "/unsere-schule", keywords: "über uns profil leitbild" },
-  { label: "Schulleitung", href: "/unsere-schule/schulleitung", keywords: "rektorin direktion leitung" },
-  { label: "Kollegium", href: "/lehrer", keywords: "lehrer lehrerinnen team" },
-  { label: "Sekretariat", href: "/unsere-schule/sekretariat", keywords: "büro öffnungszeiten verwaltung" },
-  { label: "Schülervertretung (SV)", href: "/unsere-schule/sv", keywords: "sv schüler vertreter" },
-  { label: "Schulzeiten", href: "/unterricht/schulzeiten", keywords: "stundenplan zeiten raster stunden" },
-  { label: "Fächer & Differenzierung", href: "/unterricht/faecher", keywords: "fächer kurse wahlpflicht differenzierung" },
-  { label: "Ganztag & Wahlunterricht", href: "/ganztag", keywords: "ganztag wahlunterricht wu betreuung nachmittag" },
-  { label: "Mensa", href: "/unterricht/mensa", keywords: "mensa essen mittagessen cafeteria" },
-  { label: "Projekte & Programme", href: "/unterricht/projekte", keywords: "projekte programme jahrgänge orientierung berufspraktikum streitschlichter sanitäter" },
-  { label: "Schulberatung", href: "/beratung", keywords: "beratung hilfe unterstützung" },
-  { label: "Schulpflegschaft", href: "/eltern/schulpflegschaft", keywords: "eltern pflegschaft schulpflegschaft elternvertretung" },
-  { label: "Förderverein", href: "/foerderverein", keywords: "förderverein spenden unterstützung" },
-  { label: "Veranstaltungen", href: "/veranstaltungen", keywords: "termine events kalender" },
-  { label: "Downloads", href: "/service", keywords: "downloads formulare service dokumente" },
-  { label: "Krankmeldung", href: "/krankmeldung", keywords: "krankmeldung krank krankmelden entschuldigung fehlen abwesenheit fehltag formular abmelden" },
-  { label: "Anmeldung", href: "/anmeldung", keywords: "aktuelles news neuigkeiten anmeldung anmelden klasse 5" },
-  { label: "Kontakt", href: "/kontakt", keywords: "kontakt telefon email adresse" },
-  { label: "Impressum", href: "/impressum", keywords: "impressum rechtliches" },
-];
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const pathname = usePathname();
-  const router = useRouter();
-  const searchRef = useRef<HTMLDivElement>(null);
-  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -51,44 +24,7 @@ export default function Navigation() {
   useEffect(() => {
     setIsOpen(false);
     setActiveDropdown(null);
-    setSearchOpen(false);
-    setSearchQuery("");
   }, [pathname]);
-
-  useEffect(() => {
-    if (!searchOpen) return;
-    const handleClickOutside = (e: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
-        setSearchOpen(false);
-        setSearchQuery("");
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [searchOpen]);
-
-  useEffect(() => {
-    if (searchOpen) {
-      setTimeout(() => searchInputRef.current?.focus(), 50);
-    }
-  }, [searchOpen]);
-
-  const searchResults =
-    searchQuery.length >= 2
-      ? searchIndex
-          .filter(
-            (item) =>
-              item.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-              item.keywords.toLowerCase().includes(searchQuery.toLowerCase())
-          )
-          .slice(0, 7)
-      : [];
-
-  const handleSearchSelect = (href: string) => {
-    setSearchOpen(false);
-    setSearchQuery("");
-    router.push(href);
-  };
 
   return (
     <header
@@ -171,86 +107,7 @@ export default function Navigation() {
 
           {/* Desktop: Suche + Anrufen + Krankmeldung */}
           <div className="hidden lg:flex items-center gap-2 lg:ml-6">
-            {/* Suchicon + Popup */}
-            <div ref={searchRef} className="relative">
-              <button
-                type="button"
-                onClick={() => setSearchOpen((v) => !v)}
-                aria-label="Suche"
-                className={cn(
-                  "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200",
-                  searchOpen
-                    ? "bg-[#1DA499] text-white"
-                    : "text-slate-500 hover:bg-slate-100 hover:text-[#1DA499]"
-                )}
-              >
-                <Search className="w-4.5 h-4.5" />
-              </button>
-
-              <AnimatePresence>
-                {searchOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 6, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                    transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="absolute top-full right-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl shadow-slate-200/80 border border-slate-100 overflow-hidden"
-                  >
-                    <div className="flex items-center gap-2 px-3 py-2.5 border-b border-slate-100">
-                      <Search className="w-4 h-4 text-slate-400 shrink-0" />
-                      <input
-                        ref={searchInputRef}
-                        type="text"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        onKeyDown={(e) => {
-                          if (e.key === "Escape") {
-                            setSearchOpen(false);
-                            setSearchQuery("");
-                          }
-                          if (e.key === "Enter" && searchResults.length > 0) {
-                            handleSearchSelect(searchResults[0].href);
-                          }
-                        }}
-                        placeholder="Seite suchen …"
-                        className="flex-1 text-sm text-slate-800 placeholder-slate-400 outline-none bg-transparent"
-                      />
-                      {searchQuery && (
-                        <button
-                          onClick={() => setSearchQuery("")}
-                          className="text-slate-400 hover:text-slate-600"
-                        >
-                          <X className="w-3.5 h-3.5" />
-                        </button>
-                      )}
-                    </div>
-
-                    {searchResults.length > 0 && (
-                      <ul className="py-1.5">
-                        {searchResults.map((item) => (
-                          <li key={item.href}>
-                            <button
-                              onClick={() => handleSearchSelect(item.href)}
-                              className="w-full text-left flex items-center px-4 py-2.5 text-sm text-slate-700 hover:bg-[#1DA499] hover:text-white transition-colors duration-150"
-                            >
-                              {item.label}
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-
-                    {searchQuery.length >= 2 && searchResults.length === 0 && (
-                      <p className="px-4 py-3 text-sm text-slate-400">Keine Ergebnisse für „{searchQuery}"</p>
-                    )}
-
-                    {searchQuery.length < 2 && (
-                      <p className="px-4 py-3 text-xs text-slate-400">Mindestens 2 Zeichen eingeben …</p>
-                    )}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            <SiteSearch />
 
             {/* Anrufen – dezentes Icon neben der Suche */}
             <a
@@ -282,19 +139,7 @@ export default function Navigation() {
             >
               <Thermometer className="w-5 h-5" />
             </Link>
-            <button
-              type="button"
-              onClick={() => setSearchOpen((v) => !v)}
-              aria-label="Suche"
-              className={cn(
-                "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200",
-                searchOpen
-                  ? "bg-[#1DA499] text-white"
-                  : "text-slate-600 hover:bg-slate-100"
-              )}
-            >
-              <Search className="w-5 h-5" />
-            </button>
+            <SiteSearch variant="mobile" />
             <a
               href={schoolInfo.phoneLink}
               aria-label={`Anrufen: ${schoolInfo.phone}`}
@@ -312,70 +157,9 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Suchpopup */}
-      <AnimatePresence>
-        {searchOpen && (
-          <motion.div
-            ref={searchRef}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="lg:hidden bg-white border-t border-slate-100 overflow-hidden"
-          >
-            <div className="px-4 py-3">
-              <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                <Search className="w-4 h-4 text-slate-400 shrink-0" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Escape") {
-                      setSearchOpen(false);
-                      setSearchQuery("");
-                    }
-                    if (e.key === "Enter" && searchResults.length > 0) {
-                      handleSearchSelect(searchResults[0].href);
-                    }
-                  }}
-                  placeholder="Seite suchen …"
-                  autoFocus
-                  className="flex-1 text-sm text-slate-800 placeholder-slate-400 outline-none bg-transparent"
-                />
-                {searchQuery && (
-                  <button onClick={() => setSearchQuery("")} className="text-slate-400">
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                )}
-              </div>
-
-              {searchResults.length > 0 && (
-                <ul className="mt-2 space-y-0.5">
-                  {searchResults.map((item) => (
-                    <li key={item.href}>
-                      <button
-                        onClick={() => handleSearchSelect(item.href)}
-                        className="w-full text-left px-3 py-2.5 rounded-xl text-sm text-slate-700 hover:bg-[#1DA499] hover:text-white transition-colors"
-                      >
-                        {item.label}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {searchQuery.length >= 2 && searchResults.length === 0 && (
-                <p className="mt-2 px-3 py-2 text-sm text-slate-400">Keine Ergebnisse für „{searchQuery}"</p>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isOpen && !searchOpen && (
+        {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}

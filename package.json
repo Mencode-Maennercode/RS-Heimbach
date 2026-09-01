@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run photos && node scripts/dev.mjs",
+    "dev": "npm run photos && npm run search:index && node scripts/dev.mjs",
     "sync-sheets": "node scripts/sheets-sync.mjs",
     "photos": "node scripts/teacher-photos.mjs",
     "dev:raw": "next dev",
-    "prebuild": "npm run photos",
+    "prebuild": "npm run photos && npm run search:index",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postbuild": "node scripts/enrich-search-index.mjs",
+    "search:index": "node scripts/build-search-index.mjs",
+    "search:test": "node scripts/search-test.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

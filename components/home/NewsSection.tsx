@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Calendar, Tag } from "lucide-react";
@@ -27,10 +27,28 @@ function formatDate(dateStr: string) {
 export default function NewsSection() {
   const [activeArticle, setActiveArticle] = useState<NewsArticleData | null>(null);
   const featured = newsItems[0];
+
+  // Die Suche verlinkt einzelne Beitraege als "/#news-<slug>". Damit dieser
+  // Link den Beitrag auch wirklich zeigt, wird der Hash beim Laden und bei
+  // jeder Hash-Aenderung ausgewertet (Klick aus der Suche heraus, waehrend man
+  // schon auf der Startseite ist, loest nur ein hashchange aus).
+  useEffect(() => {
+    const openFromHash = () => {
+      const match = window.location.hash.match(/^#news-(.+)$/);
+      if (!match) return;
+      const wanted = decodeURIComponent(match[1]);
+      const article = newsItems.find((item) => item.slug === wanted || String(item.id) === wanted);
+      if (article) setActiveArticle(article);
+    };
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
+  }, []);
+
   const rest = newsItems.slice(1, 5);
 
   return (
-    <section className="py-24 bg-[#f0fffe]">
+    <section id="news" className="py-24 bg-[#f0fffe]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -18,7 +18,7 @@ export default function InstagramSection({ posts }: InstagramSectionProps) {
   if (posts.length === 0) return null;
 
   return (
-    <section className="pb-24 bg-[#f0fffe]">
+    <section id="instagram" className="pb-24 bg-[#f0fffe]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

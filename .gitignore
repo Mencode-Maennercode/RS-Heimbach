@@ -42,3 +42,8 @@ next-env.d.ts
 
 .vercel
 .env*.local
+
+# Suchindex - wird bei jedem Build aus den Inhalten neu erzeugt
+# (npm run search:index). Eingecheckt wuerde er bei jedem Dev-Start einen
+# Diff erzeugen, ohne je Quelle von etwas zu sein.
+/public/data/search-index.json
