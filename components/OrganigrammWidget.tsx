@@ -246,14 +246,17 @@ const ORG_STYLES = `
   #orgchart-rsh .oc-center .c-place { margin-top: 4px; }
   #orgchart-rsh .oc-nodes { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 12px; margin-top: 16px; }
   #orgchart-rsh .oc-node {
-    position: static !important; transform: none !important; width: auto; opacity: 1 !important;
-    flex-direction: row; gap: 13px; align-items: center; justify-content: flex-start;
+    position: static !important; transform: none !important; width: auto; max-width: 100%; opacity: 1 !important;
+    flex-direction: row; gap: 11px; align-items: center; justify-content: flex-start;
     background: var(--card); border: 1px solid var(--line) !important; border-radius: 16px;
-    padding: 12px 14px; box-shadow: var(--shadow-1);
+    padding: 12px 14px; box-shadow: var(--shadow-1); overflow: hidden;
   }
-  #orgchart-rsh .oc-node .bub { width: 46px; height: 46px; font-size: 15px; }
-  #orgchart-rsh .oc-node .bub .ic { width: 21px; height: 21px; }
-  #orgchart-rsh .oc-node .lbl { text-align: left; font-size: 13.5px; }
+  #orgchart-rsh .oc-node .bub { width: 42px; height: 42px; font-size: 14px; flex: none; }
+  #orgchart-rsh .oc-node .bub .ic { width: 19px; height: 19px; }
+  #orgchart-rsh .oc-node .lbl {
+    text-align: left; font-size: 12.5px; flex: 1 1 auto; min-width: 0; max-width: none;
+    overflow-wrap: break-word; word-break: break-word; hyphens: auto;
+  }
   #orgchart-rsh .oc-node:hover .bub, #orgchart-rsh .oc-node.on .bub { transform: none; }
   #orgchart-rsh .oc-stage.has-focus .oc-node:not(.on) { display: none; }
   #orgchart-rsh .oc-panel { top: auto; bottom: 0; left: 0; transform: translateY(100%); width: 100%; max-height: 86%; border-radius: 24px 24px 0 0; }
@@ -262,6 +265,9 @@ const ORG_STYLES = `
   #orgchart-rsh .oc-panel-body { grid-template-columns: 1fr; }
   #orgchart-rsh .oc-head { padding: 24px 20px 4px; }
   #orgchart-rsh .oc-foot { padding: 8px 20px 22px; }
+}
+@container (max-width: 480px) {
+  #orgchart-rsh .oc-nodes { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   #orgchart-rsh * { animation: none !important; transition-duration: .01ms !important; }

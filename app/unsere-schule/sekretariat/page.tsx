@@ -148,7 +148,7 @@ export default function SekretariatPage() {
                     alt="Richard Müller – Hausmeisterei der Realschule Am Heimbach"
                     fill
                     sizes="(max-width: 640px) 100vw, 180px"
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
                 <div className="p-7 flex flex-col justify-center">
