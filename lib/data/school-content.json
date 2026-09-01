@@ -904,8 +904,96 @@
       "kategorie": "Test",
       "teaser": "Testbild kommt an?",
       "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "https://drive.google.com/uc?export=view&id=16Dtb6lTtA3dFsd6vD-15c7wySz_q4d_9",
+      "bildUrl": "",
       "slug": "mehr-homepage",
+      "hauptbeitrag": false
+    },
+    {
+      "id": 3,
+      "titel": "test1",
+      "datum": "Wed Sep 02 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+      "kategorie": "Test",
+      "teaser": "Testbild kommt an?",
+      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
+      "bildUrl": "",
+      "slug": "test1",
+      "hauptbeitrag": false
+    },
+    {
+      "id": 4,
+      "titel": "test2",
+      "datum": "Thu Sep 03 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+      "kategorie": "Test",
+      "teaser": "Testbild kommt an?",
+      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
+      "bildUrl": "",
+      "slug": "test2",
+      "hauptbeitrag": false
+    },
+    {
+      "id": 5,
+      "titel": "test3",
+      "datum": "Fri Sep 04 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+      "kategorie": "Test",
+      "teaser": "Testbild kommt an?",
+      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
+      "bildUrl": "",
+      "slug": "test3",
+      "hauptbeitrag": false
+    },
+    {
+      "id": 6,
+      "titel": "test4",
+      "datum": "Sat Sep 05 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+      "kategorie": "Test",
+      "teaser": "Testbild kommt an?",
+      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
+      "bildUrl": "",
+      "slug": "test4",
+      "hauptbeitrag": false
+    },
+    {
+      "id": 7,
+      "titel": "test5",
+      "datum": "Sun Sep 06 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+      "kategorie": "Test",
+      "teaser": "Testbild kommt an?",
+      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
+      "bildUrl": "",
+      "slug": "test5",
+      "hauptbeitrag": false
+    },
+    {
+      "id": 8,
+      "titel": "test6",
+      "datum": "Mon Sep 07 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+      "kategorie": "Test",
+      "teaser": "Testbild kommt an?",
+      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
+      "bildUrl": "",
+      "slug": "test6",
+      "hauptbeitrag": false
+    },
+    {
+      "id": 9,
+      "titel": "test7",
+      "datum": "Tue Sep 08 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+      "kategorie": "Test",
+      "teaser": "Testbild kommt an?",
+      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
+      "bildUrl": "",
+      "slug": "test7",
+      "hauptbeitrag": false
+    },
+    {
+      "id": 10,
+      "titel": "test8",
+      "datum": "Wed Sep 09 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+      "kategorie": "Test",
+      "teaser": "Testbild kommt an?",
+      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
+      "bildUrl": "",
+      "slug": "test8",
       "hauptbeitrag": false
     }
   ],
@@ -1135,7 +1223,7 @@
     },
     {
       "id": 2,
-      "kategorie": "Formulare & Anmeldung",
+      "kategorie": "WU & Wahlunterricht",
       "titel": "Anmeldung",
       "typ": "PDF",
       "url": "https://drive.google.com/uc?export=download&id=1IrSOTOdksBoldcrH794tAhfLi9h0lxjz",
@@ -1143,5 +1231,5 @@
       "reihenfolge": 2
     }
   ],
-  "generatedAt": "2026-09-01T15:24:37.149Z"
+  "generatedAt": "2026-09-01T15:56:36.603Z"
 }
