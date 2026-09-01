@@ -1124,7 +1124,7 @@
     },
     {
       "id": 2,
-      "kategorie": "WU & Wahlunterricht",
+      "kategorie": "Formulare & Anmeldung",
       "titel": "Anmeldung",
       "typ": "PDF",
       "url": "https://drive.google.com/uc?export=download&id=1IrSOTOdksBoldcrH794tAhfLi9h0lxjz",
@@ -1132,5 +1132,5 @@
       "reihenfolge": 2
     }
   ],
-  "generatedAt": "2026-09-01T18:37:44.499Z"
+  "generatedAt": "2026-09-01T18:57:10.667Z"
 }
