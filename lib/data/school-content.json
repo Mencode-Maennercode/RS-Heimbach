@@ -904,9 +904,9 @@
       "kategorie": "Test",
       "teaser": "Testbild kommt an?",
       "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "",
+      "bildUrl": "https://drive.google.com/uc?export=view&id=16Dtb6lTtA3dFsd6vD-15c7wySz_q4d_9",
       "slug": "mehr-homepage",
-      "hauptbeitrag": false
+      "hauptbeitrag": true
     }
   ],
   "sv": [
@@ -1143,5 +1143,5 @@
       "reihenfolge": 2
     }
   ],
-  "generatedAt": "2026-09-01T15:13:18.248Z"
+  "generatedAt": "2026-09-01T15:17:53.515Z"
 }
