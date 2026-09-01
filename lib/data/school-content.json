@@ -895,7 +895,7 @@
       "volltext": "Ab sofort ist unsere komplett neu gestaltete Schulhomepage online! Übersichtlicher, schneller und auf jedem Gerät bequem nutzbar – ob am Laptop im Sekretariat oder am Handy auf dem Weg zur Bushaltestelle. Alle wichtigen Infos zu unserer Schule, dem Kollegium, aktuellen Neuigkeiten und dem Schulalltag findet ihr jetzt an einem Ort, klar strukturiert und immer aktuell. Besonders freuen wir uns, dass Neuigkeiten und Team-Infos ab jetzt viel schneller aktualisiert werden können. Ein großes Dankeschön an alle, die bei der Planung und Umsetzung mitgeholfen haben! Habt ihr Anregungen oder Wünsche? Schreibt uns gerne über das Kontaktformular.",
       "bildUrl": "",
       "slug": "endlich-online-unsere-neue-schulhomepage-ist-da",
-      "hauptbeitrag": false
+      "hauptbeitrag": true
     },
     {
       "id": 2,
@@ -906,7 +906,7 @@
       "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
       "bildUrl": "https://drive.google.com/uc?export=view&id=16Dtb6lTtA3dFsd6vD-15c7wySz_q4d_9",
       "slug": "mehr-homepage",
-      "hauptbeitrag": true
+      "hauptbeitrag": false
     }
   ],
   "sv": [
@@ -1143,5 +1143,5 @@
       "reihenfolge": 2
     }
   ],
-  "generatedAt": "2026-09-01T15:17:53.515Z"
+  "generatedAt": "2026-09-01T15:24:37.149Z"
 }
