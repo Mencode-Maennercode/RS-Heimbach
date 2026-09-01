@@ -23,13 +23,11 @@ const nextConfig: NextConfig = {
     // Der Next-Bildoptimierer braucht einen Server – beim statischen Export
     // gibt es keinen, daher Bilder unveraendert ausliefern.
     unoptimized: true,
+    // Alle Bilder (auch Instagram-Fotos, siehe scripts/instagram-sync.mjs) werden
+    // vor dem Build lokal abgelegt -- kein Hotlinking zu Drittanbietern mehr,
+    // relevant fuer die Datenschutzerklaerung (keine Bildaufrufe bei Dritten).
     remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "cdn.pixabay.com" },
       { protocol: "https", hostname: "www.rs-heimbach.de" },
-      { protocol: "https", hostname: "pixabay.com" },
-      { protocol: "https", hostname: "*.cdninstagram.com" },
-      { protocol: "https", hostname: "*.fbcdn.net" },
     ],
   },
 };

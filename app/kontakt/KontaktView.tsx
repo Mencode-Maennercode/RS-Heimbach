@@ -4,12 +4,46 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock, Send, Instagram, FileText, Calendar, HeartPulse, ArrowRight, AlertTriangle } from "lucide-react";
+import { useState } from "react";
+import { MapPin, Phone, Mail, Clock, Send, Instagram, FileText, Calendar, HeartPulse, ArrowRight, AlertTriangle, CheckCircle2 } from "lucide-react";
 import { schoolInfo } from "@/lib/data";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
 
 export default function KontaktPage() {
   const { isOpen: enrollmentOpen } = getEnrollmentInfo();
+  const [mailOpened, setMailOpened] = useState(false);
+
+  // Statischer Export hat keinen Server, der das Formular entgegennehmen
+  // koennte. Statt eines Drittanbieter-Formularservices (der als externer
+  // Auftragsverarbeiter in der Datenschutzerklaerung fehlt) oeffnet der
+  // Klick auf "Absenden" einen vorausgefuellten Mail-Entwurf im E-Mail-
+  // Programm des Besuchers, adressiert an schoolInfo.email. Der eigentliche
+  // Versand passiert erst, wenn der Besucher dort selbst auf "Senden" klickt.
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const vorname = form.get("vorname");
+    const nachname = form.get("nachname");
+    const email = form.get("email");
+    const betreff = form.get("betreff");
+    const nachricht = form.get("nachricht");
+
+    const subject = `Kontaktformular: ${betreff} – ${vorname} ${nachname}`;
+    const body = [
+      `Name: ${vorname} ${nachname}`,
+      `E-Mail: ${email}`,
+      `Betreff: ${betreff}`,
+      "",
+      "Nachricht:",
+      nachricht,
+      "",
+      "— Gesendet über das Kontaktformular auf rs-heimbach.de",
+    ].join("\n");
+
+    window.location.href = `mailto:${schoolInfo.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setMailOpened(true);
+    e.currentTarget.reset();
+  }
 
   return (
     <>
@@ -124,12 +158,13 @@ export default function KontaktPage() {
               className="lg:col-span-2 bg-white rounded-3xl p-8 md:p-10 shadow-sm"
             >
               <h2 className="text-2xl font-black text-[#1a3a6b] mb-7">Nachricht senden</h2>
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1.5">Vorname *</label>
                     <input
                       type="text"
+                      name="vorname"
                       required
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#1a3a6b] focus:ring-2 focus:ring-[#1a3a6b]/10 transition-all"
                       placeholder="Max"
@@ -139,6 +174,7 @@ export default function KontaktPage() {
                     <label className="block text-sm font-semibold text-slate-700 mb-1.5">Nachname *</label>
                     <input
                       type="text"
+                      name="nachname"
                       required
                       className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#1a3a6b] focus:ring-2 focus:ring-[#1a3a6b]/10 transition-all"
                       placeholder="Mustermann"
@@ -149,6 +185,7 @@ export default function KontaktPage() {
                   <label className="block text-sm font-semibold text-slate-700 mb-1.5">E-Mail-Adresse *</label>
                   <input
                     type="email"
+                    name="email"
                     required
                     className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#1a3a6b] focus:ring-2 focus:ring-[#1a3a6b]/10 transition-all"
                     placeholder="max.mustermann@email.de"
@@ -156,7 +193,7 @@ export default function KontaktPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-1.5">Betreff *</label>
-                  <select className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#1a3a6b] focus:ring-2 focus:ring-[#1a3a6b]/10 transition-all bg-white">
+                  <select name="betreff" className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#1a3a6b] focus:ring-2 focus:ring-[#1a3a6b]/10 transition-all bg-white">
                     <option>Allgemeine Anfrage</option>
                     <option>Anmeldung / Schulwechsel</option>
                     <option>Elterngespräch</option>
@@ -167,6 +204,7 @@ export default function KontaktPage() {
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-1.5">Nachricht *</label>
                   <textarea
+                    name="nachricht"
                     required
                     rows={5}
                     className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#1a3a6b] focus:ring-2 focus:ring-[#1a3a6b]/10 transition-all resize-none"
@@ -187,6 +225,12 @@ export default function KontaktPage() {
                   <Send className="w-4 h-4" />
                   Nachricht absenden
                 </button>
+                {mailOpened && (
+                  <p className="flex items-center gap-2 text-sm text-emerald-700 bg-emerald-50 rounded-xl px-4 py-3">
+                    <CheckCircle2 className="w-4 h-4 shrink-0" />
+                    Ihr E-Mail-Programm hat sich mit einem vorausgefüllten Entwurf geöffnet. Bitte dort noch auf „Senden" klicken.
+                  </p>
+                )}
               </form>
             </motion.div>
           </div>

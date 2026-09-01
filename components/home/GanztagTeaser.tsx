@@ -28,7 +28,7 @@ export default function GanztagTeaser() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-teal-900/20 aspect-[4/3]">
               <Image
-                src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=900&h=700&fit=crop"
+                src="/images/ganztag-unterricht.jpg"
                 alt="Schüler im Unterricht"
                 fill
                 className="object-cover"
