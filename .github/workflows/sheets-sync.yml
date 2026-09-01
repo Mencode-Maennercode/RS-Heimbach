@@ -2,10 +2,16 @@ name: Sheets Sync
 
 # Holt alle 15 Minuten die aktuellen Lehrer- und News-Daten aus dem Google
 # Sheet (ueber das Apps-Script-Backend) und committet sie nach
-# lib/data/school-content.json (nur bei tatsaechlicher Aenderung). Der Push
-# auf master loest danach automatisch den bestehenden "Build & Deploy (FTP)"-
-# Workflow aus. Kann zusaetzlich manuell ueber das "Jetzt aktualisieren"-
-# Menue im Google Sheet ausgeloest werden (workflow_dispatch).
+# lib/data/school-content.json (nur bei tatsaechlicher Aenderung). Kann
+# zusaetzlich manuell ueber das "Jetzt aktualisieren"-Menue im Google Sheet
+# ausgeloest werden (workflow_dispatch).
+#
+# WICHTIG: Ein Push, der mit dem automatischen GITHUB_TOKEN einer Action
+# erstellt wird, loest bei GitHub NIE den push-Trigger einer anderen Action
+# aus (Schutz vor Endlosschleifen) -- "Build & Deploy (SFTP)" wuerde also
+# NICHT automatisch anspringen. Deshalb wird es hier explizit per
+# workflow_dispatch angestossen, aber nur wenn sich tatsaechlich etwas
+# geaendert hat.
 on:
   schedule:
     - cron: "*/15 * * * *"
@@ -13,6 +19,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: sheets-sync
@@ -34,9 +41,21 @@ jobs:
         run: node scripts/sheets-sync.mjs
 
       - name: Aenderungen committen
+        id: commit
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add lib/data/school-content.json
-          git commit -m "chore: Schul-Inhalte aktualisiert" || exit 0
-          git push
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: Schul-Inhalte aktualisiert"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: IONOS-Deploy anstossen
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref master

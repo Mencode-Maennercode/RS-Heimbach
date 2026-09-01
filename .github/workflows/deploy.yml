@@ -3,6 +3,9 @@ name: Build & Deploy (SFTP)
 # Baut die statische Seite und laedt sie per SFTP auf den IONOS-Webspace.
 # - taeglich nachts: holt frische Kalender-Termine aus der Nextcloud-.ics
 # - manuell ("Run workflow"-Knopf in GitHub): fuer Eilfaelle, in ~2 Min. live
+# - workflow_dispatch wird ausserdem automatisch von sheets-sync.yml und
+#   instagram-sync.yml aufgerufen, sobald die dort geholten Daten sich
+#   geaendert haben (siehe Kommentar dort, warum das kein push-Trigger sein kann)
 #
 # WICHTIG: Der IONOS-Webspace bietet nur SFTP-Konten (Port 22, SSH-Protokoll)
 # an, kein klassisches FTP/FTPS. Deshalb wlixcc/SFTP-Deploy-Action statt der

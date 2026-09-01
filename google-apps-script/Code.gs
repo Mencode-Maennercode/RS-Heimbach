@@ -62,8 +62,19 @@ function findBestFileMatch_(folder, rawSearch) {
     let score = 0;
     if (name === target) {
       score = 100;
-    } else if (name.indexOf(target) !== -1 || target.indexOf(name) !== -1) {
-      score = 80 * (Math.min(name.length, target.length) / Math.max(name.length, target.length));
+    } else if (name.indexOf(target) !== -1) {
+      // Der komplette Suchbegriff steckt im Dateinamen (z. B. "anmelde" in
+      // "anmeldeformular 5kl 2025 ohnemsu") -- ein sehr sicheres Zeichen,
+      // unabhaengig davon, wie viele zusaetzliche Angaben (Klasse, Jahr,
+      // Kuerzel) der echte Dateiname noch traegt. Ein Laengen-Verhaeltnis
+      // wuerde solche vollstaendigen Treffer faelschlich abwerten, sobald
+      // der echte Dateiname deutlich laenger ist als der eingetippte Suchbegriff.
+      score = name.indexOf(target) === 0 ? 90 : 75;
+    } else if (target.indexOf(name) !== -1) {
+      // Umgekehrter Fall: der Dateiname ist eine Abkuerzung des Suchbegriffs
+      // (z. B. "hausord" in "hausordnung") -- etwas unsicherer, da kurze
+      // Abkuerzungen leichter zufaellig zu mehreren Begriffen passen koennten.
+      score = 80 * (name.length / target.length);
     } else {
       const nameWords = new Set(name.split(' ').filter(Boolean));
       let overlap = 0;

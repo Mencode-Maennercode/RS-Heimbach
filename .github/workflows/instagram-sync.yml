@@ -1,9 +1,15 @@
 name: Instagram Sync
 
 # Holt alle 10 Minuten die aktuellen Instagram-Posts und committet sie nach
-# public/data/instagram.json (nur bei tatsaechlicher Aenderung). Der Push auf
-# master loest danach automatisch den bestehenden "Build & Deploy (FTP)"-
-# Workflow aus - bei 1-2 neuen Posts/Woche bleibt das selten und kostenlos.
+# public/data/instagram.json (nur bei tatsaechlicher Aenderung) - bei 1-2
+# neuen Posts/Woche bleibt das selten und kostenlos.
+#
+# WICHTIG: Ein Push, der mit dem automatischen GITHUB_TOKEN einer Action
+# erstellt wird, loest bei GitHub NIE den push-Trigger einer anderen Action
+# aus (Schutz vor Endlosschleifen) -- "Build & Deploy (SFTP)" wuerde also
+# NICHT automatisch anspringen. Deshalb wird es hier explizit per
+# workflow_dispatch angestossen, aber nur wenn sich tatsaechlich etwas
+# geaendert hat.
 on:
   schedule:
     - cron: "*/10 * * * *"
@@ -11,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: instagram-sync
@@ -37,9 +44,21 @@ jobs:
         run: node scripts/instagram-sync.mjs
 
       - name: Aenderungen committen
+        id: commit
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add public/data/instagram.json public/data/instagram
-          git commit -m "chore: Instagram-Daten aktualisiert" || exit 0
-          git push
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: Instagram-Daten aktualisiert"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: IONOS-Deploy anstossen
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref master
