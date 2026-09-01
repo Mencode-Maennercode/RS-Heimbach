@@ -239,7 +239,7 @@
     },
     {
       "id": 16,
-      "vorname": "Thaami",
+      "vorname": "Thami",
       "nachname": "Tembe",
       "anrede": "Hr.",
       "rolle": "Lehrer*in",
@@ -896,105 +896,6 @@
       "bildUrl": "",
       "slug": "endlich-online-unsere-neue-schulhomepage-ist-da",
       "hauptbeitrag": true
-    },
-    {
-      "id": 2,
-      "titel": "Mehr Homepage",
-      "datum": "Tue Sep 01 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-      "kategorie": "Test",
-      "teaser": "Testbild kommt an?",
-      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "",
-      "slug": "mehr-homepage",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 3,
-      "titel": "test1",
-      "datum": "Wed Sep 02 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-      "kategorie": "Test",
-      "teaser": "Testbild kommt an?",
-      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "",
-      "slug": "test1",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 4,
-      "titel": "test2",
-      "datum": "Thu Sep 03 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-      "kategorie": "Test",
-      "teaser": "Testbild kommt an?",
-      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "",
-      "slug": "test2",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 5,
-      "titel": "test3",
-      "datum": "Fri Sep 04 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-      "kategorie": "Test",
-      "teaser": "Testbild kommt an?",
-      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "",
-      "slug": "test3",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 6,
-      "titel": "test4",
-      "datum": "Sat Sep 05 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-      "kategorie": "Test",
-      "teaser": "Testbild kommt an?",
-      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "",
-      "slug": "test4",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 7,
-      "titel": "test5",
-      "datum": "Sun Sep 06 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-      "kategorie": "Test",
-      "teaser": "Testbild kommt an?",
-      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "",
-      "slug": "test5",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 8,
-      "titel": "test6",
-      "datum": "Mon Sep 07 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-      "kategorie": "Test",
-      "teaser": "Testbild kommt an?",
-      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "",
-      "slug": "test6",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 9,
-      "titel": "test7",
-      "datum": "Tue Sep 08 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-      "kategorie": "Test",
-      "teaser": "Testbild kommt an?",
-      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "",
-      "slug": "test7",
-      "hauptbeitrag": false
-    },
-    {
-      "id": 10,
-      "titel": "test8",
-      "datum": "Wed Sep 09 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-      "kategorie": "Test",
-      "teaser": "Testbild kommt an?",
-      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
-      "bildUrl": "",
-      "slug": "test8",
-      "hauptbeitrag": false
     }
   ],
   "sv": [
@@ -1231,5 +1132,5 @@
       "reihenfolge": 2
     }
   ],
-  "generatedAt": "2026-09-01T15:56:36.603Z"
+  "generatedAt": "2026-09-01T18:37:44.499Z"
 }
