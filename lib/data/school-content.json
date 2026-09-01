@@ -1112,6 +1112,25 @@
       ]
     }
   ],
-  "downloads": [],
-  "generatedAt": "2026-09-01T10:32:00.042Z"
+  "downloads": [
+    {
+      "id": 1,
+      "kategorie": "Formulare & Anmeldung",
+      "titel": "Hausordnung",
+      "typ": "PDF",
+      "url": "https://drive.google.com/uc?export=download&id=14hlfeid_PXaG29OXDy6hXVTweAPa7MqQ",
+      "gefunden": true,
+      "reihenfolge": 2
+    },
+    {
+      "id": 2,
+      "kategorie": "Formulare & Anmeldung",
+      "titel": "Anmeldung",
+      "typ": "DATEI",
+      "url": "",
+      "gefunden": false,
+      "reihenfolge": 1
+    }
+  ],
+  "generatedAt": "2026-09-01T14:28:41.867Z"
 }
