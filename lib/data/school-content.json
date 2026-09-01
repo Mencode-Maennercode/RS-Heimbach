@@ -896,6 +896,17 @@
       "bildUrl": "",
       "slug": "endlich-online-unsere-neue-schulhomepage-ist-da",
       "hauptbeitrag": false
+    },
+    {
+      "id": 2,
+      "titel": "Mehr Homepage",
+      "datum": "Tue Sep 01 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+      "kategorie": "Test",
+      "teaser": "Testbild kommt an?",
+      "volltext": "wenn ih hier ein kompletten roman schreibe geht das? ider nicht?",
+      "bildUrl": "",
+      "slug": "mehr-homepage",
+      "hauptbeitrag": false
     }
   ],
   "sv": [
@@ -1120,7 +1131,7 @@
       "typ": "PDF",
       "url": "https://drive.google.com/uc?export=download&id=14hlfeid_PXaG29OXDy6hXVTweAPa7MqQ",
       "gefunden": true,
-      "reihenfolge": 2
+      "reihenfolge": 1
     },
     {
       "id": 2,
@@ -1129,8 +1140,8 @@
       "typ": "PDF",
       "url": "https://drive.google.com/uc?export=download&id=1IrSOTOdksBoldcrH794tAhfLi9h0lxjz",
       "gefunden": true,
-      "reihenfolge": 1
+      "reihenfolge": 2
     }
   ],
-  "generatedAt": "2026-09-01T14:53:58.314Z"
+  "generatedAt": "2026-09-01T15:02:20.733Z"
 }
