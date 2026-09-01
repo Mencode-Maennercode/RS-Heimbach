@@ -124,10 +124,6 @@ const ORG_STYLES = `
   background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.32); position: relative;
 }
 #orgchart-rsh .oc-logo svg { width: 30px; height: 30px; }
-#orgchart-rsh .oc-logo .ph {
-  position: absolute; bottom: -7px; right: -7px; font-size: 8px; font-weight: 700; letter-spacing: .04em;
-  background: #fff; color: var(--brand-d); padding: 2px 5px; border-radius: 6px; box-shadow: var(--shadow-1);
-}
 #orgchart-rsh .oc-center .c-name { font-size: 19px; font-weight: 800; line-height: 1.12; letter-spacing: -.01em; }
 #orgchart-rsh .oc-center .c-name2 { font-size: 18px; font-weight: 800; line-height: 1.12; white-space: nowrap; }
 #orgchart-rsh .oc-center .c-place { font-size: 11px; font-weight: 600; opacity: .85; margin-top: 8px; letter-spacing: .14em; text-transform: uppercase; }
@@ -475,7 +471,7 @@ export default function OrganigrammWidget() {
     const center = document.createElement("div");
     center.className = "oc-center";
     center.innerHTML =
-      `<div class="oc-logo">${svgIcon(HOUSE)}<span class="ph">LOGO</span></div>` +
+      `<div class="oc-logo">${svgIcon(HOUSE)}</div>` +
       `<div class="c-txt">` +
         `<div class="c-name">${escHtml(ORG_DATA.center.name)}</div>` +
         `<div class="c-name2">${escHtml(ORG_DATA.center.name2)}</div>` +
