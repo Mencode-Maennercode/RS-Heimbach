@@ -14,7 +14,7 @@ export const schoolInfo = {
   students: 590,
   teachers: 55,
   specialEdTeachers: 5,
-  founded: 1975,
+  founded: 1939,
   motto: "Gemeinsam wachsen – Zukunft gestalten",
 };
 

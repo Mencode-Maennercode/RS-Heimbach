@@ -62,10 +62,10 @@ const stats = [
   },
   {
     icon: Heart,
-    value: 1975,
+    value: 1939,
     suffix: "",
     label: "Gegründet",
-    description: "50 Jahre Bildungstradition",
+    description: "über 80 Jahre Bildungstradition",
     color: "from-rose-500 to-rose-700",
     bg: "bg-rose-50",
     text: "text-rose-700",
@@ -90,7 +90,7 @@ export default function StatsSection() {
             Die Realschule Am Heimbach
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Eine lebendige Schulgemeinschaft im Herzen von Troisdorf – seit über 50 Jahren.
+            Eine lebendige Schulgemeinschaft im Herzen von Troisdorf – seit über 80 Jahren.
           </p>
         </motion.div>
 

@@ -85,13 +85,6 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link
-              href="/unsere-schule"
-              className="group inline-flex items-center gap-2 bg-[#1DA499] hover:bg-[#17a89d] text-white px-8 py-4 rounded-2xl font-bold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-[#1DA499]/30 hover:scale-105"
-            >
-              Unsere Schule entdecken
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
             <div className="relative" ref={popupRef}>
               <button
                 onClick={() => setShowCallPopup((v) => !v)}
@@ -125,6 +118,13 @@ export default function HeroSection() {
                 )}
               </AnimatePresence>
             </div>
+            <Link
+              href="/krankmeldung"
+              className="group inline-flex items-center gap-2 bg-[#1DA499] hover:bg-[#17a89d] text-white px-8 py-4 rounded-2xl font-bold text-base transition-all duration-300 hover:shadow-2xl hover:shadow-[#1DA499]/30 hover:scale-105"
+            >
+              Schüler-Krankmeldung
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </motion.div>
         </div>
 

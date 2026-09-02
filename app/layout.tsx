@@ -105,9 +105,9 @@ export const metadata: Metadata = {
     "geo.position": `${GEO.latitude};${GEO.longitude}`,
     ICBM: `${GEO.latitude}, ${GEO.longitude}`,
   },
-  // Nach dem Umzug auf rs-heimbach.de hier den Bestaetigungscode aus der Google
-  // Search Console eintragen -- erst dann liefert die Console Ranking-Daten.
-  // verification: { google: "<code>" },
+  verification: {
+    google: "tfYXURak1Pb7Kjm-dbtowgbLDGI3eh8X-m9B_pJEmeM",
+  },
 };
 
 export const viewport: Viewport = {
