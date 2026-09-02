@@ -1132,5 +1132,97 @@
       "reihenfolge": 2
     }
   ],
-  "generatedAt": "2026-09-02T06:22:08.835Z"
+  "mensa": {
+    "kw": "KW 26",
+    "tage": [
+      {
+        "tag": "Mon Jun 22 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+        "gerichte": [
+          {
+            "kategorie": "Tagesgericht",
+            "name": "Geflügelbratwurst mit Bratensauce dazu Kartoffelstampf"
+          },
+          {
+            "kategorie": "Vegetarisch",
+            "name": "Vegetarische Tortellini mit Gemüsefüllung in Käserahmsauce"
+          },
+          {
+            "kategorie": "Salat",
+            "name": "Salat"
+          },
+          {
+            "kategorie": "Pizza & Pasta",
+            "name": "Wechselnde Pasta mit verschiedenen Saucen"
+          },
+          {
+            "kategorie": "Dessert",
+            "name": "Wassereis"
+          },
+          {
+            "kategorie": "Obst",
+            "name": "Apfel"
+          }
+        ]
+      },
+      {
+        "tag": "Wed Jun 24 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+        "gerichte": [
+          {
+            "kategorie": "Tagesgericht",
+            "name": "2 Stück Geflügel Wienerwürstchen dazu bunter Nudelsalat"
+          },
+          {
+            "kategorie": "Vegetarisch",
+            "name": "Blumenkohl-Käse Bratling mit Kräuterquark und Cous Cous"
+          },
+          {
+            "kategorie": "Salat",
+            "name": "Salat"
+          },
+          {
+            "kategorie": "Pizza & Pasta",
+            "name": "Wechselnde Pasta mit verschiedenen Saucen"
+          },
+          {
+            "kategorie": "Dessert",
+            "name": "Fruchtquark Apfel Pfirsich G"
+          },
+          {
+            "kategorie": "Obst",
+            "name": "Birne"
+          }
+        ]
+      },
+      {
+        "tag": "Thu Jun 25 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+        "gerichte": [
+          {
+            "kategorie": "Tagesgericht",
+            "name": "2 St Fleischklößchen Geflügel in Tomatensauce mit Vollkornreis"
+          },
+          {
+            "kategorie": "Vegetarisch",
+            "name": "Mailänder Gnocchi Pfanne mit Paprika, Zucchini, und Zwiebeln dazu Tomatensauce"
+          },
+          {
+            "kategorie": "Salat",
+            "name": "Salat"
+          },
+          {
+            "kategorie": "Pizza & Pasta",
+            "name": "Pizza Pomodoro & Salami & Schinken"
+          },
+          {
+            "kategorie": "Dessert",
+            "name": "Kuchenstück A, A1, C, G"
+          },
+          {
+            "kategorie": "Obst",
+            "name": "Apfel"
+          }
+        ]
+      }
+    ]
+  },
+  "generatedAt": "2026-09-02T11:31:25.864Z"
 }
