@@ -5,6 +5,7 @@ import HeroBackground from "@/components/HeroBackground";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Utensils, Clock, Euro, Salad, FileText, X, ArrowRight } from "lucide-react";
+import { mensaPlan } from "@/lib/data";
 
 export default function MensaPage() {
   const [planOpen, setPlanOpen] = useState(false);
@@ -150,6 +151,9 @@ export default function MensaPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-black text-lg leading-tight">Speiseplan</h3>
+                    {mensaPlan.kw && (
+                      <p className="text-white/70 text-xs mt-0.5">{mensaPlan.kw}</p>
+                    )}
                   </div>
                 </div>
                 <button
@@ -162,13 +166,36 @@ export default function MensaPage() {
               </div>
 
               {/* Inhalt */}
-              <div className="p-10 text-center">
-                <div className="w-14 h-14 rounded-2xl bg-[#0a5a54]/10 flex items-center justify-center mx-auto mb-5">
-                  <Utensils className="w-6 h-6 text-[#0a5a54]" />
+              {mensaPlan.tage.length > 0 ? (
+                <div className="overflow-y-auto p-6 space-y-5">
+                  {mensaPlan.tage.map((tag) => (
+                    <div key={tag.tag} className="bg-[#f8f9ff] rounded-2xl p-5">
+                      <h4 className="font-black text-[#0a5a54] mb-3">{tag.tag}</h4>
+                      <dl className="space-y-2.5">
+                        {tag.gerichte.map((gericht, i) => (
+                          <div key={i} className="flex flex-col gap-0.5">
+                            <dt className="text-[11px] font-bold uppercase tracking-wide text-[#1DA499]">
+                              {gericht.kategorie}
+                            </dt>
+                            <dd className="text-sm text-slate-700 leading-snug">{gericht.name}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
+                  ))}
+                  <p className="text-xs text-slate-400 text-center pt-1">
+                    Angaben ohne Gewähr, Änderungen im Speiseplan vorbehalten.
+                  </p>
                 </div>
-                <p className="font-semibold text-slate-900">Hier erscheint bald der Speiseplan.</p>
-                <p className="text-sm text-slate-500 mt-2">Guten Appetit!</p>
-              </div>
+              ) : (
+                <div className="p-10 text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-[#0a5a54]/10 flex items-center justify-center mx-auto mb-5">
+                    <Utensils className="w-6 h-6 text-[#0a5a54]" />
+                  </div>
+                  <p className="font-semibold text-slate-900">Hier erscheint bald der Speiseplan.</p>
+                  <p className="text-sm text-slate-500 mt-2">Guten Appetit!</p>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}

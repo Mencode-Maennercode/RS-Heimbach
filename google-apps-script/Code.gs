@@ -45,6 +45,28 @@ function normalizeFileName_(s) {
     .trim();
 }
 
+// Zeichenbasierte Levenshtein-Distanz -- faengt echte Tippfehler in einem
+// einzelnen Wort ab (z. B. "Stecknr" statt "Stecker"), bei denen der
+// wortbasierte Vergleich in findBestFileMatch_ (kompletter Ueberlapp oder
+// gemeinsame Woerter) keinen Treffer liefert.
+function levenshtein_(a, b) {
+  const m = a.length;
+  const n = b.length;
+  if (!m) return n;
+  if (!n) return m;
+  let prev = Array.from({ length: n + 1 }, (_, j) => j);
+  for (let i = 1; i <= m; i++) {
+    const row = [i];
+    for (let j = 1; j <= n; j++) {
+      row[j] = a[i - 1] === b[j - 1]
+        ? prev[j - 1]
+        : 1 + Math.min(prev[j - 1], prev[j], row[j - 1]);
+    }
+    prev = row;
+  }
+  return prev[n];
+}
+
 function findBestFileMatch_(folder, rawSearch) {
   const target = normalizeFileName_(rawSearch);
   if (!target || !folder) return null;
@@ -81,6 +103,16 @@ function findBestFileMatch_(folder, rawSearch) {
       targetWords.forEach((w) => { if (nameWords.has(w)) overlap++; });
       const union = new Set([...targetWords, ...nameWords]).size;
       score = union ? (overlap / union) * 60 : 0;
+
+      // Kein gemeinsames Wort gefunden (z. B. Tippfehler in einem einzelnen
+      // Wort wie "Stecknr" statt "Stecker") -- als letzten Versuch die
+      // Zeichen-Aehnlichkeit pruefen. Schwelle bewusst hoch (>= 72%), damit
+      // grundverschiedene Namen nicht faelschlich als Treffer durchgehen.
+      const maxLen = Math.max(target.length, name.length);
+      if (maxLen) {
+        const similarity = 1 - levenshtein_(target, name) / maxLen;
+        if (similarity >= 0.72) score = Math.max(score, similarity * 70);
+      }
     }
 
     // Bei Gleichstand gewinnt die zuletzt bearbeitete Datei -- so findet die
@@ -111,8 +143,12 @@ function driveFileUrl_(file, mode) {
     // freigegeben werden muss, als gar keiner.
   }
   const id = file.getId();
+  // "uc?export=view" ist fuer eingebettete Bilder auf fremden Websites
+  // unzuverlaessig geworden (Google zeigt haeufig eine Warnseite statt des
+  // Bilds oder blockiert die Einbettung ganz). Der Thumbnail-Endpunkt ist
+  // fuer genau diesen Zweck gedacht und liefert das Bild direkt.
   return mode === 'view'
-    ? 'https://drive.google.com/uc?export=view&id=' + id
+    ? 'https://drive.google.com/thumbnail?sz=w1600&id=' + id
     : 'https://drive.google.com/uc?export=download&id=' + id;
 }
 
@@ -345,6 +381,61 @@ function readDownloads_(cfg) {
   }
 }
 
+// Tab "Essensplan": bewusst KEIN Zeile-pro-Eintrag-Format wie die anderen
+// Tabs, sondern die woechentliche Kalium/Speiseplan-Datei des Caterers wird
+// 1:1 (als Werte, nicht als Formel) in den Tab hineinkopiert -- die Kopfzeile
+// mit "KW <Nummer>" in Spalte A und den Wochentagen in den Spalten daneben
+// erkennt der Caterer-Export automatisch immer gleich wieder. Jede weitere
+// Zeile mit einem Text in Spalte A ist eine Gerichte-Kategorie (Tagesgericht,
+// Vegetarisch, Salat, Pizza & Pasta, Dessert, Obst, ...) -- welche Kategorien
+// es gibt, ist absichtlich nicht hartkodiert, damit der Caterer eine Kategorie
+// umbenennen/hinzufuegen kann, ohne dass hier Code angepasst werden muss. Die
+// Zeilen "Nährwerte" (Zusatzinfo) sowie alles ab "Hinweis"/"Legende"
+// (Fussnoten, Allergen-Legende) werden ignoriert. Wie SV/Klassenlehrer/
+// Downloads optional behandelt, damit ein fehlender/leerer Tab nicht den
+// gesamten Payload scheitern laesst.
+function readMensa_(cfg) {
+  try {
+    const ss = getSpreadsheet_(cfg);
+    if (!ss) return { kw: '', tage: [] };
+    const sheet = ss.getSheetByName('Essensplan');
+    if (!sheet) return { kw: '', tage: [] };
+    const rows = sheet.getDataRange().getValues();
+
+    let headerRow = -1;
+    for (let i = 0; i < rows.length; i++) {
+      if (/^kw\s*\d+/i.test(String(rows[i][0] || '').trim())) { headerRow = i; break; }
+    }
+    if (headerRow === -1) return { kw: '', tage: [] };
+
+    const kw = String(rows[headerRow][0] || '').trim();
+    const dayCols = [];
+    for (let c = 1; c < rows[headerRow].length; c++) {
+      const label = String(rows[headerRow][c] || '').trim();
+      if (label) dayCols.push({ col: c, tag: label });
+    }
+    const tage = dayCols.map((d) => ({ tag: d.tag, gerichte: [] }));
+
+    const stopLabels = ['hinweis', 'legende'];
+    for (let r = headerRow + 1; r < rows.length; r++) {
+      const kategorie = String(rows[r][0] || '').trim();
+      if (!kategorie) continue;
+      const norm = kategorie.toLowerCase();
+      if (stopLabels.indexOf(norm) !== -1) break;
+      if (norm === 'nährwerte' || norm === 'naehrwerte') continue;
+
+      dayCols.forEach((d, idx) => {
+        const name = String(rows[r][d.col] || '').replace(/\s*\n\s*/g, ' ').trim();
+        if (name) tage[idx].gerichte.push({ kategorie: kategorie, name: name });
+      });
+    }
+
+    return { kw: kw, tage: tage.filter((t) => t.gerichte.length) };
+  } catch (err) {
+    return { kw: '', tage: [] };
+  }
+}
+
 function buildPayload_() {
   const cfg = CONFIG_();
   return {
@@ -353,6 +444,7 @@ function buildPayload_() {
     sv: readSV_(cfg),
     klassenlehrer: readKlassenlehrer_(cfg),
     downloads: readDownloads_(cfg),
+    mensa: readMensa_(cfg),
     generatedAt: new Date().toISOString(),
   };
 }
@@ -374,7 +466,7 @@ function doGet(e) {
   try {
     payload = buildPayload_();
   } catch (err) {
-    payload = { error: String(err), lehrer: [], news: [], sv: [], klassenlehrer: [], downloads: [], generatedAt: new Date().toISOString() };
+    payload = { error: String(err), lehrer: [], news: [], sv: [], klassenlehrer: [], downloads: [], mensa: { kw: '', tage: [] }, generatedAt: new Date().toISOString() };
   }
 
   const json = JSON.stringify(payload);
@@ -391,9 +483,9 @@ function doGet(e) {
 function testPayload() {
   const payload = buildPayload_();
   Logger.log(
-    'Lehrer: %s | News: %s | SV: %s | Klassen: %s | Downloads: %s',
+    'Lehrer: %s | News: %s | SV: %s | Klassen: %s | Downloads: %s | Essensplan-Tage: %s',
     payload.lehrer.length, payload.news.length, payload.sv.length, payload.klassenlehrer.length,
-    payload.downloads.length
+    payload.downloads.length, payload.mensa.tage.length
   );
   Logger.log(JSON.stringify(payload, null, 2));
 }

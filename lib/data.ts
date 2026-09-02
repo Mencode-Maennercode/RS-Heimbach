@@ -296,6 +296,26 @@ export const downloadGroups = DOWNLOAD_CATEGORIES.map((title) => ({
     .map((d) => ({ name: d.titel as string, type: d.typ || "DATEI", href: d.url as string })),
 }));
 
+// Essensplan kommt wie News/Lehrer aus dem Sheet, aber aus einem eigenen Tab
+// "Essensplan" (siehe google-apps-script/Code.gs readMensa_): dort wird die
+// woechentliche Datei des Caterers unveraendert hineinkopiert, das
+// Apps-Script liest die Kopfzeile (Wochentage) und die Gerichte-Kategorien
+// direkt aus dieser Kopie aus. Der Cast faengt ab, dass das Feld fehlt,
+// solange Code.gs noch nicht mit readMensa_ neu bereitgestellt wurde.
+const mensaRaw = (
+  schoolContent as unknown as {
+    mensa?: {
+      kw?: string;
+      tage?: Array<{ tag: string; gerichte: Array<{ kategorie: string; name: string }> }>;
+    };
+  }
+).mensa;
+
+export const mensaPlan = {
+  kw: mensaRaw?.kw ?? "",
+  tage: mensaRaw?.tage ?? [],
+};
+
 export const instagramPosts: Array<{
   id: number;
   type: "photo" | "reel" | "carousel";
