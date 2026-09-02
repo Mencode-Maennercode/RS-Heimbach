@@ -3,12 +3,70 @@
 import HeroBackground from "@/components/HeroBackground";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { Utensils, Clock, Euro, Salad, FileText, X, ArrowRight } from "lucide-react";
-import { mensaPlan } from "@/lib/data";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { Utensils, Clock, Euro, Salad, FileText, X, ArrowRight, Printer } from "lucide-react";
+import { mensaPlan, type MensaGericht } from "@/lib/data";
+
+// Zusatzstoff-/Allergen-Kuerzel wie in der Vorlage des Caterers hochgestellt
+// hinter den Namen -- die Aufloesung steht in der Legende unter dem Plan.
+function Codes({ codes }: { codes: string[] }) {
+  if (!codes.length) return null;
+  return <sup className="ml-0.5 text-[9px] font-semibold text-[#1DA499]">{codes.join(",")}</sup>;
+}
+
+function Gericht({
+  gericht,
+  zeigeNaehrwerte,
+}: {
+  gericht: MensaGericht;
+  zeigeNaehrwerte: boolean;
+}) {
+  return (
+    <div className="print-avoid-break">
+      <p className="font-bold text-slate-900 leading-snug">
+        {gericht.name}
+        <Codes codes={gericht.codes} />
+      </p>
+      {!!gericht.komponenten.length && (
+        <ul className="mt-1.5 space-y-0.5">
+          {gericht.komponenten.map((k, i) => (
+            <li
+              key={i}
+              className={`text-[11px] leading-snug ${
+                k.dge ? "font-semibold text-[#2e7d32]" : "text-slate-500"
+              }`}
+              title={k.dge ? "Hauptkomponente nach DGE-Qualitätsstandard" : undefined}
+            >
+              {k.text}
+              <Codes codes={k.codes} />
+            </li>
+          ))}
+        </ul>
+      )}
+      {zeigeNaehrwerte && gericht.naehrwerte && (
+        <p className="mt-1.5 text-[10px] text-slate-400 leading-snug">{gericht.naehrwerte}</p>
+      )}
+    </div>
+  );
+}
 
 export default function MensaPage() {
   const [planOpen, setPlanOpen] = useState(false);
+  const [zeigeNaehrwerte, setZeigeNaehrwerte] = useState(false);
+  // Das Popup wird per Portal direkt an <body> gehaengt, damit der Ausdruck
+  // alles andere sauber ausblenden kann (siehe @media print in globals.css).
+  // Erst nach dem Mounten rendern, sonst gibt es eine SSR-Abweichung.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const hatPlan = mensaPlan.tage.some((t) => t.gerichte.length > 0);
+  // Kategorien nicht hartkodieren, sondern aus dem Plan ableiten (in der
+  // Reihenfolge, in der sie im Sheet stehen) -- so wirken neue oder
+  // umbenannte Kategorien des Caterers ohne Code-Aenderung.
+  const kategorien = Array.from(
+    new Set(mensaPlan.tage.flatMap((t) => t.gerichte.map((g) => g.kategorie)))
+  );
 
   return (
     <>
@@ -125,7 +183,8 @@ export default function MensaPage() {
         </div>
       </section>
 
-      {/* Speiseplan-Modal (PDF-Mock) */}
+      {/* Speiseplan-Modal: zeigt den aus dem Google-Sheet erzeugten Wochenplan */}
+      {mounted && createPortal(
       <AnimatePresence>
         {planOpen && (
           <motion.div
@@ -133,59 +192,171 @@ export default function MensaPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setPlanOpen(false)}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            id="speiseplan-overlay"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.97, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              exit={{ opacity: 0, scale: 0.97, y: 20 }}
               transition={{ type: "spring", duration: 0.4 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+              id="speiseplan-print"
+              className="relative w-full max-w-6xl bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col"
             >
               {/* Kopf */}
-              <div className="gradient-hero px-6 py-5 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center">
+              <div className="gradient-hero px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-4 shrink-0">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
                     <FileText className="w-5 h-5 text-white" />
                   </div>
-                  <div>
-                    <h3 className="text-white font-black text-lg leading-tight">Speiseplan</h3>
-                    {mensaPlan.kw && (
-                      <p className="text-white/70 text-xs mt-0.5">{mensaPlan.kw}</p>
+                  <div className="min-w-0">
+                    <h3 className="text-white font-black text-lg leading-tight truncate">Speiseplan</h3>
+                    {(mensaPlan.woche || mensaPlan.kw) && (
+                      <p className="text-white/75 text-xs mt-0.5 truncate">
+                        {mensaPlan.woche ? `Woche ${mensaPlan.woche}` : mensaPlan.kw}
+                      </p>
                     )}
                   </div>
                 </div>
-                <button
-                  onClick={() => setPlanOpen(false)}
-                  className="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 transition-colors flex items-center justify-center text-white"
-                  aria-label="Schließen"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <div className="flex items-center gap-2 shrink-0 print-hidden">
+                  {hatPlan && (
+                    <button
+                      onClick={() => window.print()}
+                      className="inline-flex items-center gap-2 h-9 px-3 sm:px-4 rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white text-sm font-bold"
+                    >
+                      <Printer className="w-4 h-4" />
+                      <span className="hidden sm:inline">Drucken</span>
+                    </button>
+                  )}
+                  <button
+                    onClick={() => setPlanOpen(false)}
+                    className="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 transition-colors flex items-center justify-center text-white"
+                    aria-label="Schließen"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
 
-              {/* Inhalt */}
-              {mensaPlan.tage.length > 0 ? (
-                <div className="overflow-y-auto p-6 space-y-5">
-                  {mensaPlan.tage.map((tag) => (
-                    <div key={tag.tag} className="bg-[#f8f9ff] rounded-2xl p-5">
-                      <h4 className="font-black text-[#0a5a54] mb-3">{tag.tag}</h4>
-                      <dl className="space-y-2.5">
-                        {tag.gerichte.map((gericht, i) => (
-                          <div key={i} className="flex flex-col gap-0.5">
-                            <dt className="text-[11px] font-bold uppercase tracking-wide text-[#1DA499]">
-                              {gericht.kategorie}
-                            </dt>
-                            <dd className="text-sm text-slate-700 leading-snug">{gericht.name}</dd>
-                          </div>
+              {hatPlan ? (
+                <div className="overflow-y-auto print-scroll">
+                  {/* Wochenraster wie in der Vorlage des Caterers: Kategorien
+                      als Zeilen, Wochentage als Spalten. */}
+                  <div className="hidden md:block p-5">
+                    <table className="w-full table-fixed border-collapse text-sm">
+                      <colgroup>
+                        <col className="w-[104px]" />
+                        {mensaPlan.tage.map((tag) => (
+                          <col key={tag.tag} />
                         ))}
-                      </dl>
-                    </div>
-                  ))}
-                  <p className="text-xs text-slate-400 text-center pt-1">
-                    Angaben ohne Gewähr, Änderungen im Speiseplan vorbehalten.
-                  </p>
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th className="border border-slate-200 bg-slate-50 px-2 py-2 text-left text-[11px] font-black uppercase tracking-wide text-slate-500">
+                            &nbsp;
+                          </th>
+                          {mensaPlan.tage.map((tag) => (
+                            <th
+                              key={tag.tag}
+                              className="border border-slate-200 bg-[#0a5a54] px-3 py-2 text-left align-bottom"
+                            >
+                              <span className="block text-white font-black leading-tight">{tag.tag}</span>
+                              {tag.datum && (
+                                <span className="block text-white/70 text-[11px] font-medium">{tag.datum}</span>
+                              )}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {kategorien.map((kategorie) => (
+                          <tr key={kategorie} className="align-top">
+                            <th
+                              scope="row"
+                              className="border border-slate-200 bg-slate-50 px-2 py-3 text-left text-[11px] font-black uppercase tracking-wide text-[#0a5a54]"
+                            >
+                              {kategorie}
+                            </th>
+                            {mensaPlan.tage.map((tag) => {
+                              const gericht = tag.gerichte.find((g) => g.kategorie === kategorie);
+                              return (
+                                <td key={tag.tag} className="border border-slate-200 px-3 py-3">
+                                  {gericht ? (
+                                    <Gericht gericht={gericht} zeigeNaehrwerte={zeigeNaehrwerte} />
+                                  ) : (
+                                    <span className="text-slate-300 text-xs">–</span>
+                                  )}
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Mobil: nach Tagen gestapelt, weil eine 5-Spalten-Tabelle
+                      auf dem Handy nicht lesbar waere. */}
+                  <div className="md:hidden p-4 space-y-4">
+                    {mensaPlan.tage.map((tag) => (
+                      <div key={tag.tag} className="rounded-2xl border border-slate-200 overflow-hidden">
+                        <div className="bg-[#0a5a54] px-4 py-2.5">
+                          <span className="text-white font-black">{tag.tag}</span>
+                          {tag.datum && <span className="text-white/70 text-xs ml-2">{tag.datum}</span>}
+                        </div>
+                        {tag.gerichte.length ? (
+                          <div className="divide-y divide-slate-100">
+                            {tag.gerichte.map((gericht, i) => (
+                              <div key={i} className="px-4 py-3">
+                                <span className="block text-[10px] font-black uppercase tracking-wide text-[#1DA499] mb-1">
+                                  {gericht.kategorie}
+                                </span>
+                                <Gericht gericht={gericht} zeigeNaehrwerte={zeigeNaehrwerte} />
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="px-4 py-3 text-sm text-slate-400">Kein Mittagsangebot</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Hinweise & Legende */}
+                  <div className="px-5 pb-6 space-y-4 text-[11px] leading-relaxed text-slate-600">
+                    {mensaPlan.hinweise.map((hinweis, i) => (
+                      <p key={i} className="print-avoid-break">
+                        {hinweis}
+                      </p>
+                    ))}
+
+                    {!!mensaPlan.legende.zusatzstoffe.length && (
+                      <div className="print-avoid-break">
+                        <h4 className="font-black text-[#0a5a54] uppercase tracking-wide mb-1">
+                          Zusatzstoffe
+                        </h4>
+                        <p>
+                          {mensaPlan.legende.zusatzstoffe
+                            .map((e) => `${e.code} ${e.text}`)
+                            .join(" · ")}
+                        </p>
+                      </div>
+                    )}
+
+                    {!!mensaPlan.legende.allergene.length && (
+                      <div className="print-avoid-break">
+                        <h4 className="font-black text-[#0a5a54] uppercase tracking-wide mb-1">
+                          Allergene und daraus hergestellte Erzeugnisse
+                        </h4>
+                        <p>
+                          {mensaPlan.legende.allergene
+                            .map((e) => `${e.code} ${e.text}`)
+                            .join(" · ")}
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </div>
               ) : (
                 <div className="p-10 text-center">
@@ -196,10 +367,29 @@ export default function MensaPage() {
                   <p className="text-sm text-slate-500 mt-2">Guten Appetit!</p>
                 </div>
               )}
+
+              {hatPlan && (
+                <div className="shrink-0 border-t border-slate-100 px-5 py-3 flex items-center justify-between gap-4 print-hidden">
+                  <label className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={zeigeNaehrwerte}
+                      onChange={(e) => setZeigeNaehrwerte(e.target.checked)}
+                      className="w-4 h-4 rounded accent-[#0a5a54]"
+                    />
+                    Nährwerte anzeigen
+                  </label>
+                  <span className="text-[11px] text-slate-400 text-right">
+                    Änderungen vorbehalten
+                  </span>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body
+      )}
     </>
   );
 }

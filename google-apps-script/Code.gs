@@ -381,58 +381,260 @@ function readDownloads_(cfg) {
   }
 }
 
+// Trennt die Zusatzstoff-/Allergen-Kuerzel ab, die der Caterer direkt hinter
+// den Gerichtnamen schreibt ("Nudelsalat 2, A, A1, J" -> Name "Nudelsalat",
+// Kuerzel ["2","A","A1","J"]). Nur Kuerzel am ZEILENENDE werden erkannt,
+// damit Zahlen im Namen ("2 St Fleischkloesschen") unangetastet bleiben.
+function splitZusatzCodes_(text) {
+  const s = String(text || '').trim();
+  const m = s.match(/^(.*?)[\s,]+((?:\d{1,2}|[A-N]\d?)(?:\s*,\s*(?:\d{1,2}|[A-N]\d?))*)$/);
+  if (!m || !m[1]) return { text: s, codes: [] };
+  return {
+    text: m[1].trim(),
+    codes: m[2].split(/\s*,\s*/).map((c) => c.trim()).filter(Boolean),
+  };
+}
+
+// Der Caterer hebt die DGE-konformen Hauptkomponenten farblich (gruen) hervor
+// -- genau darauf verweist der Hinweistext unter dem Plan. getValues() liefert
+// nur den Text, darum werden die Farben separat aus den Rich-Text-Runs gelesen.
+function istGruen_(hex) {
+  const m = String(hex || '').match(/^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
+  if (!m) return false;
+  const r = parseInt(m[1], 16), g = parseInt(m[2], 16), b = parseInt(m[3], 16);
+  // Grau/Schwarz/Blau fallen bereits ueber das Verhaeltnis heraus, darum darf
+  // die Helligkeitsschwelle niedrig bleiben und auch dunkle Gruentoene fangen.
+  return g > 70 && g > r * 1.3 && g > b * 1.3;
+}
+
+// Liefert fuer eine Zelle die Menge der Zeilennummern, deren Text gruen
+// eingefaerbt ist. Ohne Rich-Text-Info (z. B. wenn nur Werte eingefuegt
+// wurden) kommt eine leere Menge zurueck -- der Plan wird dann eben ohne
+// DGE-Hervorhebung angezeigt.
+function gruenMarkierteZeilen_(richText) {
+  const treffer = {};
+  if (!richText || typeof richText.getRuns !== 'function') return treffer;
+  let runs;
+  try {
+    runs = richText.getRuns();
+  } catch (err) {
+    return treffer;
+  }
+  if (!runs || !runs.length) return treffer;
+
+  const zeilen = String(richText.getText() || '').split('\n');
+  let pos = 0;
+  zeilen.forEach((zeile, i) => {
+    const start = pos;
+    const ende = pos + zeile.length;
+    pos = ende + 1;
+    if (!zeile.trim()) return;
+    for (let k = 0; k < runs.length; k++) {
+      const rs = runs[k].getStartIndex();
+      const re = rs + String(runs[k].getText() || '').length;
+      // Erster Run, der sich mit dieser Zeile ueberschneidet, bestimmt die
+      // Farbe -- die nachgestellten Kuerzel sind oft anders eingefaerbt.
+      if (rs < ende && re > start) {
+        if (istGruen_(runs[k].getTextStyle().getForegroundColor())) treffer[i] = true;
+        break;
+      }
+    }
+  });
+  return treffer;
+}
+
+// Der Caterer schreibt das Jahr zweistellig ("22.06.26") -- ausgeschrieben
+// ist es auf der Website und im Ausdruck eindeutiger.
+function normalizeDatum_(datum) {
+  const m = String(datum || '').trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{2}|\d{4})$/);
+  if (!m) return String(datum || '').trim();
+  const jahr = m[3].length === 2 ? '20' + m[3] : m[3];
+  return m[1].padStart(2, '0') + '.' + m[2].padStart(2, '0') + '.' + jahr;
+}
+
+// Zerlegt die Legende des Caterers ("1 mit Farbstoff / 2 mit
+// Konservierungsstoff / ... " bzw. "A enthaelt Gluten - A1 aus Weizen / ...")
+// in einzelne Eintraege, damit die Website sie als saubere Liste statt als
+// einen langen Fliesstext anzeigen kann.
+function parseLegendePart_(text) {
+  return String(text || '')
+    .split('/')
+    .map((part) => part.replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .map((part) => {
+      const m = part.match(/^(\d{1,2}|[A-N]\d?)\s+(.*)$/);
+      return m ? { code: m[1], text: m[2] } : { code: '', text: part };
+    })
+    .filter((e) => e.text);
+}
+
 // Tab "Essensplan": bewusst KEIN Zeile-pro-Eintrag-Format wie die anderen
-// Tabs, sondern die woechentliche Kalium/Speiseplan-Datei des Caterers wird
-// 1:1 (als Werte, nicht als Formel) in den Tab hineinkopiert -- die Kopfzeile
-// mit "KW <Nummer>" in Spalte A und den Wochentagen in den Spalten daneben
-// erkennt der Caterer-Export automatisch immer gleich wieder. Jede weitere
-// Zeile mit einem Text in Spalte A ist eine Gerichte-Kategorie (Tagesgericht,
-// Vegetarisch, Salat, Pizza & Pasta, Dessert, Obst, ...) -- welche Kategorien
-// es gibt, ist absichtlich nicht hartkodiert, damit der Caterer eine Kategorie
-// umbenennen/hinzufuegen kann, ohne dass hier Code angepasst werden muss. Die
-// Zeilen "Nährwerte" (Zusatzinfo) sowie alles ab "Hinweis"/"Legende"
-// (Fussnoten, Allergen-Legende) werden ignoriert. Wie SV/Klassenlehrer/
-// Downloads optional behandelt, damit ein fehlender/leerer Tab nicht den
-// gesamten Payload scheitern laesst.
+// Tabs, sondern die woechentliche Speiseplan-Datei des Caterers wird 1:1 (als
+// Werte, nicht als Formel) in den Tab hineinkopiert -- die Kopfzeile mit
+// "KW <Nummer>" in Spalte A und den Wochentagen in den Spalten daneben
+// erkennt der Caterer-Export automatisch immer gleich wieder.
+//
+// Aufbau eines Kategorie-Blocks im Caterer-Export (bleibt Woche fuer Woche
+// gleich, ist aber bewusst nicht hartkodiert, damit der Caterer Kategorien
+// umbenennen/ergaenzen kann, ohne dass hier Code angepasst werden muss):
+//   Zeile mit Kategorie in Spalte A  -> Name des Gerichts
+//   Folgezeile(n) mit leerer Spalte A -> Einzelkomponenten inkl. Kuerzel
+//   Zeile "Naehrwerte" in Spalte A    -> Naehrwertangaben des Gerichts
+// Zwischenzeilen "oder wahlweise" sind reine Excel-Optik und werden
+// uebersprungen; ab "Hinweis"/"Legende" folgen die Fusstexte, die als
+// hinweise/legende mit ausgeliefert werden (Allergen-Kennzeichnung ist
+// Pflichtangabe und darf auf der Website nicht fehlen).
+//
+// Wie SV/Klassenlehrer/Downloads optional behandelt, damit ein fehlender oder
+// leerer Tab nicht den gesamten Payload scheitern laesst.
 function readMensa_(cfg) {
+  const leer = { woche: '', kw: '', tage: [], hinweise: [], legende: { zusatzstoffe: [], allergene: [] } };
   try {
     const ss = getSpreadsheet_(cfg);
-    if (!ss) return { kw: '', tage: [] };
+    if (!ss) return leer;
     const sheet = ss.getSheetByName('Essensplan');
-    if (!sheet) return { kw: '', tage: [] };
-    const rows = sheet.getDataRange().getValues();
+    if (!sheet) return leer;
+    const range = sheet.getDataRange();
+    const rows = range.getValues();
+    // Farbinfos sind optional -- schlaegt der Aufruf fehl (aeltere Tabellen,
+    // reine Werte-Kopie), laeuft der Rest unveraendert weiter.
+    let richTexts = null;
+    try {
+      richTexts = range.getRichTextValues();
+    } catch (err) {
+      richTexts = null;
+    }
 
     let headerRow = -1;
     for (let i = 0; i < rows.length; i++) {
       if (/^kw\s*\d+/i.test(String(rows[i][0] || '').trim())) { headerRow = i; break; }
     }
-    if (headerRow === -1) return { kw: '', tage: [] };
+    if (headerRow === -1) return leer;
 
     const kw = String(rows[headerRow][0] || '').trim();
     const dayCols = [];
     for (let c = 1; c < rows[headerRow].length; c++) {
-      const label = String(rows[headerRow][c] || '').trim();
-      if (label) dayCols.push({ col: c, tag: label });
+      const label = String(rows[headerRow][c] || '').replace(/\s+/g, ' ').trim();
+      if (!label) continue;
+      const parts = label.split(',');
+      dayCols.push({
+        col: c,
+        tag: parts[0].trim(),
+        datum: parts.length > 1 ? normalizeDatum_(parts.slice(1).join(',').trim()) : '',
+      });
     }
-    const tage = dayCols.map((d) => ({ tag: d.tag, gerichte: [] }));
+    if (!dayCols.length) return leer;
 
-    const stopLabels = ['hinweis', 'legende'];
+    const tage = dayCols.map((d) => ({ tag: d.tag, datum: d.datum, gerichte: [] }));
+    const hinweise = [];
+    let legendeText = '';
+    let inFooter = false;
+    // Merkt sich pro Tag das zuletzt begonnene Gericht, damit die Folgezeilen
+    // (Komponenten, Naehrwerte) dem richtigen Eintrag zugeordnet werden.
+    let offen = null;
+
     for (let r = headerRow + 1; r < rows.length; r++) {
-      const kategorie = String(rows[r][0] || '').trim();
-      if (!kategorie) continue;
-      const norm = kategorie.toLowerCase();
-      if (stopLabels.indexOf(norm) !== -1) break;
-      if (norm === 'nährwerte' || norm === 'naehrwerte') continue;
+      const label = String(rows[r][0] || '').replace(/\s+/g, ' ').trim();
+      const norm = label.toLowerCase();
 
+      if (norm === 'hinweis' || norm === 'legende') inFooter = true;
+
+      if (inFooter) {
+        // Fusstexte stehen je nach Export mal in Spalte A, mal irgendwo
+        // rechts daneben -- darum die ganze Zeile absuchen.
+        for (let c = 0; c < rows[r].length; c++) {
+          const val = String(rows[r][c] || '').replace(/[ \t]+/g, ' ').trim();
+          if (!val || val.toLowerCase() === 'hinweis' || val.toLowerCase() === 'legende') continue;
+          if (/allergene|enthält gluten|mit farbstoff/i.test(val)) legendeText += (legendeText ? '\n' : '') + val;
+          else hinweise.push(val.replace(/\s*\n\s*/g, ' '));
+        }
+        continue;
+      }
+
+      if (norm === 'nährwerte' || norm === 'naehrwerte') {
+        if (offen) {
+          dayCols.forEach((d, idx) => {
+            const val = String(rows[r][d.col] || '').replace(/\s*\n\s*/g, ' ').trim();
+            if (val && offen[idx]) offen[idx].naehrwerte = val;
+          });
+        }
+        continue;
+      }
+
+      if (!label) {
+        // Folgezeile ohne Kategorie: entweder Einzelkomponenten des zuletzt
+        // begonnenen Gerichts oder die reine Optik-Zeile "oder wahlweise".
+        if (!offen) continue;
+        dayCols.forEach((d, idx) => {
+          const raw = String(rows[r][d.col] || '').trim();
+          if (!raw || !offen[idx]) return;
+          if (/^oder wahlweise$/i.test(raw)) return;
+          const gruen = richTexts && richTexts[r]
+            ? gruenMarkierteZeilen_(richTexts[r][d.col])
+            : {};
+          // Zeilenindex aus der ROHEN Zelle bestimmen, damit er zu den
+          // Farb-Infos passt (raw ist bereits getrimmt).
+          String(rows[r][d.col] || '').split('\n').forEach((line, li) => {
+            const clean = line.replace(/\s+/g, ' ').trim();
+            if (!clean) return;
+            const eintrag = splitZusatzCodes_(clean);
+            eintrag.dge = !!gruen[li];
+            offen[idx].komponenten.push(eintrag);
+          });
+        });
+        continue;
+      }
+
+      // Neue Kategorie-Zeile: pro Tag ein neues Gericht anlegen.
+      offen = [];
       dayCols.forEach((d, idx) => {
-        const name = String(rows[r][d.col] || '').replace(/\s*\n\s*/g, ' ').trim();
-        if (name) tage[idx].gerichte.push({ kategorie: kategorie, name: name });
+        const raw = String(rows[r][d.col] || '').replace(/\s*\n\s*/g, ' ').trim();
+        if (!raw) { offen[idx] = null; return; }
+        const parsed = splitZusatzCodes_(raw);
+        const gericht = {
+          kategorie: label,
+          name: parsed.text,
+          codes: parsed.codes,
+          komponenten: [],
+          naehrwerte: '',
+        };
+        tage[idx].gerichte.push(gericht);
+        offen[idx] = gericht;
       });
     }
 
-    return { kw: kw, tage: tage.filter((t) => t.gerichte.length) };
+    // Zeitraum der Woche aus dem ersten und letzten Tag mit Datum ableiten --
+    // die Kalenderwoche selbst sagt Eltern/Schuelern wenig. Das Jahr steht nur
+    // einmal am Ende ("22.06. – 26.06.2026").
+    const mitDatum = dayCols.filter((d) => d.datum);
+    let woche = '';
+    if (mitDatum.length) {
+      const letztes = normalizeDatum_(mitDatum[mitDatum.length - 1].datum);
+      woche = mitDatum.length > 1
+        ? normalizeDatum_(mitDatum[0].datum).replace(/\.\d{4}$/, '.') + ' – ' + letztes
+        : letztes;
+    }
+
+    // Die Allergen-Aufzaehlung laeuft im Export ueber mehrere Zeilen einer
+    // Zelle (A..H, dann H3..N) -- alles nach der Ueberschrift "Allergene ..."
+    // gehoert zusammen, alles davor sind die Zusatzstoff-Nummern.
+    const legendeZeilen = legendeText.split('\n').map((l) => l.trim()).filter(Boolean);
+    const markerIdx = legendeZeilen.findIndex((l) => /^allergene/i.test(l));
+    const zusatzZeilen = markerIdx === -1 ? legendeZeilen : legendeZeilen.slice(0, markerIdx);
+    const allergenZeilen = markerIdx === -1 ? [] : legendeZeilen.slice(markerIdx + 1);
+
+    return {
+      woche: woche,
+      kw: kw,
+      tage: tage,
+      hinweise: hinweise,
+      legende: {
+        zusatzstoffe: parseLegendePart_(zusatzZeilen.join(' / ')),
+        allergene: parseLegendePart_(allergenZeilen.join(' ')),
+      },
+    };
   } catch (err) {
-    return { kw: '', tage: [] };
+    return leer;
   }
 }
 

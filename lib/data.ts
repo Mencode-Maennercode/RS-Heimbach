@@ -302,18 +302,53 @@ export const downloadGroups = DOWNLOAD_CATEGORIES.map((title) => ({
 // Apps-Script liest die Kopfzeile (Wochentage) und die Gerichte-Kategorien
 // direkt aus dieser Kopie aus. Der Cast faengt ab, dass das Feld fehlt,
 // solange Code.gs noch nicht mit readMensa_ neu bereitgestellt wurde.
+export interface MensaKomponente {
+  text: string;
+  codes: string[];
+  // Vom Caterer gruen hervorgehobene Hauptkomponente (DGE-Qualitaetsstandard).
+  dge?: boolean;
+}
+
+export interface MensaGericht {
+  kategorie: string;
+  name: string;
+  codes: string[];
+  komponenten: MensaKomponente[];
+  naehrwerte: string;
+}
+
+export interface MensaTag {
+  tag: string;
+  datum: string;
+  gerichte: MensaGericht[];
+}
+
+export interface MensaLegendeEintrag {
+  code: string;
+  text: string;
+}
+
 const mensaRaw = (
   schoolContent as unknown as {
     mensa?: {
+      woche?: string;
       kw?: string;
-      tage?: Array<{ tag: string; gerichte: Array<{ kategorie: string; name: string }> }>;
+      tage?: MensaTag[];
+      hinweise?: string[];
+      legende?: { zusatzstoffe?: MensaLegendeEintrag[]; allergene?: MensaLegendeEintrag[] };
     };
   }
 ).mensa;
 
 export const mensaPlan = {
+  woche: mensaRaw?.woche ?? "",
   kw: mensaRaw?.kw ?? "",
   tage: mensaRaw?.tage ?? [],
+  hinweise: mensaRaw?.hinweise ?? [],
+  legende: {
+    zusatzstoffe: mensaRaw?.legende?.zusatzstoffe ?? [],
+    allergene: mensaRaw?.legende?.allergene ?? [],
+  },
 };
 
 export const instagramPosts: Array<{
