@@ -1133,96 +1133,473 @@
     }
   ],
   "mensa": {
+    "woche": "",
     "kw": "KW 26",
     "tage": [
       {
         "tag": "Mon Jun 22 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+        "datum": "",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Geflügelbratwurst mit Bratensauce dazu Kartoffelstampf"
+            "name": "Geflügelbratwurst mit Bratensauce dazu Kartoffelstampf",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Geflügelbratwurst",
+                "codes": [],
+                "dge": false
+              },
+              {
+                "text": "Bratensauce",
+                "codes": [
+                  "1"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Kartoffelstampf",
+                "codes": [
+                  "G"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 14,6g / davon gesättigte Fettsäuren: 7g / KH: 17,6g / Zucker: g / Kilokalorien: 295,4kcal / Salz: 1,7g / Kilojoule: 1233kJ / Eiweiß (Protein): 18,6g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Vegetarische Tortellini mit Gemüsefüllung in Käserahmsauce"
+            "name": "Vegetarische Tortellini mit Gemüsefüllung in Käserahmsauce",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Tortellini",
+                "codes": [],
+                "dge": false
+              },
+              {
+                "text": "Käsesauce",
+                "codes": [
+                  "G",
+                  "I"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 9,5g / davon gesättigte Fettsäuren: 5,7g / KH: 23,3g / Zucker: g / Kilokalorien: 253,1kcal / Salz: 0,7g / Kilojoule: 1125,6kJ / Eiweiß (Protein): 8,9g"
           },
           {
             "kategorie": "Salat",
-            "name": "Salat"
+            "name": "Salat",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": "Fett: 0,2g / davon gesättigte Fettsäuren: 0g / KH: 3,5g / Zucker: g / Kilokalorien: 34,8kcal / Salz: 0g / Kilojoule: 150,7kJ / Eiweiß (Protein): 469,2mg"
           },
           {
             "kategorie": "Pizza & Pasta",
-            "name": "Wechselnde Pasta mit verschiedenen Saucen"
+            "name": "Wechselnde Pasta mit verschiedenen Saucen",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Spiralnudeln",
+                "codes": [],
+                "dge": false
+              },
+              {
+                "text": "Tomaten Basilikumsauce",
+                "codes": [
+                  "1",
+                  "I"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Bolognese Sauce Rind",
+                "codes": [
+                  "I"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 11,5g / davon gesättigte Fettsäuren: 3,6g / KH: 80,5g / Zucker: 0g / Kilokalorien: 542,8kcal / Salz: 0,5g / Kilojoule: 2278,4kJ / Eiweiß (Protein): 24,7g"
           },
           {
             "kategorie": "Dessert",
-            "name": "Wassereis"
+            "name": "Wassereis",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": ""
           },
           {
             "kategorie": "Obst",
-            "name": "Apfel"
+            "name": "Apfel",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": "Kilokalorien: 52kcal / KH: 11,4g / BE: 1BE / Fett: 0,4g / Zucker: g / Salz: 0g / davon gesättigte Fettsäuren: 0,1g / Kilojoule: 217kJ"
           }
         ]
       },
       {
+        "tag": "Tue Jun 23 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+        "datum": "",
+        "gerichte": []
+      },
+      {
         "tag": "Wed Jun 24 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+        "datum": "",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "2 Stück Geflügel Wienerwürstchen dazu bunter Nudelsalat"
+            "name": "2 Stück Geflügel Wienerwürstchen dazu bunter Nudelsalat",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Geflügel Wiener",
+                "codes": [
+                  "2",
+                  "3",
+                  "8",
+                  "G",
+                  "I",
+                  "J"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Nudelsalat",
+                "codes": [
+                  "2",
+                  "A",
+                  "A1",
+                  "J"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 2,8g / davon gesättigte Fettsäuren: 1,1g / KH: 65,6g / Zucker: 0g / Kilokalorien: 568,4kcal / Salz: 0,1g / Kilojoule: 2442,1kJ / Eiweiß (Protein): 7,5g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Blumenkohl-Käse Bratling mit Kräuterquark und Cous Cous"
+            "name": "Blumenkohl-Käse Bratling mit Kräuterquark und Cous Cous",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Blumenkohl - Käse Medaillon",
+                "codes": [],
+                "dge": false
+              },
+              {
+                "text": "Kräuter Quark",
+                "codes": [
+                  "3",
+                  "5",
+                  "G",
+                  "L"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Cous Cous",
+                "codes": [
+                  "A",
+                  "I"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 10,5g / davon gesättigte Fettsäuren: 1,6g / KH: 5,1g / Zucker: 0,1g / Kilokalorien: 500,7kcal / Salz: 0,1g / Kilojoule: 619,2kJ / Eiweiß (Protein): 3,8g"
           },
           {
             "kategorie": "Salat",
-            "name": "Salat"
+            "name": "Salat",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": "Fett: 0,2g / davon gesättigte Fettsäuren: 0g / KH: 3,5g / Zucker: g / Kilokalorien: 34,8kcal / Salz: 0g / Kilojoule: 150,7kJ / Eiweiß (Protein): 469,2mg"
           },
           {
             "kategorie": "Pizza & Pasta",
-            "name": "Wechselnde Pasta mit verschiedenen Saucen"
+            "name": "Wechselnde Pasta mit verschiedenen Saucen",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Spiralnudeln",
+                "codes": [],
+                "dge": false
+              },
+              {
+                "text": "Tomaten Basilikumsauce",
+                "codes": [
+                  "1",
+                  "I"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Bolognese Sauce Rind",
+                "codes": [
+                  "I"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 15,9g / davon gesättigte Fettsäuren: 5,2g / KH: 86,4g / Zucker: 0g / Kilokalorien: 641,7kcal / Salz: 0,5g / Kilojoule: 2695kJ / Eiweiß (Protein): 32,1g"
           },
           {
             "kategorie": "Dessert",
-            "name": "Fruchtquark Apfel Pfirsich G"
+            "name": "Fruchtquark Apfel Pfirsich",
+            "codes": [
+              "G"
+            ],
+            "komponenten": [],
+            "naehrwerte": "Fett: 0,2g / davon gesättigte Fettsäuren: 0,1g / KH: 9,5g / Zucker: g / Kilokalorien: 91,2kcal / Salz: 0,1g / Kilojoule: 391,1kJ / Eiweiß (Protein): 12g"
           },
           {
             "kategorie": "Obst",
-            "name": "Birne"
+            "name": "Birne",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": "Kilokalorien: 78kcal / KH: 18,6g / BE: 1,5BE / Fett: 0,5g / Zucker: g / Salz: 0g / davon gesättigte Fettsäuren: 0g / Kilojoule: 328,5kJ"
           }
         ]
       },
       {
         "tag": "Thu Jun 25 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+        "datum": "",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "2 St Fleischklößchen Geflügel in Tomatensauce mit Vollkornreis"
+            "name": "2 St Fleischklößchen Geflügel in Tomatensauce mit Vollkornreis",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Geflügelkräuterbällchen",
+                "codes": [
+                  "8",
+                  "A",
+                  "A1",
+                  "C",
+                  "I"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Tomaten Basilikumsauce",
+                "codes": [
+                  "1",
+                  "I"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Vollkornreis",
+                "codes": [],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 1,9g / davon gesättigte Fettsäuren: 0,5g / KH: 66g / Zucker: 0g / Kilokalorien: 511,9kcal / Salz: 0g / Kilojoule: 1346,7kJ / Eiweiß (Protein): 6,3g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Mailänder Gnocchi Pfanne mit Paprika, Zucchini, und Zwiebeln dazu Tomatensauce"
+            "name": "Mailänder Gnocchi Pfanne mit Paprika, Zucchini, und Zwiebeln dazu Tomatensauce",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Gnochipfanne",
+                "codes": [
+                  "A",
+                  "A1",
+                  "C"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Tomaten Basilikumsauce",
+                "codes": [
+                  "1",
+                  "I"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 12,8g / davon gesättigte Fettsäuren: 2,5g / KH: 130,9g / Zucker: g / Kilokalorien: 701,7kcal / Salz: 3,9g / Kilojoule: 2970,4kJ / Eiweiß (Protein): 12,5g"
           },
           {
             "kategorie": "Salat",
-            "name": "Salat"
+            "name": "Salat",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": "Fett: 0,2g / davon gesättigte Fettsäuren: 0g / KH: 3,5g / Zucker: g / Kilokalorien: 34,8kcal / Salz: 0g / Kilojoule: 150,7kJ / Eiweiß (Protein): 469,2mg"
           },
           {
             "kategorie": "Pizza & Pasta",
-            "name": "Pizza Pomodoro & Salami & Schinken"
+            "name": "Pizza Pomodoro & Salami & Schinken",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Pizza Margarita/Pomodoro",
+                "codes": [
+                  "G"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Pizza Salami",
+                "codes": [
+                  "2",
+                  "3",
+                  "G",
+                  "I",
+                  "J"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Pizza Prosciutto",
+                "codes": [
+                  "2",
+                  "3",
+                  "8",
+                  "G"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 19,9g / davon gesättigte Fettsäuren: 9,8g / KH: 80,6g / Zucker: 0,1g / Kilokalorien: 635,4kcal / Salz: 1,9g / Kilojoule: 2690,5kJ / Eiweiß (Protein): 24,8g"
           },
           {
             "kategorie": "Dessert",
-            "name": "Kuchenstück A, A1, C, G"
+            "name": "Kuchenstück",
+            "codes": [
+              "A",
+              "A1",
+              "C",
+              "G"
+            ],
+            "komponenten": [],
+            "naehrwerte": "Fett: 9,3g / davon gesättigte Fettsäuren: 3,7g / KH: 32,6g / Zucker: 18,6g / Kilokalorien: 243,7kcal / Salz: 0,4g / Kilojoule: 1022,1kJ / Eiweiß (Protein): 5,7g"
           },
           {
             "kategorie": "Obst",
-            "name": "Apfel"
+            "name": "Apfel",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": "Kilokalorien: 52kcal / KH: 11,4g / BE: 1BE / Fett: 0,4g / Zucker: g / Salz: 0g / davon gesättigte Fettsäuren: 0,1g / Kilojoule: 217kJ"
           }
         ]
+      },
+      {
+        "tag": "Fri Jun 26 2026 00:00:00 GMT+0200 (Central European Summer Time)",
+        "datum": "",
+        "gerichte": []
       }
-    ]
+    ],
+    "hinweise": [
+      "Bis zur angestrebten Zertifizierung durch die Deutsche Gesellschaft für Ernährung sind die Hauptkomponenten der jeweiligen Gerichte grün markiert",
+      "Die grün hinterlegten Komponenten entsprechen dem „DGE-Qualitätsstandard für die Verpflegung in Schulen“ und wurden von der Deutschen Gesellschaft für Ernährung e.V. (DGE) als eine Menülinie zertifiziert und mit dem DGE-Logo ausgezeichnet.",
+      "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb."
+    ],
+    "legende": {
+      "zusatzstoffe": [
+        {
+          "code": "1",
+          "text": "mit Farbstoff"
+        },
+        {
+          "code": "2",
+          "text": "mit Konservierungsstoff"
+        },
+        {
+          "code": "3",
+          "text": "mit Antioxidationsmittel"
+        },
+        {
+          "code": "4",
+          "text": "mit Geschmacksverstärker"
+        },
+        {
+          "code": "5",
+          "text": "geschwefelt"
+        },
+        {
+          "code": "6",
+          "text": "geschwärzt"
+        },
+        {
+          "code": "7",
+          "text": "gewachst"
+        },
+        {
+          "code": "8",
+          "text": "mit Phosphat"
+        },
+        {
+          "code": "9",
+          "text": "mit Süßungsmittel(n)"
+        },
+        {
+          "code": "10",
+          "text": "mit einer Zuckerart und Süßungsmittel"
+        }
+      ],
+      "allergene": [
+        {
+          "code": "A",
+          "text": "enthält Gluten - A1 aus Weizen, A2 aus Roggen, A3 aus Gerste, A4 aus Hafer, A5 aus Dinkel"
+        },
+        {
+          "code": "B",
+          "text": "enthält Krebstiere"
+        },
+        {
+          "code": "C",
+          "text": "enthält Ei"
+        },
+        {
+          "code": "D",
+          "text": "enthält Fisch"
+        },
+        {
+          "code": "E",
+          "text": "enthält Erdnüsse"
+        },
+        {
+          "code": "F",
+          "text": "enthält Soja"
+        },
+        {
+          "code": "G",
+          "text": "enthält Milch einschl. Laktose"
+        },
+        {
+          "code": "H",
+          "text": "enthält Schalenfrüchte - H1 aus Mandeln, H2 aus Haselnuss, H3 aus Walnuss, H4 aus Cashewnuss, H5 aus Pekanuss, H6 aus Paranuss, H7 aus Pistazie, H8 aus Macadamianuss"
+        },
+        {
+          "code": "I",
+          "text": "enthält Sellerie"
+        },
+        {
+          "code": "J",
+          "text": "enthält Senf"
+        },
+        {
+          "code": "K",
+          "text": "enthält Sesam"
+        },
+        {
+          "code": "L",
+          "text": "enthält Schwefeldioxid; Sulfite"
+        },
+        {
+          "code": "M",
+          "text": "enthält Lupine"
+        },
+        {
+          "code": "N",
+          "text": "enthält Weichtiere"
+        }
+      ]
+    }
   },
-  "generatedAt": "2026-09-02T15:20:43.849Z"
+  "generatedAt": "2026-09-02T17:24:36.964Z"
 }
