@@ -1133,12 +1133,12 @@
     }
   ],
   "mensa": {
-    "woche": "",
+    "woche": "22.06. – 26.06.2026",
     "kw": "KW 26",
     "tage": [
       {
-        "tag": "Mon Jun 22 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-        "datum": "",
+        "tag": "Montag",
+        "datum": "22.06.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
@@ -1240,13 +1240,13 @@
         ]
       },
       {
-        "tag": "Tue Jun 23 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-        "datum": "",
+        "tag": "Dienstag",
+        "datum": "23.06.2026",
         "gerichte": []
       },
       {
-        "tag": "Wed Jun 24 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-        "datum": "",
+        "tag": "Mittwoch",
+        "datum": "24.06.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
@@ -1363,8 +1363,8 @@
         ]
       },
       {
-        "tag": "Thu Jun 25 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-        "datum": "",
+        "tag": "Donnerstag",
+        "datum": "25.06.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
@@ -1488,8 +1488,8 @@
         ]
       },
       {
-        "tag": "Fri Jun 26 2026 00:00:00 GMT+0200 (Central European Summer Time)",
-        "datum": "",
+        "tag": "Freitag",
+        "datum": "26.06.2026",
         "gerichte": []
       }
     ],
@@ -1601,5 +1601,5 @@
       ]
     }
   },
-  "generatedAt": "2026-09-03T01:30:28.136Z"
+  "generatedAt": "2026-09-03T06:23:11.392Z"
 }
