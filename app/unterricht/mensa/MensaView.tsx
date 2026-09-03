@@ -61,6 +61,14 @@ export default function MensaPage() {
   useEffect(() => setMounted(true), []);
 
   const hatPlan = mensaPlan.tage.some((t) => t.gerichte.length > 0);
+  // Zwei Standard-Fusstexte des Caterers sind auf Wunsch ausgeblendet: die
+  // DGE-Erklaerung (Logo-Werbung, ohne das Logo selbst wenig aussagekraeftig)
+  // und der allgemeine Betriebsleiter-Disclaimer. Die Allergen-Legende und
+  // der Hinweis auf die gruene Markierung selbst bleiben stehen.
+  const AUSGEBLENDETE_HINWEISE = ["grün hinterlegten Komponenten", "Bei Fragen, Wünschen oder Anregungen"];
+  const sichtbareHinweise = mensaPlan.hinweise.filter(
+    (h) => !AUSGEBLENDETE_HINWEISE.some((muster) => h.includes(muster))
+  );
   // Kategorien nicht hartkodieren, sondern aus dem Plan ableiten (in der
   // Reihenfolge, in der sie im Sheet stehen) -- so wirken neue oder
   // umbenannte Kategorien des Caterers ohne Code-Aenderung.
@@ -325,7 +333,7 @@ export default function MensaPage() {
 
                   {/* Hinweise & Legende */}
                   <div className="px-5 pb-6 space-y-4 text-[11px] leading-relaxed text-slate-600">
-                    {mensaPlan.hinweise.map((hinweis, i) => (
+                    {sichtbareHinweise.map((hinweis, i) => (
                       <p key={i} className="print-avoid-break">
                         {hinweis}
                       </p>
