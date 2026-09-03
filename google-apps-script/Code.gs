@@ -443,6 +443,34 @@ function gruenMarkierteZeilen_(richText) {
   return treffer;
 }
 
+// Ist eine Kopfzeilen-Zelle im Sheet als Datum formatiert, liefert getValues()
+// dafuer ein echtes JS-Date-Objekt statt des angezeigten Texts ("Montag,
+// 22.06.26") -- String(date) wuerde daraus "Mon Jun 22 2026 00:00:00 GMT..."
+// machen. Darum Wochentag/Datum hier ueber die Zeitzone der Tabelle sauber
+// ausrechnen, statt sich auf die Zellformatierung zu verlassen. Ist die Zelle
+// stattdessen (wie in aelteren Sheet-Kopien) reiner Text, greift der
+// Komma-Fallback wie bisher.
+const WOCHENTAGE_DE = ['', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
+
+function formatTagZelle_(value, tz) {
+  if (Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime())) {
+    // Format 'u' liefert den ISO-Wochentag (1=Montag..7=Sonntag) unabhaengig
+    // von der Spracheinstellung des Scripts -- 'EEEE' wuerde je nach
+    // Script-Gebietsschema auch englische Wochentagsnamen liefern koennen.
+    const isoTag = Number(Utilities.formatDate(value, tz, 'u'));
+    return {
+      tag: WOCHENTAGE_DE[isoTag] || '',
+      datum: Utilities.formatDate(value, tz, 'dd.MM.yyyy'),
+    };
+  }
+  const label = String(value || '').replace(/\s+/g, ' ').trim();
+  const parts = label.split(',');
+  return {
+    tag: parts[0].trim(),
+    datum: parts.length > 1 ? normalizeDatum_(parts.slice(1).join(',').trim()) : '',
+  };
+}
+
 // Der Caterer schreibt das Jahr zweistellig ("22.06.26") -- ausgeschrieben
 // ist es auf der Website und im Ausdruck eindeutiger.
 function normalizeDatum_(datum) {
@@ -512,16 +540,14 @@ function readMensa_(cfg) {
     if (headerRow === -1) return leer;
 
     const kw = String(rows[headerRow][0] || '').trim();
+    const tz = ss.getSpreadsheetTimeZone();
     const dayCols = [];
     for (let c = 1; c < rows[headerRow].length; c++) {
-      const label = String(rows[headerRow][c] || '').replace(/\s+/g, ' ').trim();
-      if (!label) continue;
-      const parts = label.split(',');
-      dayCols.push({
-        col: c,
-        tag: parts[0].trim(),
-        datum: parts.length > 1 ? normalizeDatum_(parts.slice(1).join(',').trim()) : '',
-      });
+      const roh = rows[headerRow][c];
+      if (roh === '' || roh === null) continue;
+      const { tag, datum } = formatTagZelle_(roh, tz);
+      if (!tag) continue;
+      dayCols.push({ col: c, tag: tag, datum: datum });
     }
     if (!dayCols.length) return leer;
 
