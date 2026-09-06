@@ -684,11 +684,12 @@
     {
       "id": 45,
       "vorname": "Elena",
-      "nachname": "Kirschmeier",
+      "nachname": "Kirchmeier",
       "anrede": "Fr.",
       "rolle": "Lehrer*in",
       "faecher": [
         "Biologie",
+        "Erdkunde",
         "Chemie"
       ],
       "bio": "",
@@ -1601,5 +1602,5 @@
       ]
     }
   },
-  "generatedAt": "2026-09-06T08:58:22.415Z"
+  "generatedAt": "2026-09-06T12:50:14.819Z"
 }
