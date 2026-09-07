@@ -1,9 +1,12 @@
 {
+  "beyers": "/images/lehrer/beyers.jpg",
   "etschenberg": "/images/lehrer/etschenberg.jpg",
   "fournes": "/images/schulleitung/fournes.jpg",
   "gerdesmeyer": "/images/lehrer/gerdesmeyer.jpg",
+  "grosse": "/images/lehrer/grosse.jpg",
   "hagemeyer": "/images/lehrer/hagemeyer.jpg",
   "herbst": "/images/schulleitung/herbst.jpg",
+  "hidalgo-shrestha": "/images/lehrer/hidalgo-shrestha.jpg",
   "koeyluoglu": "/images/lehrer/koeyluoglu.jpg",
   "koretz": "/images/lehrer/koretz.jpg",
   "losiei": "/images/lehrer/losiei.jpg",
@@ -11,9 +14,12 @@
   "novakovic": "/images/lehrer/novakovic.jpg",
   "pieper": "/images/lehrer/pieper.jpg",
   "ramovic": "/images/lehrer/ramovic.jpg",
+  "reuber": "/images/lehrer/reuber.jpg",
   "rieber": "/images/lehrer/rieber.jpg",
+  "roqi": "/images/lehrer/roqi.jpg",
   "scherz": "/images/lehrer/scherz.jpg",
   "schmidt": "/images/lehrer/schmidt.jpg",
+  "schulz": "/images/lehrer/schulz.jpg",
   "sliwa": "/images/lehrer/sliwa.jpg",
   "tap": "/images/lehrer/tap.jpg",
   "tembe": "/images/lehrer/tembe.jpg",
@@ -21,5 +27,7 @@
   "van-oost": "/images/lehrer/van-oost.jpg",
   "werner": "/images/schulleitung/werner.jpg",
   "werner1": "/images/schulleitung/werner1.jpg",
-  "wiechmann": "/images/lehrer/wiechmann.jpg"
+  "wiechmann": "/images/lehrer/wiechmann.jpg",
+  "wulfhorst": "/images/lehrer/wulfhorst.jpg",
+  "zehnle": "/images/lehrer/zehnle.jpg"
 }

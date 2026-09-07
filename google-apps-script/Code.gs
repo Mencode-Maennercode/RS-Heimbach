@@ -67,7 +67,7 @@ function levenshtein_(a, b) {
   return prev[n];
 }
 
-function findBestFileMatch_(folder, rawSearch) {
+function findBestFileMatch_(folder, rawSearch, minScore) {
   const target = normalizeFileName_(rawSearch);
   if (!target || !folder) return null;
 
@@ -105,13 +105,18 @@ function findBestFileMatch_(folder, rawSearch) {
       score = union ? (overlap / union) * 60 : 0;
 
       // Kein gemeinsames Wort gefunden (z. B. Tippfehler in einem einzelnen
-      // Wort wie "Stecknr" statt "Stecker") -- als letzten Versuch die
-      // Zeichen-Aehnlichkeit pruefen. Schwelle bewusst hoch (>= 72%), damit
-      // grundverschiedene Namen nicht faelschlich als Treffer durchgehen.
+      // Wort wie "Stecka" statt "Stecker") -- als letzten Versuch die
+      // Zeichen-Aehnlichkeit pruefen. Kein zusaetzliches Gate mehr hier (frueher
+      // >= 72%) -- das hat z.B. "Stecka" vs. "Stecker" (71.4% Aehnlichkeit)
+      // faelschlich rausgefiltert, obwohl das ein eindeutiger Tippfehler-Treffer
+      // ist. Stattdessen skaliert der Score stufenlos mit der Aehnlichkeit,
+      // die eigentliche Filterung uebernimmt der minScore-Parameter oben
+      // (bestScore >= minScore) -- pro Aufrufer unterschiedlich streng
+      // (Downloads 25, News-Bilder 40).
       const maxLen = Math.max(target.length, name.length);
       if (maxLen) {
         const similarity = 1 - levenshtein_(target, name) / maxLen;
-        if (similarity >= 0.72) score = Math.max(score, similarity * 70);
+        score = Math.max(score, similarity * 70);
       }
     }
 
@@ -127,7 +132,10 @@ function findBestFileMatch_(folder, rawSearch) {
   }
 
   // Schwellenwert, damit voellig unpassende Namen nicht als "Treffer" durchgehen.
-  return bestScore >= 25 ? best : null;
+  // Downloads (PDFs etc.) bleiben bei 25, News-Bilder verlangen per
+  // resolveFileRef_-Aufruf 40 -- ein falsches Bild auf der Startseite faellt
+  // mehr auf als ein leicht unpassender Download-Treffer.
+  return bestScore >= (minScore != null ? minScore : 25) ? best : null;
 }
 
 // Macht eine gefundene Datei automatisch "Jeder mit Link kann ansehen"
@@ -164,11 +172,11 @@ function getDriveFolder_(folderId) {
 // fertiger Link (http/https), wird er unveraendert benutzt (abwaertskompatibel
 // zur alten manuellen Link-Pflege). Steht dort nur ein Name/Stichwort, wird
 // im uebergebenen Drive-Ordner die am besten passende Datei gesucht.
-function resolveFileRef_(rawValue, folder, mode) {
+function resolveFileRef_(rawValue, folder, mode, minScore) {
   const value = String(rawValue || '').trim();
   if (!value) return { url: '', matchedFile: null };
   if (/^https?:\/\//i.test(value)) return { url: value, matchedFile: null };
-  const file = findBestFileMatch_(folder, value);
+  const file = findBestFileMatch_(folder, value, minScore);
   if (!file) return { url: '', matchedFile: null };
   return { url: driveFileUrl_(file, mode), matchedFile: file };
 }
@@ -323,7 +331,8 @@ function readNews_(cfg) {
       const bildRef = resolveFileRef_(
         pick_(row, ['bild-url', 'bild', 'image', 'image-url']),
         imagesFolder,
-        'view'
+        'view',
+        40
       );
       return {
         id: i + 1,
