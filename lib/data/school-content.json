@@ -1134,68 +1134,75 @@
     }
   ],
   "mensa": {
-    "woche": "14.09. – 18.09.2026",
-    "kw": "KW 38",
+    "woche": "21.09. – 25.09.2026",
+    "kw": "KW 39",
     "tage": [
       {
         "tag": "Montag",
-        "datum": "14.09.2026",
+        "datum": "21.09.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Hühnerfrikassee mit Erbsen und Möhren in der Sauce dazu Vollkornreis",
+            "name": "4 Stück Seelachs Fischstäbchen -Aus nachhaltigem Fischfang- dazu Kräuterkartoffeln und Joghurt-Remouladensauce",
             "codes": [],
             "komponenten": [
               {
-                "text": "Hühnerfrikassee",
+                "text": "Fischstäbchen",
+                "codes": [],
+                "dge": false
+              },
+              {
+                "text": "Remouladensauce",
                 "codes": [
+                  "1",
+                  "2",
+                  "9",
                   "A",
+                  "A1",
                   "C",
-                  "F",
                   "G",
-                  "I",
                   "J"
                 ],
                 "dge": false
               },
               {
-                "text": "Vollkornreis",
+                "text": "Salzkartoffeln",
                 "codes": [],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 2g / davon gesättigte Fettsäuren: 0,5g / KH: 83,7g / Zucker: 0g / Kilokalorien: 565,6kcal / Salz: 0g / Kilojoule: 2468,4kJ / Eiweiß (Protein): 8,7g"
+            "naehrwerte": "Fett: 1,5g / davon gesättigte Fettsäuren: 0,3g / KH: 33g / Zucker: 0g / Kilokalorien: 535,6kcal / Salz: 0,8g / Kilojoule: 978,3kJ / Eiweiß (Protein): 18,6g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "YUM YUM Thai Suppe vegan mit buntem Gemüse und Bambussprossen",
+            "name": "Spiralnudeln mit Gemüsebolognese Möhren, Mais, Erbsen, Sellerie",
             "codes": [],
             "komponenten": [
               {
-                "text": "Thai Suppe",
+                "text": "Spiralnudeln",
+                "codes": [],
+                "dge": false
+              },
+              {
+                "text": "Gemüsebolognese",
                 "codes": [
                   "A",
                   "A1",
-                  "C",
-                  "F",
-                  "G",
-                  "I",
-                  "J",
-                  "K"
+                  "I"
                 ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 0,4g / davon gesättigte Fettsäuren: 0,1g / KH: 4,2g / Zucker: 0,2g / Kilokalorien: 69,4kcal / Salz: 0,9g / Kilojoule: 154,3kJ / Eiweiß (Protein): 1,6g"
+            "naehrwerte": "Kilokalorien: 38,3kcal / KH: 7,1g / BE: 0BE / Fett: 0,3g / Zucker: 4,5g / Salz: 0g / davon gesättigte Fettsäuren: 0,1g / Kilojoule: 160,9kJ"
           },
           {
             "kategorie": "Salat",
-            "name": "Eisbergsalat mit Frenchdressing",
+            "name": "Bohnensalat in Sauerrahmsauce",
             "codes": [
               "G"
             ],
             "komponenten": [],
-            "naehrwerte": "Kilokalorien: 78,6kcal / KH: 4,9g / BE: 0,4BE / Fett: 5,9g / Zucker: g / Salz: 0,6g / davon gesättigte Fettsäuren: 0,5g / Kilojoule: 325,9kJ"
+            "naehrwerte": "Fett: 0g / davon gesättigte Fettsäuren: 0g / KH: 2,3g / Zucker: 0g / Kilokalorien: 38,2kcal / Salz: 0g / Kilojoule: 79,5kJ / Eiweiß (Protein): 41,6mg"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1227,9 +1234,9 @@
           },
           {
             "kategorie": "Dessert",
-            "name": "Apfelmus",
+            "name": "Birnenquark",
             "codes": [
-              "3"
+              "G"
             ],
             "komponenten": [
               {
@@ -1251,30 +1258,29 @@
       },
       {
         "tag": "Dienstag",
-        "datum": "15.09.2026",
+        "datum": "22.09.2026",
         "gerichte": []
       },
       {
         "tag": "Mittwoch",
-        "datum": "16.09.2026",
+        "datum": "23.09.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Hähnchenschnitzel mit Paprikarahmsauce dazu Eierspätzle",
+            "name": "Putenfleischkäse mit Rahmsauce und Kartoffelstampf",
             "codes": [],
             "komponenten": [
               {
-                "text": "Hähnchenschnitzel",
+                "text": "Puten Fleischkäse",
                 "codes": [
-                  "8",
-                  "A",
-                  "A1",
-                  "C"
+                  "2",
+                  "3",
+                  "8"
                 ],
                 "dge": false
               },
               {
-                "text": "Paprika Rahmsauce",
+                "text": "Rahmsauce",
                 "codes": [
                   "1",
                   "G"
@@ -1282,47 +1288,54 @@
                 "dge": false
               },
               {
-                "text": "Spätzle",
-                "codes": [],
+                "text": "Kartoffelstampf",
+                "codes": [
+                  "G"
+                ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 1g / davon gesättigte Fettsäuren: 0,6g / KH: 19,7g / Zucker: 0g / Kilokalorien: 397kcal / Salz: 0,1g / Kilojoule: 541,6kJ / Eiweiß (Protein): 3,2g"
+            "naehrwerte": "Fett: 21,2g / davon gesättigte Fettsäuren: 7,7g / KH: 9,4g / Zucker: g / Kilokalorien: 536,4kcal / Salz: 1,3g / Kilojoule: 1336,9kJ / Eiweiß (Protein): 21,4g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Blumenkohl Käse Bratling mit Kartoffeln und Kräuterdip",
+            "name": "Vegetarische Frühlingsrolle dazu süß-sauer Sauce und Asiangemüseudeln mit Paprika Möhren",
             "codes": [],
             "komponenten": [
               {
-                "text": "Blumenkohl - Käse Medaillon",
+                "text": "Vegetarische Frühlingsrolle",
                 "codes": [],
                 "dge": false
               },
               {
-                "text": "Kräuter Quark",
+                "text": "Süß Sauer Sauce",
                 "codes": [
                   "3",
                   "5",
-                  "G",
+                  "K",
                   "L"
                 ],
                 "dge": false
               },
               {
-                "text": "Salzkartoffeln",
-                "codes": [],
+                "text": "Gemüsenudeln",
+                "codes": [
+                  "A",
+                  "A1",
+                  "F",
+                  "K"
+                ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 0,6g / davon gesättigte Fettsäuren: 0,1g / KH: 23,9g / Zucker: g / Kilokalorien: 183,6kcal / Salz: 0,1g / Kilojoule: 619,4kJ / Eiweiß (Protein): 6,3g"
+            "naehrwerte": "Fett: 29,9g / davon gesättigte Fettsäuren: 13,2g / KH: 71,4g / Zucker: g / Kilokalorien: 708kcal / Salz: 1,5g / Kilojoule: 2965,1kJ / Eiweiß (Protein): 20,5g"
           },
           {
             "kategorie": "Salat",
-            "name": "Feiner Möhrensalat",
+            "name": "Kohlrabi Möhrenrohkost",
             "codes": [],
             "komponenten": [],
-            "naehrwerte": "Kilokalorien: 31,9kcal / KH: 4,5g / BE: 0,4BE / Fett: 0,1g / Zucker: 0g / Salz: 0,1g / davon gesättigte Fettsäuren: 0g / Kilojoule: 135,5kJ"
+            "naehrwerte": "Fett: 0,1g / davon gesättigte Fettsäuren: 0g / KH: 3g / Zucker: 0g / Kilokalorien: 23,8kcal / Salz: 0g / Kilojoule: 102kJ / Eiweiß (Protein): 360,7mg"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1354,8 +1367,13 @@
           },
           {
             "kategorie": "Dessert",
-            "name": "Vanillepudding",
+            "name": "Müsliriegel",
             "codes": [
+              "A",
+              "A1",
+              "A3",
+              "A4",
+              "E",
               "G"
             ],
             "komponenten": [],
@@ -1372,72 +1390,60 @@
       },
       {
         "tag": "Donnerstag",
-        "datum": "17.09.2026",
+        "datum": "24.09.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Wildlachspfanne aus nachhaltigem Fischfang in Rahmsauce mit Brokkoli Blumenkohl und Möhren dazu Bandnudeln",
+            "name": "Lasagne Bolognese mit Rindfleisch",
             "codes": [],
             "komponenten": [
               {
-                "text": "Wildlachs Pfanne Brokkoli",
+                "text": "Lasagne",
                 "codes": [
-                  "1",
                   "A",
                   "A1",
-                  "D",
+                  "C",
                   "G",
                   "I"
                 ],
                 "dge": false
-              },
-              {
-                "text": "Bandnudeln",
-                "codes": [
-                  "A",
-                  "A1"
-                ],
-                "dge": false
               }
             ],
-            "naehrwerte": "Fett: 4,2g / davon gesättigte Fettsäuren: 0,1g / KH: 17,5g / Zucker: 2,1g / Kilokalorien: 585,9kcal / Salz: 0g / Kilojoule: 1124,3kJ / Eiweiß (Protein): 13,9g"
+            "naehrwerte": "Fett: 35,5g / davon gesättigte Fettsäuren: 15,6g / KH: 18,2g / Zucker: g / Kilokalorien: 742kcal / Salz: 2,2g / Kilojoule: 2192kJ / Eiweiß (Protein): 22,5g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Rahmspinat mit Kartoffeln und Rührei",
+            "name": "Schnibbelbohnensuppe vegan mit Möhren, Sellerie und Lauch, dazu eine Scheibe Vollkornbrot",
             "codes": [],
             "komponenten": [
               {
-                "text": "Rahmspinat",
-                "codes": [
-                  "G",
-                  "I"
-                ],
-                "dge": false
-              },
-              {
-                "text": "Rührei",
+                "text": "Schnibbelbohnen Eintopf",
                 "codes": [
                   "1",
-                  "G",
                   "I"
                 ],
                 "dge": false
               },
               {
-                "text": "Salzkartoffeln",
-                "codes": [],
+                "text": "Vollkornbrot",
+                "codes": [
+                  "A",
+                  "A1",
+                  "A2"
+                ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 10,5g / davon gesättigte Fettsäuren: 3,1g / KH: 28,9g / Zucker: g / Kilokalorien: 342,7kcal / Salz: 0,4g / Kilojoule: 1480,3kJ / Eiweiß (Protein): 16,8g"
+            "naehrwerte": "Kilokalorien: 54,7kcal / KH: / BE: / Fett: 0g / Zucker: 0g / Salz: 0g / davon gesättigte Fettsäuren: / Kilojoule:"
           },
           {
             "kategorie": "Salat",
-            "name": "Farmersalat Weißkohl, Möhren, Sellerie, Äpfel",
-            "codes": [],
+            "name": "Chinakohlsalat mit Joghurtdressing",
+            "codes": [
+              "G"
+            ],
             "komponenten": [],
-            "naehrwerte": "Kilokalorien: 68,9kcal / KH: 6,2g / BE: 0,5BE / Fett: 2,9g / Zucker: 0g / Salz: 0,1g / davon gesättigte Fettsäuren: 0,4g / Kilojoule: 289,9kJ"
+            "naehrwerte": "Fett: 5,6g / davon gesättigte Fettsäuren: 1,1g / KH: 5,7g / Zucker: 3,4g / Kilokalorien: 77,4kcal / Salz: 0,5g / Kilojoule: 320,9kJ / Eiweiß (Protein): 918mg"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1477,13 +1483,14 @@
           },
           {
             "kategorie": "Dessert",
-            "name": "Vanillepudding",
+            "name": "Fruchtjoghurt Apfel Aprikose",
             "codes": [
-              "G"
+              "1",
+              "3"
             ],
             "komponenten": [
               {
-                "text": "Fett: 3,2g / davon gesättigte Fettsäuren: 1,8g / KH: 20,9g / Zucker: / Kilokalorien: 126kcal / Salz: 0,2g / Kilojoule: 529kJ / Eiweiß (Protein): 3,1g",
+                "text": "Fett: 0g / davon gesättigte Fettsäuren: 0g / KH: 11g / Zucker: 0g / Kilokalorien: 109,8kcal / Salz: 0g / Kilojoule: 392,3kJ / Eiweiß (Protein): 1,5µg",
                 "codes": [],
                 "dge": false
               }
@@ -1501,14 +1508,13 @@
       },
       {
         "tag": "Freitag",
-        "datum": "18.09.2026",
+        "datum": "25.09.2026",
         "gerichte": []
       }
     ],
     "hinweise": [
       "Bis zur angestrebten Zertifizierung durch die Deutsche Gesellschaft für Ernährung sind die Hauptkomponenten der jeweiligen Gerichte grün markiert",
       "Die grün hinterlegten Komponenten entsprechen dem „DGE-Qualitätsstandard für die Verpflegung in Schulen“ und wurden von der Deutschen Gesellschaft für Ernährung e.V. (DGE) als eine Menülinie zertifiziert und mit dem DGE-Logo ausgezeichnet.",
-      "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb.",
       "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb."
     ],
     "legende": {
@@ -1614,5 +1620,5 @@
       ]
     }
   },
-  "generatedAt": "2026-09-17T01:19:18.854Z"
+  "generatedAt": "2026-09-17T05:52:05.006Z"
 }
