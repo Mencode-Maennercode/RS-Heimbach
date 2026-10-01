@@ -1134,78 +1134,72 @@
     }
   ],
   "mensa": {
-    "woche": "28.09. – 02.10.2026",
-    "kw": "KW 40",
+    "woche": "05.10. – 09.10.2026",
+    "kw": "KW 41",
     "tage": [
       {
         "tag": "Montag",
-        "datum": "28.09.2026",
+        "datum": "05.10.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Portion Lachs in Rahmsauce dazu Kräuterkartoffeln",
+            "name": "Gebackener Hähnchenschenkel mit Bratensauce und Wedges",
             "codes": [],
             "komponenten": [
               {
-                "text": "Lachs",
+                "text": "Hähnchenkeule",
+                "codes": [],
+                "dge": false
+              },
+              {
+                "text": "Bratensauce",
                 "codes": [
-                  "D"
+                  "1"
                 ],
                 "dge": false
               },
               {
-                "text": "Kräuterrahmsauce hell",
-                "codes": [
-                  "G",
-                  "I"
-                ],
-                "dge": false
-              },
-              {
-                "text": "Salzkartoffeln",
+                "text": "Kartoffelwedges",
                 "codes": [],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 8,7g / davon gesättigte Fettsäuren: 2,2g / KH: 32,2g / Zucker: 0,2g / Kilokalorien: 362,1kcal / Salz: 0,6g / Kilojoule: 1594,6kJ / Eiweiß (Protein): 27,5g"
+            "naehrwerte": "Fett: 2,6g / davon gesättigte Fettsäuren: 1g / KH: 61,8g / Zucker: / Kilokalorien: 630kcal / Salz: 0,1g / Kilojoule: 2643,9kJ / Eiweiß (Protein): 6,5g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Marokkanische Bulgur Gemüsepfanne mit Kichererbsen und Dip",
+            "name": "Der Alm Klassiker Saftige Käsespätzle mit geschmelzten Zwiebeln",
             "codes": [],
             "komponenten": [
               {
-                "text": "Cous Cous",
+                "text": "Käsespätzle",
                 "codes": [
-                  "A",
+                  "G"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Weiße Sauce",
+                "codes": [
+                  "G",
                   "I"
                 ],
                 "dge": false
               },
               {
-                "text": "Petersilien Sauce",
-                "codes": [
-                  "1",
-                  "A",
-                  "A1",
-                  "G",
-                  "I"
-                ],
+                "text": "Schmorzwiebeln",
+                "codes": [],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 16,1g / davon gesättigte Fettsäuren: 2,8g / KH: 8,7g / Zucker: 0g / Kilokalorien: 720,9kcal / Salz: 0,1g / Kilojoule: 1024,6kJ / Eiweiß (Protein): 2,8g"
+            "naehrwerte": "Xylit: / Kilokalorien: 515kcal / Kilojoule: 2239,8kJ / KH: 54,2g / Eiweiß (Protein): 16,8g / Fett: 15,9g / mehrfach ungesättigte Fettsäuren: 3g / Zucker: 2,1g"
           },
           {
             "kategorie": "Salat",
-            "name": "Kopfsalat Dressing French",
-            "codes": [
-              "C",
-              "G",
-              "J"
-            ],
+            "name": "Endiviensalat Joghurt Dressing",
+            "codes": [],
             "komponenten": [],
-            "naehrwerte": "Fett: 5,7g / davon gesättigte Fettsäuren: 0,5g / KH: 1,9g / Zucker: 1,9g / Kilokalorien: 61,2kcal / Salz: 0,6g / Kilojoule: 253,2kJ / Eiweiß (Protein): 150mg"
+            "naehrwerte": "Fett: 0,2g / davon gesättigte Fettsäuren: 0g / KH: 4,2g / Zucker: 0g / Kilokalorien: 33,4kcal / Salz: 0g / Kilojoule: 143,1kJ / Eiweiß (Protein): 1,5g"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1237,23 +1231,12 @@
           },
           {
             "kategorie": "Dessert",
-            "name": "Schokoladenpudding",
-            "codes": [],
-            "komponenten": [
-              {
-                "text": "Nährwerte",
-                "codes": [],
-                "dge": false
-              }
+            "name": "Apfelmus",
+            "codes": [
+              "3"
             ],
-            "naehrwerte": ""
-          },
-          {
-            "kategorie": "Obst",
-            "name": "Kiwi",
-            "codes": [],
             "komponenten": [],
-            "naehrwerte": ""
+            "naehrwerte": "Fett: / davon gesättigte Fettsäuren: / KH: / Zucker: 0g / Kilokalorien: 67kcal / Salz: 0g / Kilojoule: / Eiweiß (Protein):"
           },
           {
             "kategorie": "Obst",
@@ -1266,64 +1249,78 @@
       },
       {
         "tag": "Dienstag",
-        "datum": "29.09.2026",
+        "datum": "06.10.2026",
         "gerichte": []
       },
       {
         "tag": "Mittwoch",
-        "datum": "30.09.2026",
+        "datum": "07.10.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Geflügelbratwurst mit Kartoffelstampf und Sauce",
+            "name": "Frisches aus dem Wasser Knuspriges gebackenes Fischfilet dazu milder Kartoffelsalat mit Essig und Öl",
             "codes": [],
             "komponenten": [
               {
-                "text": "Geflügelbratwurst",
-                "codes": [],
-                "dge": false
-              },
-              {
-                "text": "Kartoffelstampf",
+                "text": "Seelachs",
                 "codes": [
-                  "G"
+                  "A",
+                  "A1",
+                  "D",
+                  "G",
+                  "J"
                 ],
                 "dge": false
               },
               {
-                "text": "Bratensauce",
-                "codes": [],
+                "text": "Kartoffelsalat",
+                "codes": [
+                  "1",
+                  "2"
+                ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 0,3g / davon gesättigte Fettsäuren: 0,1g / KH: 42,1g / Zucker: g / Kilokalorien: 511,1kcal / Salz: 0,1g / Kilojoule: 944,3kJ / Eiweiß (Protein): 5g"
+            "naehrwerte": "Xylit: / Kilokalorien: 220,6kcal / Kilojoule: 346,9kJ / KH: 5,7g / Eiweiß (Protein): 2,1g / Fett: 3g / mehrfach ungesättigte Fettsäuren: 1,2g / Zucker: 0g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Blumenkohl in Bechamelsauce dazu Salzkartoffeln",
+            "name": "Linseneintopf mit Kartoffelwürfeln und Gemüse Lauch Sellerie Möhren eine Scheibe Vollkornbrot",
             "codes": [],
             "komponenten": [
               {
-                "text": "Blumenkohl Auflauf",
+                "text": "Linseneintopf",
                 "codes": [
-                  "G",
-                  "I"
+                  "3",
+                  "5",
+                  "I",
+                  "L"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Vollkorn Brot",
+                "codes": [
+                  "A",
+                  "A1",
+                  "A2"
                 ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 8,8g / davon gesättigte Fettsäuren: 6g / KH: 12,3g / Zucker: 0g / Kilokalorien: 180,4kcal / Salz: 0,6g / Kilojoule: 822,3kJ / Eiweiß (Protein): 6,8g"
+            "naehrwerte": "Fett: 0,5g / davon gesättigte Fettsäuren: 0,1g / KH: 17,2g / Zucker: g / Kilokalorien: 102,1kcal / Salz: 0,4g / Kilojoule: 422,3kJ / Eiweiß (Protein): 3,9g"
           },
           {
             "kategorie": "Salat",
-            "name": "Möhrensalat",
+            "name": "Gurkensalat Rahm",
             "codes": [
               "3",
               "5",
+              "G",
               "L"
             ],
             "komponenten": [],
-            "naehrwerte": "Fett: 0,1g / davon gesättigte Fettsäuren: 0g / KH: 4,5g / Zucker: 0g / Kilokalorien: 31,9kcal / Salz: 0,1g / Kilojoule: 135,5kJ / Eiweiß (Protein): 663mg"
+            "naehrwerte": "Fett: 2,5g / davon gesättigte Fettsäuren: 1,6g / KH: 4,7g / Zucker: g / Kilokalorien: 70,3kcal / Salz: 0g / Kilojoule: 299,7kJ / Eiweiß (Protein): 685,2mg"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1355,86 +1352,110 @@
           },
           {
             "kategorie": "Dessert",
-            "name": "Fruchtjoghurt Apfel Aprikose",
+            "name": "Fruchtjoghurt Marille (Aprikose)",
             "codes": [
               "1",
               "3"
             ],
             "komponenten": [],
-            "naehrwerte": ""
+            "naehrwerte": "Fett: 0,1g / davon gesättigte Fettsäuren: 0,1g / KH: 3,8g / Zucker: 0g / Kilokalorien: 42,5kcal / Salz: 0,1g / Kilojoule: 143,1kJ / Eiweiß (Protein): 3,9g"
           },
           {
             "kategorie": "Obst",
             "name": "Birne",
             "codes": [],
             "komponenten": [],
-            "naehrwerte": ""
-          },
-          {
-            "kategorie": "Obst",
-            "name": "Apfel",
-            "codes": [],
-            "komponenten": [],
-            "naehrwerte": "Kilokalorien: 52kcal / KH: 11,4g / BE: 1BE / Fett: 0,4g / Zucker: g / Salz: 0g / davon gesättigte Fettsäuren: 0,1g / Kilojoule: 217kJ"
+            "naehrwerte": "Kilokalorien: 78kcal / KH: 18,6g / BE: 1,5BE / Fett: 0,5g / Zucker: g / Salz: 0g / davon gesättigte Fettsäuren: 0g / Kilojoule: 328,5kJ"
           }
         ]
       },
       {
         "tag": "Donnerstag",
-        "datum": "01.10.2026",
+        "datum": "08.10.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Spaghetti Carbonara mit Putenschinkensauce",
+            "name": "KKK Der Gipfelstürmer Kürbis Kartoffel Karotten Eintopf dazu ein kleines Geflügel Wienerle und Mini Laugenbrötchen",
             "codes": [],
             "komponenten": [
               {
-                "text": "Spaghetti Carbonara",
+                "text": "Kürbiseintopf",
                 "codes": [
-                  "1",
+                  "4",
+                  "A",
+                  "A1",
+                  "I"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Geflügel Wiener",
+                "codes": [
                   "2",
                   "3",
+                  "8",
+                  "G",
+                  "I",
+                  "J"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Brötchen",
+                "codes": [
+                  "A",
+                  "A1",
+                  "A3",
+                  "G"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Xylit: / Kilokalorien: 369kcal / Kilojoule: 1777,2kJ / KH: 55,4g / Eiweiß (Protein): 7,7g / Fett: 0,8g / mehrfach ungesättigte Fettsäuren: 1,7g / Zucker: g"
+          },
+          {
+            "kategorie": "Vegetarisch",
+            "name": "Gemüsefrikadelle dazu helle Basilikumsauce und Langkornreis",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Gemüsefrikadelle",
+                "codes": [
                   "A",
                   "A1",
                   "C",
                   "F",
                   "G",
+                  "I",
+                  "K"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Kräuterrahmsauce hell",
+                "codes": [
+                  "G",
                   "I"
                 ],
                 "dge": false
-              }
-            ],
-            "naehrwerte": "Fett: 3,1g / davon gesättigte Fettsäuren: 1,8g / KH: 43,7g / Zucker: 0g / Kilokalorien: 668,4kcal / Salz: 0,3g / Kilojoule: 1729,7kJ / Eiweiß (Protein): 16g"
-          },
-          {
-            "kategorie": "Vegetarisch",
-            "name": "Wok Red Dragon vegan mit Kokosmilch Paprika Weißkohl Möhre Sprossen und Basmatireis",
-            "codes": [],
-            "komponenten": [
+              },
               {
-                "text": "Wok Red Dragon",
-                "codes": [
-                  "A",
-                  "A1",
-                  "F",
-                  "I",
-                  "J"
-                ],
+                "text": "Reis",
+                "codes": [],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 0,6g / davon gesättigte Fettsäuren: 0,1g / KH: 8,9g / Zucker: g / Kilokalorien: 61,7kcal / Salz: 0,3g / Kilojoule: 255,7kJ / Eiweiß (Protein): 3,2g"
+            "naehrwerte": "Fett: 0,5g / davon gesättigte Fettsäuren: 0,1g / KH: 77g / Zucker: 0g / Kilokalorien: 514,1kcal / Salz: 0g / Kilojoule: 1640,2kJ / Eiweiß (Protein): 5,6g"
           },
           {
             "kategorie": "Salat",
-            "name": "Tomatensalat",
+            "name": "Bunter Blattsalat Lollo Rosso/Bionda Eichblatt mit Joghurtdressing",
             "codes": [
-              "3",
-              "5",
-              "L"
+              "C",
+              "G"
             ],
             "komponenten": [],
-            "naehrwerte": "Fett: 0,2g / davon gesättigte Fettsäuren: 0g / KH: 4,8g / Zucker: g / Kilokalorien: 92,9kcal / Salz: 0g / Kilojoule: 406,8kJ / Eiweiß (Protein): 911,6mg"
+            "naehrwerte": "Fett: 3,5g / davon gesättigte Fettsäuren: 0,7g / KH: 3,6g / Zucker: 2g / Kilokalorien: 52,6kcal / Salz: 0,3g / Kilojoule: 218,8kJ / Eiweiß (Protein): 1,5g"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1474,25 +1495,10 @@
           },
           {
             "kategorie": "Dessert",
-            "name": "Vanillequark",
-            "codes": [
-              "G"
-            ],
-            "komponenten": [
-              {
-                "text": "Fett: 0,4g / davon gesättigte Fettsäuren: 0,1g / KH: 8,9g / Zucker: g / Kilokalorien: 169,5kcal / Salz: 0,1g / Kilojoule: 627,8kJ / Eiweiß (Protein): 2g",
-                "codes": [],
-                "dge": false
-              }
-            ],
-            "naehrwerte": ""
-          },
-          {
-            "kategorie": "Obst",
-            "name": "Apfel",
+            "name": "Beerenkompott mit einem Klecks Vanillepudding",
             "codes": [],
             "komponenten": [],
-            "naehrwerte": ""
+            "naehrwerte": "Xylit: / Kilokalorien: 110,5kcal / Kilojoule: 466,4kJ / KH: 21,4g / Eiweiß (Protein): 1,9g / Fett: 1,7g / mehrfach ungesättigte Fettsäuren: 0,1g / Zucker: 8,6g"
           },
           {
             "kategorie": "Obst",
@@ -1505,13 +1511,14 @@
       },
       {
         "tag": "Freitag",
-        "datum": "02.10.2026",
+        "datum": "09.10.2026",
         "gerichte": []
       }
     ],
     "hinweise": [
       "Bis zur angestrebten Zertifizierung durch die Deutsche Gesellschaft für Ernährung sind die Hauptkomponenten der jeweiligen Gerichte grün markiert",
       "Die grün hinterlegten Komponenten entsprechen dem „DGE-Qualitätsstandard für die Verpflegung in Schulen“ und wurden von der Deutschen Gesellschaft für Ernährung e.V. (DGE) als eine Menülinie zertifiziert und mit dem DGE-Logo ausgezeichnet.",
+      "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb.",
       "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb."
     ],
     "legende": {
@@ -1617,5 +1624,5 @@
       ]
     }
   },
-  "generatedAt": "2026-10-01T01:27:53.009Z"
+  "generatedAt": "2026-10-01T05:57:36.235Z"
 }
