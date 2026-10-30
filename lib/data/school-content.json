@@ -1134,87 +1134,77 @@
     }
   ],
   "mensa": {
-    "woche": "12.10. – 16.10.2026",
-    "kw": "KW 42",
+    "woche": "02.11. – 06.11.2026",
+    "kw": "KW 45",
     "tage": [
       {
         "tag": "Montag",
-        "datum": "12.10.2026",
+        "datum": "02.11.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Geflügelbratwurst mit Bratensauce dazu Kartoffelstampf",
+            "name": "4 Stück Köttbular Geflügel mit Rahmsauce dazu Schwenkkartoffeln",
             "codes": [],
             "komponenten": [
               {
-                "text": "Geflügelbratwurst",
-                "codes": [],
-                "dge": false
-              },
-              {
-                "text": "Bratensauce",
+                "text": "Köttbular Geflügel",
                 "codes": [
-                  "1"
+                  "A",
+                  "A1",
+                  "C",
+                  "G",
+                  "I",
+                  "J"
                 ],
                 "dge": false
               },
               {
-                "text": "Kartoffelstampf",
+                "text": "Rahmsauce",
                 "codes": [
+                  "1",
                   "G"
                 ],
                 "dge": false
+              },
+              {
+                "text": "Kartoffel",
+                "codes": [],
+                "dge": false
               }
             ],
-            "naehrwerte": "Fett: 14,6g / davon gesättigte Fettsäuren: 7g / KH: 17,6g / Zucker: g / Kilokalorien: 295,4kcal / Salz: 1,7g / Kilojoule: 1233kJ / Eiweiß (Protein): 18,6g"
+            "naehrwerte": "Fett: 0,8g / davon gesättigte Fettsäuren: 0,5g / KH: 26,1g / Zucker: 0g / Kilokalorien: 367,2kcal / Salz: 0g / Kilojoule: 1344,2kJ / Eiweiß (Protein): 3,1g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Vegetarische Tortellini mit Gemüsefüllung in Käserahmsauce",
+            "name": "Vollkornnudeln und Gemüsesauce aus Möhren, Mais, Erbsen",
             "codes": [],
             "komponenten": [
               {
-                "text": "Tortellini",
-                "codes": [],
+                "text": "Vollkorn Nudeln",
+                "codes": [
+                  "A",
+                  "A1"
+                ],
                 "dge": false
               },
               {
-                "text": "Käsesauce",
+                "text": "Gemüsebolognese",
                 "codes": [
-                  "G",
+                  "A",
+                  "A1",
                   "I"
                 ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 9,5g / davon gesättigte Fettsäuren: 5,7g / KH: 23,3g / Zucker: g / Kilokalorien: 253,1kcal / Salz: 0,7g / Kilojoule: 1125,6kJ / Eiweiß (Protein): 8,9g"
-          },
-          {
-            "kategorie": "Gemüse",
-            "name": "Rahmsauerkraut",
-            "codes": [
-              "1",
-              "G",
-              "I"
-            ],
-            "komponenten": [
-              {
-                "text": "Nährwerte",
-                "codes": [],
-                "dge": false
-              }
-            ],
-            "naehrwerte": ""
+            "naehrwerte": "Fett: 0,4g / davon gesättigte Fettsäuren: 0,1g / KH: 5,7g / Zucker: g / Kilokalorien: 45,6kcal / Salz: 0g / Kilojoule: 190,8kJ / Eiweiß (Protein): 4,3g"
           },
           {
             "kategorie": "Salat",
-            "name": "Bunter Blattsalat Lollo Rosso/Bionda Eichblatt mit Joghurtdressing",
-            "codes": [
-              "C",
-              "G"
-            ],
+            "name": "Feiner Möhrensalat",
+            "codes": [],
             "komponenten": [],
-            "naehrwerte": "Fett: 3,4g / davon gesättigte Fettsäuren: 0,7g / KH: 2,5g / Zucker: 2g / Kilokalorien: 45kcal / Salz: 0,3g / Kilojoule: 186,1kJ / Eiweiß (Protein): 1g"
+            "naehrwerte": "Kilokalorien: 31,9kcal / KH: 4,5g / BE: 0,4BE / Fett: 0,1g / Zucker: 0g / Salz: 0,1g / davon gesättigte Fettsäuren: 0g / Kilojoule: 135,5kJ"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1246,8 +1236,10 @@
           },
           {
             "kategorie": "Dessert",
-            "name": "Stracciatellajoghurt",
-            "codes": [],
+            "name": "Vanillepudding",
+            "codes": [
+              "G"
+            ],
             "komponenten": [
               {
                 "text": "Nährwerte",
@@ -1268,91 +1260,72 @@
       },
       {
         "tag": "Dienstag",
-        "datum": "13.10.2026",
+        "datum": "03.11.2026",
         "gerichte": []
       },
       {
         "tag": "Mittwoch",
-        "datum": "14.10.2026",
+        "datum": "04.11.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "2 Stück Geflügel Wienerwürstchen dazu bunter Nudelsalat",
+            "name": "5 St Chicken Nuggets dazu Kartoffelwedges und BBQ Sauce",
             "codes": [],
             "komponenten": [
               {
-                "text": "Geflügel Wiener",
+                "text": "Chicken Nuggets",
                 "codes": [
-                  "2",
-                  "3",
                   "8",
-                  "G",
-                  "I",
-                  "J"
+                  "A",
+                  "A1"
                 ],
                 "dge": false
               },
               {
-                "text": "Nudelsalat",
+                "text": "BBQ Sauce",
                 "codes": [
                   "2",
+                  "10",
                   "A",
                   "A1",
                   "J"
                 ],
                 "dge": false
+              },
+              {
+                "text": "Kartoffelspalten",
+                "codes": [],
+                "dge": false
               }
             ],
-            "naehrwerte": "Fett: 2,8g / davon gesättigte Fettsäuren: 1,1g / KH: 65,6g / Zucker: 0g / Kilokalorien: 568,4kcal / Salz: 0,1g / Kilojoule: 2442,1kJ / Eiweiß (Protein): 7,5g"
+            "naehrwerte": "Fett: 3,5g / davon gesättigte Fettsäuren: 0,6g / KH: 66,1g / Zucker: 0g / Kilokalorien: 491,2kcal / Salz: 0,7g / Kilojoule: 2059,8kJ / Eiweiß (Protein): 39,2g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Blumenkohl-Käse Bratling mit Kräuterquark und Cous Cous",
+            "name": "Spanische Papa Arugadas kleine Ofenkartoffeln und einem Salsa Dip",
             "codes": [],
             "komponenten": [
               {
-                "text": "Blumenkohl - Käse Medaillon",
+                "text": "Ofenkartoffel",
                 "codes": [],
                 "dge": false
               },
               {
-                "text": "Kräuter Quark",
+                "text": "Salsa",
                 "codes": [
-                  "3",
-                  "5",
-                  "G",
-                  "L"
-                ],
-                "dge": false
-              },
-              {
-                "text": "Cous Cous",
-                "codes": [
-                  "A",
-                  "I"
+                  "J"
                 ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 10,5g / davon gesättigte Fettsäuren: 1,6g / KH: 5,1g / Zucker: 0,1g / Kilokalorien: 500,7kcal / Salz: 0,1g / Kilojoule: 619,2kJ / Eiweiß (Protein): 3,8g"
-          },
-          {
-            "kategorie": "Gemüse",
-            "name": "Mischgemüse Erbsen, Möhren",
-            "codes": [],
-            "komponenten": [],
-            "naehrwerte": ""
+            "naehrwerte": "Fett: 0,6g / davon gesättigte Fettsäuren: 0,1g / KH: 8,8g / Zucker: 6,2g / Kilokalorien: 62,1kcal / Salz: 0,1g / Kilojoule: 260,4kJ / Eiweiß (Protein): 4,6g"
           },
           {
             "kategorie": "Salat",
-            "name": "Eisbergsalat Dressing American",
-            "codes": [
-              "1",
-              "C",
-              "J"
-            ],
+            "name": "Farmersalat Weißkohl, Möhren, Sellerie, Äpfel",
+            "codes": [],
             "komponenten": [],
-            "naehrwerte": "Fett: 6,5g / davon gesättigte Fettsäuren: 0,6g / KH: 5,4g / Zucker: g / Kilokalorien: 85,2kcal / Salz: 0,5g / Kilojoule: 353,5kJ / Eiweiß (Protein): 954,3mg"
+            "naehrwerte": "Kilokalorien: 68,9kcal / KH: 6,2g / BE: 0,5BE / Fett: 2,9g / Zucker: 0g / Salz: 0,1g / davon gesättigte Fettsäuren: 0,4g / Kilojoule: 289,9kJ"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1384,9 +1357,9 @@
           },
           {
             "kategorie": "Dessert",
-            "name": "Fruchtquark Apfel Pfirsich",
+            "name": "Apfelmus",
             "codes": [
-              "G"
+              "3"
             ],
             "komponenten": [],
             "naehrwerte": ""
@@ -1402,18 +1375,130 @@
       },
       {
         "tag": "Donnerstag",
-        "datum": "15.10.2026",
-        "gerichte": []
+        "datum": "05.11.2026",
+        "gerichte": [
+          {
+            "kategorie": "Tagesgericht",
+            "name": "Seelachsstücke aus nachhaltigem Fischfang in einer Gemüse-Dillsauce dazu Salzkartoffeln",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Seelachs in Sauce",
+                "codes": [
+                  "D",
+                  "G",
+                  "I"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Salzkartoffeln",
+                "codes": [],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 1g / davon gesättigte Fettsäuren: 0,2g / KH: 36,8g / Zucker: 0g / Kilokalorien: 263,4kcal / Salz: 0,1g / Kilojoule: 1144kJ / Eiweiß (Protein): 21g"
+          },
+          {
+            "kategorie": "Vegetarisch",
+            "name": "Cannelloni mit Ricotta Spinatfüllung in Tomatensauce überbacken",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Cannelloni",
+                "codes": [
+                  "A",
+                  "A1",
+                  "C",
+                  "G",
+                  "I"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 2,9g / davon gesättigte Fettsäuren: 0,5g / KH: 7,2g / Zucker: 2,7g / Kilokalorien: 56,7kcal / Salz: 0,1g / Kilojoule: 262,9kJ / Eiweiß (Protein): 1,4g"
+          },
+          {
+            "kategorie": "Salat",
+            "name": "Eisbergsalat mit Frenchdressing",
+            "codes": [
+              "1",
+              "C",
+              "G"
+            ],
+            "komponenten": [],
+            "naehrwerte": "Kilokalorien: 78,6kcal / KH: 4,9g / BE: 0,4BE / Fett: 5,9g / Zucker: g / Salz: 0,6g / davon gesättigte Fettsäuren: 0,5g / Kilojoule: 325,9kJ"
+          },
+          {
+            "kategorie": "Pizza & Pasta",
+            "name": "Pizza Pomodoro & Salami & Schinken",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Pizza Margarita/Pomodoro",
+                "codes": [
+                  "G"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Pizza Salami",
+                "codes": [
+                  "2",
+                  "3",
+                  "G",
+                  "I",
+                  "J"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Pizza Prosciutto",
+                "codes": [
+                  "2",
+                  "3",
+                  "8",
+                  "G"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 19,9g / davon gesättigte Fettsäuren: 9,8g / KH: 80,6g / Zucker: 0,1g / Kilokalorien: 635,4kcal / Salz: 1,9g / Kilojoule: 2690,5kJ / Eiweiß (Protein): 24,8g"
+          },
+          {
+            "kategorie": "Dessert",
+            "name": "Schokoladenpudding",
+            "codes": [
+              "G"
+            ],
+            "komponenten": [
+              {
+                "text": "Fett: / davon gesättigte Fettsäuren: / KH: / Zucker: 0g / Kilokalorien: 67kcal / Salz: 0g / Kilojoule: / Eiweiß (Protein):",
+                "codes": [],
+                "dge": false
+              }
+            ],
+            "naehrwerte": ""
+          },
+          {
+            "kategorie": "Obst",
+            "name": "Apfel",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": "Kilokalorien: 52kcal / KH: 11,4g / BE: 1BE / Fett: 0,4g / Zucker: g / Salz: 0g / davon gesättigte Fettsäuren: 0,1g / Kilojoule: 217kJ"
+          }
+        ]
       },
       {
         "tag": "Freitag",
-        "datum": "16.10.2026",
+        "datum": "06.11.2026",
         "gerichte": []
       }
     ],
     "hinweise": [
       "Bis zur angestrebten Zertifizierung durch die Deutsche Gesellschaft für Ernährung sind die Hauptkomponenten der jeweiligen Gerichte grün markiert",
       "Die grün hinterlegten Komponenten entsprechen dem „DGE-Qualitätsstandard für die Verpflegung in Schulen“ und wurden von der Deutschen Gesellschaft für Ernährung e.V. (DGE) als eine Menülinie zertifiziert und mit dem DGE-Logo ausgezeichnet.",
+      "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb.",
       "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb.",
       "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb."
     ],
@@ -1520,5 +1605,5 @@
       ]
     }
   },
-  "generatedAt": "2026-10-30T09:54:26.676Z"
+  "generatedAt": "2026-10-30T11:28:39.986Z"
 }
