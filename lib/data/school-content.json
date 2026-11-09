@@ -944,6 +944,20 @@
       "schulleitung": false,
       "telefon": "",
       "email": ""
+    },
+    {
+      "id": 62,
+      "vorname": "Marvin",
+      "nachname": "Gärtner",
+      "anrede": "Hr.",
+      "rolle": "Vikar",
+      "faecher": [
+        "Evangelische Religion"
+      ],
+      "bio": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
     }
   ],
   "news": [
@@ -973,27 +987,27 @@
   "sv": [
     {
       "id": 1,
-      "name": "Ayad Alsinjari"
+      "name": "Asha Abdi"
     },
     {
       "id": 2,
-      "name": "Salar Alshihmani"
+      "name": "Berat Yildirim"
     },
     {
       "id": 3,
-      "name": "Khadija Becker"
+      "name": "Eda Saribas"
     },
     {
       "id": 4,
-      "name": "Berat Demir"
+      "name": "Gabriel Mollai"
     },
     {
       "id": 5,
-      "name": "Asli Olmaz"
+      "name": "Rojbin Cakmak"
     },
     {
       "id": 6,
-      "name": "Fjolla Zahiti"
+      "name": "Tamim Karahanci"
     }
   ],
   "klassenlehrer": [
@@ -1717,5 +1731,5 @@
       ]
     }
   },
-  "generatedAt": "2026-11-09T15:44:36.445Z"
+  "generatedAt": "2026-11-09T16:02:12.098Z"
 }
