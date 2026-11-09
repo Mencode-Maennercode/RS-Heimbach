@@ -1205,24 +1205,24 @@
     }
   ],
   "mensa": {
-    "woche": "02.11. – 06.11.2026",
-    "kw": "KW 45",
+    "woche": "09.11. – 13.11.2026",
+    "kw": "KW 46",
     "tage": [
       {
         "tag": "Montag",
-        "datum": "02.11.2026",
+        "datum": "09.11.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "4 Stück Köttbular Geflügel mit Rahmsauce dazu Schwenkkartoffeln",
+            "name": "Hühnerfrikassee mit Erbsen und Möhren in der Sauce dazu Vollkornreis",
             "codes": [],
             "komponenten": [
               {
-                "text": "Köttbular Geflügel",
+                "text": "Hühnerfrikassee",
                 "codes": [
                   "A",
-                  "A1",
                   "C",
+                  "F",
                   "G",
                   "I",
                   "J"
@@ -1230,45 +1230,47 @@
                 "dge": false
               },
               {
-                "text": "Rahmsauce",
-                "codes": [
-                  "1",
-                  "G"
-                ],
-                "dge": false
-              },
-              {
-                "text": "Kartoffel",
+                "text": "Vollkornreis",
                 "codes": [],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 0,8g / davon gesättigte Fettsäuren: 0,5g / KH: 26,1g / Zucker: 0g / Kilokalorien: 367,2kcal / Salz: 0g / Kilojoule: 1344,2kJ / Eiweiß (Protein): 3,1g"
+            "naehrwerte": "Fett: 2g / davon gesättigte Fettsäuren: 0,5g / KH: 83,7g / Zucker: 0g / Kilokalorien: 565,6kcal / Salz: 0g / Kilojoule: 2468,4kJ / Eiweiß (Protein): 8,7g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Vollkornnudeln und Gemüsesauce aus Möhren, Mais, Erbsen",
+            "name": "YUM YUM Thai Suppe vegan mit buntem Gemüse und Bambussprossen",
             "codes": [],
             "komponenten": [
               {
-                "text": "Vollkorn Nudeln",
-                "codes": [
-                  "A",
-                  "A1"
-                ],
-                "dge": false
-              },
-              {
-                "text": "Gemüsebolognese",
+                "text": "Thai Suppe",
                 "codes": [
                   "A",
                   "A1",
-                  "I"
+                  "C",
+                  "F",
+                  "G",
+                  "I",
+                  "J",
+                  "K"
                 ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 0,4g / davon gesättigte Fettsäuren: 0,1g / KH: 5,7g / Zucker: g / Kilokalorien: 45,6kcal / Salz: 0g / Kilojoule: 190,8kJ / Eiweiß (Protein): 4,3g"
+            "naehrwerte": "Fett: 0,4g / davon gesättigte Fettsäuren: 0,1g / KH: 4,2g / Zucker: 0,2g / Kilokalorien: 69,4kcal / Salz: 0,9g / Kilojoule: 154,3kJ / Eiweiß (Protein): 1,6g"
+          },
+          {
+            "kategorie": "Gemüse",
+            "name": "Balkangemüse Brechbohnen, Erbsen, Möhren, Mais",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Nährwerte",
+                "codes": [],
+                "dge": false
+              }
+            ],
+            "naehrwerte": ""
           },
           {
             "kategorie": "Salat",
@@ -1331,65 +1333,78 @@
       },
       {
         "tag": "Dienstag",
-        "datum": "03.11.2026",
+        "datum": "10.11.2026",
         "gerichte": []
       },
       {
         "tag": "Mittwoch",
-        "datum": "04.11.2026",
+        "datum": "11.11.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "5 St Chicken Nuggets dazu Kartoffelwedges und BBQ Sauce",
+            "name": "Hähnchenschnitzel mit Paprikarahmsauce dazu Eierspätzle",
             "codes": [],
             "komponenten": [
               {
-                "text": "Chicken Nuggets",
+                "text": "Hähnchenschnitzel",
                 "codes": [
                   "8",
                   "A",
-                  "A1"
-                ],
-                "dge": false
-              },
-              {
-                "text": "BBQ Sauce",
-                "codes": [
-                  "2",
-                  "10",
-                  "A",
                   "A1",
-                  "J"
+                  "C"
                 ],
                 "dge": false
               },
               {
-                "text": "Kartoffelspalten",
+                "text": "Paprika Rahmsauce",
+                "codes": [
+                  "1",
+                  "G"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Spätzle",
                 "codes": [],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 3,5g / davon gesättigte Fettsäuren: 0,6g / KH: 66,1g / Zucker: 0g / Kilokalorien: 491,2kcal / Salz: 0,7g / Kilojoule: 2059,8kJ / Eiweiß (Protein): 39,2g"
+            "naehrwerte": "Fett: 1g / davon gesättigte Fettsäuren: 0,6g / KH: 19,7g / Zucker: 0g / Kilokalorien: 397kcal / Salz: 0,1g / Kilojoule: 541,6kJ / Eiweiß (Protein): 3,2g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Spanische Papa Arugadas kleine Ofenkartoffeln und einem Salsa Dip",
+            "name": "Blumenkohl Käse Bratling mit Kartoffeln und Kräuterdip",
             "codes": [],
             "komponenten": [
               {
-                "text": "Ofenkartoffel",
+                "text": "Blumenkohl - Käse Medaillon",
                 "codes": [],
                 "dge": false
               },
               {
-                "text": "Salsa",
+                "text": "Kräuter Quark",
                 "codes": [
-                  "J"
+                  "3",
+                  "5",
+                  "G",
+                  "L"
                 ],
+                "dge": false
+              },
+              {
+                "text": "Salzkartoffeln",
+                "codes": [],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 0,6g / davon gesättigte Fettsäuren: 0,1g / KH: 8,8g / Zucker: 6,2g / Kilokalorien: 62,1kcal / Salz: 0,1g / Kilojoule: 260,4kJ / Eiweiß (Protein): 4,6g"
+            "naehrwerte": "Fett: 0,6g / davon gesättigte Fettsäuren: 0,1g / KH: 23,9g / Zucker: g / Kilokalorien: 183,6kcal / Salz: 0,1g / Kilojoule: 619,4kJ / Eiweiß (Protein): 6,3g"
+          },
+          {
+            "kategorie": "Gemüse",
+            "name": "Gartengemüse Erbsen Möhren Blumenkohl Bohnen",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": ""
           },
           {
             "kategorie": "Salat",
@@ -1446,17 +1461,53 @@
       },
       {
         "tag": "Donnerstag",
-        "datum": "05.11.2026",
+        "datum": "12.11.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Seelachsstücke aus nachhaltigem Fischfang in einer Gemüse-Dillsauce dazu Salzkartoffeln",
+            "name": "Wildlachspfanne aus nachhaltigem Fischfang in Rahmsauce mit Brokkoli Blumenkohl und Möhren dazu Bandnudeln",
             "codes": [],
             "komponenten": [
               {
-                "text": "Seelachs in Sauce",
+                "text": "Wildlachs Pfanne Brokkoli",
                 "codes": [
+                  "1",
+                  "A",
+                  "A1",
                   "D",
+                  "G",
+                  "I"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Bandnudeln",
+                "codes": [
+                  "A",
+                  "A1"
+                ],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Fett: 4,2g / davon gesättigte Fettsäuren: 0,1g / KH: 17,5g / Zucker: 2,1g / Kilokalorien: 585,9kcal / Salz: 0g / Kilojoule: 1124,3kJ / Eiweiß (Protein): 13,9g"
+          },
+          {
+            "kategorie": "Vegetarisch",
+            "name": "Rahmspinat mit Kartoffeln und Rührei",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Rahmspinat",
+                "codes": [
+                  "G",
+                  "I"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Rührei",
+                "codes": [
+                  "1",
                   "G",
                   "I"
                 ],
@@ -1468,33 +1519,25 @@
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 1g / davon gesättigte Fettsäuren: 0,2g / KH: 36,8g / Zucker: 0g / Kilokalorien: 263,4kcal / Salz: 0,1g / Kilojoule: 1144kJ / Eiweiß (Protein): 21g"
+            "naehrwerte": "Fett: 10,5g / davon gesättigte Fettsäuren: 3,1g / KH: 28,9g / Zucker: g / Kilokalorien: 342,7kcal / Salz: 0,4g / Kilojoule: 1480,3kJ / Eiweiß (Protein): 16,8g"
           },
           {
-            "kategorie": "Vegetarisch",
-            "name": "Cannelloni mit Ricotta Spinatfüllung in Tomatensauce überbacken",
+            "kategorie": "Gemüse",
+            "name": "Brokkoli",
             "codes": [],
             "komponenten": [
               {
-                "text": "Cannelloni",
-                "codes": [
-                  "A",
-                  "A1",
-                  "C",
-                  "G",
-                  "I"
-                ],
+                "text": "Fett: 0g / davon gesättigte Fettsäuren: 0g / KH: 0,2g / Zucker: 0g / Kilokalorien: 30,2kcal / Salz: 0g / Kilojoule: 5kJ / Eiweiß (Protein): 29,1mg",
+                "codes": [],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 2,9g / davon gesättigte Fettsäuren: 0,5g / KH: 7,2g / Zucker: 2,7g / Kilokalorien: 56,7kcal / Salz: 0,1g / Kilojoule: 262,9kJ / Eiweiß (Protein): 1,4g"
+            "naehrwerte": ""
           },
           {
             "kategorie": "Salat",
             "name": "Eisbergsalat mit Frenchdressing",
             "codes": [
-              "1",
-              "C",
               "G"
             ],
             "komponenten": [],
@@ -1562,15 +1605,13 @@
       },
       {
         "tag": "Freitag",
-        "datum": "06.11.2026",
+        "datum": "13.11.2026",
         "gerichte": []
       }
     ],
     "hinweise": [
       "Bis zur angestrebten Zertifizierung durch die Deutsche Gesellschaft für Ernährung sind die Hauptkomponenten der jeweiligen Gerichte grün markiert",
       "Die grün hinterlegten Komponenten entsprechen dem „DGE-Qualitätsstandard für die Verpflegung in Schulen“ und wurden von der Deutschen Gesellschaft für Ernährung e.V. (DGE) als eine Menülinie zertifiziert und mit dem DGE-Logo ausgezeichnet.",
-      "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb.",
-      "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb.",
       "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb."
     ],
     "legende": {
@@ -1676,5 +1717,5 @@
       ]
     }
   },
-  "generatedAt": "2026-11-09T15:40:54.901Z"
+  "generatedAt": "2026-11-09T15:43:15.171Z"
 }
