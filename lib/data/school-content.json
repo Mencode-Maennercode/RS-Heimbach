@@ -956,7 +956,7 @@
       "volltext": "Ab sofort ist unsere komplett neu gestaltete Schulhomepage online! Übersichtlicher, schneller und auf jedem Gerät bequem nutzbar – ob am Laptop im Sekretariat oder am Handy auf dem Weg zur Bushaltestelle. Alle wichtigen Infos zu unserer Schule, dem Kollegium, aktuellen Neuigkeiten und dem Schulalltag findet ihr jetzt an einem Ort, klar strukturiert und immer aktuell. Besonders freuen wir uns, dass Neuigkeiten und Team-Infos ab jetzt viel schneller aktualisiert werden können. Ein großes Dankeschön an alle, die bei der Planung und Umsetzung mitgeholfen haben! Habt ihr Anregungen oder Wünsche? Schreibt uns gerne über das Kontaktformular.",
       "bildUrl": "",
       "slug": "endlich-online-unsere-neue-schulhomepage-ist-da",
-      "hauptbeitrag": true
+      "hauptbeitrag": false
     },
     {
       "id": 2,
@@ -967,7 +967,7 @@
       "volltext": "Wir freuen uns darauf, unsere Schule und unser Schulleben vorzustellen und interessierten Viertklässlerinnen und Viertklässlern sowie ihren Eltern einen Einblick in die Realschule Am Heimbach zu ermöglichen.",
       "bildUrl": "https://drive.google.com/thumbnail?sz=w1600&id=1XDm6PhL7FLGy730qKJ0ZOceNUxMeNLln",
       "slug": "tag-der-offenen-tuer-an-der-realschule-am-heimbach",
-      "hauptbeitrag": false
+      "hauptbeitrag": true
     }
   ],
   "sv": [
@@ -1717,5 +1717,5 @@
       ]
     }
   },
-  "generatedAt": "2026-11-09T15:43:15.171Z"
+  "generatedAt": "2026-11-09T15:44:36.445Z"
 }
