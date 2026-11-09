@@ -608,7 +608,7 @@
       "vorname": "Vesile",
       "nachname": "Adas",
       "anrede": "Fr.",
-      "rolle": "Referendar*in",
+      "rolle": "Lehrer*in",
       "faecher": [
         "Sozialwissenschaften",
         "Politik",
@@ -884,6 +884,66 @@
       "schulleitung": false,
       "telefon": "",
       "email": "Ja"
+    },
+    {
+      "id": 58,
+      "vorname": "Özge",
+      "nachname": "Akyol",
+      "anrede": "Fr.",
+      "rolle": "Referendar*in",
+      "faecher": [
+        "Deutsch",
+        "Praktische Philosophie"
+      ],
+      "bio": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 59,
+      "vorname": "Jessica",
+      "nachname": "Bernhardt",
+      "anrede": "Fr.",
+      "rolle": "Referendar*in",
+      "faecher": [
+        "Biologie",
+        "Deutsch"
+      ],
+      "bio": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 60,
+      "vorname": "Lisa",
+      "nachname": "Leidig",
+      "anrede": "Fr.",
+      "rolle": "Referendar*in",
+      "faecher": [
+        "Geschichte",
+        "Katholische Religion"
+      ],
+      "bio": "",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
+    },
+    {
+      "id": 61,
+      "vorname": "Nils",
+      "nachname": "Herkenrath",
+      "anrede": "Hr.",
+      "rolle": "Lehrer*in",
+      "faecher": [
+        "Deutsch",
+        "Biologie"
+      ],
+      "bio": "Sonderpädagoge",
+      "schulleitung": false,
+      "telefon": "",
+      "email": ""
     }
   ],
   "news": [
@@ -897,6 +957,17 @@
       "bildUrl": "",
       "slug": "endlich-online-unsere-neue-schulhomepage-ist-da",
       "hauptbeitrag": true
+    },
+    {
+      "id": 2,
+      "titel": "Tag der offenen Tür an der Realschule Am Heimbach",
+      "datum": "Mon Nov 09 2026 00:00:00 GMT+0100 (Central European Standard Time)",
+      "kategorie": "Schulleben",
+      "teaser": "Herzliche Einladung zum Tag der offenen Tür am Samstag, den 21. November 2026!",
+      "volltext": "Wir freuen uns darauf, unsere Schule und unser Schulleben vorzustellen und interessierten Viertklässlerinnen und Viertklässlern sowie ihren Eltern einen Einblick in die Realschule Am Heimbach zu ermöglichen.",
+      "bildUrl": "https://drive.google.com/thumbnail?sz=w1600&id=1XDm6PhL7FLGy730qKJ0ZOceNUxMeNLln",
+      "slug": "tag-der-offenen-tuer-an-der-realschule-am-heimbach",
+      "hauptbeitrag": false
     }
   ],
   "sv": [
@@ -1605,5 +1676,5 @@
       ]
     }
   },
-  "generatedAt": "2026-11-09T06:00:14.805Z"
+  "generatedAt": "2026-11-09T15:40:54.901Z"
 }
