@@ -59,7 +59,7 @@ export default function SVPage() {
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
                 <Image
-                  src="/Weitere%20Bilder/sv.jpg"
+                  src="/Weitere%20Bilder/sv-2026.jpg"
                   alt="Schülervertretung der Realschule Am Heimbach"
                   fill
                   className="object-cover"
