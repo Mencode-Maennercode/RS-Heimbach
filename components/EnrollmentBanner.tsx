@@ -16,7 +16,7 @@ export default function EnrollmentBanner() {
     <div className="bg-gradient-to-r from-[#e8442a] via-[#f08a3a] to-[#f5a623] text-white">
       <div className="max-w-7xl mx-auto pl-4 pr-12 sm:px-6 lg:px-8 py-2.5 relative flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm">
         <span className="font-bold">Anmeldung Schuljahr {schoolYearLabel}</span>
-        <span className="hidden md:inline text-white/90">Jetzt informieren und Ihrem Kind die beste Schule sichern.</span>
+        <span className="hidden md:inline text-white/90">Jetzt informieren und Ihr Kind an der Schule anmelden.</span>
         <Link
           href="/anmeldung"
           className="inline-flex items-center gap-1.5 bg-white text-[#e8442a] px-4 py-1.5 rounded-full font-bold text-xs hover:shadow-lg transition-shadow whitespace-nowrap"
