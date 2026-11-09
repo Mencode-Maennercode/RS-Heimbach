@@ -46,13 +46,16 @@ jobs:
       - name: Statische Seite bauen (erzeugt ./out)
         run: npm run build
 
-      - name: Per SFTP hochladen
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
-        with:
-          server: ${{ secrets.SFTP_HOST }}
-          port: 22
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: "./out/*"
-          remote_path: "/clickandbuilds/testheimbach"
-          sftp_only: true
+      # Seit 09.11.2026 laeuft die Seite auf dem Hetzner-Server der IT-Firma
+      # (nginx, Let's-Encrypt-Zertifikat dort). Upload per rsync ueber SSH mit
+      # Schluessel; ohne --delete, damit die Seite waehrend des Deploys nie
+      # kurzzeitig unvollstaendig ist.
+      - name: Per rsync/SSH hochladen
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo "${{ secrets.DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          rsync -rltz --chmod=D755,F644 \
+            -e "ssh -i ~/.ssh/deploy_key -p 66" \
+            ./out/ webadmin@178.63.8.82:/srv/website/
