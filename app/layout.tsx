@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import EnrollmentBanner from "@/components/EnrollmentBanner";
 import JsonLd from "@/components/JsonLd";
 import {
   GEO,
@@ -130,7 +131,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-white text-slate-900">
         <Navigation />
-        <main className="pt-20">{children}</main>
+        <main className="pt-20"><EnrollmentBanner />{children}</main>
         <Footer />
       </body>
     </html>

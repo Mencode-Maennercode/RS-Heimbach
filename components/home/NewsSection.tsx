@@ -3,9 +3,34 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Calendar, Tag } from "lucide-react";
+import { Calendar, Tag, ZoomIn } from "lucide-react";
 import { newsItems } from "@/lib/data";
 import NewsModal, { type NewsArticleData } from "./NewsModal";
+import { useIsFlyer, FLYER_POSITION } from "./flyer";
+
+function NewsImage({ src, alt, className }: { src: string; alt: string; className: string }) {
+  const isFlyer = useIsFlyer(src);
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className={className}
+      style={isFlyer ? { objectPosition: FLYER_POSITION } : undefined}
+    />
+  );
+}
+
+function FlyerBadge({ src }: { src: string }) {
+  const isFlyer = useIsFlyer(src);
+  if (!isFlyer) return null;
+  return (
+    <span className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-slate-900 text-xs font-bold shadow-md">
+      <ZoomIn className="w-3.5 h-3.5" />
+      Flyer ansehen
+    </span>
+  );
+}
 
 const categoryColors: Record<string, string> = {
   "SV-News": "bg-blue-100 text-blue-700",
@@ -77,13 +102,13 @@ export default function NewsSection() {
             className="lg:col-span-7 group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-400 card-hover text-left"
           >
             <div className="relative h-72 sm:h-80">
-              <Image
+              <NewsImage
                 src={featured.image}
                 alt={featured.title}
-                fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+              <FlyerBadge src={featured.image} />
               <div className="absolute top-4 left-4">
                 <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold ${categoryColors[featured.category] || "bg-slate-100 text-slate-700"}`}>
                   <Tag className="w-3 h-3" />
@@ -117,10 +142,9 @@ export default function NewsSection() {
                 className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex gap-4 p-4 text-left"
               >
                 <div className="relative w-24 h-24 rounded-xl overflow-hidden shrink-0">
-                  <Image
+                  <NewsImage
                     src={item.image}
                     alt={item.title}
-                    fill
                     className="object-cover group-hover:scale-110 transition-transform duration-400"
                   />
                 </div>
