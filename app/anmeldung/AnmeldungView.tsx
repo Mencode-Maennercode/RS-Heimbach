@@ -5,8 +5,14 @@ import HeroBackground from "@/components/HeroBackground";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Calendar, ArrowRight, FileText, Check, AlertTriangle, Phone } from "lucide-react";
-import { schoolInfo } from "@/lib/data";
+import { schoolInfo, downloadGroups } from "@/lib/data";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
+
+// Anmeldeformular aus dem Download-Bereich (Sheet-Tab "Downloads"), damit der
+// Link automatisch mitzieht, wenn das Formular dort ausgetauscht wird.
+const anmeldeFormular = downloadGroups
+  .flatMap((g) => g.items)
+  .find((d) => /^anmeldung/i.test(d.name));
 
 const anmeldungDocs = [
   "Geburtsurkunde",
@@ -115,6 +121,23 @@ export default function AnmeldungPage() {
               {/* Rechte Seite: Unterlagen */}
               <div className="bg-white p-8 md:p-10">
                 <h3 className="font-black text-[#0a5a54] text-lg mb-4">Bitte zur Anmeldung mitbringen</h3>
+                {anmeldeFormular && (
+                  <a
+                    href={anmeldeFormular.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-3 mb-4 p-3.5 rounded-xl bg-[#e8442a]/10 border-2 border-[#e8442a]/40 hover:border-[#e8442a] hover:bg-[#e8442a]/15 transition-colors"
+                  >
+                    <span className="w-9 h-9 rounded-lg bg-[#e8442a] flex items-center justify-center shrink-0">
+                      <FileText className="w-4.5 h-4.5 text-white" />
+                    </span>
+                    <span className="flex-1 min-w-0">
+                      <span className="block text-sm font-bold text-slate-900">Ausgefülltes Anmeldeformular</span>
+                      <span className="block text-xs text-[#e8442a] font-semibold">Hier herunterladen ({anmeldeFormular.type})</span>
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-[#e8442a] group-hover:translate-x-0.5 transition-transform" />
+                  </a>
+                )}
                 <ul className="space-y-2.5">
                   {anmeldungDocs.map((doc) => (
                     <li key={doc} className="flex items-start gap-3 text-sm text-slate-700">
