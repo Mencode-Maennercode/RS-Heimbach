@@ -898,7 +898,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 59,
@@ -913,7 +913,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 60,
@@ -928,7 +928,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 61,
@@ -943,7 +943,7 @@
       "bio": "Sonderpädagoge",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     },
     {
       "id": 62,
@@ -957,7 +957,7 @@
       "bio": "",
       "schulleitung": false,
       "telefon": "",
-      "email": ""
+      "email": "Ja"
     }
   ],
   "news": [
@@ -1731,5 +1731,5 @@
       ]
     }
   },
-  "generatedAt": "2026-11-09T16:03:22.894Z"
+  "generatedAt": "2026-11-09T16:07:05.214Z"
 }
