@@ -99,8 +99,15 @@ function NewsModalContent({ article, onClose }: { article: NewsArticleData; onCl
               {article.title}
             </h2>
             <p className="text-slate-700 font-medium leading-relaxed mb-4">{article.excerpt}</p>
+            <div className="space-y-3">
+              {paragraphs.map((p, i) => (
+                <p key={i} className="text-slate-600 text-sm leading-relaxed">
+                  {p}
+                </p>
+              ))}
+            </div>
             {isFlyer && (
-              <div className="mb-6">
+              <div className="mt-6">
                 <button
                   type="button"
                   onClick={() => setFullscreen(true)}
@@ -125,13 +132,6 @@ function NewsModalContent({ article, onClose }: { article: NewsArticleData; onCl
                 </a>
               </div>
             )}
-            <div className="space-y-3">
-              {paragraphs.map((p, i) => (
-                <p key={i} className="text-slate-600 text-sm leading-relaxed">
-                  {p}
-                </p>
-              ))}
-            </div>
           </div>
         </Dialog.Content>
       </Dialog.Portal>
