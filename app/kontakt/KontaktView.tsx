@@ -9,7 +9,7 @@ import { schoolInfo } from "@/lib/data";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
 
 export default function KontaktPage() {
-  const { isOpen: enrollmentOpen } = getEnrollmentInfo();
+  const { isOpen: enrollmentOpen, schoolYearLong, period } = getEnrollmentInfo();
 
   return (
     <>
@@ -61,11 +61,11 @@ export default function KontaktPage() {
                   <div className="w-11 h-11 rounded-xl bg-[#1DA499]/10 flex items-center justify-center"><FileText className="w-5 h-5 text-[#1DA499]" /></div>
                   <div>
                     <h3 className="font-black text-[#0a5a54]">Anmeldung Klasse 5</h3>
-                    <p className="text-slate-500 text-xs">Schuljahr 2026/2027</p>
+                    <p className="text-slate-500 text-xs">Schuljahr {schoolYearLong}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-slate-700 font-semibold">
-                  <Calendar className="w-4 h-4 text-[#e8442a]" /> Termine im Zeitraum Mo, 23.02.2026 – Fr, 19.03.2026
+                  <Calendar className="w-4 h-4 text-[#e8442a]" /> Termine im Zeitraum {period}
                 </div>
                 <p className="text-slate-600 text-sm sm:ml-auto">
                   <span className="inline-flex items-center gap-1.5 text-[#e8442a] font-bold">

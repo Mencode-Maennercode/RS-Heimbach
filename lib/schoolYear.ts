@@ -15,6 +15,8 @@ export function getSchoolYearLabel(date: Date = new Date()): string {
 export function getEnrollmentInfo(date: Date = new Date()): {
   isOpen: boolean;
   schoolYearLabel: string;
+  schoolYearLong: string;
+  period: string;
 } {
   const month = date.getMonth(); // 0 = Januar
   const day = date.getDate();
@@ -25,9 +27,15 @@ export function getEnrollmentInfo(date: Date = new Date()): {
 
   const isOpen = isNovDec || isJanToMar || isAprilFirst;
   if (!isOpen) {
-    return { isOpen: false, schoolYearLabel: "" };
+    return { isOpen: false, schoolYearLabel: "", schoolYearLong: "", period: "" };
   }
 
   const startYear = isNovDec ? date.getFullYear() + 1 : date.getFullYear();
-  return { isOpen: true, schoolYearLabel: `${startYear}/${String(startYear + 1).slice(-2)}` };
+  return {
+    isOpen: true,
+    schoolYearLabel: `${startYear}/${String(startYear + 1).slice(-2)}`,
+    schoolYearLong: `${startYear}/${startYear + 1}`,
+    // Anmeldetermine: jedes Jahr 01.03. - 19.03. des Startjahres
+    period: `01.03. – 19.03.${startYear}`,
+  };
 }

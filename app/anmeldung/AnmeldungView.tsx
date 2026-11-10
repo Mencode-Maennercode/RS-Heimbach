@@ -25,7 +25,7 @@ const anmeldungDocs = [
 ];
 
 export default function AnmeldungPage() {
-  const { isOpen: enrollmentOpen } = getEnrollmentInfo();
+  const { isOpen: enrollmentOpen, schoolYearLong, period } = getEnrollmentInfo();
 
   return (
     <>
@@ -37,7 +37,7 @@ export default function AnmeldungPage() {
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-4">Anmeldung Klasse 5</h1>
             <p className="text-white/80 text-xl max-w-xl">
               {enrollmentOpen
-                ? "Für das Schuljahr 2026/2027 – ausschließlich nach vorheriger Terminvereinbarung."
+                ? `Für das Schuljahr ${schoolYearLong} – ausschließlich nach vorheriger Terminvereinbarung.`
                 : "Der Anmeldezeitraum ist aktuell nicht geöffnet."}
             </p>
           </motion.div>
@@ -81,7 +81,7 @@ export default function AnmeldungPage() {
                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#f5a623] mb-3">
                   <FileText className="w-4 h-4" /> Anmeldung
                 </span>
-                <h2 className="text-3xl font-black mb-4 leading-tight">Anmeldung Klasse 5<br />für das Schuljahr 2026/2027</h2>
+                <h2 className="text-3xl font-black mb-4 leading-tight">Anmeldung Klasse 5<br />für das Schuljahr {schoolYearLong}</h2>
 
                 <div className="flex items-start gap-3 bg-[#e8442a]/15 border border-[#f5a623]/40 rounded-2xl p-4 mb-5">
                   <AlertTriangle className="w-5 h-5 text-[#f5a623] shrink-0 mt-0.5" />
@@ -97,9 +97,9 @@ export default function AnmeldungPage() {
                 </p>
                 <div className="bg-white/10 rounded-2xl p-5 space-y-2 text-sm">
                   <div className="flex items-center gap-2 font-bold text-[#f5a623]">
-                    <Calendar className="w-4 h-4" /> Termine im Zeitraum Mo, 23.02.2026 – Fr, 19.03.2026
+                    <Calendar className="w-4 h-4" /> Termine im Zeitraum {period}
                   </div>
-                  <div className="text-white/80">08:00 – 13:00 Uhr (montags nur bis 12:00 Uhr)</div>
+                  <div className="text-white/80">08:00 – 12:00 Uhr</div>
                   <div className="text-white/60 text-xs">Der Tag des vereinbarten Termins innerhalb dieses Zeitraums hat keinen Einfluss auf die Aufnahme.</div>
                 </div>
                 <div className="flex flex-wrap gap-3 mt-6">
@@ -148,7 +148,7 @@ export default function AnmeldungPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-slate-500 mt-5 leading-relaxed">
+                <p className="text-xs text-slate-500 font-bold mt-5 leading-relaxed">
                   Bei einer Hauptschulempfehlung bringen Sie Ihr Kind bitte mit – es erfolgt dann ein Beratungsgespräch.
                   Unterlagen bitte im Original und möglichst als Kopie mitbringen.
                 </p>

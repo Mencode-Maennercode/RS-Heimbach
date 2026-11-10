@@ -10,7 +10,7 @@ import { Phone, Mail, Clock, HeartPulse, FileText, Wrench, ArrowRight, AlertTria
 import { schoolInfo, sekretariatInfo } from "@/lib/data";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
 
-const secretariatStaff = ["Frau Umlauf", "Frau Abt", "Frau Baden", "Frau Eich"];
+const secretariatStaff = ["Frau Umlauf", "Frau Eich"];
 
 export default function SekretariatPage() {
   const { isOpen: enrollmentOpen } = getEnrollmentInfo();
