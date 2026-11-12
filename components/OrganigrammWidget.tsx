@@ -360,7 +360,7 @@ const ORG_DATA = {
     {
       id: "gremien", label: "Schulmitwirkung & Gremien", hue: 308,
       items: [
-        { role: "Schulpflegschaft", people: "Fr. Viehöver, Fr. Schmitz" },
+        { role: "Schulpflegschaft", people: "Fr. Frackenpohl, Hr. Steffes" },
         { role: "Teilkonferenz", people: "Hr. Stein, Hr. Schmidt, Fr. Grosse" },
         { role: "SV", people: "Fr. Katzner, Hr. Haag" },
         { role: "Küchenausschuss", people: "Fr. Pieper, Hr. Harpak" },

@@ -3,7 +3,6 @@
 import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Mail, Users, ChevronRight, CheckCircle2 } from "lucide-react";
 
 const tasks = [
@@ -44,14 +43,20 @@ export default function SchulpflegschaftPage() {
           <div className="grid md:grid-cols-2 gap-10 items-start">
             {/* Bild */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-xl">
-                <Image
-                  src="/Weitere%20Bilder/Elternvertretung.jpg"
-                  alt="Schulpflegschaft der Realschule Am Heimbach"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+              {/* Platzhalter mit Initialen, bis ein neues Foto vorliegt */}
+              <div
+                role="img"
+                aria-label="Schulpflegschaft der Realschule Am Heimbach"
+                className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-xl bg-gradient-to-br from-[#1a3a6b] to-[#1DA499] flex items-center justify-center gap-6"
+              >
+                {["F", "S"].map((l) => (
+                  <span
+                    key={l}
+                    className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white/15 border-2 border-white/40 flex items-center justify-center text-5xl font-black text-white"
+                  >
+                    {l}
+                  </span>
+                ))}
               </div>
             </motion.div>
 
@@ -67,7 +72,7 @@ export default function SchulpflegschaftPage() {
                 <h2 className="text-3xl font-black text-[#1a3a6b] mb-5">Ihre Ansprechpartnerinnen</h2>
 
                 <div className="space-y-3">
-                  {["Melanie Viehöver", "Bettina Schmitz"].map((name) => (
+                  {["Frau Frackenpohl", "Herr Steffes"].map((name) => (
                     <div key={name} className="flex items-center gap-3 p-4 bg-[#f8f9ff] rounded-2xl">
                       <div className="w-10 h-10 rounded-xl bg-[#1DA499] flex items-center justify-center shrink-0">
                         <Users className="w-5 h-5 text-white" />
