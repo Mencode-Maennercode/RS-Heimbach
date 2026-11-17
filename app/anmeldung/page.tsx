@@ -6,7 +6,7 @@ import AnmeldungView from "./AnmeldungView";
 export const metadata: Metadata = pageMetadata({
   title: "Anmeldung Klasse 5",
   description:
-    "Anmeldung zur Klasse 5 an der Realschule Am Heimbach Troisdorf: Termine, benötigte Unterlagen und Ablauf. Nur nach vorheriger Terminvereinbarung.",
+    "Anmeldung zur Klasse 5 an der Realschule Am Heimbach Troisdorf: Anmeldezeiten, benötigte Unterlagen und Ablauf. Ohne Termin, einfach zu den Anmeldezeiten vorbeikommen.",
   path: "/anmeldung",
   keywords: [
     "Anmeldung Realschule Troisdorf",

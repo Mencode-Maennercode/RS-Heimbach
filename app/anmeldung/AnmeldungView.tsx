@@ -4,8 +4,8 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, ArrowRight, FileText, Check, AlertTriangle, Phone } from "lucide-react";
-import { schoolInfo, downloadGroups } from "@/lib/data";
+import { Calendar, ArrowRight, FileText, Check, AlertTriangle } from "lucide-react";
+import { downloadGroups } from "@/lib/data";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
 
 // Anmeldeformular aus dem Download-Bereich (Sheet-Tab "Downloads"), damit der
@@ -37,7 +37,7 @@ export default function AnmeldungPage() {
             <h1 className="text-5xl sm:text-6xl font-black text-white mb-4">Anmeldung Klasse 5</h1>
             <p className="text-white/80 text-xl max-w-xl">
               {enrollmentOpen
-                ? `Für das Schuljahr ${schoolYearLong} – ausschließlich nach vorheriger Terminvereinbarung.`
+                ? `Für das Schuljahr ${schoolYearLong} – ohne Termin, einfach zu den Anmeldezeiten vorbeikommen.`
                 : "Der Anmeldezeitraum ist aktuell nicht geöffnet."}
             </p>
           </motion.div>
@@ -86,29 +86,24 @@ export default function AnmeldungPage() {
                 <div className="flex items-start gap-3 bg-[#e8442a]/15 border border-[#f5a623]/40 rounded-2xl p-4 mb-5">
                   <AlertTriangle className="w-5 h-5 text-[#f5a623] shrink-0 mt-0.5" />
                   <p className="text-sm text-white leading-relaxed">
-                    <strong>Anmeldungen sind ausschließlich nach vorheriger Terminvereinbarung möglich.</strong>{" "}
-                    Bitte kommen Sie nicht ohne Termin vorbei – rufen Sie vorher im Sekretariat an.
+                    <strong>Eine Terminvereinbarung ist nicht nötig.</strong>{" "}
+                    Kommen Sie einfach zu den Anmeldezeiten im Sekretariat vorbei.
                   </p>
                 </div>
 
                 <p className="text-white/80 text-sm leading-relaxed mb-6">
-                  Liebe Eltern von Grundschulkindern: Vereinbaren Sie telefonisch im Sekretariat einen Termin –
-                  an allen Unterrichtstagen <strong>außer mittwochs</strong> erreichbar.
+                  Liebe Eltern von Grundschulkindern: Die Anmeldung ist im unten genannten Zeitraum
+                  persönlich im Sekretariat möglich – an allen Unterrichtstagen <strong>außer mittwochs</strong>.
+                  Bitte bringen Sie die nebenstehenden Unterlagen mit.
                 </p>
                 <div className="bg-white/10 rounded-2xl p-5 space-y-2 text-sm">
                   <div className="flex items-center gap-2 font-bold text-[#f5a623]">
-                    <Calendar className="w-4 h-4" /> Termine im Zeitraum {period}
+                    <Calendar className="w-4 h-4" /> Anmeldezeitraum {period}
                   </div>
                   <div className="text-white/80">08:00 – 12:00 Uhr</div>
-                  <div className="text-white/60 text-xs">Der Tag des vereinbarten Termins innerhalb dieses Zeitraums hat keinen Einfluss auf die Aufnahme.</div>
+                  <div className="text-white/60 text-xs">Der Tag der Anmeldung innerhalb dieses Zeitraums hat keinen Einfluss auf die Aufnahme.</div>
                 </div>
                 <div className="flex flex-wrap gap-3 mt-6">
-                  <a
-                    href={schoolInfo.phoneLink}
-                    className="inline-flex items-center gap-2 bg-[#1DA499] hover:bg-[#17a89d] text-white px-6 py-3 rounded-xl font-bold text-sm transition-colors"
-                  >
-                    <Phone className="w-4 h-4" /> Termin telefonisch vereinbaren
-                  </a>
                   <a
                     href="/kontakt"
                     className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl font-bold text-sm transition-colors"

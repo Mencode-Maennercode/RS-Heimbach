@@ -12,6 +12,7 @@ export function getSchoolYearLabel(date: Date = new Date()): string {
 // Die Anmeldung fuer die 5. Klasse laeuft jedes Jahr vom 1. November bis zum
 // 1. April vor dem beworbenen Schuljahr (das im darauffolgenden Sommer
 // beginnt), z. B. November 2026 bis April 2027 fuer das Schuljahr 2027/28.
+// Die eigentlichen Anmeldezeiten (period) enden bereits am 18.03.
 export function getEnrollmentInfo(date: Date = new Date()): {
   isOpen: boolean;
   schoolYearLabel: string;
@@ -35,7 +36,7 @@ export function getEnrollmentInfo(date: Date = new Date()): {
     isOpen: true,
     schoolYearLabel: `${startYear}/${String(startYear + 1).slice(-2)}`,
     schoolYearLong: `${startYear}/${startYear + 1}`,
-    // Anmeldetermine: jedes Jahr 01.03. - 19.03. des Startjahres
-    period: `01.03. – 19.03.${startYear}`,
+    // Anmeldezeitraum: jedes Jahr 01.03. - 18.03. des Startjahres
+    period: `01.03. – 18.03.${startYear}`,
   };
 }

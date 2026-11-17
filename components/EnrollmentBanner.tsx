@@ -21,7 +21,7 @@ export default function EnrollmentBanner() {
           href="/anmeldung"
           className="inline-flex items-center gap-1.5 bg-white text-[#e8442a] px-4 py-1.5 rounded-full font-bold text-xs hover:shadow-lg transition-shadow whitespace-nowrap"
         >
-          Jetzt anmelden <ArrowRight className="w-3.5 h-3.5" />
+          Alle Infos &amp; Zeiten <ArrowRight className="w-3.5 h-3.5" />
         </Link>
         <button
           type="button"
