@@ -518,7 +518,6 @@ export const sekretariatInfo = {
     { day: "Freitag", time: "07:30 – 13:00 Uhr" },
     { day: "Samstag & Sonntag", time: "Geschlossen" },
   ],
-  closedNote: "Täglich von 10:50 – 11:45 Uhr geschlossen.",
 };
 
 // Alle Faecher, die im Sheet tatsaechlich einer Lehrkraft zugeordnet sind —

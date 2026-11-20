@@ -6,7 +6,7 @@ import HeroBackground from "@/components/HeroBackground";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, Clock, HeartPulse, FileText, Wrench, ArrowRight, AlertTriangle } from "lucide-react";
+import { Phone, Mail, Clock, HeartPulse, FileText, Wrench, ArrowRight, Check } from "lucide-react";
 import { schoolInfo, sekretariatInfo } from "@/lib/data";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
 
@@ -87,7 +87,6 @@ export default function SekretariatPage() {
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-slate-500 mt-4 bg-[#f8f9ff] rounded-xl px-4 py-3">{sekretariatInfo.closedNote}</p>
             </div>
 
             {/* Krankmeldung */}
@@ -131,11 +130,11 @@ export default function SekretariatPage() {
                 <div>
                   <h3 className="font-black text-[#0a5a54] mb-1 group-hover:text-[#1DA499] transition-colors">Anmeldung Klasse 5</h3>
                   <div className="inline-flex items-center gap-1.5 bg-[#e8442a]/10 text-[#e8442a] text-xs font-bold px-2.5 py-1 rounded-full mt-1 mb-2">
-                    <AlertTriangle className="w-3 h-3" /> Nur mit Termin
+                    <Check className="w-3 h-3" /> Ohne Termin
                   </div>
                   <p className="text-slate-600 text-sm">
-                    Bitte nicht ohne Termin vorbeikommen — vorher telefonisch im Sekretariat einen Termin
-                    vereinbaren. Alle Infos und Unterlagen auf der Anmeldeseite.
+                    Einfach zu den Anmeldezeiten im Sekretariat vorbeikommen. Anmeldemappe, Anmeldezeiten und
+                    alle Unterlagen finden Sie auf der Anmeldeseite.
                   </p>
                 </div>
               </Link>

@@ -18,7 +18,11 @@ const sections = [
   },
   {
     title: "4. Hosting",
-    content: `Diese Website wird bei einem externen Dienstleister gehostet:\n\nIONOS SE, Elgendorfer Str. 57, 56410 Montabaur\n\nDer Hoster erhebt und verarbeitet in unserem Auftrag Server-Log-Daten (siehe Punkt 5) auf Grundlage eines Vertrags zur Auftragsverarbeitung nach Art. 28 DSGVO. IONOS darf diese Daten nicht für eigene Zwecke nutzen.\n\nWichtiger technischer Hinweis, den wir hier bewusst offen ansprechen: Die Übertragung zu dieser Website ist derzeit noch nicht per SSL/TLS verschlüsselt (kein "https"-Schloss im Browser). Ein Zertifikat wird nachgereicht, sobald die technischen Voraussetzungen dafür geschaffen sind. Da unser Kontaktformular ohnehin keine Daten an den Server überträgt (siehe Punkt 7), sind hiervon aktuell keine über diese Website eingegebenen personenbezogenen Daten betroffen.`,
+    content: `Diese Website wird im Auftrag der Stadt Troisdorf (Schulträger) auf einem Server betrieben, den deren IT-Dienstleister verwaltet. Der Server steht im Rechenzentrum der Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen.
+
+Der Hoster verarbeitet in unserem Auftrag Server-Log-Daten (siehe Punkt 5) auf Grundlage eines Vertrags zur Auftragsverarbeitung nach Art. 28 DSGVO und darf diese Daten nicht für eigene Zwecke nutzen.
+
+Die Übertragung zwischen Ihrem Browser und dieser Website ist per SSL/TLS verschlüsselt (erkennbar am "https" und dem Schloss-Symbol im Browser).`,
   },
   {
     title: "5. Server-Log-Dateien",

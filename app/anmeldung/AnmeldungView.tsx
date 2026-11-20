@@ -4,15 +4,11 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, ArrowRight, FileText, Check, AlertTriangle } from "lucide-react";
-import { downloadGroups } from "@/lib/data";
+import { Calendar, ArrowRight, FileText, Check, Download, Printer, Building2 } from "lucide-react";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
 
-// Anmeldeformular aus dem Download-Bereich (Sheet-Tab "Downloads"), damit der
-// Link automatisch mitzieht, wenn das Formular dort ausgetauscht wird.
-const anmeldeFormular = downloadGroups
-  .flatMap((g) => g.items)
-  .find((d) => /^anmeldung/i.test(d.name));
+// Eine zusammengefasste PDF-Mappe (Checkliste + alle Formulare), liegt in public/.
+const MAPPE_HREF = "/Anmeldemappe-Klasse-5.pdf";
 
 const anmeldungDocs = [
   "Geburtsurkunde",
@@ -83,8 +79,8 @@ export default function AnmeldungPage() {
                 </span>
                 <h2 className="text-3xl font-black mb-4 leading-tight">Anmeldung Klasse 5<br />für das Schuljahr {schoolYearLong}</h2>
 
-                <div className="flex items-start gap-3 bg-[#e8442a]/15 border border-[#f5a623]/40 rounded-2xl p-4 mb-5">
-                  <AlertTriangle className="w-5 h-5 text-[#f5a623] shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 bg-white/10 border border-[#f5a623]/40 rounded-2xl p-4 mb-5">
+                  <Check className="w-5 h-5 text-[#f5a623] shrink-0 mt-0.5" />
                   <p className="text-sm text-white leading-relaxed">
                     <strong>Eine Terminvereinbarung ist nicht nötig.</strong>{" "}
                     Kommen Sie einfach zu den Anmeldezeiten im Sekretariat vorbei.
@@ -94,7 +90,6 @@ export default function AnmeldungPage() {
                 <p className="text-white/80 text-sm leading-relaxed mb-6">
                   Liebe Eltern von Grundschulkindern: Die Anmeldung ist im unten genannten Zeitraum
                   persönlich im Sekretariat möglich – an allen Unterrichtstagen <strong>außer mittwochs</strong>.
-                  Bitte bringen Sie die nebenstehenden Unterlagen mit.
                 </p>
                 <div className="bg-white/10 rounded-2xl p-5 space-y-2 text-sm">
                   <div className="flex items-center gap-2 font-bold text-[#f5a623]">
@@ -115,24 +110,38 @@ export default function AnmeldungPage() {
 
               {/* Rechte Seite: Unterlagen */}
               <div className="bg-white p-8 md:p-10">
-                <h3 className="font-black text-[#0a5a54] text-lg mb-4">Bitte zur Anmeldung mitbringen</h3>
-                {anmeldeFormular && (
-                  <a
-                    href={anmeldeFormular.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-3 mb-4 p-3.5 rounded-xl bg-[#e8442a]/10 border-2 border-[#e8442a]/40 hover:border-[#e8442a] hover:bg-[#e8442a]/15 transition-colors"
-                  >
-                    <span className="w-9 h-9 rounded-lg bg-[#e8442a] flex items-center justify-center shrink-0">
-                      <FileText className="w-4.5 h-4.5 text-white" />
-                    </span>
-                    <span className="flex-1 min-w-0">
-                      <span className="block text-sm font-bold text-slate-900">Ausgefülltes Anmeldeformular</span>
-                      <span className="block text-xs text-[#e8442a] font-semibold">Hier herunterladen ({anmeldeFormular.type})</span>
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-[#e8442a] group-hover:translate-x-0.5 transition-transform" />
-                  </a>
-                )}
+                <h3 className="font-black text-[#0a5a54] text-lg mb-5">In drei Schritten zur Anmeldung</h3>
+                <ol className="space-y-4 mb-6">
+                  {[
+                    { icon: Download, t: "Anmeldemappe herunterladen", d: "Ein PDF mit Checkliste und allen Formularen." },
+                    { icon: Printer, t: "Ausdrucken, ausfüllen, unterschreiben", d: "Die Checkliste auf dem ersten Blatt zeigt, was unterschrieben werden muss." },
+                    { icon: Building2, t: "Zu den Anmeldezeiten ins Sekretariat", d: "Mappe und die Unterlagen unten mitbringen." },
+                  ].map((st, i) => (
+                    <li key={st.t} className="flex items-start gap-3">
+                      <span className="w-8 h-8 rounded-full bg-[#0a5a54] text-white text-sm font-black flex items-center justify-center shrink-0">{i + 1}</span>
+                      <span className="text-sm text-slate-700 leading-snug">
+                        <span className="block font-bold text-slate-900">{st.t}</span>
+                        {st.d}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+                <a
+                  href={MAPPE_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 mb-6 p-3.5 rounded-xl bg-[#e8442a]/10 border-2 border-[#e8442a]/40 hover:border-[#e8442a] hover:bg-[#e8442a]/15 transition-colors"
+                >
+                  <span className="w-9 h-9 rounded-lg bg-[#e8442a] flex items-center justify-center shrink-0">
+                    <FileText className="w-4.5 h-4.5 text-white" />
+                  </span>
+                  <span className="flex-1 min-w-0">
+                    <span className="block text-sm font-bold text-slate-900">Anmeldemappe Klasse 5</span>
+                    <span className="block text-xs text-[#e8442a] font-semibold">PDF herunterladen · 13 Blätter, einseitig drucken</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-[#e8442a] group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <h4 className="font-black text-[#0a5a54] mb-3">Zusätzlich mitbringen</h4>
                 <ul className="space-y-2.5">
                   {anmeldungDocs.map((doc) => (
                     <li key={doc} className="flex items-start gap-3 text-sm text-slate-700">
@@ -145,7 +154,7 @@ export default function AnmeldungPage() {
                 </ul>
                 <p className="text-xs text-slate-500 font-bold mt-5 leading-relaxed">
                   Bei einer Hauptschulempfehlung bringen Sie Ihr Kind bitte mit – es erfolgt dann ein Beratungsgespräch.
-                  Unterlagen bitte im Original und möglichst als Kopie mitbringen.
+                  Unterlagen bitte im Original und möglichst als Kopie mitbringen. Über die Website werden keine persönlichen Daten übertragen.
                 </p>
               </div>
             </div>

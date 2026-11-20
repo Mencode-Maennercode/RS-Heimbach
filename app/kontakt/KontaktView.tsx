@@ -4,7 +4,7 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock, Instagram, FileText, Calendar, HeartPulse, ArrowRight, AlertTriangle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Instagram, FileText, Calendar, HeartPulse, ArrowRight, Check } from "lucide-react";
 import { schoolInfo } from "@/lib/data";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
 
@@ -69,9 +69,9 @@ export default function KontaktPage() {
                 </div>
                 <p className="text-slate-600 text-sm sm:ml-auto">
                   <span className="inline-flex items-center gap-1.5 text-[#e8442a] font-bold">
-                    <AlertTriangle className="w-3.5 h-3.5" /> Nur mit Termin
+                    <Check className="w-3.5 h-3.5" /> Ohne Termin
                   </span>
-                  {" "}— bitte vorher telefonisch vereinbaren. Details unter{" "}
+                  {" "}— einfach zu den Anmeldezeiten kommen. Details unter{" "}
                   <Link href="/anmeldung" className="text-[#1DA499] font-bold hover:underline">Anmeldung</Link>.
                 </p>
               </div>
