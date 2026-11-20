@@ -4,7 +4,7 @@ import HeroBackground from "@/components/HeroBackground";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, ArrowRight, FileText, Check, Download, Printer, Building2 } from "lucide-react";
+import { Calendar, ArrowRight, FileText, Check, Download, Printer, Building2, AlertTriangle } from "lucide-react";
 import { getEnrollmentInfo } from "@/lib/schoolYear";
 
 // Eine zusammengefasste PDF-Mappe (Checkliste + alle Formulare), liegt in public/.
@@ -87,6 +87,14 @@ export default function AnmeldungPage() {
                   </p>
                 </div>
 
+                <div className="flex items-start gap-3 bg-[#f5a623] rounded-2xl p-4 mb-5 text-[#0a3a36]">
+                  <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
+                  <p className="text-sm leading-relaxed">
+                    <strong>Bei einer Hauptschulempfehlung bitte das Kind mitbringen.</strong>{" "}
+                    Es erfolgt dann ein Beratungsgespräch.
+                  </p>
+                </div>
+
                 <p className="text-white/80 text-sm leading-relaxed mb-6">
                   Liebe Eltern von Grundschulkindern: Die Anmeldung ist im unten genannten Zeitraum
                   persönlich im Sekretariat möglich – an allen Unterrichtstagen <strong>außer mittwochs</strong>.
@@ -153,7 +161,6 @@ export default function AnmeldungPage() {
                   ))}
                 </ul>
                 <p className="text-xs text-slate-500 font-bold mt-5 leading-relaxed">
-                  Bei einer Hauptschulempfehlung bringen Sie Ihr Kind bitte mit – es erfolgt dann ein Beratungsgespräch.
                   Unterlagen bitte im Original und möglichst als Kopie mitbringen. Über die Website werden keine persönlichen Daten übertragen.
                 </p>
               </div>

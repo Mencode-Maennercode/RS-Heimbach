@@ -52,9 +52,9 @@ export default async function Home() {
     <>
       <JsonLd data={homeJsonLd} />
       <HeroSection />
+      <NewsSection />
       <StatsSection />
       <LeitbildSection />
-      <NewsSection />
       <InstagramSection posts={instagramPosts} />
       <EventsSection events={events.slice(0, 6)} />
       <GanztagTeaser />
