@@ -1219,78 +1219,85 @@
     }
   ],
   "mensa": {
-    "woche": "23.11. – 27.11.2026",
-    "kw": "KW 48",
+    "woche": "30.11. – 04.12.2026",
+    "kw": "KW 49",
     "tage": [
       {
         "tag": "Montag",
-        "datum": "23.11.2026",
+        "datum": "30.11.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Portion Lachs in Rahmsauce dazu Kräuterkartoffeln",
+            "name": "Die Römer \"Pulmentum\" Römischer Graupeneintopf mit Wurzelgemüse und Kartoffeln ein Geflügelkräuerbällchen",
             "codes": [],
             "komponenten": [
               {
-                "text": "Lachs",
+                "text": "Gemüseeintopf",
                 "codes": [
-                  "D"
-                ],
-                "dge": false
-              },
-              {
-                "text": "Kräuterrahmsauce hell",
-                "codes": [
-                  "G",
                   "I"
                 ],
                 "dge": false
               },
               {
-                "text": "Salzkartoffeln",
-                "codes": [],
+                "text": "Geflügelbällchen",
+                "codes": [
+                  "8",
+                  "A",
+                  "A1",
+                  "C",
+                  "I"
+                ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 8,7g / davon gesättigte Fettsäuren: 2,2g / KH: 32,2g / Zucker: 0,2g / Kilokalorien: 362,1kcal / Salz: 0,6g / Kilojoule: 1594,6kJ / Eiweiß (Protein): 27,5g"
+            "naehrwerte": "Xylit: / Kilokalorien: 268,1kcal / Kilojoule: 721,3kJ / KH: 13,8g / Eiweiß (Protein): 19,3g / Fett: 3,5g / mehrfach ungesättigte Fettsäuren: 0,4g / Zucker: g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Marokkanische Bulgur Gemüsepfanne mit Kichererbsen und Dip",
+            "name": "Chili sin Carne mit Soja Mais Bohnen dazu Baguette",
             "codes": [],
             "komponenten": [
               {
-                "text": "Cous Cous",
+                "text": "Chili con carne",
                 "codes": [
                   "A",
+                  "A3",
+                  "F",
                   "I"
                 ],
                 "dge": false
               },
               {
-                "text": "Petersilien Sauce",
+                "text": "Baguette",
                 "codes": [
-                  "1",
                   "A",
                   "A1",
-                  "G",
-                  "I"
+                  "K"
                 ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 16,1g / davon gesättigte Fettsäuren: 2,8g / KH: 8,7g / Zucker: 0g / Kilokalorien: 720,9kcal / Salz: 0,1g / Kilojoule: 1024,6kJ / Eiweiß (Protein): 2,8g"
+            "naehrwerte": "Fett: 0,5g / davon gesättigte Fettsäuren: 0,1g / KH: 6,7g / Zucker: g / Kilokalorien: 304,3kcal / Salz: 0,1g / Kilojoule: 1204,7kJ / Eiweiß (Protein): 53,2g"
+          },
+          {
+            "kategorie": "Gemüse",
+            "name": "Vichykarotten",
+            "codes": [
+              "I"
+            ],
+            "komponenten": [],
+            "naehrwerte": "Fett: 0g / davon gesättigte Fettsäuren: 0g / KH: 0,2g / Zucker: 0g / Kilokalorien: 30,2kcal / Salz: 0g / Kilojoule: 5kJ / Eiweiß (Protein): 29,1mg"
           },
           {
             "kategorie": "Salat",
-            "name": "Kopfsalat Dressing French",
+            "name": "Wachsbohnensalat",
             "codes": [
-              "C",
-              "G",
-              "J"
+              "3",
+              "5",
+              "L"
             ],
             "komponenten": [],
-            "naehrwerte": "Fett: 5,7g / davon gesättigte Fettsäuren: 0,5g / KH: 1,9g / Zucker: 1,9g / Kilokalorien: 61,2kcal / Salz: 0,6g / Kilojoule: 253,2kJ / Eiweiß (Protein): 150mg"
+            "naehrwerte": "Fett: 0,2g / davon gesättigte Fettsäuren: 0g / KH: 4,2g / Zucker: 0g / Kilokalorien: 33,4kcal / Salz: 0g / Kilojoule: 143,1kJ / Eiweiß (Protein): 1,5g"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1318,71 +1325,72 @@
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 11,5g / davon gesättigte Fettsäuren: 3,6g / KH: 80,5g / Zucker: 0g / Kilokalorien: 542,8kcal / Salz: 0,5g / Kilojoule: 2278,4kJ / Eiweiß (Protein): 24,7g"
+            "naehrwerte": "Xylit: / Kilokalorien: 91,8kcal / Kilojoule: 246,2kJ / KH: 9,3g / Eiweiß (Protein): 0,9g / Fett: 1g / mehrfach ungesättigte Fettsäuren: 0,4g / Zucker: 0g"
           },
           {
             "kategorie": "Dessert",
-            "name": "Schokoladenpudding",
+            "name": "Angerührter Quark mit süßem Honig",
             "codes": [],
-            "komponenten": [
-              {
-                "text": "Nährwerte",
-                "codes": [],
-                "dge": false
-              }
-            ],
-            "naehrwerte": ""
+            "komponenten": [],
+            "naehrwerte": "Xylit: / Kilokalorien: 91,8kcal / Kilojoule: 246,2kJ / KH: 9,3g / Eiweiß (Protein): 0,9g / Fett: 1g / mehrfach ungesättigte Fettsäuren: 0,4g / Zucker: 0g"
           },
           {
             "kategorie": "Obst",
-            "name": "Kiwi",
+            "name": "Apfel",
             "codes": [],
             "komponenten": [],
-            "naehrwerte": "kcal: 61kcal / kJ: 255kJ / BE: 0,9BE / Eiweiß: 1g / Fett: 0,6g / Harnsäure: 19mg / Cholesterin: / mehrfach ungesättigte Fettsäuren: 249mg"
+            "naehrwerte": "Kilokalorien: 52kcal / KH: 11,4g / BE: 1BE / Fett: 0,4g / Zucker: g / Salz: 0g / davon gesättigte Fettsäuren: 0,1g / Kilojoule: 217kJ"
           }
         ]
       },
       {
         "tag": "Dienstag",
-        "datum": "24.11.2026",
+        "datum": "01.12.2026",
         "gerichte": []
       },
       {
         "tag": "Mittwoch",
-        "datum": "25.11.2026",
+        "datum": "02.12.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Geflügelbratwurst mit Kartoffelstampf und Sauce",
+            "name": "Die Könige im Barock \"Königliches Hähnchenfrikassee\" mit Erbsen Möhren und Spargelstücken in der Reisburg",
             "codes": [],
             "komponenten": [
               {
-                "text": "Geflügelbratwurst",
-                "codes": [],
+                "text": "Hühnerfrikassee",
+                "codes": [
+                  "A",
+                  "C",
+                  "F",
+                  "G",
+                  "I",
+                  "J"
+                ],
                 "dge": false
               },
               {
-                "text": "Kartoffelstampf",
+                "text": "Reis",
+                "codes": [],
+                "dge": false
+              }
+            ],
+            "naehrwerte": "Xylit: / Kilokalorien: 565,6kcal / Kilojoule: 2466kJ / KH: 86,6g / Eiweiß (Protein): 8,4g / Fett: 0,7g / mehrfach ungesättigte Fettsäuren: 0,8g / Zucker: 0g"
+          },
+          {
+            "kategorie": "Vegetarisch",
+            "name": "Allgäuer Käsespätzle mit Röstzwiebeln und Sahnesauce",
+            "codes": [],
+            "komponenten": [
+              {
+                "text": "Käsespätzle",
                 "codes": [
                   "G"
                 ],
                 "dge": false
               },
               {
-                "text": "Bratensauce",
-                "codes": [],
-                "dge": false
-              }
-            ],
-            "naehrwerte": "Fett: 0,3g / davon gesättigte Fettsäuren: 0,1g / KH: 42,1g / Zucker: g / Kilokalorien: 511,1kcal / Salz: 0,1g / Kilojoule: 944,3kJ / Eiweiß (Protein): 5g"
-          },
-          {
-            "kategorie": "Vegetarisch",
-            "name": "Blumenkohl in Bechamelsauce dazu Salzkartoffeln",
-            "codes": [],
-            "komponenten": [
-              {
-                "text": "Blumenkohl Auflauf",
+                "text": "Sahne Sauce",
                 "codes": [
                   "G",
                   "I"
@@ -1390,34 +1398,28 @@
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 8,8g / davon gesättigte Fettsäuren: 6g / KH: 12,3g / Zucker: 0g / Kilokalorien: 180,4kcal / Salz: 0,6g / Kilojoule: 822,3kJ / Eiweiß (Protein): 6,8g"
+            "naehrwerte": "Fett: 13,1g / davon gesättigte Fettsäuren: 7,5g / KH: 39,3g / Zucker: 0g / Kilokalorien: 412,6kcal / Salz: 1g / Kilojoule: 1719,4kJ / Eiweiß (Protein): 16,5g"
           },
           {
             "kategorie": "Gemüse",
-            "name": "oder wahlweise",
-            "codes": [],
-            "komponenten": [
-              {
-                "text": "Erbsen",
-                "codes": [
-                  "1",
-                  "I"
-                ],
-                "dge": false
-              }
+            "name": "Buschbohnen",
+            "codes": [
+              "I"
             ],
-            "naehrwerte": "Fett: 0,7g / davon gesättigte Fettsäuren: 0,3g / KH: 17,9g / Zucker: 0g / Kilokalorien: 129kcal / Salz: 0g / Kilojoule: 539,6kJ / Eiweiß (Protein): 9,9g"
+            "komponenten": [],
+            "naehrwerte": "Fett: 0g / davon gesättigte Fettsäuren: 0g / KH: 4,3g / Zucker: g / Kilokalorien: 32,2kcal / Salz: 0g / Kilojoule: 141,3kJ / Eiweiß (Protein): 49,7mg"
           },
           {
             "kategorie": "Salat",
-            "name": "Möhrensalat",
+            "name": "Gurkensalat Rahm",
             "codes": [
               "3",
               "5",
+              "G",
               "L"
             ],
             "komponenten": [],
-            "naehrwerte": "Fett: 0,1g / davon gesättigte Fettsäuren: 0g / KH: 4,5g / Zucker: 0g / Kilokalorien: 31,9kcal / Salz: 0,1g / Kilojoule: 135,5kJ / Eiweiß (Protein): 663mg"
+            "naehrwerte": "Fett: 2,5g / davon gesättigte Fettsäuren: 1,6g / KH: 4,7g / Zucker: g / Kilokalorien: 70,3kcal / Salz: 0g / Kilojoule: 299,7kJ / Eiweiß (Protein): 685,2mg"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1449,79 +1451,92 @@
           },
           {
             "kategorie": "Dessert",
-            "name": "Fruchtjoghurt Apfel Aprikose",
-            "codes": [
-              "1",
-              "3"
-            ],
+            "name": "Fürstlicher Beerenkompott mit einem Klecks Vanillepudding",
+            "codes": [],
             "komponenten": [],
-            "naehrwerte": ""
+            "naehrwerte": "Xylit: / Kilokalorien: 130,2kcal / Kilojoule: 546kJ / KH: 26,4g / Eiweiß (Protein): 1,8g / Fett: 1,7g / mehrfach ungesättigte Fettsäuren: 0,1g / Zucker:"
           },
           {
             "kategorie": "Obst",
             "name": "Birne",
             "codes": [],
             "komponenten": [],
-            "naehrwerte": "kcal: 78kcal / kJ: 328,5kJ / BE: 1,5BE / Eiweiß: 0,8g / Fett: 0,5g / Harnsäure: 22,5mg / Cholesterin: / mehrfach ungesättigte Fettsäuren: 171mg"
+            "naehrwerte": "Kilokalorien: 78kcal / KH: 18,6g / BE: 1,5BE / Fett: 0,5g / Zucker: g / Salz: 0g / davon gesättigte Fettsäuren: 0g / Kilojoule: 328,5kJ"
           }
         ]
       },
       {
         "tag": "Donnerstag",
-        "datum": "26.11.2026",
+        "datum": "03.12.2026",
         "gerichte": [
           {
             "kategorie": "Tagesgericht",
-            "name": "Spaghetti Carbonara mit Putenschinkensauce",
+            "name": "Bei Opa und Oma Höhrnchennudel Auflauf mit Mischgemüse in milder Tomatensauce mit Käse überbacken",
             "codes": [],
             "komponenten": [
               {
-                "text": "Spaghetti Carbonara",
+                "text": "Nudelauflauf",
                 "codes": [
-                  "1",
-                  "2",
-                  "3",
                   "A",
                   "A1",
-                  "C",
-                  "F",
                   "G",
                   "I"
                 ],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 3,1g / davon gesättigte Fettsäuren: 1,8g / KH: 43,7g / Zucker: 0g / Kilokalorien: 668,4kcal / Salz: 0,3g / Kilojoule: 1729,7kJ / Eiweiß (Protein): 16g"
+            "naehrwerte": "Xylit: / Kilokalorien: 783kcal / Kilojoule: 3298,3kJ / KH: 80,4g / Eiweiß (Protein): 30,2g / Fett: 33,4g / mehrfach ungesättigte Fettsäuren: 4g / Zucker: g"
           },
           {
             "kategorie": "Vegetarisch",
-            "name": "Wok Red Dragon vegan mit Kokosmilch Paprika Weißkohl Möhre Sprossen und Basmatireis",
+            "name": "Eieromelette dazu Rahmspinat und Salzkartoffeln",
             "codes": [],
             "komponenten": [
               {
-                "text": "Wok Red Dragon",
+                "text": "Eieromelett",
                 "codes": [
                   "A",
                   "A1",
-                  "F",
-                  "I",
-                  "J"
+                  "C",
+                  "G"
                 ],
+                "dge": false
+              },
+              {
+                "text": "Rahmspinat",
+                "codes": [
+                  "G",
+                  "I"
+                ],
+                "dge": false
+              },
+              {
+                "text": "Salzkartoffeln",
+                "codes": [],
                 "dge": false
               }
             ],
-            "naehrwerte": "Fett: 0,6g / davon gesättigte Fettsäuren: 0,1g / KH: 8,9g / Zucker: g / Kilokalorien: 61,7kcal / Salz: 0,3g / Kilojoule: 255,7kJ / Eiweiß (Protein): 3,2g"
+            "naehrwerte": "Fett: 9,4g / davon gesättigte Fettsäuren: 1,9g / KH: 32,4g / Zucker: g / Kilokalorien: 335,1kcal / Salz: 1,4g / Kilojoule: 1421,4kJ / Eiweiß (Protein): 15,9g"
+          },
+          {
+            "kategorie": "Gemüse",
+            "name": "Rahmspinat",
+            "codes": [
+              "G",
+              "I"
+            ],
+            "komponenten": [],
+            "naehrwerte": "Fett: 0,3g / davon gesättigte Fettsäuren: 0g / KH: 5,7g / Zucker: 0g / Kilokalorien: 76,6kcal / Salz: 0,1g / Kilojoule: 345,1kJ / Eiweiß (Protein): 2,5g"
           },
           {
             "kategorie": "Salat",
-            "name": "Tomatensalat",
+            "name": "Bunter Blattsalat Lollo Rosso/Bionda Eichblatt mit Joghurtdressing",
             "codes": [
-              "3",
-              "5",
-              "L"
+              "C",
+              "G"
             ],
             "komponenten": [],
-            "naehrwerte": "Fett: 0,2g / davon gesättigte Fettsäuren: 0g / KH: 4,8g / Zucker: g / Kilokalorien: 92,9kcal / Salz: 0g / Kilojoule: 406,8kJ / Eiweiß (Protein): 911,6mg"
+            "naehrwerte": "Fett: 3,5g / davon gesättigte Fettsäuren: 0,7g / KH: 3,6g / Zucker: 2g / Kilokalorien: 52,6kcal / Salz: 0,3g / Kilojoule: 218,8kJ / Eiweiß (Protein): 1,5g"
           },
           {
             "kategorie": "Pizza & Pasta",
@@ -1561,37 +1576,47 @@
           },
           {
             "kategorie": "Dessert",
-            "name": "Vanillequark",
-            "codes": [
-              "G"
-            ],
-            "komponenten": [
-              {
-                "text": "Fett: 0,4g / davon gesättigte Fettsäuren: 0,1g / KH: 8,9g / Zucker: g / Kilokalorien: 169,5kcal / Salz: 0,1g / Kilojoule: 627,8kJ / Eiweiß (Protein): 2g",
-                "codes": [],
-                "dge": false
-              }
-            ],
-            "naehrwerte": ""
+            "name": "Cremiges Quarkdessert mit Cocktailfrüchten",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": "Xylit: / Kilokalorien: 97kcal / Kilojoule: / KH: / Eiweiß (Protein): 0g / Fett: 0g / mehrfach ungesättigte Fettsäuren: / Zucker: 0g"
           },
           {
             "kategorie": "Obst",
             "name": "Apfel",
             "codes": [],
             "komponenten": [],
-            "naehrwerte": "kcal: 52kcal / kJ: 217kJ / BE: 1BE / Eiweiß: 0,3g / Fett: 0,4g / Harnsäure: 15mg / Cholesterin: / mehrfach ungesättigte Fettsäuren: 202mg"
+            "naehrwerte": "Kilokalorien: 52kcal / KH: 11,4g / BE: 1BE / Fett: 0,4g / Zucker: g / Salz: 0g / davon gesättigte Fettsäuren: 0,1g / Kilojoule: 217kJ"
           }
         ]
       },
       {
         "tag": "Freitag",
-        "datum": "27.11.2026",
-        "gerichte": []
+        "datum": "04.12.2026",
+        "gerichte": [
+          {
+            "kategorie": "Dessert",
+            "name": "Beerenquark",
+            "codes": [
+              "G"
+            ],
+            "komponenten": [],
+            "naehrwerte": "Fett: 0,2g / davon gesättigte Fettsäuren: 0,1g / KH: 10,1g / Zucker: / Kilokalorien: 83,4kcal / Salz: 0,1g / Kilojoule: 349,9kJ / Eiweiß (Protein): 9,6g"
+          },
+          {
+            "kategorie": "Obst",
+            "name": "Mandarine",
+            "codes": [],
+            "komponenten": [],
+            "naehrwerte": "Kilokalorien: 61kcal / KH: 10,8g / BE: 0,9BE / Fett: 0,6g / Zucker: g / Salz: 0g / davon gesättigte Fettsäuren: 0,1g / Kilojoule: 255kJ"
+          }
+        ]
       }
     ],
     "hinweise": [
       "Bis zur angestrebten Zertifizierung durch die Deutsche Gesellschaft für Ernährung sind die Hauptkomponenten der jeweiligen Gerichte grün markiert",
       "Die grün hinterlegten Komponenten entsprechen dem „DGE-Qualitätsstandard für die Verpflegung in Schulen“ und wurden von der Deutschen Gesellschaft für Ernährung e.V. (DGE) als eine Menülinie zertifiziert und mit dem DGE-Logo ausgezeichnet.",
+      "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb.",
       "Alle Angaben basieren auf der Grundlage unserer Rezepturen. Bei Fragen, Wünschen oder Anregungen wenden Sie sich bitte an den Betriebsleiter. Änderungen im Speiseplan sind vorbehalten. Wir sind ein EU-zertifizierter Auslieferungsbetrieb."
     ],
     "legende": {
@@ -1697,5 +1722,5 @@
       ]
     }
   },
-  "generatedAt": "2026-11-27T00:03:51.992Z"
+  "generatedAt": "2026-11-27T07:37:43.866Z"
 }
